@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)http://icaps17.icaps-conference.org/workshops/PlanSOpt/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Planning, Search, and Optimization (PlanSOpt)</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--[if lte IE 8]><script src="../../assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <!--[if lte IE 9]><link rel="stylesheet" href="../../assets/css/ie9.css" /><![endif]-->
+    <link rel="shortcut icon" type="image/png" href="http://xplan-lab.org/icaps2021/images/favicon.png">
+    <script src="../../assets/js/parallax.js"></script>
+    <script src="../../assets/js/jquery.min.js"></script>
+    <link href="../../assets/css/css" rel="stylesheet" type="text/css">
+
+  </head>
+
+  <body>
+    <div id="page-wrapper">
+      <div id="header-wrapper">
+	  <header id="header" class="container">
+    <div class="row">
+      <div class="3u 12u(mobile)">
+      <a href="http://xplan-lab.org/icaps2021/" id="logo"><object id="icaps-logo" data="../../images/ICAPS2017Logo.svg" type="image/svg+xml"><img src="../../images/ICAPS2017Logo.png" alt="ICAPS 2021 - Guangzhou"></object></a>
+      </div>
+      <div class="9u 12u(mobile)">
+	<nav id="nav">
+	  <ul>
+	    <li><a href="http://xplan-lab.org/icaps2021/">Home</a></li>
+
+		<li><a href="http://xplan-lab.org/icaps2021/Program/schedule">Program</a>
+		   <ul>
+		    <li><a class="sub-menu-" href="http://xplan-lab.org/icaps2021/images/icaps17book.pdf">PDF Schedule</a></li>
+		    <li><a class="sub-menu-" href="http://xplan-lab.org/icaps2021/Program/schedule/">Schedule</a></li>
+		    <li><a class="sub-menu-" href="http://xplan-lab.org/icaps2021/Program/papers">Papers</a></li>
+		    <li><a class="sub-menu-" href="http://xplan-lab.org/icaps2021/Program/awards/">Awards</a></li>
+        	<li><a class="sub-menu-" href="http://xplan-lab.org/icaps2021/Program/demos/">Demos</a></li>
+		    <li><a class="sub-menu-" href="http://xplan-lab.org/icaps2021/Program/doctoral-consortium/">Doctoral Consortium</a></li>
+		    <li><a class="sub-menu-" href="http://cognitive-robotics17.csail.mit.edu/">Summer School</a></li>
+		  </ul>
+		</li>
+	    <li> <a href="http://xplan-lab.org/icaps2021/workshops/">Workshops</a>
+        <ul>
+        
+          
+          <li>
+            
+            <a class="sub-menu-" href="http://xplan-lab.org/icaps2021/workshops/COPLAS/">COPLAS</a>
+            
+          </li>
+          
+        
+          
+          <li>
+            
+            <a class="sub-menu-" href="http://xplan-lab.org/icaps2021/workshops/GenPlan/">GenPlan</a>
+            
+          </li>
+          
+        
+          
+          <li>
+            
+            <a class="sub-menu-" href="http://xplan-lab.org/icaps2021/workshops/HSDIP/">HSDIP</a>
+            
+          </li>
+          
+        
+          
+          <li>
+            
+            <a class="sub-menu-" href="http://xplan-lab.org/icaps2021/workshops/IntEx/">IntEx</a>
+            
+          </li>
+          
+        
+          
+          <li>
+            
+            <a class="sub-menu-" href="http://xplan-lab.org/icaps2021/workshops/KEPS/">KEPS</a>
+            
+          </li>
+          
+        
+          
+          <li>
+            
+            <a class="sub-menu-" href="http://xplan-lab.org/icaps2021/workshops/PlanRob/">PlanRob</a>
+            
+          </li>
+          
+        
+          
+          <li>
+            
+            <a class="sub-menu-" href="http://xplan-lab.org/icaps2021/workshops/PlanSOpt/">PlanSOpt</a>
+            
+          </li>
+          
+        
+          
+        
+          
+          <li>
+            
+            <a class="sub-menu-" href="http://xplan-lab.org/icaps2021/workshops/SPARK/">SPARK</a>
+            
+          </li>
+          
+        
+          
+          <li>
+            
+            <a class="sub-menu-" href="http://xplan-lab.org/icaps2021/workshops/UISP/">UISP</a>
+            
+          </li>
+          
+        
+        </ul>
+	    </li>
+		<li><a href="http://xplan-lab.org/icaps2021/tutorials/">Tutorials</a>
+		</li>
+
+		<li><a href="http://xplan-lab.org/icaps2021/venue.html">Attending</a>
+		  <ul>
+		    <li><a class="sub-menu-" href="http://xplan-lab.org/icaps2021/Attending/venue/">Venue</a></li>
+        	<li><a class="sub-menu-" href="http://xplan-lab.org/icaps2021/Attending/accommodation/">Accommodation</a></li>
+		    <li><a class="sub-menu-" href="http://xplan-lab.org/icaps2021/Attending/telepresence/">Telepresence</a></li>
+		    <li><a class="sub-menu-" href="http://xplan-lab.org/icaps2021/Attending/biking/">Optional Biking</a></li>
+		  </ul>
+		</li>
+	    <li><a href="http://xplan-lab.org/icaps2021/Committee/">Committees</a></li>
+	  </ul>
+	</nav>
+      </div>
+    </div>
+  </header>
+
+      </div> 
+      
+      <div id="banner" data-type="background" data-speed="20">
+        <div class="container">
+          <div class="row">
+            <div class="4u 12u(mobile)">
+              
+
+            </div>
+            <div class="8u 12u(mobile)">
+            </div>
+          </div>
+        </div>
+      </div>         
+      <div id="content-wrapper">
+        <div id="content">
+          <div class="container">
+  <div class="row">
+    <div class="3u 12u(mobile) important(mobile)">
+      <section>
+        <header>
+          <h3 class="top">Dates </h3>
+        </header>
+        <ul class="check-list">
+          <li><strong>March 17, 2021</strong> - Submissions</li>
+          <li><strong>April 14, 2021</strong> - Notification</li>
+          <li><strong>May 15, 2021</strong> - Camera-ready</li>
+          <li><strong>June 19, 2021</strong> - Workshop</li>
+        </ul>
+      </section>
+            <section>
+        <header>
+          <h3 class="top">Workshops</h3>
+        </header>
+        <ul class="link-list">
+        
+          <li>
+          
+            <a href="http://xplan-lab.org/icaps2021/workshops/COPLAS/">COPLAS</a>
+          
+          </li>
+        
+          <li>
+          
+            <a href="http://xplan-lab.org/icaps2021/workshops/GenPlan/">GenPlan</a>
+          
+          </li>
+        
+          <li>
+          
+            <a href="http://xplan-lab.org/icaps2021/workshops/HSDIP/">HSDIP</a>
+          
+          </li>
+        
+          <li>
+          
+            <a href="http://xplan-lab.org/icaps2021/workshops/IntEx/">IntEx</a>
+          
+          </li>
+        
+          <li>
+          
+            <a href="http://xplan-lab.org/icaps2021/workshops/KEPS/">KEPS</a>
+          
+          </li>
+        
+          <li>
+          
+            <a href="http://xplan-lab.org/icaps2021/workshops/PlanRob/">PlanRob</a>
+          
+          </li>
+        
+          <li>
+          
+            <a href="http://xplan-lab.org/icaps2021/workshops/PlanSOpt/">PlanSOpt</a>
+          
+          </li>
+        
+          <li>
+          
+            PSHS
+          
+          </li>
+        
+          <li>
+          
+            <a href="http://xplan-lab.org/icaps2021/workshops/SPARK/">SPARK</a>
+          
+          </li>
+        
+          <li>
+          
+            <a href="http://xplan-lab.org/icaps2021/workshops/UISP/">UISP</a>
+          
+          </li>
+        
+        </ul>
+      </section>
+
+    </div>
+  <div class="9u 12u(mobile)">
+    <section>
+      <header>
+
+        <h1>PlanSOpt</h1>
+        <h2>Planning, Search, and Optimization</h2>
+        <p>
+        An ICAPS'21 Workshop<br>
+        Pittsburgh, USA<br>
+        19 June 2021
+        </p>
+      </header>
+<p>
+The field of AI planning shares many parallels with a diverse range of
+optimization areas, such as mathematical programming, constraint
+programming, and stochastic optimization. However, the potential
+integration of concepts and techniques used in these fields remains
+largely unexplored. For instance, one of the most popular strategies
+for solving planning problems is A* search, which is similar in many
+ways to a branch-and-bound strategy that is predominantly used to solve
+mixed-integer linear programming (MILP) problems. This opens the
+possibility of adapting several auxiliary methods to speed up search
+(including, e.g., merging, landmarks, and cutting planes algorithms)
+from one area to the other.
+</p>
+
+<h3>Invited Talk</h3>
+
+<!--div class="row">
+    <div class="2u 3u(mobile)">
+        <br />
+        <a href="http://tidel.mie.utoronto.ca/beck.php"><img src="beck.jpg" class="profile-image" alt="J. Christopher Beck profile image" /></a>
+    </div>
+    <div class="10u 12u(mobile)"-->
+        <h3 class="invited-name">J. Christopher Beck (University of Toronto)</h3>
+        <h4 class="invited-title">The Phase Transition in Heuristic Search</h4>
+
+        <p><strong>Abstract:</strong>In the mid-1990s, it was observed, over many problem classes such as SAT and CSP, that the likelihood that a randomly generated problem instance has a solution transitions quickly from almost definitely one to almost definitely zero over a narrow range of a problem generation parameter. Furthermore, the observed computational difficulty peaks during this transition at a point where approximately half of the generated problems have a solution. This phenomenon has come to be known as the phase transition with the most popular example being seen in parameter of the clause-to-variable ratio of random SAT problems. Much empirical and theoretical work ensued with one result in the constraint programming community being an acknowledgement that numeric experiments should take into account the phase transition when generating suites of test problems for algorithm comparison.</p>
+        <p>While recent work in heuristic search has addressed problem difficulty for algorithms such as greedy best first search (GBFS), there has been very little work on whether the phase transition can be observed in heuristic search problems. In this work, we develop two problem generation models that admit a parameter that empirically leads to both the rapid transition between soluble and insoluble instances and the accompanying peak in search effort for GBFS. We show that the phase transition phenomenon has implications for work on problem difficulty in heuristic search including the comparison of heuristics, the impact of operator cost ratio, and the decision of whether to re-open nodes. </p>
+        <p>This is joint work with Eldan Cohen at the University of Toronto.</p>
+
+        <p><strong>Bio:</strong> J. Christopher Beck is a Professor in the Department of Mechanical &amp; Industrial Engineering at the University of Toronto. Chris' MSc and PhD degrees both come from the Department of Computer Science, University of Toronto, in the area of Artificial Intelligence. His research interests include scheduling, constraint programming, hybrid optimization techniques, mixed integer programming, AI planning, reasoning under uncertainty, and queueing theory. He has published over 100 papers in international journals and conferences in these areas.</p>
+        <p>Chris has served as the the President of the Executive Council for the International Conference on Automated Planning and Scheduling and held editorial responsibilities at the Journal of Artificial Intelligence Research, Constraints, the Journal of Scheduling, and the Knowledge Engineering Review. He has been the program chair or co-chair of the International Conference on Automated Planning and Scheduling, the International Conference on the Integration of AI and OR Technology in Constraint Programming, and, in 2021, the International Conference on the Principles and Practice of Constraint Programming.</p>
+    <!--/div>
+</div-->
+
+
+<h3>Topics and Objectives</h3>
+
+<p>
+In this workshop, we aim to explore the similarities and differences of
+AI and optimization, and ways that we can leverage the methodologies
+from one field to the other. An important part of this workshop is
+extending our knowledge of closely related fields, and positioning
+ourselves as a community to introduce researchers of these fields to AI
+planning concepts.
+</p>
+
+<p>
+There have been some pioneering efforts at using optimization
+techniques for planning; notably in compilation approaches to MILP
+and/or constraint programming. We welcome submissions on these topics
+and more, including (but not limited to):
+</p>
+
+<ul>
+ <li>formulating the heuristic generation and selection as an
+   optimization problem;</li>
+ <li>using MILP algorithms and techniques for efficient computation of
+   heuristics in classical planning;</li>
+ <li>hybridization of optimization techniques (e.g,. linear, mixed
+   integer linear, constraint, nonlinear programming, and
+   satisfiability modulo theory) to handle planning problems involving
+   a combination of both logical and numeric constraints;</li>
+ <li>integration of existing optimization techniques with planning to
+   improve search performance.</li>
+</ul>
+
+
+<p>
+The goal of this workshop is to provide a forum for researchers in AI
+planning, search, and optimization to investigate novel problems and
+solution approaches, as well as to discuss opportunities and challenges
+arising when applying optimization to planning and vice-versa. We
+encourage applications of optimization technology to planning/search
+problems, applications of traditional planning/search technology (e.g.,
+variations of A* search) to optimization problems, and hybrid
+approaches that combine planning and optimization. This workshop is
+complementary to HSDIP, since the topic of heuristic search is highly
+relevant for the optimization community. However, PlanSOpt will focus
+more deeply on the language, ideas and methods from optimization
+fields. The workshop will therefore be more accessible to conference
+attendees from the general optimization community, and will provide an
+excellent entry into AI planning topics.
+</p>
+
+<h3>Tentative Schedule</h3>
+
+<h3 class="schedule-date">Monday (June 19, 2021)</h3>
+<table class="schedule">
+    <tbody><tr>
+        <td class="time">9:00</td>
+        <td class="invited-talk">
+            Invited Talk: (<a href="http://tidel.mie.utoronto.ca/beck.php">J. Christopher Beck</a>)
+            The Phase Transition in Heuristic Search
+            <a href="./slides/phase_transition.pdf" target="_blank">(slides)</a>
+        </td>
+    </tr>
+    <tr>
+        <td class="time">10:00</td>
+        <td class="session-talk">
+            <span class="paper-title">
+                Accelerated Vector Pruning for Optimal POMDP Solvers
+                <a href="https://aaai.org/ocs/index.php/AAAI/AAAI17/paper/view/14960">(previously published paper)</a>
+            </span><br>
+            <span class="paper-author">Erwin Walraven and Matthijs T. J. Spaan</span>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="time">10:30</td>
+        <td class="break">Coffee Break</td>
+    </tr>
+    <tr>
+        <td class="time">11:00</td>
+        <td class="session-talk">
+            <span class="paper-title">
+                Axioms in Model-based Planners
+                <a href="./proceedings/miura-fukunaga-icaps2017wsplansopt.pdf">(PDF)</a>
+            </span><br>
+            <span class="paper-author">Shuwa Miura and Alex Fukunaga</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="time">11:30</td>
+        <td class="session-talk">
+            <span class="paper-title">
+                Active Tree Search
+                <a href="./proceedings/lieck-toussaint-icaps2017wsplansopt.pdf">(PDF)</a>
+            </span><br>
+            <span class="paper-author">Robert Lieck and Marc Toussaint</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="time">12:00</td>
+        <td class="session-talk">
+            <span class="paper-title">
+                Occupation Measure Heuristics for Probabilistic Planning
+                <a href="http://felipe.trevizan.org/index.php?c=publications">(previously published paper)</a>
+            </span><br>
+            <span class="paper-author">Felipe Trevizan, Sylvie Thiebaux and Patrik Haslum</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="time">12:30</td>
+        <td class="lunch">Lunch</td>
+    </tr>
+</tbody></table>
+
+
+
+<h3>Deadlines and Dates</h3>
+<ul>
+  <li>Submission deadline: March 17th, 2021</li>
+  <li>Notification: April 14th, 2021</li>
+  <li><strong>Camera-ready version: May 15th, 2021</strong></li>
+  <li>Workshop: June 19th, 2021</li>
+</ul>
+
+
+
+<h3>Workshop Organizers</h3>
+
+<ul>
+  <li>Andre A. Cire, University of Toronto, Canada</li>
+  <li>Christina Burt, Zuse Institute Berlin, Germany</li>
+  <li>Florian Pommerening, University of Basel, Switzerland</li>
+  <li>Christian Muise, Massachusetts Institute of Technology, USA</li>
+</ul>
+    </section>
+  </div>
+</div>
+
+        </div>
+      </div>
+      <div id="footer-wrapper">
+	<footer id="footer" class="container">
+  <div class="row">
+    <div class="8u 12u(mobile)">
+      <ul id="sponsor-list">
+	SPONSORS:
+        <li><a href="http://www.adventiumlabs.com/"><img src="../../assets/images/AdventiumLabs.jpg" class="sponsor-img" alt="Adventium Labs" style="width:130px"></a></li>
+        <li><a href="http://www.sift.net/"><img src="../../assets/images/Sift.png" class="sponsor-img" alt="SIFT" style="width:180px"></a></li>
+        <li><a href="http://www.ibm.com/"><img src="../../assets/images/IBM.png" class="sponsor-img" alt="IBM" style="width:150px"></a></li>
+        <li><a href="https://ti.arc.nasa.gov/profile/de2smith/"><img src="../../assets/images/smith.gif" class="sponsor-img profile-image" alt="David Smith" style="width:80px"></a></li>
+        <li><a href="http://www.nsf.gov/"><img src="../../assets/images/NSF.jpg" class="sponsor-img" alt="National Science Foundation" style="width:100px"></a></li>
+        <li><a href="http://www.wpafb.af.mil/afrl/afosr/"><img src="../../assets/images/AFOSR.gif" class="sponsor-img" alt="Air Force Office of Scientific Research" style="width:140px"></a></li>
+        <li><a href="https://ohmnilabs.com/"><img src="../../assets/images/ohmni.png" class="sponsor-img" alt="Ohmnilabs" style="width:100px"></a></li>
+        <li><a href="http://www.journals.elsevier.com/artificial-intelligence/"><img src="../../assets/images/aij.png" class="sponsor-img" alt="Artificial Intelligence Journal" style="width:80px"></a></li>
+        <li><a href="http://www.cmu.edu/"><img src="../../assets/images/cmu.png" class="sponsor-img" alt="Carnegie Mellon University" style="width:240px"></a></li>
+        <ul>
+    </ul></ul></div>
+    <div class="4u 12u(mobile)">
+      <section>
+        <p>
+          <a href="http://www.icaps-conference.org/">ICAPS</a> is the premier 
+          forum for exchanging news and research results on theory and applications of intelligent planning and scheduling technology.
+        </p>
+        <ul class="social-list">
+	  <!--
+          <li><a href="https://www.facebook.com/icapsconference"><img src="images/SVGfacebook.svg" alt="Facebook logo" /></a></li>
+          <li><a href="https://twitter.com/icapsconference"><img src="images/SVGtwitter.svg" alt="Twitter logo" /></a></li>
+          <li><a href="https://plus.google.com/+ICAPSConference/about"><img src="images/SVGgoogle.svg" alt="Google Plus Logo" /></a></li>
+	  -->
+        </ul>
+      </section>
+    </div>
+  </div>
+</footer>
+<div id="copyright">
+  © 2021 ICAPS 
+</div>
+
+      </div>
+    </div>
+
+
+</div></body></html>
