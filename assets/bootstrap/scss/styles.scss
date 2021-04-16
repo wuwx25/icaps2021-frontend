@@ -1,0 +1,14 @@
+@import "bootstrap-5.0.0-beta3/scss/bootstrap";
+
+
+// Create your own map
+$custom-colors: (
+    icaps: #f5821f,
+    primary: #1f4e8f
+);
+
+// Merge the maps
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+@import "bootstrap-5.0.0-beta3/scss/bootstrap";
+
