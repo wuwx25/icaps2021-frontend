@@ -60,7 +60,7 @@
         <div class="d-none d-lg-block col-lg-4 mx-auto cover-banner">
           <p class="lead">
             This year, we are debuting our first ever Competitions Track with challenging real world problems 
-            contributed by our industry and academic partners. Get involved this summer for lots of cash awards and bragging rights! 😎
+            contributed by our industry and academic partners. Get involved this summer for lots of cash awards and bragging rights! &#128526;
           </p>
           <p>
             <a href="../competitions" class="btn btn-primary my-2">Competitions</a>
@@ -72,26 +72,29 @@
   </main>
 
 
-  <div class="album py-5 bg-light">
+  <div class="album py-5 bg-light" id="info">
     <div class="container">
 
       <div class="row">
 
 
         <div class="d-none d-lg-block col-4 mb-3">
-          <div class="card shadow-sm mb-3">
-            <div class="card-body" style="background-color: #e3efff;">
-              <img class="card-img-top" style="padding: 60px; background-color: #e3efff;" width="100%" height="auto" src="../assets/images/icaps2021logo.png"/>
+          <div class="card shadow-sm mb-3" style="background-color: rgba(255, 255, 255, 0.5);">
+            <div class="card-body">
+              <img class="card-img-top" style="padding: 60px;" width="100%" height="auto" src="../assets/images/icaps2021logo.png"/>
               <p class="float-end mb-1">
                 <small style="color: #1f4e8f;">Aug 2-13</small>
               </p>
             </div>
+ 
+      <a class="twitter-timeline" data-lang="en" data-height="555" data-link-color="#E95F28" href="https://twitter.com/ICAPSConference?ref_src=twsrc%5Etfw">Tweets by ICAPSConference</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
           </div>
         </div>
 
         <div class="col col-lg-8 col-md-12 col-sm-12 col-xs-12 mb-3">
-          <div class="card shadow-sm mb-3" id="more">
-            <div class="card-body" style="background-color: #e3efff;">
+          <div class="card shadow-sm mb-3 transparent-card" id="more">
+            <div class="card-body">
               <p class="card-text">
 
  The ICAPS 2021 program committee invites paper submissions related to automated planning and scheduling. 
@@ -111,18 +114,12 @@
     Studies of applying automated planning and scheduling technologies to significant problems with deep technical insight. 
   </li>
 </ul>
-            </p>
-            <div class="btn-group">
-              <a type="button" href="../calls/" class="btn btn-sm btn-outline-primary">Calls</a>
-              <a type="button" href="../committee/" class="btn btn-sm btn-outline-primary">Committee</a>
-            </div>
+              </p>
             </div>
           </div>
-        <!-- </div> -->
 
-        <!-- <div class="col col-12 col-md-4 mb-3"> -->
-          <div class="card shadow-sm" id="covid">
-            <div class="card-body" style="background-color: #f2e8d6;">
+          <div class="card shadow-sm transparent-card" id="covid">
+            <div class="card-body">
               <p class="card-text">
 
 
@@ -148,9 +145,19 @@ The decision was based on the following factors:
             </p>
             </div>
           </div>
+
+          <div class="card-body d-none d-lg-block">
+
+            <a href="../calls" type="button" class="btn btn-light btn-lg quicklink m-2">Calls</a>
+            <a type="button" class="btn btn-light btn-lg quicklink m-2 disabled">Program</a>
+            <a type="button" class="btn btn-light btn-lg quicklink m-2 disabled">Tutorials</a>
+            <a href="../workshops" type="button" class="btn btn-light btn-lg quicklink m-2">Workshops</a>
+            <a href="../competitions" type="button" class="btn btn-light btn-lg quicklink m-2">Competitions</a>
+            <a href="../committee" type="button" class="btn btn-light btn-lg quicklink m-2">Committee</a>
+
+          </div>
+
         </div>
-
-
         </div>
       </div>
 
@@ -158,8 +165,9 @@ The decision was based on the following factors:
     </div>
   </div>
 
-  <footer class="text-muted py-5">
+  <footer class="text-muted py-5" style="background-color: #f6f6f6;">
   <div class="container">
+    <hr/>
     <p class="mb-1">&copy; ICAPS 2021</p>
   </div>
   </footer>
