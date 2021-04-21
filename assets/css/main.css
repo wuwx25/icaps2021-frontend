@@ -502,6 +502,12 @@ ul {
 	padding: 0em 3em 1em 0;
 }
 
+#sponsor-list-mod li {
+	display: inline-block;
+	list-style: none;
+	padding: 0em 1em 1em 0;
+}
+
 /*HEADER & NAVIGATION
 ********************************************************************************/
 
