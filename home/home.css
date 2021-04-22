@@ -16,6 +16,10 @@
     padding: 40px;
     color: white;
 }
+.sponsor-img {
+    padding: 10px;
+}
+
 
 .quicklink {
     background-color: #fff;
@@ -29,4 +33,8 @@
 
 .transparent-card {
     background-color: rgba(255, 255, 255, 0.8);
+}
+.profile-image {
+    -webkit-border-radius:50% 50%;
+    border-radius: 50% 50%;
 }
