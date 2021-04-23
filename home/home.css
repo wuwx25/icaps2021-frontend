@@ -1,15 +1,9 @@
 #cover {
-    background-image: url("../assets/images/cover/cover-wide.png");
+    background-image: url("../assets/images/cover/cover-bw.png");
     background-repeat: no-repeat;
-    background-size: auto 100%;
-    height: 100vh;
-}
-
-#cover_new {
-    background-image: url("../assets/images/banner_large.png");
-    background-repeat: no-repeat;
-    background-size: auto 100%;
-    height: 100vh;
+    background-size: 100% auto;
+    background-position: bottom;
+    height: 90vh;
 }
 
 #info {
@@ -23,11 +17,10 @@
 }
 
 .cover-banner2 {
-    background-color: rgba(225, 225, 225, 0.8);
+    background-color: rgb(255, 238, 223);
     padding: 40px;
     color: black;
 }
-
 
 .sponsor-img {
     padding: 10px;
@@ -47,7 +40,8 @@
 .transparent-card {
     background-color: rgba(255, 255, 255, 0.8);
 }
+
 .profile-image {
-    -webkit-border-radius:50% 50%;
+/*    -webkit-border-radius:50% 50%;
     border-radius: 50% 50%;
-}
+*/}
