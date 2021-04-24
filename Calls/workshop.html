@@ -1,171 +1,259 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ICAPS 2021</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ICAPS 2021</title>
 
-  <!-- Bootstrap core CSS -->
-  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous"> -->
+    <!-- Bootstrap core CSS -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous"> -->
 
-  <!-- Bootstrap Overrides -->
-  <link href="../assets/bootstrap/css/styles.css" rel="stylesheet">
-  <link href="../assets/css/custom.css" rel="stylesheet">
-  <link href="calls.css" rel="stylesheet">
-
-</head>
-<body>
-
-  <header class="navbar fixed-top-lg p-3 border-bottom">
-
-    <nav class="navbar navbar-light navbar-expand-lg">
-      <div class="container-fluid d-flex">
-        <a class="navbar-brand text-dark">ICAPS 2021</a>
-        <div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item"><a href="../home" class="nav-link px-2">Home</a></li>
-            <li class="nav-item"><a href="../Calls" class="nav-link px-2 active">Calls</a></li>
-            <li class="nav-item"><a href="../workshops" class="nav-link px-2">Workshops</a></li>
-            <li class="nav-item"><a href="../Competitions" class="nav-link px-2">Competitions</a></li>
-            <li class="nav-item"><a href="../Committee" class="nav-link px-2">Committee</a></li>
-          </ul>
+    <!-- Bootstrap Overrides -->
+    <link href="../assets/bootstrap/css/styles.css" rel="stylesheet" />
+    <link href="../assets/css/custom.css" rel="stylesheet" />
+    <link href="calls.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="navbar fixed-top-lg p-3 border-bottom">
+      <nav class="navbar navbar-light navbar-expand-lg">
+        <div class="container-fluid d-flex">
+          <a class="navbar-brand text-dark">ICAPS 2021</a>
+          <div>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a href="../home" class="nav-link px-2">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a href="../Calls" class="nav-link px-2 active">Calls</a>
+                </li>
+                <li class="nav-item">
+                  <a href="../workshops" class="nav-link px-2">Workshops</a>
+                </li>
+                <li class="nav-item">
+                  <a href="../Competitions" class="nav-link px-2"
+                    >Competitions</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a href="../Committee" class="nav-link px-2">Committee</a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-        </div>
+      </nav>
+    </header>
+
+    <div class="album mt-3">
+      <div style="height: 100px" class="d-none d-md-block">
+        <!-- padding hack for the fixed navbar -->
       </div>
-    </nav>
 
-  </header>
-
-  <div class="album mt-3">
-
-    <div style="height: 100px;" class="d-none d-md-block">
-      <!-- padding hack for the fixed navbar -->
-    </div>
-
-    <div class="container">
-      <div class="row">
-
-        <div class="col col-12 col-xs-12 col-sm-12 col-md-12 col-lg-4 p-4">
-
+      <div class="container">
+        <div class="row">
+          <div class="col col-12 col-xs-12 col-sm-12 col-md-12 col-lg-4 p-4">
             <div class="card shadow-sm mb-4">
               <div class="card-body">
-
-<ul class="list-group list-group-flush">
-<li class="list-group-item">
-Submission deadline: 28 December 2020
-</li>
-<li class="list-group-item">
-Notification: 19 April 2021
-</li>
-
-</ul>
-
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    Submission deadline: 28 December 2020
+                  </li>
+                  <li class="list-group-item">Notification: 19 April 2021</li>
+                </ul>
               </div>
             </div>
+          </div>
 
+          <div class="col col-12 col-xs-12 col-sm-12 col-md-12 col-lg-8 p-4">
+            <section>
+              <header>
+                <h1 class="top">Call for Workshop Proposals:</h1>
+                <hr />
+              </header>
+
+              <div class="row">
+                <ul>
+                  The organizing committee of the 31st International Conference
+                  on Automated Planning and Scheduling (ICAPS 2021), currently
+                  scheduled to be held 7-12 June 2021 at Sun Yat-Sen University
+                  in Guangzhou, invites proposals for its workshop program. The
+                  workshops provide a forum to discuss research advances on a
+                  selected topic in an informal setting and promote
+                  dissemination and collaboration on new planning and scheduling
+                  challenges.
+                  <br /><br />
+                  We welcome proposals from all areas of planning and
+                  scheduling. In particular, we encourage proposals that bridge
+                  other fields of research with planning and scheduling or that
+                  take a unique perspective on the ICAPS field.
+                  <br /><br />
+                  The workshop (and tutorial) programs will comprise several
+                  concurrent events held in the two days before the plenary
+                  sessions of the conference. Workshop registration is free for
+                  ICAPS participants.
+                  <br /><br />
+                  Similar to previous years, we encourage related tutorials and
+                  workshops to be co-proposed and co-run. Every effort will be
+                  taken to house related tutorials and workshops in the same
+                  venue.
+                  <br /><br />
+                  Ideally, workshops will be half a day in duration (not
+                  including possible associated tutorials), with exceptions made
+                  for workshops with historically high attendance and long
+                  programs. The workshop format is at the discretion of the
+                  individual organizers, and we welcome a mix of formats.
+                  Workshop organizers are encouraged to take initiatives that
+                  foster interaction and debate within the community. They also
+                  should be prepared to accommodate the possibility of ICAPS
+                  2021 moving to a fully virtual (online) or hybrid (virtual and
+                  in-person) format.
+                  <br /><br />
+                  <h4>Workshop Proposals</h4>
+                  Workshop proposals should be no more than 3 pages and should
+                  include the following sections:
+                  <ol>
+                    <li>Description: A description of the workshop topic.</li>
+                    <li>
+                      Relevance to ICAPS: A brief discussion of why the topic is
+                      of interest to ICAPS at this time, and why the topic is
+                      not adequately addressed by other meetings or conferences.
+                    </li>
+                    <li>
+                      (optional) Tutorial Connection: If relevant, the title and
+                      speaker names for the tutorial to be attached to the
+                      workshop. A full tutorial proposal needs to be sent to the
+                      tutorial chairs (for details, see the separate call for
+                      tutorial proposals).
+                    </li>
+                    <li>
+                      Format: A brief description of the proposed workshop
+                      length and format. Innovative formats that aim to increase
+                      opportunities for discussion and interaction are
+                      encouraged.
+                    </li>
+                    <li>
+                      Diversity: A description of how the organizers plan to
+                      promote diversity in the proposed workshop (both from the
+                      organizational and attendee standpoint).
+                    </li>
+                    <li>
+                      Organization: Names and full contact information for the
+                      organizing committee, plus short descriptions of their
+                      relevant expertise. Strong proposals include organizers
+                      who bring differing perspectives to the workshop topic and
+                      who are actively connected to the communities of potential
+                      participants.
+                    </li>
+                    <li>
+                      Estimated Interest: An estimate of the number of workshop
+                      speakers (including invited speakers, presenters,
+                      panelists, etc.) and the expected number of workshop
+                      attendees. Optionally, a list of proposed attendees that
+                      have indicated potential (non-binding) interest.
+                    </li>
+                  </ol>
+
+                  The organizers of accepted workshop proposals are responsible
+                  for:
+                  <ul>
+                    <li>
+                      Producing a Call for Papers (CFP) and contributing
+                      materials for setting up a web page for the workshop by 28
+                      December 2020. The web page and the CFP will be linked to
+                      the ICAPS 2021 website. Details on this process will be
+                      made available after notification.
+                    </li>
+                    <li>
+                      Additional publicity, such as distributing the CFP to
+                      relevant newsgroups and electronic mailing lists (through
+                      liaison with the ICAPS 2021 Publicity Chairs, Sarath
+                      Sreedharan and Zaiqing Nie) and especially to potential
+                      audiences outside the ICAPS community.
+                    </li>
+                    <li>
+                      Organizing the review process for submissions and issuing
+                      invitations to participate in the workshop.
+                    </li>
+                    <li>
+                      Formulating a detailed technical program for the workshop
+                      and making it available to be uploaded on the ICAPS 2021
+                      website well in advance of the conference. A list of
+                      accepted papers for the workshop should be ready to be
+                      placed on the workshop website by 19 April 2021.
+                    </li>
+                    <li>
+                      Compiling a camera-ready copy for the workshop proceedings
+                      in close interaction with the workshop program chairs. The
+                      workshop proceedings will be made available on the ICAPS
+                      2021 website.
+                    </li>
+                  </ul>
+                  <h4 class="mt-4">Submission Procedure</h4>
+                  Workshop proposals should be submitted by email, in plain text
+                  or PDF, to icaps2021-workshops@googlegroups.com with the
+                  subject “Workshop Proposal for ICAPS21” no later than 8
+                  December 2020. Workshop organizers will be notified by email
+                  of the acceptance or rejection of their proposal by 22
+                  December 2020. All PDFs must be less than 25 MB in size.
+                  <br /><br />
+                  <h4>Summary of Important Dates</h4>
+                  Deadline for submission of workshop proposals: 8 December
+                  2020.<br />
+                  Notification of workshop acceptance: 22 December 2020.<br />
+                  Workshop Call for Papers and materials for the website: 28
+                  December 2020.<br />
+                  List of accepted papers on the workshop website: 19 April
+                  2021.<br />
+                  Workshop/Tutorial dates: 8 and 9 June 2021.<br />
+                  <br />
+                  Please direct all questions to the Workshop Program Chairs at
+                  <a href="mailto:icaps2021-workshops@googlegroups.com"
+                    >icaps2021-workshops@googlegroups.com</a
+                  >.
+                  <br />
+                  <br />
+                  <h4>Workshop Chairs</h4>
+                  J. Benton (NASA Ames)<br />
+                  Yang Gao (Nanjing University)<br />
+                  Eva Onaindia (Universitat Politècnica de València)<br />
+                  <br />
+                </ul>
+              </div>
+            </section>
+          </div>
         </div>
-
-        <div class="col col-12 col-xs-12 col-sm-12 col-md-12 col-lg-8 p-4">
-
-
-                <section>
-                  <header>
-                    <h1 class="top">Call for Workshop Proposals:</h1>
-                    <hr/>
-                  </header>
-
-                  <div class="row">
-
-
-			<ul>
-			The organizing committee of the 31st International Conference on Automated Planning and Scheduling (ICAPS 2021), currently scheduled to be held 7-12 June 2021 at Sun Yat-Sen University in Guangzhou, invites proposals for its workshop program. The workshops provide a forum to discuss research advances on a selected topic in an informal setting and promote dissemination and collaboration on new planning and scheduling challenges.
-<br><br>
-We welcome proposals from all areas of planning and scheduling. In particular, we encourage proposals that bridge other fields of research with planning and scheduling or that take a unique perspective on the ICAPS field.
-<br><br>
-The workshop (and tutorial) programs will comprise several concurrent events held in the two days before the plenary sessions of the conference. Workshop registration is free for ICAPS participants.
-<br><br>
-Similar to previous years, we encourage related tutorials and workshops to be co-proposed and co-run. Every effort will be taken to house related tutorials and workshops in the same venue.
-<br><br>
-Ideally, workshops will be half a day in duration (not including possible associated tutorials), with exceptions made for workshops with historically high attendance and long programs. The workshop format is at the discretion of the individual organizers, and we welcome a mix of formats. Workshop organizers are encouraged to take initiatives that foster interaction and debate within the community. They also should be prepared to accommodate the possibility of ICAPS 2021 moving to a fully virtual (online) or hybrid (virtual and in-person) format.
-<br><br>
-<h4>Workshop Proposals</h4>
-Workshop proposals should be no more than 3 pages and should include the following sections:
-<ol>
-	<li> Description: A description of the workshop topic.</li>
-	<li> Relevance to ICAPS: A brief discussion of why the topic is of interest to ICAPS at this time, and why the topic is not adequately addressed by other meetings or conferences.</li>
-	<li> (optional) Tutorial Connection: If relevant, the title and speaker names for the tutorial to be attached to the workshop. A full tutorial proposal needs to be sent to the tutorial chairs (for details, see the separate call for tutorial proposals).</li>
-	<li> Format: A brief description of the proposed workshop length and format. Innovative formats that aim to increase opportunities for discussion and interaction are encouraged.</li>
-	<li> Diversity: A description of how the organizers plan to promote diversity in the proposed workshop (both from the organizational and attendee standpoint).</li>
-	<li> Organization: Names and full contact information for the organizing committee, plus short descriptions of their relevant expertise. Strong proposals include organizers who bring differing perspectives to the workshop topic and who are actively connected to the communities of potential participants.</li>
-	<li> Estimated Interest: An estimate of the number of workshop speakers (including invited speakers, presenters, panelists, etc.) and the expected number of workshop attendees. Optionally, a list of proposed attendees that have indicated potential (non-binding) interest.</li>
-</ol>
-
-The organizers of accepted workshop proposals are responsible for:
-<ul>
-	<li> Producing a Call for Papers (CFP) and contributing materials for setting up a web page for the workshop by 28 December 2020. The web page and the CFP will be linked to the ICAPS 2021 website. Details on this process will be made available after notification.</li>
-	<li> Additional publicity, such as distributing the CFP to relevant newsgroups and electronic mailing lists (through liaison with the ICAPS 2021 Publicity Chairs, Sarath Sreedharan and Zaiqing Nie) and especially to potential audiences outside the ICAPS community.</li>
-	<li> Organizing the review process for submissions and issuing invitations to participate in the workshop.</li>
-	<li>Formulating a detailed technical program for the workshop and making it available to be uploaded on the ICAPS 2021 website well in advance of the conference. A list of accepted papers for the workshop should be ready to be placed on the workshop website by 19 April 2021.</li>
-	<li>Compiling a camera-ready copy for the workshop proceedings in close interaction with the workshop program chairs. The workshop proceedings will be made available on the ICAPS 2021 website.</li>
-</ul>
-<h4 class="mt-4">Submission Procedure</h4>
-Workshop proposals should be submitted by email, in plain text or PDF, to icaps2021-workshops@googlegroups.com with the subject “Workshop Proposal for ICAPS21” no later than 8 December 2020. Workshop organizers will be notified by email of the acceptance or rejection of their proposal by 22 December 2020. All PDFs must be less than 25 MB in size.
-<br><br>
-<h4>Summary of Important Dates</h4>
-Deadline for submission of workshop proposals: 8 December 2020.<br>
-Notification of workshop acceptance: 22 December 2020.<br>
-Workshop Call for Papers and materials for the website: 28 December 2020.<br>
-List of accepted papers on the workshop website: 19 April 2021.<br>
-Workshop/Tutorial dates: 8 and 9 June 2021.<br>
-<br>
-Please direct all questions to the Workshop Program Chairs at <a href="mailto:icaps2021-workshops@googlegroups.com">icaps2021-workshops@googlegroups.com</a>.
-<br>
-<br>
-<h4> Workshop Chairs </h4>
-J. Benton (NASA Ames)<br>
-Yang Gao (Nanjing University)<br>
-Eva Onaindia (Universitat Politècnica de València)<br>
-<br>
-
-			</ul>
-
-
-                  </div>
-                </section>
-
-
-        </div>
-
       </div>
     </div>
-  </div>
 
-  <footer class="footer m-5">
- 	<div class="container">
-	<hr/>
-    <div class="row d-flex justify-content-center">
-      <div class="col col-12 col-lg-2 d-flex justify-content-center mb-2">
-        &copy; ICAPS 2021
+    <footer class="footer m-5">
+      <div class="container">
+        <hr />
+        <div class="row d-flex justify-content-center">
+          <div class="col col-12 col-lg-2 d-flex justify-content-center mb-2">
+            &copy; ICAPS 2021
+          </div>
+          <div class="col col-12 col-lg-2 d-flex justify-content-center mb-1">
+            <a href="../privacy-policy.html">Privacy Policy</a>
+          </div>
+          <div class="col col-12 col-lg-2 d-flex justify-content-center mb-1">
+            <a href="../terms-of-use.html">Terms of Use</a>
+          </div>
+          <div class="col col-12 col-lg-2 d-flex justify-content-center">
+            <a href="../code-of-conduct.html">Code of Conduct</a>
+          </div>
+        </div>
       </div>
-      <div class="col col-12 col-lg-2 d-flex justify-content-center mb-1">
-        <a href="../privacy_policy.html">Privacy Policy</a>
-      </div>
-      <div class="col col-12 col-lg-2 d-flex justify-content-center mb-1">
-        <a href="../terms_of_use.html">Terms of Use</a>
-      </div>
-      <div class="col col-12 col-lg-2 d-flex justify-content-center">
-        <a href="../code-of-conduct.html">Code of Conduct</a>
-      </div>
-    </div>
-  </div>
-  </footer>
+    </footer>
 
-  <script src="../assets/js/bootstrap.min.js"></script>
-      
+    <script src="../assets/js/bootstrap.min.js"></script>
   </body>
 </html>
-

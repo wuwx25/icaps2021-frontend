@@ -1,9 +1,8 @@
 .call-button {
-    background-color: #e5e5e5;
+  background-color: #e5e5e5;
 }
 
 .call-button:hover {
-    background-color: black;
-    color: white;
+  background-color: black;
+  color: white;
 }
-

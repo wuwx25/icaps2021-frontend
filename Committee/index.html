@@ -1,902 +1,1141 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ICAPS 2021</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ICAPS 2021</title>
 
-  <!-- Bootstrap core CSS -->
-  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous"> -->
+    <!-- Bootstrap core CSS -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous"> -->
 
-  <!-- Bootstrap Overrides -->
-  <link href="../assets/bootstrap/css/styles.css" rel="stylesheet">
-  <link href="../assets/css/custom.css" rel="stylesheet">
-  <link href="committee.css" rel="stylesheet">
-
-</head>
-<body class="bg-light">
-  
-  <header class="navbar fixed-top-lg p-3 border-bottom">
-
-    <nav class="navbar navbar-light navbar-expand-lg">
-      <div class="container-fluid d-flex">
-        <a class="navbar-brand text-dark">ICAPS 2021</a>
-        <div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item"><a href="../home" class="nav-link px-2">Home</a></li>
-            <li class="nav-item"><a href="../Calls" class="nav-link px-2">Calls</a></li>
-            <li class="nav-item"><a href="../workshops" class="nav-link px-2">Workshops</a></li>
-            <li class="nav-item"><a href="../Competitions" class="nav-link px-2">Competitions</a></li>
-            <li class="nav-item"><a class="nav-link px-2 active">Committee</a></li>
-          </ul>
+    <!-- Bootstrap Overrides -->
+    <link href="../assets/bootstrap/css/styles.css" rel="stylesheet" />
+    <link href="../assets/css/custom.css" rel="stylesheet" />
+    <link href="committee.css" rel="stylesheet" />
+  </head>
+  <body class="bg-light">
+    <header class="navbar fixed-top-lg p-3 border-bottom">
+      <nav class="navbar navbar-light navbar-expand-lg">
+        <div class="container-fluid d-flex">
+          <a class="navbar-brand text-dark">ICAPS 2021</a>
+          <div>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a href="../home" class="nav-link px-2">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a href="../Calls" class="nav-link px-2">Calls</a>
+                </li>
+                <li class="nav-item">
+                  <a href="../workshops" class="nav-link px-2">Workshops</a>
+                </li>
+                <li class="nav-item">
+                  <a href="../Competitions" class="nav-link px-2"
+                    >Competitions</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link px-2 active">Committee</a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
+      </nav>
+    </header>
+
+    <div class="album mt-3 p-4">
+      <div style="height: 100px" class="d-none d-md-block">
+        <!-- padding hack for the fixed navbar -->
+      </div>
+
+      <div class="container">
+        <div class="mb-5">
+          <h4>Conference Chairs</h4>
+          <hr />
+          <div class="row">
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
+              <div
+                class="card shadow-sm mb-4 d-flex justify-content-center align-self-center"
+              >
+                <img
+                  src="../assets/images/committee/hankz.png"
+                  class="card-img-top"
+                />
+                <div class="card-body bg-light">
+                  <h5>Hankz<br />Hankui<br />Zhuo</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">Sun Yat-Sen University</p>
+                  <a
+                    href="https://www.xplan-lab.org/"
+                    target="_blank"
+                    class="btn btn-sm btn-primary"
+                  >
+                    Home
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
+              <div
+                class="card shadow-sm mb-4 d-flex justify-content-center align-self-center"
+              >
+                <img
+                  src="../assets/images/committee/qiang.png"
+                  class="card-img-top"
+                />
+                <div class="card-body bg-light">
+                  <h5>Qiang<br />Yang</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">
+                    Hong Kong University of Science and Technology
+                  </p>
+                  <a
+                    href="https://home.cse.ust.hk/~qyang/"
+                    target="_blank"
+                    class="btn btn-sm btn-primary"
+                  >
+                    Home
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
+              <div
+                class="card shadow-sm mb-4 d-flex justify-content-center align-self-center"
+              >
+                <img
+                  src="../assets/images/committee/minh.png"
+                  class="card-img-top"
+                />
+                <div class="card-body bg-light">
+                  <h5>Minh<br />Do</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">NASA Ames Research Center</p>
+                  <a
+                    href="https://ti.arc.nasa.gov/profile/mbdo/"
+                    target="_blank"
+                    class="btn btn-sm btn-primary"
+                  >
+                    Home
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-5">
+          <h4>Program Chairs</h4>
+          <hr />
+          <div class="row">
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
+              <div
+                class="card shadow-sm mb-4 d-flex justify-content-center align-self-center"
+              >
+                <img
+                  src="../assets/images/committee/rob.png"
+                  class="card-img-top"
+                />
+                <div class="card-body bg-light">
+                  <h5>Robert<br />Goldman</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">Smart Information Flow Technologies</p>
+                  <a
+                    href="https://rpgoldman.goldman-tribe.org/"
+                    target="_blank"
+                    class="btn btn-sm btn-primary"
+                  >
+                    Home
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
+              <div
+                class="card shadow-sm mb-4 d-flex justify-content-center align-self-center"
+              >
+                <img
+                  src="../assets/images/committee/susanne.png"
+                  class="card-img-top"
+                />
+                <div class="card-body bg-light">
+                  <h5>Susanne<br />Biundo</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">Ulm University</p>
+                  <a
+                    href="https://www.uni-ulm.de/en/in/ki/inst/team/prof-dr-susanne-biundo-stephan/"
+                    target="_blank"
+                    class="btn btn-sm btn-primary"
+                  >
+                    Home
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
+              <div
+                class="card shadow-sm mb-4 d-flex justify-content-center align-self-center"
+              >
+                <img
+                  src="../assets/images/committee/michael.png"
+                  class="card-img-top"
+                />
+                <div class="card-body bg-light">
+                  <h5>Michael<br />Katz</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">IBM Research AI</p>
+                  <a
+                    href="https://researcher.watson.ibm.com/researcher/view.php?person=ibm-Michael.Katz1"
+                    target="_blank"
+                    class="btn btn-sm btn-primary"
+                  >
+                    Home
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-5">
+          <h4>Advisor</h4>
+          <hr />
+          <div class="row">
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
+              <div
+                class="card shadow-sm mb-4 d-flex justify-content-center align-self-center"
+              >
+                <img
+                  src="../assets/images/committee/rao.png"
+                  class="card-img-top"
+                />
+                <div class="card-body bg-light">
+                  <h5>Subbarao<br />Kambhampati</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">Arizona State University</p>
+                  <a
+                    href="http://rakaposhi.eas.asu.edu/"
+                    target="_blank"
+                    class="btn btn-sm btn-primary"
+                  >
+                    Home
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-5">
+          <h4>Planning and Learning Track Chairs</h4>
+          <hr />
+          <div class="row">
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
+              <div
+                class="card shadow-sm mb-4 d-flex justify-content-center align-self-center"
+              >
+                <img
+                  src="../assets/images/committee/sinno.png"
+                  class="card-img-top"
+                />
+                <div class="card-body bg-light">
+                  <h5>Sinno<br />Jialin<br />Pan</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">Nanyang Technological University</p>
+                  <a
+                    href="https://personal.ntu.edu.sg/sinnopan/"
+                    target="_blank"
+                    class="btn btn-sm btn-primary"
+                  >
+                    Home
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
+              <div
+                class="card shadow-sm mb-4 d-flex justify-content-center align-self-center"
+              >
+                <img
+                  src="../assets/images/committee/scott.png"
+                  class="card-img-top"
+                />
+                <div class="card-body bg-light">
+                  <h5>Scott<br />Sanner</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">University of Toronto</p>
+                  <a
+                    href="https://d3m.mie.utoronto.ca/members/ssanner/"
+                    target="_blank"
+                    class="btn btn-sm btn-primary"
+                  >
+                    Home
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-5">
+          <h4>Application Track Chairs</h4>
+          <hr />
+          <div class="row">
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
+              <div
+                class="card shadow-sm mb-4 d-flex justify-content-center align-self-center"
+              >
+                <img
+                  src="../assets/images/committee/kartik.png"
+                  class="card-img-top"
+                />
+                <div class="card-body bg-light">
+                  <h5>Kartik<br />Talamadupula</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">IBM Research AI</p>
+                  <a
+                    href="http://www.ktalamad.com/"
+                    target="_blank"
+                    class="btn btn-sm btn-primary"
+                  >
+                    Home
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
+              <div
+                class="card shadow-sm mb-4 d-flex justify-content-center align-self-center"
+              >
+                <img
+                  src="../assets/images/committee/neil.png"
+                  class="card-img-top"
+                />
+                <div class="card-body bg-light">
+                  <h5>Neil<br />Yorke-Smith</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">Delft University of Technology</p>
+                  <a
+                    href="https://www.tudelft.nl/ewi/over-de-faculteit/afdelingen/software-technology/algorithmics/people/neil-yorke-smith/"
+                    target="_blank"
+                    class="btn btn-sm btn-primary"
+                  >
+                    Home
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-5">
+          <h4>Robotics Track Chairs</h4>
+          <hr />
+          <div class="row">
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
+              <div
+                class="card shadow-sm mb-4 d-flex justify-content-center align-self-center"
+              >
+                <img
+                  src="../assets/images/committee/andrea.png"
+                  class="card-img-top"
+                />
+                <div class="card-body bg-light">
+                  <h5>Andrea<br />Orlandini</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">ISTC-CNR</p>
+                  <a
+                    href="https://www.cnr.it//people/andrea.orlandini"
+                    target="_blank"
+                    class="btn btn-sm btn-primary"
+                  >
+                    Home
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
+              <div
+                class="card shadow-sm mb-4 d-flex justify-content-center align-self-center"
+              >
+                <img
+                  src="../assets/images/committee/xiaoping.png"
+                  class="card-img-top"
+                />
+                <div class="card-body bg-light">
+                  <h5>Xiaoping<br />Chen</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">
+                    University of Science and Technology of China
+                  </p>
+                  <a
+                    href="http://ai.ustc.edu.cn/en/people/xpchen.php"
+                    target="_blank"
+                    class="btn btn-sm btn-primary"
+                  >
+                    Home
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
+              <div
+                class="card shadow-sm mb-4 d-flex justify-content-center align-self-center"
+              >
+                <img
+                  src="../assets/images/committee/tony.png"
+                  class="card-img-top"
+                />
+                <div class="card-body bg-light">
+                  <h5>Yu<br />Zhang</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">Arizona State University</p>
+                  <a
+                    href="http://www.public.asu.edu/~yzhan442/"
+                    target="_blank"
+                    class="btn btn-sm btn-primary"
+                  >
+                    Home
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-5">
+          <h4>Journal Track Chairs</h4>
+          <hr />
+          <div class="row">
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
+              <div
+                class="card shadow-sm mb-4 d-flex justify-content-center align-self-center"
+              >
+                <img
+                  src="../assets/images/committee/malte.png"
+                  class="card-img-top"
+                />
+                <div class="card-body bg-light">
+                  <h5>Malte<br />Helmert</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">University of Basel</p>
+                  <a
+                    href="https://ai.dmi.unibas.ch/people/helmert/"
+                    target="_blank"
+                    class="btn btn-sm btn-primary"
+                  >
+                    Home
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
+              <div
+                class="card shadow-sm mb-4 d-flex justify-content-center align-self-center"
+              >
+                <img
+                  src="../assets/images/committee/hana.png"
+                  class="card-img-top"
+                />
+                <div class="card-body bg-light">
+                  <h5>Hana<br />Rudová</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">Masaryk University</p>
+                  <a
+                    href="https://www.fi.muni.cz/~hanka/"
+                    target="_blank"
+                    class="btn btn-sm btn-primary"
+                  >
+                    Home
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-5">
+          <h4>Tutorial Chairs</h4>
+          <hr />
+          <div class="row">
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
+              <div
+                class="card shadow-sm mb-4 d-flex justify-content-center align-self-center"
+              >
+                <img
+                  src="../assets/images/committee/jieping.png"
+                  class="card-img-top"
+                />
+                <div class="card-body bg-light">
+                  <h5>Jieping<br />Ye</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">DIDI</p>
+                  <a
+                    href="http://www.yelabs.net/"
+                    target="_blank"
+                    class="btn btn-sm btn-primary"
+                  >
+                    Home
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
+              <div
+                class="card shadow-sm mb-4 d-flex justify-content-center align-self-center"
+              >
+                <img
+                  src="../assets/images/committee/cashmore.png"
+                  class="card-img-top"
+                />
+                <div class="card-body bg-light">
+                  <h5>Michael<br />Cashmore</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">University of Strathclyde</p>
+                  <a
+                    href="https://www.strath.ac.uk/staff/cashmoremichaeldr/"
+                    target="_blank"
+                    class="btn btn-sm btn-primary"
+                  >
+                    Home
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-5">
+          <h4>Workshop Chairs</h4>
+          <hr />
+          <div class="row">
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
+              <div
+                class="card shadow-sm mb-4 d-flex justify-content-center align-self-center"
+              >
+                <img
+                  src="../assets/images/committee/benton.png"
+                  class="card-img-top"
+                />
+                <div class="card-body bg-light">
+                  <h5>J.<br />Benton</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">NASA Ames Research Center</p>
+                  <a
+                    href="https://ti.arc.nasa.gov/profile/j-benton/"
+                    target="_blank"
+                    class="btn btn-sm btn-primary"
+                  >
+                    Home
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
+              <div
+                class="card shadow-sm mb-4 d-flex justify-content-center align-self-center"
+              >
+                <img
+                  src="../assets/images/committee/yang.png"
+                  class="card-img-top"
+                />
+                <div class="card-body bg-light">
+                  <h5>Yang<br />Gao</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">Nanjing University</p>
+                  <a
+                    href="https://cs.nju.edu.cn/gaoyang/"
+                    target="_blank"
+                    class="btn btn-sm btn-primary"
+                  >
+                    Home
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
+              <div
+                class="card shadow-sm mb-4 d-flex justify-content-center align-self-center"
+              >
+                <img
+                  src="../assets/images/committee/eva.png"
+                  class="card-img-top"
+                />
+                <div class="card-body bg-light">
+                  <h5>Eva<br />Onaindia</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">Universitat Politècnica de València</p>
+                  <a
+                    href="https://grps.webs.upv.es/"
+                    target="_blank"
+                    class="btn btn-sm btn-primary"
+                  >
+                    Home
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-5">
+          <h4>Systems Demo Chairs</h4>
+          <hr />
+          <div class="row">
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
+              <div
+                class="card shadow-sm mb-4 d-flex justify-content-center align-self-center"
+              >
+                <img
+                  src="../assets/images/committee/tathagata.png"
+                  class="card-img-top"
+                />
+                <div class="card-body bg-light">
+                  <h5>Tathagata<br />Chakraborti</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">IBM Research AI</p>
+                  <a
+                    href="http://tchakra2.com"
+                    target="_blank"
+                    class="btn btn-sm btn-primary"
+                  >
+                    Home
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
+              <div
+                class="card shadow-sm mb-4 d-flex justify-content-center align-self-center"
+              >
+                <img
+                  src="../assets/images/committee/hangma.png"
+                  class="card-img-top"
+                />
+                <div class="card-body bg-light">
+                  <h5>Hang<br />Ma</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">Simon Fraser University</p>
+                  <a
+                    href="https://www2.cs.sfu.ca/~hangma/"
+                    target="_blank"
+                    class="btn btn-sm btn-primary"
+                  >
+                    Home
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-5">
+          <h4>Doctoral Consortium Chairs</h4>
+          <hr />
+          <div class="row">
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
+              <div
+                class="card shadow-sm mb-4 d-flex justify-content-center align-self-center"
+              >
+                <img
+                  src="../assets/images/committee/jeremy.png"
+                  class="card-img-top"
+                />
+                <div class="card-body bg-light">
+                  <h5>Jeremy<br />Frank</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">NASA Ames Research Center</p>
+                  <a
+                    href="https://ti.arc.nasa.gov/profile/frank/"
+                    target="_blank"
+                    class="btn btn-sm btn-primary"
+                  >
+                    Home
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
+              <div
+                class="card shadow-sm mb-4 d-flex justify-content-center align-self-center"
+              >
+                <img
+                  src="../assets/images/committee/sarah.png"
+                  class="card-img-top"
+                />
+                <div class="card-body bg-light">
+                  <h5>Sarah<br />Keren</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">Harvard University</p>
+                  <a
+                    href="https://sarahkeren.wixsite.com/sarahkeren-academics"
+                    target="_blank"
+                    class="btn btn-sm btn-primary"
+                  >
+                    Home
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-5">
+          <h4>Competition Chairs</h4>
+          <hr />
+          <div class="row">
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
+              <div
+                class="card shadow-sm mb-4 d-flex justify-content-center align-self-center"
+              >
+                <img
+                  src="../assets/images/committee/tathagata.png"
+                  class="card-img-top"
+                />
+                <div class="card-body bg-light">
+                  <h5>Tathagata<br />Chakraborti</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">IBM Research AI</p>
+                  <a
+                    href="http://tchakra2.com"
+                    target="_blank"
+                    class="btn btn-sm btn-primary"
+                  >
+                    Home
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
+              <div
+                class="card shadow-sm mb-4 d-flex justify-content-center align-self-center"
+              >
+                <img
+                  src="../assets/images/committee/rongpan.png"
+                  class="card-img-top"
+                />
+                <div class="card-body bg-light">
+                  <h5>Rong<br />Pan</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">Sun Yat-Sen University</p>
+                  <a
+                    href="http://www.rongpan.net/"
+                    target="_blank"
+                    class="btn btn-sm btn-primary"
+                  >
+                    Home
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
+              <div
+                class="card shadow-sm mb-4 d-flex justify-content-center align-self-center"
+              >
+                <img
+                  src="../assets/images/committee/jianye.png"
+                  class="card-img-top"
+                />
+                <div class="card-body bg-light">
+                  <h5>Jianye<br />Hao</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">Tianjin University</p>
+                  <a
+                    href="http://www.icdai.org/index.html"
+                    target="_blank"
+                    class="btn btn-sm btn-primary"
+                  >
+                    Home
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-5">
+          <h4>Publicity Chairs</h4>
+          <hr />
+          <div class="row">
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
+              <div
+                class="card shadow-sm mb-4 d-flex justify-content-center align-self-center"
+              >
+                <img
+                  src="../assets/images/committee/nie.png"
+                  class="card-img-top"
+                />
+                <div class="card-body bg-light">
+                  <h5>Zaiqing<br />Nie</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">Tsinghua University</p>
+                  <a
+                    href="http://air.tsinghua.edu.cn/EN/team-detail.html?id=35&classid=8"
+                    target="_blank"
+                    class="btn btn-sm btn-primary"
+                  >
+                    Home
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
+              <div
+                class="card shadow-sm mb-4 d-flex justify-content-center align-self-center"
+              >
+                <img
+                  src="../assets/images/committee/sarath.png"
+                  class="card-img-top"
+                />
+                <div class="card-body bg-light">
+                  <h5>Sarath<br />Sreedharan</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">Arizona State University</p>
+                  <a
+                    href="http://www.public.asu.edu/~ssreedh3/"
+                    target="_blank"
+                    class="btn btn-sm btn-primary"
+                  >
+                    Home
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-5">
+          <h4>Sponsorship Chairs</h4>
+          <hr />
+          <div class="row">
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
+              <div
+                class="card shadow-sm mb-4 d-flex justify-content-center align-self-center"
+              >
+                <img
+                  src="../assets/images/committee/william.png"
+                  class="card-img-top"
+                />
+                <div class="card-body bg-light">
+                  <h5>William<br />Yeoh</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">Washington University in St. Louis</p>
+                  <a
+                    href="https://sites.wustl.edu/wyeoh/"
+                    target="_blank"
+                    class="btn btn-sm btn-primary"
+                  >
+                    Home
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
+              <div
+                class="card shadow-sm mb-4 d-flex justify-content-center align-self-center"
+              >
+                <img
+                  src="../assets/images/committee/jianye.png"
+                  class="card-img-top"
+                />
+                <div class="card-body bg-light">
+                  <h5>Jianye<br />Hao</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">Tianjin University</p>
+                  <a
+                    href="http://www.icdai.org/index.html"
+                    target="_blank"
+                    class="btn btn-sm btn-primary"
+                  >
+                    Home
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
+              <div
+                class="card shadow-sm mb-4 d-flex justify-content-center align-self-center"
+              >
+                <img
+                  src="../assets/images/committee/matthijs.png"
+                  class="card-img-top"
+                />
+                <div class="card-body bg-light">
+                  <h5>Matthijs<br />Spaan</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">Delft University of Technology</p>
+                  <a
+                    href="https://www.st.ewi.tudelft.nl/mtjspaan/"
+                    target="_blank"
+                    class="btn btn-sm btn-primary"
+                  >
+                    Home
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-5">
+          <h4>Website</h4>
+          <hr />
+          <div class="row">
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
+              <div
+                class="card shadow-sm mb-4 d-flex justify-content-center align-self-center"
+              >
+                <img
+                  src="../assets/images/committee/tathagata.png"
+                  class="card-img-top"
+                />
+                <div class="card-body bg-light">
+                  <h5>Tathagata<br />Chakraborti</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">IBM Research AI</p>
+                  <a
+                    href="http://tchakra2.com"
+                    target="_blank"
+                    class="btn btn-sm btn-primary"
+                  >
+                    Home
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
+              <div
+                class="card shadow-sm mb-4 d-flex justify-content-center align-self-center"
+              >
+                <img
+                  src="../assets/images/committee/sarath.png"
+                  class="card-img-top"
+                />
+                <div class="card-body bg-light">
+                  <h5>Sarath<br />Sreedharan</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">Arizona State University</p>
+                  <a
+                    href="http://www.public.asu.edu/~ssreedh3/"
+                    target="_blank"
+                    class="btn btn-sm btn-primary"
+                  >
+                    Home
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-5">
+          <h4>Virtual Conference Technology Advisor</h4>
+          <hr />
+          <div class="row">
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
+              <div
+                class="card shadow-sm mb-4 d-flex justify-content-center align-self-center"
+              >
+                <img
+                  src="../assets/images/committee/daniel.png"
+                  class="card-img-top"
+                />
+                <div class="card-body bg-light">
+                  <h5>Daniel<br />Gnad</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">Saarland University</p>
+                  <a
+                    href="http://fai.cs.uni-saarland.de/gnad/"
+                    target="_blank"
+                    class="btn btn-sm btn-primary"
+                  >
+                    Home
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-5">
+          <h4>Virtual Conference Arrangement Chairs</h4>
+          <hr />
+          <div class="row">
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
+              <div
+                class="card shadow-sm mb-4 d-flex justify-content-center align-self-center"
+              >
+                <img
+                  src="../assets/images/committee/kebing.png"
+                  class="card-img-top"
+                />
+                <div class="card-body bg-light">
+                  <h5>Kebing<br />Jin</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">Sun Yat-Sen University</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
+              <div
+                class="card shadow-sm mb-4 d-flex justify-content-center align-self-center"
+              >
+                <img
+                  src="../assets/images/committee/zhanwen.png"
+                  class="card-img-top"
+                />
+                <div class="card-body bg-light">
+                  <h5>Zhanwen<br />Zhou</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">Sun Yat-Sen University</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
+              <div
+                class="card shadow-sm mb-4 d-flex justify-content-center align-self-center"
+              >
+                <img
+                  src="../assets/images/committee/default.png"
+                  class="card-img-top"
+                />
+                <div class="card-body bg-light">
+                  <h5>Zhanhao<br />Xiao</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">Sun Yat-Sen University</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
+              <div
+                class="card shadow-sm mb-4 d-flex justify-content-center align-self-center"
+              >
+                <img
+                  src="../assets/images/committee/default.png"
+                  class="card-img-top"
+                />
+                <div class="card-body bg-light">
+                  <h5>Chao<br />Yu</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">Sun Yat-Sen University</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
+              <div
+                class="card shadow-sm mb-4 d-flex justify-content-center align-self-center"
+              >
+                <img
+                  src="../assets/images/committee/default.png"
+                  class="card-img-top"
+                />
+                <div class="card-body bg-light">
+                  <h5>Yuechang<br />Liu</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">Sun Yat-Sen University</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </nav>
-
-  </header>
-
-  <div class="album mt-3 p-4">
-
-    <div style="height: 100px;" class="d-none d-md-block">
-      <!-- padding hack for the fixed navbar -->
     </div>
 
-    <div class="container">
-
-
-      <div class="mb-5">
-      <h4>Conference Chairs</h4>
-      <hr/>
-      <div class="row">
-
-          <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
-          <div class="card shadow-sm mb-4 d-flex justify-content-center align-self-center">
-            <img src="../assets/images/committee/hankz.png" class="card-img-top">
-            <div class="card-body bg-light">
-              <h5>Hankz<br/>Hankui<br/>Zhuo</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                Sun Yat-Sen University
-              </p>
-              <a href="https://www.xplan-lab.org/" target="_blank" class="btn btn-sm btn-primary">
-                Home
-              </a>
-            </div>
+    <footer class="footer m-5">
+      <div class="container">
+        <hr />
+        <div class="row d-flex justify-content-center">
+          <div class="col col-12 col-lg-2 d-flex justify-content-center mb-2">
+            &copy; ICAPS 2021
           </div>
+          <div class="col col-12 col-lg-2 d-flex justify-content-center mb-1">
+            <a href="../privacy-policy.html">Privacy Policy</a>
           </div>
-
-          <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
-          <div class="card shadow-sm mb-4 d-flex justify-content-center align-self-center">
-            <img src="../assets/images/committee/qiang.png" class="card-img-top">
-            <div class="card-body bg-light">
-              <h5>Qiang<br/>Yang</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                Hong Kong University of Science and Technology
-              </p>
-              <a href="https://home.cse.ust.hk/~qyang/" target="_blank" class="btn btn-sm btn-primary">
-                Home
-              </a>
-            </div>
+          <div class="col col-12 col-lg-2 d-flex justify-content-center mb-1">
+            <a href="../terms-of-use.html">Terms of Use</a>
           </div>
+          <div class="col col-12 col-lg-2 d-flex justify-content-center">
+            <a href="../code-of-conduct.html">Code of Conduct</a>
           </div>
-
-          <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
-          <div class="card shadow-sm mb-4 d-flex justify-content-center align-self-center">
-            <img src="../assets/images/committee/minh.png" class="card-img-top">
-            <div class="card-body bg-light">
-              <h5>Minh<br/>Do</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                NASA Ames Research Center
-              </p>
-              <a href="https://ti.arc.nasa.gov/profile/mbdo/" target="_blank" class="btn btn-sm btn-primary">
-                Home
-              </a>
-            </div>
-          </div>
-          </div>
-
+        </div>
       </div>
-      </div>
+    </footer>
 
-
-      <div class="mb-5">
-      <h4>Program Chairs</h4>
-      <hr/>
-      <div class="row">
-
-          <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
-          <div class="card shadow-sm mb-4 d-flex justify-content-center align-self-center">
-            <img src="../assets/images/committee/rob.png" class="card-img-top">
-            <div class="card-body bg-light">
-              <h5>Robert<br/>Goldman</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                Smart Information Flow Technologies
-              </p>
-              <a href="https://rpgoldman.goldman-tribe.org/" target="_blank" class="btn btn-sm btn-primary">
-                Home
-              </a>
-            </div>
-          </div>
-          </div>
-
-          <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
-          <div class="card shadow-sm mb-4 d-flex justify-content-center align-self-center">
-            <img src="../assets/images/committee/susanne.png" class="card-img-top">
-            <div class="card-body bg-light">
-              <h5>Susanne<br/>Biundo</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                Ulm University
-              </p>
-              <a href="https://www.uni-ulm.de/en/in/ki/inst/team/prof-dr-susanne-biundo-stephan/" target="_blank" class="btn btn-sm btn-primary">
-                Home
-              </a>
-            </div>
-          </div>
-          </div>
-
-          <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
-          <div class="card shadow-sm mb-4 d-flex justify-content-center align-self-center">
-            <img src="../assets/images/committee/michael.png" class="card-img-top">
-            <div class="card-body bg-light">
-              <h5>Michael<br/>Katz</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                IBM Research AI
-              </p>
-              <a href="https://researcher.watson.ibm.com/researcher/view.php?person=ibm-Michael.Katz1" target="_blank" class="btn btn-sm btn-primary">
-                Home
-              </a>
-            </div>
-          </div>
-          </div>
-
-      </div>
-      </div>
-
-      <div class="mb-5">
-      <h4>Advisor</h4>
-      <hr/>
-      <div class="row">
-
-          <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
-          <div class="card shadow-sm mb-4 d-flex justify-content-center align-self-center">
-            <img src="../assets/images/committee/rao.png" class="card-img-top">
-            <div class="card-body bg-light">
-              <h5>Subbarao<br/>Kambhampati</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                Arizona State University
-              </p>
-              <a href="http://rakaposhi.eas.asu.edu/" target="_blank" class="btn btn-sm btn-primary">
-                Home
-              </a>
-            </div>
-          </div>
-          </div>
-
-      </div>
-      </div>
-
-      <div class="mb-5">
-      <h4>Planning and Learning Track Chairs</h4>
-      <hr/>
-      <div class="row">
-
-          <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
-          <div class="card shadow-sm mb-4 d-flex justify-content-center align-self-center">
-            <img src="../assets/images/committee/sinno.png" class="card-img-top">
-            <div class="card-body bg-light">
-              <h5>Sinno<br/>Jialin<br/>Pan</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                Nanyang Technological University
-              </p>
-              <a href="https://personal.ntu.edu.sg/sinnopan/" target="_blank" class="btn btn-sm btn-primary">
-                Home
-              </a>
-            </div>
-          </div>
-          </div>
-
-          <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
-          <div class="card shadow-sm mb-4 d-flex justify-content-center align-self-center">
-            <img src="../assets/images/committee/scott.png" class="card-img-top">
-            <div class="card-body bg-light">
-              <h5>Scott<br/>Sanner</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                University of Toronto
-              </p>
-              <a href="https://d3m.mie.utoronto.ca/members/ssanner/" target="_blank" class="btn btn-sm btn-primary">
-                Home
-              </a>
-            </div>
-          </div>
-          </div>
-
-      </div>
-      </div>
-
-      <div class="mb-5">
-      <h4>Application Track Chairs</h4>
-      <hr/>
-      <div class="row">
-
-          <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
-          <div class="card shadow-sm mb-4 d-flex justify-content-center align-self-center">
-            <img src="../assets/images/committee/kartik.png" class="card-img-top">
-            <div class="card-body bg-light">
-              <h5>Kartik<br/>Talamadupula</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                IBM Research AI
-              </p>
-              <a href="http://www.ktalamad.com/" target="_blank" class="btn btn-sm btn-primary">
-                Home
-              </a>
-            </div>
-          </div>
-          </div>
-
-          <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
-          <div class="card shadow-sm mb-4 d-flex justify-content-center align-self-center">
-            <img src="../assets/images/committee/neil.png" class="card-img-top">
-            <div class="card-body bg-light">
-              <h5>Neil<br/>Yorke-Smith</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                Delft University of Technology
-              </p>
-              <a href="https://www.tudelft.nl/ewi/over-de-faculteit/afdelingen/software-technology/algorithmics/people/neil-yorke-smith/" target="_blank" class="btn btn-sm btn-primary">
-                Home
-              </a>
-            </div>
-          </div>
-          </div>
-
-      </div>
-      </div>
-
-      <div class="mb-5">
-      <h4>Robotics Track Chairs</h4>
-      <hr/>
-      <div class="row">
-
-          <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
-          <div class="card shadow-sm mb-4 d-flex justify-content-center align-self-center">
-            <img src="../assets/images/committee/andrea.png" class="card-img-top">
-            <div class="card-body bg-light">
-              <h5>Andrea<br/>Orlandini</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                ISTC-CNR
-              </p>
-              <a href="https://www.cnr.it//people/andrea.orlandini" target="_blank" class="btn btn-sm btn-primary">
-                Home
-              </a>
-            </div>
-          </div>
-          </div>
-
-          <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
-          <div class="card shadow-sm mb-4 d-flex justify-content-center align-self-center">
-            <img src="../assets/images/committee/xiaoping.png" class="card-img-top">
-            <div class="card-body bg-light">
-              <h5>Xiaoping<br/>Chen</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                University of Science and Technology of China
-              </p>
-              <a href="http://ai.ustc.edu.cn/en/people/xpchen.php" target="_blank" class="btn btn-sm btn-primary">
-                Home
-              </a>
-            </div>
-          </div>
-          </div>
-
-          <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
-          <div class="card shadow-sm mb-4 d-flex justify-content-center align-self-center">
-            <img src="../assets/images/committee/tony.png" class="card-img-top">
-            <div class="card-body bg-light">
-              <h5>Yu<br/>Zhang</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                Arizona State University
-              </p>
-              <a href="http://www.public.asu.edu/~yzhan442/" target="_blank" class="btn btn-sm btn-primary">
-                Home
-              </a>
-            </div>
-          </div>
-          </div>
-
-      </div>
-      </div>
-
-      <div class="mb-5">
-      <h4>Journal Track Chairs</h4>
-      <hr/>
-      <div class="row">
-
-          <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
-          <div class="card shadow-sm mb-4 d-flex justify-content-center align-self-center">
-            <img src="../assets/images/committee/malte.png" class="card-img-top">
-            <div class="card-body bg-light">
-              <h5>Malte<br/>Helmert</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                University of Basel
-              </p>
-              <a href="https://ai.dmi.unibas.ch/people/helmert/" target="_blank" class="btn btn-sm btn-primary">
-                Home
-              </a>
-            </div>
-          </div>
-          </div>
-
-          <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
-          <div class="card shadow-sm mb-4 d-flex justify-content-center align-self-center">
-            <img src="../assets/images/committee/hana.png" class="card-img-top">
-            <div class="card-body bg-light">
-              <h5>Hana<br/>Rudová</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                Masaryk University
-              </p>
-              <a href="https://www.fi.muni.cz/~hanka/" target="_blank" class="btn btn-sm btn-primary">
-                Home
-              </a>
-            </div>
-          </div>
-          </div>
-
-      </div>
-      </div>
-
-      <div class="mb-5">
-      <h4>Tutorial Chairs</h4>
-      <hr/>
-      <div class="row">
-
-          <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
-          <div class="card shadow-sm mb-4 d-flex justify-content-center align-self-center">
-            <img src="../assets/images/committee/jieping.png" class="card-img-top">
-            <div class="card-body bg-light">
-              <h5>Jieping<br/>Ye</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                DIDI
-              </p>
-              <a href="http://www.yelabs.net/" target="_blank" class="btn btn-sm btn-primary">
-                Home
-              </a>
-            </div>
-          </div>
-          </div>
-
-          <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
-          <div class="card shadow-sm mb-4 d-flex justify-content-center align-self-center">
-            <img src="../assets/images/committee/cashmore.png" class="card-img-top">
-            <div class="card-body bg-light">
-              <h5>Michael<br/>Cashmore</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                University of Strathclyde
-              </p>
-              <a href="https://www.strath.ac.uk/staff/cashmoremichaeldr/" target="_blank" class="btn btn-sm btn-primary">
-                Home
-              </a>
-            </div>
-          </div>
-          </div>
-
-      </div>
-      </div>
-
-      <div class="mb-5">
-      <h4>Workshop Chairs</h4>
-      <hr/>
-      <div class="row">
-
-          <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
-          <div class="card shadow-sm mb-4 d-flex justify-content-center align-self-center">
-            <img src="../assets/images/committee/benton.png" class="card-img-top">
-            <div class="card-body bg-light">
-              <h5>J.<br/>Benton</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                NASA Ames Research Center
-              </p>
-              <a href="https://ti.arc.nasa.gov/profile/j-benton/" target="_blank" class="btn btn-sm btn-primary">
-                Home
-              </a>
-            </div>
-          </div>
-          </div>
-
-          <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
-          <div class="card shadow-sm mb-4 d-flex justify-content-center align-self-center">
-            <img src="../assets/images/committee/yang.png" class="card-img-top">
-            <div class="card-body bg-light">
-              <h5>Yang<br/>Gao</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                Nanjing University
-              </p>
-              <a href="https://cs.nju.edu.cn/gaoyang/" target="_blank" class="btn btn-sm btn-primary">
-                Home
-              </a>
-            </div>
-          </div>
-          </div>
-
-          <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
-          <div class="card shadow-sm mb-4 d-flex justify-content-center align-self-center">
-            <img src="../assets/images/committee/eva.png" class="card-img-top">
-            <div class="card-body bg-light">
-              <h5>Eva<br/>Onaindia</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                Universitat Politècnica de València
-              </p>
-              <a href="https://grps.webs.upv.es/" target="_blank" class="btn btn-sm btn-primary">
-                Home
-              </a>
-            </div>
-          </div>
-          </div>
-
-      </div>
-      </div>
-
-      <div class="mb-5">
-      <h4>Systems Demo Chairs</h4>
-      <hr/>
-      <div class="row">
-
-          <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
-          <div class="card shadow-sm mb-4 d-flex justify-content-center align-self-center">
-            <img src="../assets/images/committee/tathagata.png" class="card-img-top">
-            <div class="card-body bg-light">
-              <h5>Tathagata<br/>Chakraborti</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                IBM Research AI
-              </p>
-              <a href="http://tchakra2.com" target="_blank" class="btn btn-sm btn-primary">
-                Home
-              </a>
-            </div>
-          </div>
-          </div>
-
-          <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
-          <div class="card shadow-sm mb-4 d-flex justify-content-center align-self-center">
-            <img src="../assets/images/committee/hangma.png" class="card-img-top">
-            <div class="card-body bg-light">
-              <h5>Hang<br/>Ma</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                Simon Fraser University
-              </p>
-              <a href="https://www2.cs.sfu.ca/~hangma/" target="_blank" class="btn btn-sm btn-primary">
-                Home
-              </a>
-            </div>
-          </div>
-          </div>
-
-      </div>
-      </div>
-
-      <div class="mb-5">
-      <h4>Doctoral Consortium Chairs</h4>
-      <hr/>
-      <div class="row">
-
-          <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
-          <div class="card shadow-sm mb-4 d-flex justify-content-center align-self-center">
-            <img src="../assets/images/committee/jeremy.png" class="card-img-top">
-            <div class="card-body bg-light">
-              <h5>Jeremy<br/>Frank</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                NASA Ames Research Center
-              </p>
-              <a href="https://ti.arc.nasa.gov/profile/frank/" target="_blank" class="btn btn-sm btn-primary">
-                Home
-              </a>
-            </div>
-          </div>
-          </div>
-
-          <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
-          <div class="card shadow-sm mb-4 d-flex justify-content-center align-self-center">
-            <img src="../assets/images/committee/sarah.png" class="card-img-top">
-            <div class="card-body bg-light">
-              <h5>Sarah<br/>Keren</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                Harvard University
-              </p>
-              <a href="https://sarahkeren.wixsite.com/sarahkeren-academics" target="_blank" class="btn btn-sm btn-primary">
-                Home
-              </a>
-            </div>
-          </div>
-          </div>
-
-      </div>
-      </div>
-
-      <div class="mb-5">
-      <h4>Competition Chairs</h4>
-      <hr/>
-      <div class="row">
-
-          <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
-          <div class="card shadow-sm mb-4 d-flex justify-content-center align-self-center">
-            <img src="../assets/images/committee/tathagata.png" class="card-img-top">
-            <div class="card-body bg-light">
-              <h5>Tathagata<br/>Chakraborti</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                IBM Research AI
-              </p>
-              <a href="http://tchakra2.com" target="_blank" class="btn btn-sm btn-primary">
-                Home
-              </a>
-            </div>
-          </div>
-          </div>
-
-          <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
-          <div class="card shadow-sm mb-4 d-flex justify-content-center align-self-center">
-            <img src="../assets/images/committee/rongpan.png" class="card-img-top">
-            <div class="card-body bg-light">
-              <h5>Rong<br/>Pan</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                Sun Yat-Sen University
-              </p>
-              <a href="http://www.rongpan.net/" target="_blank" class="btn btn-sm btn-primary">
-                Home
-              </a>
-            </div>
-          </div>
-          </div>
-
-          <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
-          <div class="card shadow-sm mb-4 d-flex justify-content-center align-self-center">
-            <img src="../assets/images/committee/jianye.png" class="card-img-top">
-            <div class="card-body bg-light">
-              <h5>Jianye<br/>Hao</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                Tianjin University
-              </p>
-              <a href="http://www.icdai.org/index.html" target="_blank" class="btn btn-sm btn-primary">
-                Home
-              </a>
-            </div>
-          </div>
-          </div>
-
-      </div>
-      </div>
-
-      <div class="mb-5">
-      <h4>Publicity Chairs</h4>
-      <hr/>
-      <div class="row">
-
-          <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
-          <div class="card shadow-sm mb-4 d-flex justify-content-center align-self-center">
-            <img src="../assets/images/committee/nie.png" class="card-img-top">
-            <div class="card-body bg-light">
-              <h5>Zaiqing<br/>Nie</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                Tsinghua University
-              </p>
-              <a href="http://air.tsinghua.edu.cn/EN/team-detail.html?id=35&classid=8" target="_blank" class="btn btn-sm btn-primary">
-                Home
-              </a>
-            </div>
-          </div>
-          </div>
-
-          <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
-          <div class="card shadow-sm mb-4 d-flex justify-content-center align-self-center">
-            <img src="../assets/images/committee/sarath.png" class="card-img-top">
-            <div class="card-body bg-light">
-              <h5>Sarath<br/>Sreedharan</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                Arizona State University
-              </p>
-              <a href="http://www.public.asu.edu/~ssreedh3/" target="_blank" class="btn btn-sm btn-primary">
-                Home
-              </a>
-            </div>
-          </div>
-          </div>
-
-      </div>
-      </div>
-
-      <div class="mb-5">
-      <h4>Sponsorship Chairs</h4>
-      <hr/>
-      <div class="row">
-
-          <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
-          <div class="card shadow-sm mb-4 d-flex justify-content-center align-self-center">
-            <img src="../assets/images/committee/william.png" class="card-img-top">
-            <div class="card-body bg-light">
-              <h5>William<br/>Yeoh</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                Washington University in St. Louis
-              </p>
-              <a href="https://sites.wustl.edu/wyeoh/" target="_blank" class="btn btn-sm btn-primary">
-                Home
-              </a>
-            </div>
-          </div>
-          </div>
-
-          <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
-          <div class="card shadow-sm mb-4 d-flex justify-content-center align-self-center">
-            <img src="../assets/images/committee/jianye.png" class="card-img-top">
-            <div class="card-body bg-light">
-              <h5>Jianye<br/>Hao</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                Tianjin University
-              </p>
-              <a href="http://www.icdai.org/index.html" target="_blank" class="btn btn-sm btn-primary">
-                Home
-              </a>
-            </div>
-          </div>
-          </div>
-
-          <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
-          <div class="card shadow-sm mb-4 d-flex justify-content-center align-self-center">
-            <img src="../assets/images/committee/matthijs.png" class="card-img-top">
-            <div class="card-body bg-light">
-              <h5>Matthijs<br/>Spaan</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                Delft University of Technology
-              </p>
-              <a href="https://www.st.ewi.tudelft.nl/mtjspaan/" target="_blank" class="btn btn-sm btn-primary">
-                Home
-              </a>
-            </div>
-          </div>
-          </div>
-
-      </div>
-      </div>
-
-      <div class="mb-5">
-      <h4>Website</h4>
-      <hr/>
-      <div class="row">
-
-        <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
-          <div class="card shadow-sm mb-4 d-flex justify-content-center align-self-center">
-            <img src="../assets/images/committee/tathagata.png" class="card-img-top">
-            <div class="card-body bg-light">
-              <h5>Tathagata<br/>Chakraborti</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                IBM Research AI
-              </p>
-              <a href="http://tchakra2.com" target="_blank" class="btn btn-sm btn-primary">
-                Home
-              </a>
-            </div>
-          </div>
-          </div>
-
-          <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
-          <div class="card shadow-sm mb-4 d-flex justify-content-center align-self-center">
-            <img src="../assets/images/committee/sarath.png" class="card-img-top">
-            <div class="card-body bg-light">
-              <h5>Sarath<br/>Sreedharan</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                Arizona State University
-              </p>
-              <a href="http://www.public.asu.edu/~ssreedh3/" target="_blank" class="btn btn-sm btn-primary">
-                Home
-              </a>
-            </div>
-          </div>
-          </div>
-
-      </div>
-      </div>
-
-      <div class="mb-5">
-      <h4>Virtual Conference Technology Advisor</h4>
-      <hr/>
-      <div class="row">
-
-          <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
-          <div class="card shadow-sm mb-4 d-flex justify-content-center align-self-center">
-            <img src="../assets/images/committee/daniel.png" class="card-img-top">
-            <div class="card-body bg-light">
-              <h5>Daniel<br/>Gnad</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                Saarland University
-              </p>
-              <a href="http://fai.cs.uni-saarland.de/gnad/" target="_blank" class="btn btn-sm btn-primary">
-                Home
-              </a>
-            </div>
-          </div>
-          </div>
-
-      </div>
-      </div>
-
-
-
-      <div class="mb-5">
-      <h4>Virtual Conference Arrangement Chairs</h4>
-      <hr/>
-      <div class="row">
-
-          <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
-          <div class="card shadow-sm mb-4 d-flex justify-content-center align-self-center">
-            <img src="../assets/images/committee/kebing.png" class="card-img-top">
-            <div class="card-body bg-light">
-              <h5>Kebing<br/>Jin</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                Sun Yat-Sen University
-              </p>
-            </div>
-          </div>
-          </div>
-
-          <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
-          <div class="card shadow-sm mb-4 d-flex justify-content-center align-self-center">
-            <img src="../assets/images/committee/zhanwen.png" class="card-img-top">
-            <div class="card-body bg-light">
-              <h5>Zhanwen<br/>Zhou</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                Sun Yat-Sen University
-              </p>
-            </div>
-          </div>
-          </div>
-
-          <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
-          <div class="card shadow-sm mb-4 d-flex justify-content-center align-self-center">
-            <img src="../assets/images/committee/default.png" class="card-img-top">
-            <div class="card-body bg-light">
-              <h5>Zhanhao<br/>Xiao</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                Sun Yat-Sen University
-              </p>
-            </div>
-          </div>
-          </div>
-
-          <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
-          <div class="card shadow-sm mb-4 d-flex justify-content-center align-self-center">
-            <img src="../assets/images/committee/default.png" class="card-img-top">
-            <div class="card-body bg-light">
-              <h5>Chao<br/>Yu</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                Sun Yat-Sen University
-              </p>
-            </div>
-          </div>
-          </div>
-
-          <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6">
-          <div class="card shadow-sm mb-4 d-flex justify-content-center align-self-center">
-            <img src="../assets/images/committee/default.png" class="card-img-top">
-            <div class="card-body bg-light">
-              <h5>Yuechang<br/>Liu</h5>
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                Sun Yat-Sen University
-              </p>
-            </div>
-          </div>
-          </div>
-
-      </div>
-      </div>
-
-
-
-    </div>
-  </div>
-
-  <footer class="footer m-5">
- 	<div class="container">
-	<hr/>
-    <div class="row d-flex justify-content-center">
-      <div class="col col-12 col-lg-2 d-flex justify-content-center mb-2">
-        &copy; ICAPS 2021
-      </div>
-      <div class="col col-12 col-lg-2 d-flex justify-content-center mb-1">
-        <a href="../privacy_policy.html">Privacy Policy</a>
-      </div>
-      <div class="col col-12 col-lg-2 d-flex justify-content-center mb-1">
-        <a href="../terms_of_use.html">Terms of Use</a>
-      </div>
-      <div class="col col-12 col-lg-2 d-flex justify-content-center">
-        <a href="../code-of-conduct.html">Code of Conduct</a>
-      </div>
-    </div>
-  </div>
-  </footer>
-
-  <script src="../assets/js/bootstrap.min.js"></script>
-      
+    <script src="../assets/js/bootstrap.min.js"></script>
   </body>
 </html>
-
