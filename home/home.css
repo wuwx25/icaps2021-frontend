@@ -1,14 +1,9 @@
 #cover {
-    background-image: url("../assets/images/cover/cover-bw.png");
+    background-image: url("../assets/images/cover.png");
     background-repeat: no-repeat;
     background-size: 100% auto;
     background-position: bottom;
     height: 90vh;
-}
-
-#info {
-    background-repeat: no-repeat;
-    background-size: auto 100%;
 }
 
 .cover-banner {

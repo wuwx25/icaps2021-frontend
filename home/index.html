@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
 
   <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="../assets/js/jquery-3.6.0.min.js"></script>
 
 </head>
 <body>
@@ -59,7 +59,7 @@
             ICAPS 2021 will be held virtually from Guangzhou, China; from Aug 2-13.
           </p>
           <p>
-            <a href="../Calls" class="btn btn-icaps my-2">Calls</a>
+            <a href="../Calls" class="btn btn-icaps text-white my-2">Calls</a>
             <a href="#more" class="btn btn-secondary my-2">Learn More</a>
           </p>
         </div>
@@ -81,6 +81,18 @@
   <div class="toast mb-2" role="alert" data-autohide="false">
     <div class="toast-header">
       <i class="bi bi-newspaper"></i>
+      <strong class="p-2 me-auto">4Paradigm</strong>
+      <small>04-15-2020</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      The IJCAI-ICAPS Competition on Automatic Reinforcement Learning for Dynamic JobShop Scheduling Problem is now live!
+      <a href="../Competitions/" class="text-icaps">Learn more</a>
+    </div>
+  </div>
+  <div class="toast mb-2" role="alert" data-autohide="false">
+    <div class="toast-header">
+      <i class="bi bi-newspaper"></i>
       <strong class="p-2 me-auto">System Demos</strong>
       <small>03-25-2020</small>
       <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
@@ -88,18 +100,6 @@
     <div class="toast-body">
       Call for the systems demonstrations and exhibits is out. 
       <a href="../Calls/demos.html" class="text-icaps">Learn more</a>
-    </div>
-  </div>
-  <div class="toast mb-2" role="alert" data-autohide="false">
-    <div class="toast-header">
-      <i class="bi bi-newspaper"></i>
-      <strong class="p-2 me-auto">Journal Track</strong>
-      <small>03-11-2020</small>
-      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-    </div>
-    <div class="toast-body">
-      Call for the journal track is now out. 
-      <a href="../Calls/journal-track.html" class="text-icaps">Learn more</a>
     </div>
   </div>
 </div>
@@ -187,10 +187,10 @@ The decision was based on the following factors:
     <div class="card shadow-sm transparent-card">
       <div class="card-body">
         <h5 class="card-title">Sponsors</h5>
-          <a href="https://www.noahlab.com.hk/#/home"><img src="../assets/images/huawei_pic.jpg" class="sponsor-img" alt="Huawei" style="width:250px"></a>
-          <a href="http://www.journals.elsevier.com/artificial-intelligence/"><img src="../assets/images/aij.png" class="sponsor-img" alt="Artificial Intelligence Journal" style="width:80px"></a>
-          <a href="http://psresearch.xyz/"><img src="../assets/images/smith.gif" class="sponsor-img profile-image" alt="David Smith" style="width:80px"></a>
-          <a href="http://www.ibm.com/"><img src="../assets/images/IBM.gif" class="sponsor-img" alt="IBM" style="width:150px"></a>
+          <a href="https://www.noahlab.com.hk/#/home"><img src="../assets/images/sponsors/huawei.png" class="sponsor-img" alt="Huawei" style="width:250px"></a>
+          <a href="http://www.journals.elsevier.com/artificial-intelligence/"><img src="../assets/images/sponsors/aij.png" class="sponsor-img" alt="Artificial Intelligence Journal" style="width:80px"></a>
+          <a href="http://psresearch.xyz/"><img src="../assets/images/sponsors/smith.gif" class="sponsor-img profile-image" alt="David Smith" style="width:80px"></a>
+          <a href="http://www.ibm.com/"><img src="../assets/images/sponsors/IBM.gif" class="sponsor-img" alt="IBM" style="width:150px"></a>
       </div>
     </div>
 
@@ -207,14 +207,24 @@ The decision was based on the following factors:
   <footer class="footer m-5">
  	<div class="container">
 	<hr/>
-    <p class="mb-1 d-flex justify-content-center">&copy; ICAPS 2021 &nbsp;&nbsp;<a href="privacy_policy.html">Privacy Policy</a> &nbsp;&nbsp;<a href="terms_of_use.html">Terms of Use</a></p>
-
+    <div class="row d-flex justify-content-center">
+      <div class="col col-12 col-lg-2 d-flex justify-content-center mb-2">
+        &copy; ICAPS 2021
+      </div>
+      <div class="col col-12 col-lg-2 d-flex justify-content-center mb-1">
+        <a href="../privacy_policy.html">Privacy Policy</a>
+      </div>
+      <div class="col col-12 col-lg-2 d-flex justify-content-center mb-1">
+        <a href="../terms_of_use.html">Terms of Use</a>
+      </div>
+      <div class="col col-12 col-lg-2 d-flex justify-content-center">
+        <a href="../code-of-conduct.html">Code of Conduct</a>
+      </div>
+    </div>
   </div>
   </footer>
 
-
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
 
   <script type="text/javascript">
     var option = {
