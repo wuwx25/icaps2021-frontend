@@ -1,0 +1,47 @@
+#cover {
+    background-image: url("../assets/images/cover/cover-bw.png");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: bottom;
+    height: 90vh;
+}
+
+#info {
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+}
+
+.cover-banner {
+    padding: 40px;
+    color: black;
+}
+
+.cover-banner2 {
+    background-color: rgb(255, 238, 223);
+    padding: 40px;
+    color: black;
+}
+
+.sponsor-img {
+    padding: 10px;
+}
+
+
+.quicklink {
+    background-color: #fff;
+    border: none;
+}
+
+.quicklink:hover {
+    background-color: #1f4e8f;
+    color: #fff;
+}
+
+.transparent-card {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.profile-image {
+/*    -webkit-border-radius:50% 50%;
+    border-radius: 50% 50%;
+*/}

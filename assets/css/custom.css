@@ -1,0 +1,37 @@
+.nav-item:hover {
+    color: #fff!important;
+}
+
+.nav-item-active {
+    color: #fff!important;
+}
+
+.navbar-muted {
+    background-color: rgb(231, 231, 221);
+}
+
+@media screen and (min-width: 992px)  
+{
+    .fixed-top-lg {
+        background-color: rgba(0,0,0,0.1);
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+}
+
+a {
+    text-decoration: none!important;
+}
+
+
+.text-icaps {
+    color: #f5821f!important;
+}
+
+.disabled {
+    cursor: not-allowed!important;
+    pointer-events: unset!important;
+}
