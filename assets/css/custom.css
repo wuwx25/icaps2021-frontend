@@ -1,3 +1,12 @@
+@media screen and (max-width: 992px)  
+{
+    body { padding-top: 70px; }
+}
+
+a {
+    text-decoration: none!important;
+}
+
 .nav-item:hover {
     color: #fff!important;
 }
@@ -9,22 +18,6 @@
 .navbar-muted {
     background-color: rgb(231, 231, 221);
 }
-
-@media screen and (min-width: 992px)  
-{
-    .fixed-top-lg {
-        position: fixed;
-        top: 0;
-        right: 0;
-        left: 0;
-        z-index: 1030;
-    }
-}
-
-a {
-    text-decoration: none!important;
-}
-
 
 .text-icaps {
     color: #f5821f!important;
@@ -38,3 +31,13 @@ a {
 .nav-link:hover {
     color: #f5821f !important;
 }
+
+.fixed-top {
+    background-color: white !important;
+}
+
+.fixed-top.scrolled {
+    padding: 0!important;
+    transition: background-color 300ms linear;
+}
+    

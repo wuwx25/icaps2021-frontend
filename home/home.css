@@ -11,8 +11,8 @@
   color: black;
 }
 
-.cover-banner2 {
-  background-color: rgb(255, 238, 223);
+.cover-banner-2 {
+  background-color: rgba(240,130,30,0.1);
   padding: 40px;
   color: black;
 }
@@ -35,8 +35,3 @@
   background-color: rgba(255, 255, 255, 0.8);
 }
 
-.profile-image {
-  /*    -webkit-border-radius:50% 50%;
-    border-radius: 50% 50%;
-*/
-}
