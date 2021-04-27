@@ -1,7 +1,7 @@
 [
   {
     "title"    : "Title is the Title",
-    "authors"  : ["Author1", "Author2", "Author3", "Author4" ]
+    "authors"  : ["Author1", "Author2", "Author3", "Author4" ],
     "abstract" : "This is an abstract",
     "id"       : "0",
     "keywords" : ["Planning"],
