@@ -9,4 +9,30 @@ function initialize() {
   };
   xmlhttp.open("GET", "../assets/data/program.json", true);
   xmlhttp.send();
+  render();
+}
+
+function update() {}
+
+function render() {
+  str = "";
+  for (const element of program) {
+    if (element["render"] == true) {
+      str += '<div class="accordion-item">';
+      str += '<h2 class="accordion-header" id=' + element["id"] + ">";
+      str +=
+        '    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">';
+      str += element["title"];
+      str += "</button> </h2>";
+      str +=
+        '    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">';
+      str += '      <div class="accordion-body">';
+      str += "        <strong>" + element["abstract"] + "</strong>";
+      str += "      </div>";
+      str += "    </div>";
+      str += "  </div>";
+    }
+  }
+  var accordion = document.getElementById("accordionExample");
+  accordion.innerHTML = str;
 }

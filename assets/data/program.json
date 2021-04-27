@@ -2,7 +2,8 @@
   {
     "title"    : "test",
     "authors"  : "test",
-    "abstract"  : "test",
+    "abstract" : "test",
+    "id"       : "0",
     "keywords" : [],
     "topics"   : [],
     "track"    : "",
@@ -12,7 +13,8 @@
   {
     "title"    : "test2",
     "authors"  : "test2",
-    "abstract"  : "test2",
+    "abstract" : "test2",
+    "id"       : "1",
     "keywords" : [],
     "topics"   : [],
     "track"    : "",
