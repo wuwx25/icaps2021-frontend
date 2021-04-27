@@ -19,24 +19,24 @@ function update(search_string) {
       for (var id in program) {
         if (program[id]["render"] == true) {
           var match_found = false;
-          if (program[id]["title"].contains(str_parts[s_id]) == true) {
+          if (program[id]["title"].includes(str_parts[s_id]) == true) {
             match_found = true;
           }
-          if (program[id]["author"].contains(str_parts[s_id]) == true) {
+          if (program[id]["author"].includes(str_parts[s_id]) == true) {
             match_found = true;
           }
-          if (program[id]["abstract"].contains(str_parts[s_id]) == true) {
+          if (program[id]["abstract"].includes(str_parts[s_id]) == true) {
             match_found = true;
           }
           for (var k_id in program[id]["keywords"]) {
             if (
-              program[id]["keywords"][k_id].contains(str_parts[s_id]) == true
+              program[id]["keywords"][k_id].includes(str_parts[s_id]) == true
             ) {
               match_found = true;
             }
           }
           for (var k_id in program[id]["topics"]) {
-            if (program[id]["topics"][k_id].contains(str_parts[s_id]) == true) {
+            if (program[id]["topics"][k_id].includes(str_parts[s_id]) == true) {
               match_found = true;
             }
           }
@@ -62,7 +62,9 @@ function render() {
       str += element["title"];
       str += "</button> </h2>";
       str +=
-        '    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">';
+        '    <div id="flush-collapse' +
+        element["id"] +
+        '" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">';
       str += '      <div class="accordion-body">';
       str += "        <strong>" + element["abstract"] + "</strong>";
       str += "      </div>";
