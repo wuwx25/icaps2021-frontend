@@ -87,6 +87,6 @@ function render() {
     }
   }
 
-  var accordion = document.getElementById("accordionExample");
+  var accordion = document.getElementById("accordionProgram");
   accordion.innerHTML = str;
 }
