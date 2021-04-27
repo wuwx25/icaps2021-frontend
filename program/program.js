@@ -17,7 +17,7 @@ function reset_program() {
   }
 }
 function update(search_string) {
-  var str_parts = search_string.split(" ");
+  var str_parts = search_string.toLowerCase().split(" ");
   reset_program();
 
   if (str_parts.length > 0) {
@@ -25,27 +25,43 @@ function update(search_string) {
       for (var id in program) {
         if (program[id]["render"] == true) {
           var match_found = false;
-          if (program[id]["title"].includes(str_parts[s_id]) == true) {
+          if (
+            program[id]["title"].toLowerCase().includes(str_parts[s_id]) == true
+          ) {
             match_found = true;
           }
-          if (program[id]["authors"].includes(str_parts[s_id]) == true) {
+          if (
+            program[id]["authors"].toLowerCase().includes(str_parts[s_id]) ==
+            true
+          ) {
             match_found = true;
           }
-          if (program[id]["abstract"].includes(str_parts[s_id]) == true) {
+          if (
+            program[id]["abstract"].toLowerCase().includes(str_parts[s_id]) ==
+            true
+          ) {
             match_found = true;
           }
-          if (program[id]["track"].includes(str_parts[s_id]) == true) {
+          if (
+            program[id]["track"].toLowerCase().includes(str_parts[s_id]) == true
+          ) {
             match_found = true;
           }
           for (var k_id in program[id]["keywords"]) {
             if (
-              program[id]["keywords"][k_id].includes(str_parts[s_id]) == true
+              program[id]["keywords"][k_id]
+                .toLowerCase()
+                .includes(str_parts[s_id]) == true
             ) {
               match_found = true;
             }
           }
           for (var k_id in program[id]["topics"]) {
-            if (program[id]["topics"][k_id].includes(str_parts[s_id]) == true) {
+            if (
+              program[id]["topics"][k_id]
+                .toLowerCase()
+                .includes(str_parts[s_id]) == true
+            ) {
               match_found = true;
             }
           }
