@@ -86,14 +86,15 @@ function render() {
         "</span><br/>";
       str +=
         "        <p><strong>Abstract: </strong>" + element["abstract"] + "</p>";
-      str +=
-        "        <p><strong>Authors: </strong>:" + element["authors"] + "</p>";
+      author_str = element["authors"].join();
+
+      str += "        <p><strong>Authors: </strong>" + author_str + "</p>";
 
       keyword_str = element["keywords"].join();
       topic_str = element["topics"].join();
 
-      str += "        <p><strong>Keywords:  </strong>:" + keyword_str + "</p>";
-      str += "        <p><strong>Topics: </strong>:" + topic_str + "</p>";
+      str += "        <p><strong>Keywords:  </strong>" + keyword_str + "</p>";
+      str += "        <p><strong>Topics: </strong>" + topic_str + "</p>";
 
       str += "      </div>";
       str += "    </div>";

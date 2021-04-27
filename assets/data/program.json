@@ -1,7 +1,7 @@
 [
   {
     "title"    : "Title is the Title",
-    "authors"  : "Author1, Author2, Author3, Author4 ",
+    "authors"  : ["Author1", "Author2", "Author3", "Author4" ]
     "abstract" : "This is an abstract",
     "id"       : "0",
     "keywords" : ["Planning"],
@@ -12,7 +12,7 @@
   },
   {
     "title"    : "This Title is different",
-    "authors"  : "Author1, Author5",
+    "authors"  : ["Author1", "Author5"],
     "abstract" : "This abstract is also different, but yet the same",
     "id"       : "1",
     "keywords" : ["Explanation"],

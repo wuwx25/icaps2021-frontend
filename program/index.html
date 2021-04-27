@@ -69,11 +69,15 @@
       </div>
 
       <div class="container">
-        <input
-          type="search"
-          oninput="update(this.value)"
-          placeholder="Search"
-        />
+        <div class="input-group flex-nowrap">
+          <span class="glyphicon glyphicon-search"></span>
+          <input
+            type="search"
+            oninput="update(this.value)"
+            placeholder="Search"
+          />
+        </div>
+
         <div class="accordion accordion-flush" id="accordionProgram"></div>
       </div>
     </div>
