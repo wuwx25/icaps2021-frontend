@@ -30,11 +30,14 @@ function update(search_string) {
           ) {
             match_found = true;
           }
-          if (
-            program[id]["authors"].toLowerCase().includes(str_parts[s_id]) ==
-            true
-          ) {
-            match_found = true;
+          for (var k_id in program[id]["authors"]) {
+            if (
+              program[id]["authors"][k_id]
+                .toLowerCase()
+                .includes(str_parts[s_id]) == true
+            ) {
+              match_found = true;
+            }
           }
           if (
             program[id]["abstract"].toLowerCase().includes(str_parts[s_id]) ==
