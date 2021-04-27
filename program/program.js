@@ -65,15 +65,20 @@ function render() {
     element = program[id];
     if (element["render"] == true) {
       str += '<div class="accordion-item">';
-      str += '<h2 class="accordion-header" id=' + element["id"] + ">";
       str +=
-        '          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">';
+        '<h2 class="accordion-header" id=flush-heading' + element["id"] + ">";
+      str +=
+        '          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse' +
+        element["id"] +
+        '" aria-expanded="false" aria-controls="flush-collapseOne">';
       str += element["title"];
       str += "</button> </h2>";
       str +=
         '    <div id="flush-collapse' +
         element["id"] +
-        '" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">';
+        '" class="accordion-collapse collapse" aria-labelledby="flush-heading' +
+        element["id"] +
+        '" data-bs-parent="#accordionProgram">';
       str += '      <div class="accordion-body">';
       str += "        <strong>" + element["abstract"] + "</strong>";
       str += "      </div>";
