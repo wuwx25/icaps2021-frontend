@@ -80,7 +80,21 @@ function render() {
         element["id"] +
         '" data-bs-parent="#accordionProgram">';
       str += '      <div class="accordion-body">';
-      str += "        <strong>" + element["abstract"] + "</strong>";
+      str +=
+        '       <span class="badge bg-dark">' +
+        element["track"] +
+        "</span><br/>";
+      str +=
+        "        <p><strong>Abstract: </strong>" + element["abstract"] + "</p>";
+      str +=
+        "        <p><strong>Authors: </strong>:" + element["authors"] + "</p>";
+
+      keyword_str = element["keywords"].join();
+      topic_str = element["topics"].join();
+
+      str += "        <p><strong>Keywords:  </strong>:" + keyword_str + "</p>";
+      str += "        <p><strong>Topics: </strong>:" + topic_str + "</p>";
+
       str += "      </div>";
       str += "    </div>";
       str += "  </div>";

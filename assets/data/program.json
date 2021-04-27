@@ -1,23 +1,23 @@
 [
   {
-    "title"    : "test",
-    "authors"  : "test",
-    "abstract" : "test",
+    "title"    : "Title is the Title",
+    "authors"  : "Author1, Author2, Author3, Author4 ",
+    "abstract" : "This is an abstract",
     "id"       : "0",
-    "keywords" : [],
-    "topics"   : [],
-    "track"    : "",
+    "keywords" : ["Planning"],
+    "topics"   : ["Learning"],
+    "track"    : "Planning and Learning",
     "link"     : "",
     "render"   : true
   },
   {
-    "title"    : "test2",
-    "authors"  : "test2",
-    "abstract" : "test2",
+    "title"    : "This Title is different",
+    "authors"  : "Author1, Author5",
+    "abstract" : "This abstract is also different, but yet the same",
     "id"       : "1",
-    "keywords" : [],
-    "topics"   : [],
-    "track"    : "",
+    "keywords" : ["Explanation"],
+    "topics"   : ["Robotics"],
+    "track"    : "Main track",
     "link"     : "",
     "render"   : true
   }
