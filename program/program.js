@@ -16,7 +16,7 @@ function update() {}
 
 function render() {
   str = "";
-  for (const element of program) {
+  for (var element in program) {
     if (element["render"] == true) {
       str += '<div class="accordion-item">';
       str += '<h2 class="accordion-header" id=' + element["id"] + ">";
