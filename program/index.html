@@ -63,16 +63,14 @@
       </nav>
     </header>
 
-    <div class="album mt-3 p-4">
+    <div class="album mt-3 p-4" style="min-height: 80vh">
       <div style="height: 100px" class="d-none d-md-block">
         <!-- padding hack for the fixed navbar -->
       </div>
 
       <div class="container">
-        <div class="input-group flex-nowrap">
-          <span class="input-group-text">
-            <span class="glyphicon glyphicon-search"></span>
-          </span>
+        <div class="input-group mb-3 flex-nowrap">
+          <!--          <span class="input-group-text"></span>-->
           <input
             type="search"
             oninput="update(this.value)"
@@ -80,7 +78,7 @@
           />
         </div>
 
-        <div class="accordion accordion-flush" id="accordionProgram"></div>
+        <div class="accordion accordion-flush mb-3" id="accordionProgram"></div>
       </div>
     </div>
 
