@@ -69,7 +69,11 @@
       </div>
 
       <div class="container">
-        <input type="search" oninput="Update()" />
+        <input
+          type="search"
+          oninput="Update(this.value)"
+          placeholder="Search"
+        />
         <div class="accordion accordion-flush" id="accordionExample"></div>
       </div>
     </div>

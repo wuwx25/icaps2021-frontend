@@ -5,23 +5,60 @@ function initialize() {
     if (this.readyState == 4 && this.status == 200) {
       var myObj = JSON.parse(this.responseText);
       program = myObj;
+      render();
     }
   };
   xmlhttp.open("GET", "../assets/data/program.json", true);
   xmlhttp.send();
+}
+
+function update(search_string) {
+  var str_parts = search_string.split(" ");
+  if (str_parts.length > 0) {
+    for (var s_id in str_parts) {
+      for (var id in program) {
+        if (program[id]["render"] == true) {
+          var match_found = false;
+          if (program[id]["title"].contains(str_parts[s_id]) == true) {
+            match_found = true;
+          }
+          if (program[id]["author"].contains(str_parts[s_id]) == true) {
+            match_found = true;
+          }
+          if (program[id]["abstract"].contains(str_parts[s_id]) == true) {
+            match_found = true;
+          }
+          for (var k_id in program[id]["keywords"]) {
+            if (
+              program[id]["keywords"][k_id].contains(str_parts[s_id]) == true
+            ) {
+              match_found = true;
+            }
+          }
+          for (var k_id in program[id]["topics"]) {
+            if (program[id]["topics"][k_id].contains(str_parts[s_id]) == true) {
+              match_found = true;
+            }
+          }
+          if (match_found != true) {
+            program[id]["render"] = false;
+          }
+        }
+      }
+    }
+  }
   render();
 }
 
-function update() {}
-
 function render() {
   str = "";
-  for (var element in program) {
+  for (var id in program) {
+    element = program[id];
     if (element["render"] == true) {
       str += '<div class="accordion-item">';
       str += '<h2 class="accordion-header" id=' + element["id"] + ">";
       str +=
-        '    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">';
+        '    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">';
       str += element["title"];
       str += "</button> </h2>";
       str +=
@@ -33,6 +70,7 @@ function render() {
       str += "  </div>";
     }
   }
+
   var accordion = document.getElementById("accordionExample");
   accordion.innerHTML = str;
 }
