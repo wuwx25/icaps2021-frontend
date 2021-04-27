@@ -1,0 +1,22 @@
+[
+  {
+    "title"    : "test",
+    "authors"  : "test",
+    "abstract"  : "test",
+    "keywords" : [],
+    "topics"   : [],
+    "track"    : "",
+    "link"     : "",
+    "render"   : true
+  },
+  {
+    "title"    : "test2",
+    "authors"  : "test2",
+    "abstract"  : "test2",
+    "keywords" : [],
+    "topics"   : [],
+    "track"    : "",
+    "link"     : "",
+    "render"   : true
+  }
+]
