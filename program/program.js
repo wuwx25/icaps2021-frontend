@@ -58,7 +58,7 @@ function render() {
       str += '<div class="accordion-item">';
       str += '<h2 class="accordion-header" id=' + element["id"] + ">";
       str +=
-        '    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">';
+        '          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">';
       str += element["title"];
       str += "</button> </h2>";
       str +=
