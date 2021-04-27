@@ -22,10 +22,13 @@ function update(search_string) {
           if (program[id]["title"].includes(str_parts[s_id]) == true) {
             match_found = true;
           }
-          if (program[id]["author"].includes(str_parts[s_id]) == true) {
+          if (program[id]["authors"].includes(str_parts[s_id]) == true) {
             match_found = true;
           }
           if (program[id]["abstract"].includes(str_parts[s_id]) == true) {
+            match_found = true;
+          }
+          if (program[id]["track"].includes(str_parts[s_id]) == true) {
             match_found = true;
           }
           for (var k_id in program[id]["keywords"]) {
