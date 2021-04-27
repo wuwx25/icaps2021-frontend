@@ -11,9 +11,15 @@ function initialize() {
   xmlhttp.open("GET", "../assets/data/program.json", true);
   xmlhttp.send();
 }
-
+function reset_program() {
+  for (var id in program) {
+    program[id]["render"] = true;
+  }
+}
 function update(search_string) {
   var str_parts = search_string.split(" ");
+  reset_program();
+
   if (str_parts.length > 0) {
     for (var s_id in str_parts) {
       for (var id in program) {
