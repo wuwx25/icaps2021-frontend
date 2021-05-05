@@ -6,7 +6,7 @@ class API {
    */
   static getConfig() {
     if (API.configCache == null) {
-      API.configCache = $.get("serve_config.json");
+      API.configCache = $.get("./assets/data/serve_config.json");
     }
     return API.configCache;
   }
