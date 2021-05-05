@@ -104,34 +104,33 @@
             role="tabpanel"
             aria-labelledby="paper-tab"
           >
-            ...
-          </div>
+            <div class="col col-12 p-4">
+              <section>
+                <header>
+                  <h1 class="top">ICAPS 2021 Program</h1>
+                  <hr />
+                </header>
+                <div class="container">
+                  <div class="input-group col-12 mb-5 flex-nowrap">
+                    <!--          <span class="input-group-text"></span>-->
+                    <input
+                      type="search"
+                      style="width: 100%"
+                      oninput="update(this.value)"
+                      placeholder="Search"
+                    />
+                  </div>
 
-          <div class="col col-12 p-4">
-            <section>
-              <header>
-                <h1 class="top">ICAPS 2021 Program</h1>
-                <hr />
-              </header>
-              <div class="container">
-                <div class="input-group col-12 mb-5 flex-nowrap">
-                  <!--          <span class="input-group-text"></span>-->
-                  <input
-                    type="search"
-                    style="width: 100%"
-                    oninput="update(this.value)"
-                    placeholder="Search"
-                  />
+                  <div
+                    class="accordion accordion-flush mb-3"
+                    id="accordionProgram"
+                  ></div>
                 </div>
-
-                <div
-                  class="accordion accordion-flush mb-3"
-                  id="accordionProgram"
-                ></div>
-              </div>
-            </section>
+              </section>
+            </div>
           </div>
         </div>
+
         <div
           class="tab-pane fade"
           id="profile"
