@@ -21,6 +21,17 @@
     <!-- jQuery -->
     <script src="../assets/js/jquery-3.6.0.min.js"></script>
     <script src="../assets/js/custom.js"></script>
+
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+    />
+
+    <!-- Frontloading the JS for performance reasons-->
+    <script src="../assets/js/popper.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="program.js"></script>
   </head>
   <body onload="initialize()">
     >
@@ -43,7 +54,10 @@
                   <a href="../home" class="nav-link px-2">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link px-2 active">Calls</a>
+                  <a class="nav-link px-2 active">Program</a>
+                </li>
+                <li class="nav-item">
+                  <a href="../Calls" class="nav-link px-2">Calls</a>
                 </li>
                 <li class="nav-item">
                   <a href="../workshops" class="nav-link px-2">Workshops</a>
@@ -70,24 +84,289 @@
         <div class="col col-12 p-4">
           <section>
             <header>
-              <h1 class="top">ICAPS 2021 Program</h1>
+              <h4 class="top">
+                <span> ICAPS 2021 Program </span>
+                &nbsp;
+
+                <div
+                  class="btn-group btn-group-sm d-none d-lg-inline-flex"
+                  role="group"
+                >
+                  <input
+                    type="radio"
+                    class="btn-check toggle-viz"
+                    name="btnradio"
+                    id="btnradio1"
+                    checked
+                  />
+                  <label class="btn btn-outline-dark" for="btnradio1"
+                    >List</label
+                  >
+
+                  <input
+                    type="radio"
+                    class="btn-check toggle-viz"
+                    name="btnradio"
+                    id="btnradio2"
+                  />
+                  <label class="btn btn-outline-dark" for="btnradio2"
+                    >Graph</label
+                  >
+                </div>
+              </h4>
               <hr />
             </header>
-            <div class="container">
-              <div class="input-group col-12 mb-5 flex-nowrap">
-                <!--          <span class="input-group-text"></span>-->
-                <input
-                  type="search"
-                  style="width: 100%"
-                  oninput="update(this.value)"
-                  placeholder="Search"
-                />
+            <div class="row">
+              <div
+                class="col col-12 col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8"
+              >
+                <div class="input-group">
+                  <span class="input-group-text"
+                    ><i class="bi bi-search"></i
+                  ></span>
+                  <input
+                    type="text"
+                    class="form-control"
+                    aria-label="Text input with 2 dropdown buttons"
+                    oninput="update(this.value)"
+                    placeholder="Search"
+                  />
+                  <button
+                    class="btn btn-outline-secondary dropdown-toggle"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    id="select-track"
+                  >
+                    Select Track
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-end">
+                    <li>
+                      <a
+                        class="dropdown-item dropdown-item-track"
+                        href="#"
+                        name="Main Track"
+                        >Main Track</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item dropdown-item-track"
+                        href="#"
+                        name="System Demonstrations"
+                        >System Demonstrations</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item dropdown-item-track"
+                        href="#"
+                        name="Doctoral Consortium"
+                        >Doctoral Consortium</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item dropdown-item-track"
+                        href="#"
+                        name="Applications Track"
+                        >Applications Track</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item dropdown-item-track"
+                        href="#"
+                        name="Robotics Track"
+                        >Robotics Track</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item dropdown-item-track"
+                        href="#"
+                        name="Planning and Learning Track"
+                        >Planning and Learning Track</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item dropdown-item-track"
+                        href="#"
+                        name="Journal Track"
+                        >Journal Track</a
+                      >
+                    </li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li>
+                      <a
+                        class="dropdown-item dropdown-item-track"
+                        href="#"
+                        name="Select Track"
+                        >Unselect</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+
+                <div
+                  class="accordion accordion-flush mt-3"
+                  id="accordionPaperList"
+                >
+                  <div class="accordion-item mb-1">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                      <button
+                        class="accordion-button accordion-header-item collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseOne"
+                      >
+                        Paper Title Paper Title Paper Title Paper Title Paper
+                        Title
+                      </button>
+                    </h2>
+                    <div
+                      id="flush-collapseOne"
+                      class="accordion-collapse collapse"
+                      data-bs-parent="#accordionPaperList"
+                    >
+                      <div class="accordion-body">
+                        <div class="mb-3">
+                          <span class="badge bg-secondary">Keyword</span>
+                          <span class="badge bg-secondary">Keyword</span>
+                          <span class="badge bg-secondary">Keyword</span>
+                        </div>
+                        <p class="mb-2">
+                          <b>Authors: </b>
+                          Firstname Lastname, Firstname Lastname, Firstname
+                          Lastname, and Firstname Lastname
+                        </p>
+                        <p>
+                          <b>Abstract: </b>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit. Mauris vehicula, velit sit amet blandit
+                          venenatis, velit tortor euismod nunc, nec efficitur
+                          magna mi eget mauris. Nunc bibendum urna quis sem
+                          congue aliquet. Curabitur vehicula ipsum quis faucibus
+                          pharetra. Curabitur gravida sagittis nibh, vitae
+                          malesuada odio feugiat eu. Nulla dapibus sem non eros
+                          consequat, in egestas felis tempus. Aliquam vulputate
+                          condimentum nunc in dictum. Sed vestibulum dolor ac
+                          finibus volutpat. Quisque magna quam, facilisis vitae
+                          hendrerit ac, feugiat in ex.
+                        </p>
+                        <button type="button" class="btn btn-dark btn-sm">
+                          PDF
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="accordion-item mb-1">
+                    <h2 class="accordion-header" id="flush-headingTwo">
+                      <button
+                        class="accordion-button accordion-header-item collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseTwo"
+                      >
+                        Paper Title Paper Title Paper Title Paper Title Paper
+                        Title
+                      </button>
+                    </h2>
+                    <div
+                      id="flush-collapseTwo"
+                      class="accordion-collapse collapse"
+                      data-bs-parent="#accordionPaperList"
+                    >
+                      <div class="accordion-body">
+                        <div class="mb-3">
+                          <span class="badge bg-secondary">Keyword</span>
+                          <span class="badge bg-secondary">Keyword</span>
+                          <span class="badge bg-secondary">Keyword</span>
+                        </div>
+                        <p class="mb-2">
+                          <b>Authors: </b>
+                          Firstname Lastname, Firstname Lastname, Firstname
+                          Lastname, and Firstname Lastname
+                        </p>
+                        <p>
+                          <b>Abstract: </b>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit. Mauris vehicula, velit sit amet blandit
+                          venenatis, velit tortor euismod nunc, nec efficitur
+                          magna mi eget mauris. Nunc bibendum urna quis sem
+                          congue aliquet. Curabitur vehicula ipsum quis faucibus
+                          pharetra. Curabitur gravida sagittis nibh, vitae
+                          malesuada odio feugiat eu. Nulla dapibus sem non eros
+                          consequat, in egestas felis tempus. Aliquam vulputate
+                          condimentum nunc in dictum. Sed vestibulum dolor ac
+                          finibus volutpat. Quisque magna quam, facilisis vitae
+                          hendrerit ac, feugiat in ex.
+                        </p>
+                        <button type="button" class="btn btn-dark btn-sm">
+                          PDF
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="accordion accordion-flush mb-3"
+                  id="accordionProgram"
+                ></div>
+                <div class="d-none" id="canvas">
+                  <div class="alert alert-light" role="alert">
+                    Each dot represents a paper. They are arranged by a measure
+                    of similarity. If you <b>hover</b> over a dot, you see the
+                    corresponding paper. If you <b>click</b> on the dot, you go
+                    to the paper page. <b>Drag</b> a rectangle to summarize an
+                    area of the plot.
+                  </div>
+
+                  <img
+                    src="../assets/images/cache-graph-image.png"
+                    width="100%"
+                  />
+                </div>
               </div>
 
-              <div
-                class="accordion accordion-flush mb-3"
-                id="accordionProgram"
-              ></div>
+              <div class="col col-4 col-xl-4 d-none d-lg-block">
+                <div class="list-group list-group-flush">
+                  <a
+                    href="#"
+                    class="list-group-item list-group-keyword list-group-item-action d-flex justify-content-between align-items-start"
+                    id="xyz"
+                  >
+                    Keyword
+                    <span class="badge bg-secondary rounded-pill">14</span>
+                  </a>
+                  <a
+                    href="#"
+                    class="list-group-item list-group-keyword list-group-item-action d-flex justify-content-between align-items-start"
+                    id="xyz1"
+                  >
+                    Keyword
+                    <span class="badge bg-secondary rounded-pill">2</span>
+                  </a>
+                  <a
+                    href="#"
+                    class="list-group-item list-group-keyword list-group-item-action d-flex justify-content-between align-items-start"
+                    id="xyz3"
+                  >
+                    Keyword
+                    <span class="badge bg-secondary rounded-pill">1</span>
+                  </a>
+                  <a
+                    href="#"
+                    class="list-group-item list-group-keyword list-group-item-action d-flex justify-content-between align-items-start"
+                    id="xyz2"
+                  >
+                    Keyword
+                    <span class="badge bg-secondary rounded-pill">4</span>
+                  </a>
+                </div>
+              </div>
             </div>
           </section>
         </div>
@@ -112,8 +391,5 @@
         </div>
       </div>
     </footer>
-
-    <script src="../assets/js/bootstrap.min.js"></script>
-    <script src="program.js"></script>
   </body>
 </html>
