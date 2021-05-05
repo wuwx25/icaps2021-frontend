@@ -67,29 +67,78 @@
         <div style="height: 100px" class="d-none d-md-block">
           <!-- padding hack for the fixed navbar -->
         </div>
-        <div class="col col-12 p-4">
-          <section>
-            <header>
-              <h1 class="top">ICAPS 2021 Program</h1>
-              <hr />
-            </header>
-            <div class="container">
-              <div class="input-group col-12 mb-5 flex-nowrap">
-                <!--          <span class="input-group-text"></span>-->
-                <input
-                  type="search"
-                  style="width: 100%"
-                  oninput="update(this.value)"
-                  placeholder="Search"
-                />
-              </div>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link active"
+              id="paper-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#paper"
+              type="button"
+              role="tab"
+              aria-controls="home"
+              aria-selected="true"
+            >
+              Paper List
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="profile-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#profile"
+              type="button"
+              role="tab"
+              aria-controls="profile"
+              aria-selected="false"
+            >
+              Visualization
+            </button>
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <div
+            class="tab-pane fade show active"
+            id="paper"
+            role="tabpanel"
+            aria-labelledby="paper-tab"
+          >
+            ...
+          </div>
 
-              <div
-                class="accordion accordion-flush mb-3"
-                id="accordionProgram"
-              ></div>
-            </div>
-          </section>
+          <div class="col col-12 p-4">
+            <section>
+              <header>
+                <h1 class="top">ICAPS 2021 Program</h1>
+                <hr />
+              </header>
+              <div class="container">
+                <div class="input-group col-12 mb-5 flex-nowrap">
+                  <!--          <span class="input-group-text"></span>-->
+                  <input
+                    type="search"
+                    style="width: 100%"
+                    oninput="update(this.value)"
+                    placeholder="Search"
+                  />
+                </div>
+
+                <div
+                  class="accordion accordion-flush mb-3"
+                  id="accordionProgram"
+                ></div>
+              </div>
+            </section>
+          </div>
+        </div>
+        <div
+          class="tab-pane fade"
+          id="profile"
+          role="tabpanel"
+          aria-labelledby="profile-tab"
+        >
+          ...
         </div>
       </div>
     </main>
