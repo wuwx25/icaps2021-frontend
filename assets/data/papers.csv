@@ -1,0 +1,3 @@
+UID,title,authors,abstract,keywords,sessions
+1,"Title is the Title",Author1|Author2|Author3|Author4,"This is an abstract","planning","learning"
+2,"Title is different",Author1|Author5,"This abstract is also different, but yet the same","explanations","robotics"
