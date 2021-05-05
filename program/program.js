@@ -1,4 +1,27 @@
+$(document).on("change", ".toggle-viz", function (event) {
+  if ($(this).attr("id") === "btnradio1") {
+    $("#accordionPaperList").removeClass("d-none");
+    $("#canvas").addClass("d-none");
+  } else {
+    $("#accordionPaperList").addClass("d-none");
+    $("#canvas").removeClass("d-none");
+  }
+});
+
+$(document).on("click", ".list-group-keyword", function (event) {
+  if ($(this).hasClass("active")) {
+    $(this).removeClass("active");
+  } else {
+    $(this).addClass("active");
+  }
+});
+
+$(document).on("click", ".dropdown-item-track", function (event) {
+  $("#select-track").text($(this).attr("name"));
+});
+
 var program;
+
 function initialize() {
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function () {
@@ -11,11 +34,13 @@ function initialize() {
   xmlhttp.open("GET", "../assets/data/program.json", true);
   xmlhttp.send();
 }
+
 function reset_program() {
   for (var id in program) {
     program[id]["render"] = true;
   }
 }
+
 function update(search_string) {
   var str_parts = search_string.toLowerCase().split(" ");
   reset_program();
@@ -99,6 +124,7 @@ function render() {
         element["id"] +
         '" data-bs-parent="#accordionProgram">';
       str += '      <div class="accordion-body">';
+      s;
       str +=
         '       <span class="badge bg-dark">' +
         element["track"] +
