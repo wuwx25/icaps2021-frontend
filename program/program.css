@@ -1,8 +1,14 @@
-.call-button {
-  background-color: #e5e5e5;
+.list-group-keyword.active {
+  background-color: #e9ecef;
+  border-color: #212529;
+  color: #f5821f;
 }
 
-.call-button:hover {
-  background-color: black;
-  color: white;
+.accordion-header-item {
+  color: #1f4e8f !important;
+  background-color: #f7f7f7;
+}
+
+.accordion-header-item.collapsed {
+  color: black !important;
 }
