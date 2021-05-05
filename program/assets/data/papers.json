@@ -1,0 +1,30 @@
+[
+  {
+    "UID": "1",
+    "title": "Title is the Title",
+    "forum": "1",
+    "authors": ["Author1", "Author2", "Author3", "Author4"],
+    "keywords": ["planning"],
+    "abstract": "This is an abstract",
+    "TLDR": "This is an abstract",
+    "recs": [],
+    "sessions": ["learning"],
+    "pdf_url": "",
+    "code_link": "https://github.com/Mini-Conf/Mini-Conf",
+    "link": "https://arxiv.org/abs/2007.12238"
+  },
+  {
+    "UID": "2",
+    "title": "Title is different",
+    "forum": "2",
+    "authors": ["Author1", "Author5"],
+    "keywords": ["explanations"],
+    "abstract": "This abstract is also different, but yet the same",
+    "TLDR": "This abstract is also different, but yet the same",
+    "recs": [],
+    "sessions": ["robotics"],
+    "pdf_url": "",
+    "code_link": "https://github.com/Mini-Conf/Mini-Conf",
+    "link": "https://arxiv.org/abs/2007.12238"
+  }
+]
