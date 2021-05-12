@@ -324,10 +324,11 @@
                     area of the plot.
                   </div>
 
-                  <img
-                    src="../assets/images/cache-graph-image.png"
-                    width="100%"
-                  />
+                  <!--                  <img-->
+                  <!--                    src="../assets/images/cache-graph-image.png"-->
+                  <!--                    width="100%"-->
+                  <!--                  />-->
+                  <svg class="plot" style="display: block"></svg>
                 </div>
               </div>
 
@@ -371,6 +372,20 @@
           </section>
         </div>
       </div>
+
+      <script src="./static/js/modules/urlParams.js"></script>
+      <script src="./static/js/modules/typeaheadSetup.js"></script>
+      <script src="./static/js/data/persistor.js"></script>
+      <script src="./static/js/data/wrangle.js"></script>
+      <script src="./static/js/views/paper_vis.js"></script>
+      <script src="./static/js/data/api.js"></script>
+
+      <script>
+        $(document).ready(function () {
+          start();
+          tippy("[data-tippy-content]", { trigger: "mouseenter focus" });
+        });
+      </script>
     </main>
     <footer class="footer m-5">
       <div class="container">
