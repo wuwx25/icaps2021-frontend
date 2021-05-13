@@ -161,6 +161,6 @@ function render() {
     }
   }
 
-  var accordion = document.getElementById("accordionProgram");
+  var accordion = document.getElementById("accordionPaperList");
   accordion.innerHTML = str;
 }
