@@ -45,6 +45,7 @@ function reset_track_program() {
   for (var id in program) {
     program[id]["render_track"] = true;
   }
+  render();
 }
 
 function render_with_topics(track) {
