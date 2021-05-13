@@ -266,7 +266,11 @@ function update_paper_list_for_topics() {
         }
         if (keyword_match_found != true) {
           program[id]["render_topics"] = false;
+        } else {
+          program[id]["render_topics"] = true;
         }
+      } else {
+        program[id]["render_topics"] = true;
       }
     }
   }
