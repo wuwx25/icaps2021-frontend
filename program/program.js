@@ -34,6 +34,7 @@ function initialize() {
         program.push(myObj[id]);
         program[id]["render"] = true;
         program[id]["render_track"] = true;
+        program[id]["render_topics"] = true;
       }
       update_keyword_count();
       render_paper_list();
@@ -123,9 +124,9 @@ function update(search_string) {
           ) {
             match_found = true;
           }
-          for (var k_id in program[id]["keywords"]) {
+          for (var k_id in program[id]["topics"]) {
             if (
-              program[id]["keywords"][k_id]
+              program[id]["topics"][k_id]
                 .toLowerCase()
                 .includes(str_parts[s_id]) == true
             ) {
@@ -149,14 +150,14 @@ function update(search_string) {
             for (var keywrd_id in keyword_filter) {
               var keywrd = keyword_filter[keywrd_id];
 
-              for (var k_id in program[id]["keywords"]) {
-                if (program[id]["keywords"][k_id].toLowerCase() == keywrd) {
+              for (var k_id in program[id]["topics"]) {
+                if (program[id]["topics"][k_id] == keywrd) {
                   keyword_match_found = true;
                 }
               }
             }
             if (keyword_match_found != true) {
-              program[id]["render"] = false;
+              program[id]["render_topics"] = false;
             }
           }
         }
@@ -210,11 +211,15 @@ function render_paper_list() {
   for (var id in program) {
     element = program[id];
     keyword_str = "";
-    if (element["render"] == true && element["render_track"] == true) {
-      for (var k in element["keywords"]) {
+    if (
+      element["render"] == true &&
+      element["render_track"] == true &&
+      element["render_topics"] == true
+    ) {
+      for (var k in element["topics"]) {
         keyword_str += keyword_template_str.replaceAll(
           "@INDIV_KEYWORD@",
-          element["keywords"][k]
+          element["topics"][k]
         );
       }
       str += template_str
@@ -247,20 +252,20 @@ function update_paper_list_for_topics() {
     }
   }
   for (var id in program) {
-    if (program[id]["render"] == true) {
+    if (program[id]["render"] == true && program[id]["render_track"] == true) {
       if (keyword_filter.length > 0) {
         keyword_match_found = false;
         for (var keywrd_id in keyword_filter) {
           var keywrd = keyword_filter[keywrd_id];
 
-          for (var k_id in program[id]["keywords"]) {
-            if (program[id]["keywords"][k_id] == keywrd) {
+          for (var k_id in program[id]["topics"]) {
+            if (program[id]["topics"][k_id] == keywrd) {
               keyword_match_found = true;
             }
           }
         }
         if (keyword_match_found != true) {
-          program[id]["render"] = false;
+          program[id]["render_topics"] = false;
         }
       }
     }
