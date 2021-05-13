@@ -257,7 +257,7 @@ function update_paper_list_for_topics() {
       keyword_anchor = document.getElementById("KEYWORD_" + keyword);
       is_active = false;
       for (var cid in keyword_anchor.classList) {
-        if (keyword_anchor.classList[k] == "active") {
+        if (keyword_anchor.classList[cid] == "active") {
           is_active = true;
         }
       }
