@@ -241,7 +241,9 @@ function update_paper_list_for_topics() {
           is_active = true;
         }
       }
-      keyword_filter.push(keyword);
+      if (is_active == true) {
+        keyword_filter.push(keyword);
+      }
     }
   }
   for (var id in program) {
@@ -252,7 +254,7 @@ function update_paper_list_for_topics() {
           var keywrd = keyword_filter[keywrd_id];
 
           for (var k_id in program[id]["keywords"]) {
-            if (program[id]["keywords"][k_id].toLowerCase() == keywrd) {
+            if (program[id]["keywords"][k_id] == keywrd) {
               keyword_match_found = true;
             }
           }
