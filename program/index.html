@@ -34,7 +34,6 @@
     <script src="program.js"></script>
   </head>
   <body onload="initialize()">
-    >
     <header class="navbar fixed-top p-3 border-bottom">
       <nav class="navbar navbar-light navbar-expand-lg">
         <div class="container-fluid d-flex">
@@ -143,9 +142,8 @@
                     <li>
                       <a
                         class="dropdown-item dropdown-item-track"
-                        href="#"
+                        href='javascript:render_with_topics("main")'
                         name="Main Track"
-                        onselect="render_with_topics(main)"
                         >Main Track</a
                       >
                     </li>
@@ -168,16 +166,15 @@
                     <li>
                       <a
                         class="dropdown-item dropdown-item-track"
-                        href="#"
+                        href='javascript:render_with_topics("applications")'
                         name="Applications Track"
-                        onselect="render_with_topics(applications)"
                         >Applications Track</a
                       >
                     </li>
                     <li>
                       <a
                         class="dropdown-item dropdown-item-track"
-                        href="#"
+                        href='javascript:render_with_topics("robotics")'
                         name="Robotics Track"
                         onselect="render_with_topics(robotics)"
                         >Robotics Track</a
@@ -186,18 +183,16 @@
                     <li>
                       <a
                         class="dropdown-item dropdown-item-track"
-                        href="#"
+                        href='javascript:render_with_topics("learning")'
                         name="Planning and Learning Track"
-                        onselect="render_with_topics(learning)"
                         >Planning and Learning Track</a
                       >
                     </li>
                     <li>
                       <a
                         class="dropdown-item dropdown-item-track"
-                        href="#"
+                        href='javascript:render_with_topics("JOURNAL")'
                         name="Journal Track"
-                        onselect="render_with_topics(JOURNAL)"
                         >Journal Track</a
                       >
                     </li>
@@ -205,7 +200,7 @@
                     <li>
                       <a
                         class="dropdown-item dropdown-item-track"
-                        href="#"
+                        href="javascript:reset_track_program()"
                         name="Select Track"
                         onselect="reset_track_program()"
                         >Unselect</a
