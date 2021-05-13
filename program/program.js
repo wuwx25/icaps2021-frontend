@@ -73,7 +73,7 @@ function render_with_topics(track) {
 function update_keyword_count() {
   keyword_cnt = {};
   for (var id in program) {
-    if (program[id]["render"] == true && element["render_track"] == true) {
+    if (program[id]["render"] == true && program[id]["render_track"] == true) {
       for (tpc in program[id]["topics"]) {
         if (tpc in keyword_cnt) {
           keyword_cnt[tpc] += 1;
