@@ -55,6 +55,7 @@ function render_with_topics(track) {
       program[id]["render_track"] = false;
     }
   }
+  render();
 }
 
 function update(search_string) {
