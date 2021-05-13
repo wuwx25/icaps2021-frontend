@@ -37,6 +37,7 @@ function initialize() {
       }
       update_keyword_count();
       render_paper_list();
+      render_keyword_columns();
     }
   };
   xmlhttp.open("GET", "./assets/data/program.json", true);
@@ -56,6 +57,7 @@ function reset_track_program() {
   }
   update_keyword_count();
   render_paper_list();
+  render_keyword_columns();
 }
 
 function render_with_topics(track) {
@@ -68,13 +70,15 @@ function render_with_topics(track) {
   }
   update_keyword_count();
   render_paper_list();
+  render_keyword_columns();
 }
 
 function update_keyword_count() {
   keyword_cnt = {};
   for (var id in program) {
     if (program[id]["render"] == true && program[id]["render_track"] == true) {
-      for (tpc in program[id]["topics"]) {
+      for (tpc_id in program[id]["topics"]) {
+        tpc = program[id]["topics"][tpc_id];
         if (tpc in keyword_cnt) {
           keyword_cnt[tpc] += 1;
         } else {
@@ -102,6 +106,7 @@ function update_keyword_count() {
       }
     }
   }
+  render_paper_list();
 }
 
 function update(search_string) {
@@ -252,7 +257,7 @@ function update_paper_list_for_topics() {
       keyword_anchor = document.getElementById("KEYWORD_" + keyword);
       is_active = false;
       for (var cid in keyword_anchor.classList) {
-        if (a.classList[k] == "active") {
+        if (keyword_anchor.classList[k] == "active") {
           is_active = true;
         }
       }
@@ -276,7 +281,7 @@ function render_keyword_columns() {
   for (var tpc in keyword_cnt) {
     str += topics_str
       .replaceAll("@TPC@", tpc)
-      .replaceAll("@CNT@", topics_str[tpc]);
+      .replaceAll("@CNT@", keyword_cnt[tpc]);
   }
 
   var column = document.getElementById("Keyword_column");
