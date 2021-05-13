@@ -41,6 +41,22 @@ function reset_program() {
   }
 }
 
+function reset_track_program() {
+  for (var id in program) {
+    program[id]["render_track"] = true;
+  }
+}
+
+function render_with_topics(track) {
+  for (var id in program) {
+    if (program[id]["track"] == track) {
+      program[id]["render_track"] = true;
+    } else {
+      program[id]["render_track"] = false;
+    }
+  }
+}
+
 function update(search_string) {
   var str_parts = search_string.toLowerCase().split(" ");
   reset_program();
@@ -145,14 +161,14 @@ function render() {
   for (var id in program) {
     element = program[id];
     keyword_str = "";
-    if (element["render"] == true) {
-      for (var k in e) {
+    if (element["render"] == true && element["render_track"] == true) {
+      for (var k in element["keywords"]) {
         keyword_str += keyword_template_str.replaceAll(
           "@INDIV_KEYWORD@",
           element["keywords"][k]
         );
       }
-      str = template_str
+      str += template_str
         .replaceAll("@ID@", element["id"])
         .replaceAll("@TITLE@", element["title"])
         .replaceAll("@KEYWORD@", keyword_str)
