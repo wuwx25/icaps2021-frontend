@@ -87,26 +87,6 @@ function update_keyword_count() {
       }
     }
   }
-  for (var id in program) {
-    if (program[id]["render"] == true) {
-      if (keyword_filter.length > 0) {
-        keyword_match_found = false;
-        for (var keywrd_id in keyword_filter) {
-          var keywrd = keyword_filter[keywrd_id];
-
-          for (var k_id in program[id]["keywords"]) {
-            if (program[id]["keywords"][k_id].toLowerCase() == keywrd) {
-              keyword_match_found = true;
-            }
-          }
-        }
-        if (keyword_match_found != true) {
-          program[id]["render"] = false;
-        }
-      }
-    }
-  }
-  render_paper_list();
 }
 
 function update(search_string) {
@@ -264,6 +244,26 @@ function update_paper_list_for_topics() {
       keyword_filter.push(keyword);
     }
   }
+  for (var id in program) {
+    if (program[id]["render"] == true) {
+      if (keyword_filter.length > 0) {
+        keyword_match_found = false;
+        for (var keywrd_id in keyword_filter) {
+          var keywrd = keyword_filter[keywrd_id];
+
+          for (var k_id in program[id]["keywords"]) {
+            if (program[id]["keywords"][k_id].toLowerCase() == keywrd) {
+              keyword_match_found = true;
+            }
+          }
+        }
+        if (keyword_match_found != true) {
+          program[id]["render"] = false;
+        }
+      }
+    }
+  }
+  render_paper_list();
 }
 
 function render_keyword_columns() {
