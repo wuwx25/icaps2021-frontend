@@ -153,7 +153,7 @@ function render() {
                           @ABSTRACT@
                         </p>
                         <button type="button" class="btn btn-dark btn-sm">
-                          PDF
+                          PDF - Will be added soon
                         </button>
                       </div>
                     </div>
