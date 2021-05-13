@@ -31,7 +31,7 @@ function initialize() {
       render();
     }
   };
-  xmlhttp.open("GET", "../assets/data/program.json", true);
+  xmlhttp.open("GET", "./assets/data/program.json", true);
   xmlhttp.send();
 }
 
@@ -104,46 +104,60 @@ function update(search_string) {
 }
 
 function render() {
+  keyword_template_str = `<span class="badge bg-secondary">@INDIV_KEYWORD@</span>`;
+  template_str = `
+                <div class="accordion-item mb-1">
+                    <h2 class="accordion-header" id="flush-heading@ID@">
+                      <button
+                        class="accordion-button accordion-header-item collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapse@ID@"
+                      >
+                        @TITLE@
+                      </button>
+                    </h2>
+                    <div
+                      id="flush-collapse@ID@"
+                      class="accordion-collapse collapse"
+                      data-bs-parent="#accordionPaperList"
+                    >
+                      <div class="accordion-body">
+                        <div class="mb-3">
+                          @KEYWORD@
+                        </div>
+                        <p class="mb-2">
+                          <b>Authors: </b>
+                          @AUTHOR_STR@
+                        </p>
+                        <p>
+                          <b>Abstract: </b>
+                          @ABSTRACT@
+                        </p>
+                        <button type="button" class="btn btn-dark btn-sm">
+                          PDF
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                 `;
   str = "";
   for (var id in program) {
     element = program[id];
+    keyword_str = "";
     if (element["render"] == true) {
-      str += '<div class="accordion-item">';
-      str +=
-        '<h2 class="accordion-header" id=flush-heading' + element["id"] + ">";
-      str +=
-        '          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse' +
-        element["id"] +
-        '" aria-expanded="false" aria-controls="flush-collapseOne">';
-      str += element["title"];
-      str += "</button> </h2>";
-      str +=
-        '    <div id="flush-collapse' +
-        element["id"] +
-        '" class="accordion-collapse collapse" aria-labelledby="flush-heading' +
-        element["id"] +
-        '" data-bs-parent="#accordionProgram">';
-      str += '      <div class="accordion-body">';
-      s;
-      str +=
-        '       <span class="badge bg-dark">' +
-        element["track"] +
-        "</span><br/>";
-      str +=
-        "        <p><strong>Abstract: </strong>" + element["abstract"] + "</p>";
-      author_str = element["authors"].join();
-
-      str += "        <p><strong>Authors: </strong>" + author_str + "</p>";
-
-      keyword_str = element["keywords"].join();
-      topic_str = element["topics"].join();
-
-      str += "        <p><strong>Keywords:  </strong>" + keyword_str + "</p>";
-      str += "        <p><strong>Topics: </strong>" + topic_str + "</p>";
-
-      str += "      </div>";
-      str += "    </div>";
-      str += "  </div>";
+      for (var k in e) {
+        keyword_str += keyword_template_str.replaceAll(
+          "@INDIV_KEYWORD@",
+          element["keywords"][k]
+        );
+      }
+      str = template_str
+        .replaceAll("@ID@", element["id"])
+        .replaceAll("@TITLE@", element["title"])
+        .replaceAll("@KEYWORD@", keyword_str)
+        .replaceAll("@AUTHOR_STR@", element["authors"].join(","))
+        .replaceAll("@ABSTRACT@", element["abstract"]);
     }
   }
 
