@@ -300,6 +300,16 @@ function update_paper_list_for_topics() {
 }
 
 function render_keyword_columns() {
+  // Create items array
+  var items = Object.keys(keyword_cnt).map(function (key) {
+    return [key, keyword_cnt[key]];
+  });
+
+  // Sort the array based on the second element
+  items.sort(function (first, second) {
+    return second[1] - first[1];
+  });
+
   topics_str = `
                 <a
                     href="javascript:update_paper_list_for_topics()"
@@ -311,7 +321,10 @@ function render_keyword_columns() {
                   </a>
                  `;
   str = "";
-  for (var tpc in keyword_cnt) {
+  for (var tpc_cnt in items) {
+    tpc = tpc_cnt[0];
+    cnt = tpc_cnt[1];
+
     active_str = "";
     for (var id in keyword_filter) {
       if (tpc == keyword_filter[id]) {
@@ -321,7 +334,7 @@ function render_keyword_columns() {
     str += topics_str
       .replaceAll("@TPC@", tpc)
       .replaceAll("@ACT@", active_str)
-      .replaceAll("@CNT@", keyword_cnt[tpc]);
+      .replaceAll("@CNT@", cnt);
   }
 
   var column = document.getElementById("Keyword_column");
