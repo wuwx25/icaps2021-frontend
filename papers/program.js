@@ -46,6 +46,17 @@ function initialize() {
 }
 
 function reset_program() {
+  var non_zero_keywords_left = false;
+  for (var tpc in keyword_cnt) {
+    if (keyword_cnt[tpc] > 0) {
+      non_zero_keywords_left = true;
+    }
+  }
+  if (non_zero_keywords_left == false) {
+    keyword_filter = [];
+    reset_topics_program();
+  }
+
   for (var id in program) {
     program[id]["render"] = true;
   }
@@ -53,6 +64,17 @@ function reset_program() {
 }
 
 function reset_track_program() {
+  var non_zero_keywords_left = false;
+  for (var tpc in keyword_cnt) {
+    if (keyword_cnt[tpc] > 0) {
+      non_zero_keywords_left = true;
+    }
+  }
+  if (non_zero_keywords_left == false) {
+    keyword_filter = [];
+    reset_topics_program();
+  }
+
   for (var id in program) {
     program[id]["render_track"] = true;
   }
@@ -96,16 +118,6 @@ function update_keyword_count() {
         }
       }
     }
-  }
-  var non_zero_keywords_left = false;
-  for (var tpc in keyword_cnt) {
-    if (keyword_cnt[tpc] > 0) {
-      non_zero_keywords_left = true;
-    }
-  }
-  if (non_zero_keywords_left == false) {
-    keyword_filter = [];
-    reset_topics_program();
   }
 }
 
