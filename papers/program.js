@@ -77,7 +77,11 @@ function render_with_topics(track) {
 function update_keyword_count() {
   keyword_cnt = {};
   for (var id in program) {
-    if (program[id]["render"] == true && program[id]["render_track"] == true) {
+    if (
+      program[id]["render"] == true &&
+      program[id]["render_track"] == true &&
+      program[id]["render_topics"] == true
+    ) {
       for (tpc_id in program[id]["topics"]) {
         tpc = program[id]["topics"][tpc_id];
         if (tpc in keyword_cnt) {
