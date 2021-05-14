@@ -60,6 +60,11 @@ function reset_track_program() {
   render_paper_list();
   render_keyword_columns();
 }
+function reset_topics_program() {
+  for (var id in program) {
+    program[id]["render_topics"] = true;
+  }
+}
 
 function render_with_topics(track) {
   for (var id in program) {
@@ -100,6 +105,7 @@ function update_keyword_count() {
   }
   if (non_zero_keywords_left == false) {
     keyword_filter = [];
+    reset_topics_program();
   }
 }
 
