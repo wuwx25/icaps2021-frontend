@@ -92,6 +92,15 @@ function update_keyword_count() {
       }
     }
   }
+  var non_zero_keywords_left = false;
+  for (var tpc in keyword_cnt) {
+    if (keyword_cnt[tpc] > 0) {
+      non_zero_keywords_left = true;
+    }
+  }
+  if (non_zero_keywords_left == false) {
+    keyword_filter = [];
+  }
 }
 
 function update(search_string) {
@@ -229,16 +238,19 @@ function render_paper_list() {
           element["topics"][k]
         );
       }
+      if (element["authors"].length > 1) {
+        author_str =
+          element["authors"].slice(0, -1).join(", ") +
+          ", and " +
+          element["authors"][element["authors"].length - 1];
+      } else {
+        author_str = element["authors"][0];
+      }
       str += template_str
         .replaceAll("@ID@", element["UID"])
         .replaceAll("@TITLE@", element["title"])
         .replaceAll("@KEYWORD@", keyword_str)
-        .replaceAll(
-          "@AUTHOR_STR@",
-          element["authors"].slice(0, -1).join(", ") +
-            ", and " +
-            element["authors"][element["authors"].length - 1]
-        )
+        .replaceAll("@AUTHOR_STR@", author_str)
         .replaceAll("@ABSTRACT@", element["abstract"]);
     }
   }
