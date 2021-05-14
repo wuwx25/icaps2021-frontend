@@ -355,7 +355,7 @@ function render_keyword_columns() {
                     id="KEYWORD_@TPC@"
                   >
                     @TPC@
-                    <span class="badge bg-secondary rounded-pill">@CNT@</span>
+                    <span class="badge bg-secondary rounded-pill" style="margin-left:10px">@CNT@</span>
                   </a>
                  `;
   str = "";
