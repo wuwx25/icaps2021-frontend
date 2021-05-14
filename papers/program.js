@@ -267,8 +267,7 @@ function update_paper_list_for_topics() {
     if (keyword_filter.length > 0) {
       if (
         program[id]["render"] == true &&
-        program[id]["render_track"] == true &&
-        program[id]["render_topics"] == true
+        program[id]["render_track"] == true
       ) {
         var all_keywords_match = true;
 
