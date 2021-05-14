@@ -146,17 +146,20 @@ function update(search_string) {
             program[id]["render"] = false;
           }
           if (keyword_filter.length > 0) {
-            keyword_match_found = false;
+            var all_keywords_match = true;
             for (var keywrd_id in keyword_filter) {
               var keywrd = keyword_filter[keywrd_id];
-
+              var keyword_match_found = false;
               for (var k_id in program[id]["topics"]) {
                 if (program[id]["topics"][k_id] == keywrd) {
                   keyword_match_found = true;
                 }
               }
+              if (keyword_match_found == false) {
+                all_keywords_match = false;
+              }
             }
-            if (keyword_match_found != true) {
+            if (all_keywords_match != true) {
               program[id]["render_topics"] = false;
             }
           }
@@ -170,7 +173,7 @@ function update(search_string) {
 }
 
 function render_paper_list() {
-  keyword_template_str = `<label><span class="badge bg-secondary">@INDIV_KEYWORD@</span>&nbsp;</label>`;
+  keyword_template_str = `<label style="max-width: 100%"><span style="max-width: 100%;text-overflow: ellipsis;overflow: hidden" class="badge bg-secondary">@INDIV_KEYWORD@</span>&nbsp;</label>`;
   template_str = `
                 <div class="accordion-item mb-1">
                     <h2 class="accordion-header" id="flush-heading@ID@">
@@ -226,7 +229,12 @@ function render_paper_list() {
         .replaceAll("@ID@", element["UID"])
         .replaceAll("@TITLE@", element["title"])
         .replaceAll("@KEYWORD@", keyword_str)
-        .replaceAll("@AUTHOR_STR@", element["authors"].join(","))
+        .replaceAll(
+          "@AUTHOR_STR@",
+          element["authors"].slice(0, -1).join(", ") +
+            ",and " +
+            element["authors"][element["authors"].length - 1]
+        )
         .replaceAll("@ABSTRACT@", element["abstract"]);
     }
   }
@@ -274,7 +282,9 @@ function update_paper_list_for_topics() {
       }
     }
   }
+  update_keyword_count();
   render_paper_list();
+  render_keyword_columns();
 }
 
 function render_keyword_columns() {
