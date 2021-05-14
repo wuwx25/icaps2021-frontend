@@ -111,6 +111,7 @@
                   <label class="btn btn-outline-dark" for="btnradio2"
                     >Graph</label
                   >
+                  <span class="float-end" id="counter"></span>
                 </div>
               </h4>
               <hr />
@@ -120,7 +121,7 @@
                 class="col col-12 col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8"
               >
                 <div class="input-group">
-                  <span class="input-group-text"
+                  <span class="input-group-text" style="margin-top: 10px"
                     ><i class="bi bi-search"></i
                   ></span>
                   <input
@@ -129,12 +130,14 @@
                     aria-label="Text input with 2 dropdown buttons"
                     oninput="update(this.value)"
                     placeholder="Search"
+                    style="margin-top: 10px"
                   />
                   <button
                     class="btn btn-outline-secondary dropdown-toggle"
                     type="button"
                     data-bs-toggle="dropdown"
                     id="select-track"
+                    style="margin-top: 10px"
                   >
                     Select Track
                   </button>

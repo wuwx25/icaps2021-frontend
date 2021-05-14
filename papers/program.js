@@ -204,7 +204,9 @@ function update(search_string) {
 }
 
 function render_paper_list() {
-  keyword_template_str = `<label style="max-width: 100%"><span style="max-width: 100%;text-overflow: ellipsis;overflow: hidden" class="badge bg-secondary">@INDIV_KEYWORD@</span>&nbsp;</label>`;
+  var paper_cntr = 0;
+  counter_template_str = "Papers: @CNTR_CNT@";
+  keyword_template_str = `<span style="max-width: 100%;text-overflow: ellipsis;overflow: hidden;margin: 2px" class="badge bg-secondary">@INDIV_KEYWORD@</span>`;
   template_str = `
                 <div class="accordion-item mb-1">
                     <h2 class="accordion-header" id="flush-heading@ID@">
@@ -234,7 +236,7 @@ function render_paper_list() {
                           <b>Abstract: </b>
                           @ABSTRACT@
                         </p>
-                        <button type="button" class="btn btn-dark btn-sm">
+                        <button type="button" class="btn btn-dark btn-sm d-none">
                           PDF - Will be added soon
                         </button>
                       </div>
@@ -250,6 +252,7 @@ function render_paper_list() {
       element["render_track"] == true &&
       element["render_topics"] == true
     ) {
+      paper_cntr += 1;
       for (var k in element["topics"]) {
         keyword_str += keyword_template_str.replaceAll(
           "@INDIV_KEYWORD@",
@@ -275,6 +278,11 @@ function render_paper_list() {
 
   var accordion = document.getElementById("accordionPaperList");
   accordion.innerHTML = str;
+  var cntr_element = document.getElementById("counter");
+  cntr_element.innerHTML = counter_template_str.replace(
+    "@CNTR_CNT@",
+    paper_cntr
+  );
 }
 
 function update_paper_list_for_topics() {
