@@ -321,7 +321,8 @@ function render_keyword_columns() {
                   </a>
                  `;
   str = "";
-  for (var tpc_cnt in items) {
+  for (var tpc_cnt_id in items) {
+    tpc_cnt = items[tpc_cnt_id];
     tpc = tpc_cnt[0];
     cnt = tpc_cnt[1];
 
