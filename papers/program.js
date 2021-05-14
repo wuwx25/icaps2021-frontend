@@ -236,7 +236,7 @@ function render_paper_list() {
         .replaceAll(
           "@AUTHOR_STR@",
           element["authors"].slice(0, -1).join(", ") +
-            ",and " +
+            ", and " +
             element["authors"][element["authors"].length - 1]
         )
         .replaceAll("@ABSTRACT@", element["abstract"]);
