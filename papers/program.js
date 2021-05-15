@@ -227,7 +227,7 @@ function update(search_string) {
 
 function render_paper_list() {
   var paper_cntr = 0;
-  counter_template_str = "Papers: @CNTR_CNT@";
+  counter_template_str = "@CNTR_CNT@";
   keyword_template_str = `<span style="max-width: 100%;text-overflow: ellipsis;overflow: hidden;margin: 2px" class="badge bg-secondary">@INDIV_KEYWORD@</span>`;
   template_str = `
                 <div class="accordion-item mb-1">
