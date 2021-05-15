@@ -2,7 +2,7 @@ let all_papers = [];
 let all_pos = [];
 const allKeys = {
   authors: [],
-  keywords: [],
+  topics: [],
   titles: [],
 };
 const filters = {
@@ -79,7 +79,7 @@ function brush_ended() {
   let count = 0;
   all_sel.forEach((paper) => {
     if (summaryBy === "keywords") {
-      paper.keywords.forEach((kw) => {
+      paper.topics.forEach((kw) => {
         count = words_abstract.get(kw) || 0;
         count += 1;
         words_abstract.set(kw, count);
@@ -165,7 +165,7 @@ const updateVis = () => {
       paper.bookmarked = bookmarks[paper.UID] || false;
     });
 
-    const is_filtered = filters.authors || filters.keywords || filters.titles;
+    const is_filtered = filters.authors || filters.topics || filters.titles;
 
     const [pW, pH] = plot_size();
 

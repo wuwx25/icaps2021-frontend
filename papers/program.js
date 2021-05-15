@@ -20,21 +20,40 @@ $(document).on("click", ".dropdown-item-track", function (event) {
   $("#select-track").text($(this).attr("name"));
 });
 
-var program;
 var keyword_filter;
 var keyword_cnt;
-function initialize() {
+function initialize_viz() {
   keyword_filter = [];
-  program = [];
+  top.program = [];
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       var myObj = JSON.parse(this.responseText);
       for (var id in myObj) {
-        program.push(myObj[id]);
-        program[id]["render"] = true;
-        program[id]["render_track"] = true;
-        program[id]["render_topics"] = true;
+        top.program.push(myObj[id]);
+        top.program[id]["render"] = true;
+        top.program[id]["render_track"] = true;
+        top.program[id]["render_topics"] = true;
+      }
+      update_keyword_count();
+    }
+  };
+  xmlhttp.open("GET", "./assets/data/program.json", true);
+  xmlhttp.send();
+}
+
+function initialize() {
+  keyword_filter = [];
+  top.program = [];
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      var myObj = JSON.parse(this.responseText);
+      for (var id in myObj) {
+        top.program.push(myObj[id]);
+        top.program[id]["render"] = true;
+        top.program[id]["render_track"] = true;
+        top.program[id]["render_topics"] = true;
       }
       update_keyword_count();
       render_paper_list();
@@ -57,8 +76,8 @@ function reset_program() {
     reset_topics_program();
   }
 
-  for (var id in program) {
-    program[id]["render"] = true;
+  for (var id in top.program) {
+    top.program[id]["render"] = true;
   }
   update_keyword_count();
 }
@@ -75,25 +94,25 @@ function reset_track_program() {
     reset_topics_program();
   }
 
-  for (var id in program) {
-    program[id]["render_track"] = true;
+  for (var id in top.program) {
+    top.program[id]["render_track"] = true;
   }
   update_keyword_count();
   render_paper_list();
   render_keyword_columns();
 }
 function reset_topics_program() {
-  for (var id in program) {
-    program[id]["render_topics"] = true;
+  for (var id in top.program) {
+    top.program[id]["render_topics"] = true;
   }
 }
 
 function render_with_topics(track) {
-  for (var id in program) {
+  for (var id in top.program) {
     if (program[id]["track"] == track) {
-      program[id]["render_track"] = true;
+      top.program[id]["render_track"] = true;
     } else {
-      program[id]["render_track"] = false;
+      top.program[id]["render_track"] = false;
     }
   }
   update_keyword_count();
@@ -103,14 +122,14 @@ function render_with_topics(track) {
 
 function update_keyword_count() {
   keyword_cnt = {};
-  for (var id in program) {
+  for (var id in top.program) {
     if (
-      program[id]["render"] == true &&
-      program[id]["render_track"] == true &&
-      program[id]["render_topics"] == true
+      top.program[id]["render"] == true &&
+      top.program[id]["render_track"] == true &&
+      top.program[id]["render_topics"] == true
     ) {
-      for (tpc_id in program[id]["topics"]) {
-        tpc = program[id]["topics"][tpc_id];
+      for (tpc_id in top.program[id]["topics"]) {
+        tpc = top.program[id]["topics"][tpc_id];
         if (tpc in keyword_cnt) {
           keyword_cnt[tpc] += 1;
         } else {
@@ -126,47 +145,50 @@ function update(search_string) {
   reset_program();
   if (str_parts.length > 0) {
     for (var s_id in str_parts) {
-      for (var id in program) {
+      for (var id in top.program) {
         if (program[id]["render"] == true) {
           var keyword_match_found = false;
           var match_found = false;
           if (
-            program[id]["title"].toLowerCase().includes(str_parts[s_id]) == true
-          ) {
-            match_found = true;
-          }
-          for (var k_id in program[id]["authors"]) {
-            if (
-              program[id]["authors"][k_id]
-                .toLowerCase()
-                .includes(str_parts[s_id]) == true
-            ) {
-              match_found = true;
-            }
-          }
-          if (
-            program[id]["abstract"].toLowerCase().includes(str_parts[s_id]) ==
+            top.program[id]["title"].toLowerCase().includes(str_parts[s_id]) ==
             true
           ) {
             match_found = true;
           }
-          if (
-            program[id]["track"].toLowerCase().includes(str_parts[s_id]) == true
-          ) {
-            match_found = true;
-          }
-          for (var k_id in program[id]["topics"]) {
+          for (var k_id in top.program[id]["authors"]) {
             if (
-              program[id]["topics"][k_id]
+              top.program[id]["authors"][k_id]
                 .toLowerCase()
                 .includes(str_parts[s_id]) == true
             ) {
               match_found = true;
             }
           }
-          for (var k_id in program[id]["topics"]) {
+          if (
+            top.program[id]["abstract"]
+              .toLowerCase()
+              .includes(str_parts[s_id]) == true
+          ) {
+            match_found = true;
+          }
+          if (
+            top.program[id]["track"].toLowerCase().includes(str_parts[s_id]) ==
+            true
+          ) {
+            match_found = true;
+          }
+          for (var k_id in top.program[id]["topics"]) {
             if (
-              program[id]["topics"][k_id]
+              top.program[id]["topics"][k_id]
+                .toLowerCase()
+                .includes(str_parts[s_id]) == true
+            ) {
+              match_found = true;
+            }
+          }
+          for (var k_id in top.program[id]["topics"]) {
+            if (
+              top.program[id]["topics"][k_id]
                 .toLowerCase()
                 .includes(str_parts[s_id]) == true
             ) {
@@ -174,14 +196,14 @@ function update(search_string) {
             }
           }
           if (match_found != true) {
-            program[id]["render"] = false;
+            top.program[id]["render"] = false;
           }
           if (keyword_filter.length > 0) {
             var all_keywords_match = true;
             for (var keywrd_id in keyword_filter) {
               var keywrd = keyword_filter[keywrd_id];
               var keyword_match_found = false;
-              for (var k_id in program[id]["topics"]) {
+              for (var k_id in top.program[id]["topics"]) {
                 if (program[id]["topics"][k_id] == keywrd) {
                   keyword_match_found = true;
                 }
@@ -191,7 +213,7 @@ function update(search_string) {
               }
             }
             if (all_keywords_match != true) {
-              program[id]["render_topics"] = false;
+              top.program[id]["render_topics"] = false;
             }
           }
         }
@@ -244,8 +266,8 @@ function render_paper_list() {
                   </div>
                  `;
   str = "";
-  for (var id in program) {
-    element = program[id];
+  for (var id in top.program) {
+    element = top.program[id];
     keyword_str = "";
     if (
       element["render"] == true &&
@@ -301,11 +323,11 @@ function update_paper_list_for_topics() {
       }
     }
   }
-  for (var id in program) {
+  for (var id in top.program) {
     if (keyword_filter.length > 0) {
       if (
-        program[id]["render"] == true &&
-        program[id]["render_track"] == true
+        top.program[id]["render"] == true &&
+        top.program[id]["render_track"] == true
       ) {
         var all_keywords_match = true;
 
@@ -313,7 +335,7 @@ function update_paper_list_for_topics() {
           var keywrd = keyword_filter[keywrd_id];
 
           keyword_match_found = false;
-          for (var k_id in program[id]["topics"]) {
+          for (var k_id in top.program[id]["topics"]) {
             if (program[id]["topics"][k_id] == keywrd) {
               keyword_match_found = true;
             }
@@ -323,13 +345,13 @@ function update_paper_list_for_topics() {
           }
         }
         if (all_keywords_match != true) {
-          program[id]["render_topics"] = false;
+          top.program[id]["render_topics"] = false;
         } else {
-          program[id]["render_topics"] = true;
+          top.program[id]["render_topics"] = true;
         }
       }
     } else {
-      program[id]["render_topics"] = true;
+      top.program[id]["render_topics"] = true;
     }
   }
   update_keyword_count();

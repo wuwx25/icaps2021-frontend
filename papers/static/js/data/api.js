@@ -16,9 +16,9 @@ class API {
   }
 
   static getPapers() {
-    if (API.paperCache == null) {
-      API.paperCache = $.get("./assets/data/papers.json");
-    }
+    //if (API.paperCache == null) {
+    API.paperCache = top.program; //$.get("./assets/data/papers.json");
+    //}
     return API.paperCache;
   }
 
