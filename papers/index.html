@@ -252,7 +252,7 @@
                     <li>
                       <a
                         class="dropdown-item dropdown-item-track"
-                        href='javascript:render_with_topics("applications")'
+                        href='javascript:render_with_topics("applications");start()'
                         name="Applications Track"
                         >Applications Track</a
                       >
@@ -260,7 +260,7 @@
                     <li>
                       <a
                         class="dropdown-item dropdown-item-track"
-                        href='javascript:render_with_topics("robotics")'
+                        href='javascript:render_with_topics("robotics");start()'
                         name="Robotics Track"
                         onselect="render_with_topics(robotics)"
                         >Robotics Track</a
@@ -269,7 +269,7 @@
                     <li>
                       <a
                         class="dropdown-item dropdown-item-track"
-                        href='javascript:render_with_topics("learning")'
+                        href='javascript:render_with_topics("learning");start()'
                         name="Planning and Learning Track"
                         >Planning and Learning Track</a
                       >
@@ -277,7 +277,7 @@
                     <li>
                       <a
                         class="dropdown-item dropdown-item-track"
-                        href='javascript:render_with_topics("JOURNAL")'
+                        href='javascript:render_with_topics("JOURNAL");start()'
                         name="Journal Track"
                         >Journal Track</a
                       >
@@ -286,9 +286,9 @@
                     <li>
                       <a
                         class="dropdown-item dropdown-item-track"
-                        href="javascript:reset_track_program()"
+                        href="javascript:reset_track_program();start()"
                         name="Select Track"
-                        onselect="reset_track_program()"
+                        onselect="reset_track_program();start()"
                         >Unselect</a
                       >
                     </li>
@@ -310,13 +310,12 @@
                       Each dot represents a paper. They are arranged by a
                       measure of similarity. If you <b>hover</b> over a dot, you
                       see the corresponding paper. <b>Drag</b> a rectangle to
-                      summarize an area of the plot.
-                      <b>
-                        Built using
-                        <a href="https://github.com/Mini-Conf/Mini-Conf"
-                          >MiniConf</a
-                        ></b
-                      >
+                      summarize an area of the plot. Built using
+                      <a
+                        href="https://github.com/Mini-Conf/Mini-Conf"
+                        target="_blank"
+                        >MiniConf</a
+                      >.
                     </div>
 
                     <div
