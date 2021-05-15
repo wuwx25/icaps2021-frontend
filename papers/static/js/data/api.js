@@ -17,7 +17,16 @@ class API {
 
   static getPapers() {
     //if (API.paperCache == null) {
-    API.paperCache = top.program; //$.get("./assets/data/papers.json");
+    API.paperCache = [];
+    for (var id in top.program) {
+      if (
+        top.program[id]["render"] == true &&
+        top.program[id]["render_track"] == true &&
+        top.program[id]["render_topics"] == true
+      ) {
+        API.paperCache.push(top.program[id]);
+      }
+    } //$.get("./assets/data/papers.json");
     //}
     return API.paperCache;
   }

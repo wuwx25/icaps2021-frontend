@@ -1,6 +1,9 @@
 .dot {
-  fill: rgb(43, 113, 255);
-  fill-opacity: 0.5;
+  fill: #aaa;
+  fill-opacity: 0.9;
+
+  /*fill: rgb(43, 113, 255);
+  fill-opacity: 0.5;*/
   transition-duration: 0.2s;
 }
 
@@ -10,7 +13,8 @@
 
 .dot.highlight {
   fill-opacity: 1;
-  fill: rgb(255, 54, 72);
+  fill: #589cd6;
+  /*fill: rgb(230, 135, 59);*/
 }
 .dot.non-highlight {
   fill: rgba(128, 128, 128, 0.62);
@@ -18,19 +22,24 @@
 
 .dot.rect_selected {
   /*fill: rgb(169, 208, 62);*/
-  stroke: #333;
+  fill: #f5821f;
   stroke-width: 1;
   stroke-opacity: 1;
 }
 
 .dot.highlight_sel {
   fill-opacity: 1;
-  fill: rgb(255, 54, 72);
+  /*fill: rgb(255, 54, 72);*/
+  fill: #589cd6;
+  /*fill: rgb(230, 135, 59);*/
 }
 
-.dot.read {
-  fill: gray;
-}
+/*.dot.read {
+  /*fill: gray;
+  fill: #AAA;
+  fill-opacity: 0.9;
+
+}*/
 .dot.bookmarked {
   fill: #bed972;
   fill-opacity: 1;
@@ -44,6 +53,7 @@
   display: inline-block;
   padding: 2px 4px;
   margin: 2px;
+  /*  background: #666666;*/
   background: #666666;
   color: white;
   border-radius: 2px;
@@ -67,7 +77,10 @@
 }
 
 .results {
-  width: 200px;
+}
+
+rect.selection {
+  fill: #f5821f;
 }
 
 @media (max-width: 767.98px) {

@@ -69,6 +69,8 @@ const brushed = () => {
 };
 
 function brush_ended() {
+  var summ = document.getElementById("summary_area");
+  summ.classList.remove("d-none");
   currentTippy.forEach((t) => t.enable());
 
   const all_sel = [];
@@ -116,6 +118,7 @@ function brush_ended() {
   } else {
     summary_selection.selectAll(".topWords").remove();
     explain_text_plot.style("display", null);
+    summ.classList.add("d-none");
   }
 
   sel_papers
@@ -151,7 +154,6 @@ function brush_ended() {
 }
 
 const openPaper = (d) => {
-  window.open(API.posterLink(d), "_blank");
   API.markSet(API.storeIDs.visited, d.UID, true).then();
 };
 
@@ -168,7 +170,6 @@ const updateVis = () => {
     const is_filtered = filters.authors || filters.topics || filters.titles;
 
     const [pW, pH] = plot_size();
-
     plot.attr("width", pW).attr("height", pH);
     d3.select("#table_info").style("height", `${pH}px`);
 
@@ -259,7 +260,7 @@ const tooltip_template = (d) => `
     <div>
         <div class="tt-title">${d.title}</div>
         <p>${d.authors.join(", ")}</p>
-        <img src="${API.thumbnailPath(d)}" width=100%/>
+        <!--<img src="${API.thumbnailPath(d)}" width=100%/>-->
      </div>   
 `;
 
@@ -267,7 +268,6 @@ const start = () => {
   API.getPapersAndProjection()
     .then(([papers, proj]) => {
       // all_proj = proj;
-
       const projMap = new Map();
       proj.forEach((p) => projMap.set(p.id, p.pos));
 

@@ -24,7 +24,7 @@
     <!-- Program -->
     <script src="program.js"></script>
     <script type="text/javascript">
-      initialize();
+      initialize_program();
     </script>
 
     <!-- Bootstrap Icons -->
@@ -149,7 +149,7 @@
         </div>
       </nav>
     </header>
-    <main class="container" style="min-height: 80vh" id="container">
+    <main class="container" style="min-height: 80vh">
       <div class="album mt-3 p-4">
         <div style="height: 100px" class="d-none d-md-block">
           <!-- padding hack for the fixed navbar -->
@@ -181,6 +181,7 @@
                     class="btn-check toggle-viz"
                     name="btnradio"
                     id="btnradio2"
+                    onchange="start()"
                   />
                   <label class="btn btn-outline-dark" for="btnradio2"
                     >Graph</label
@@ -303,46 +304,76 @@
                   class="accordion accordion-flush mb-3"
                   id="accordionProgram"
                 ></div>
-                <div class="d-none" id="canvas">
-                  <div class="alert alert-light" role="alert">
-                    Each dot represents a paper. They are arranged by a measure
-                    of similarity. If you <b>hover</b> over a dot, you see the
-                    corresponding paper. If you <b>click</b> on the dot, you go
-                    to the paper page. <b>Drag</b> a rectangle to summarize an
-                    area of the plot.
-                  </div>
+                <div class="d-none d-lg-block" id="container">
+                  <div class="d-none" id="canvas">
+                    <div class="alert alert-light" role="alert">
+                      Each dot represents a paper. They are arranged by a
+                      measure of similarity. If you <b>hover</b> over a dot, you
+                      see the corresponding paper. <b>Drag</b> a rectangle to
+                      summarize an area of the plot.
+                      <b>
+                        Built using
+                        <a href="https://github.com/Mini-Conf/Mini-Conf"
+                          >MiniConf</a
+                        ></b
+                      >
+                    </div>
 
-                  <div class="row py-1" style="text-align: center">
-                    <div class="card" style="margin-right: -40px">
-                      <div class="card-header">
+                    <div
+                      class="row py-1"
+                      style="text-align: center; display: block"
+                    >
+                      <div
+                        class="card"
+                        style="margin-right: -40px; border: none"
+                      >
                         <div
-                          id="outer_svg"
-                          style="display: inline-block; vertical-align: top"
-                        >
-                          <svg class="plot" style="display: block"></svg>
-                        </div>
-                        <div
-                          class="results"
+                          class="row card-header justify-content-end"
                           style="
-                            display: inline-block;
-                            vertical-align: top;
-                            text-align: left;
+                            background-color: white;
+                            position: relative;
+                            border: none;
                           "
                         >
                           <div
-                            style="display: block; overflow-y: auto"
-                            id="table_info"
+                            class="col col-12"
+                            id="outer_svg"
+                            style="
+                              display: inline-block;
+                              vertical-align: top;
+                              background-color: white;
+                            "
                           >
-                            <div id="explain_text_plot"></div>
-                            <div id="summary_selection" style=""></div>
+                            <svg
+                              class="plot"
+                              style="display: block; background-color: white"
+                            ></svg>
+                          </div>
+                          <div
+                            id="summary_area"
+                            class="results col col-6 float-end d-none"
+                            style="
+                              display: inline-block;
+                              text-align: left;
+                              float: right;
+                              position: absolute;
+                            "
+                          >
                             <div
-                              style="
-                                overflow-y: auto;
-                                bottom: 0;
-                                margin-top: 5pt;
-                              "
+                              style="display: block; overflow-y: auto"
+                              id="table_info"
                             >
-                              <div id="sel_papers"></div>
+                              <div id="explain_text_plot"></div>
+                              <div id="summary_selection" style=""></div>
+                              <div
+                                style="
+                                  overflow-y: auto;
+                                  bottom: 0;
+                                  margin-top: 5pt;
+                                "
+                              >
+                                <div id="sel_papers"></div>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -371,9 +402,30 @@
       <script src="./static/js/data/api.js"></script>
 
       <script>
+        var button1 = document.getElementById("btnradio1");
+        var button2 = document.getElementById("btnradio2");
+
         $(document).ready(function () {
+          button1.checked = true;
+          button2.checked = false;
+          setup_paper_page();
           start();
           tippy("[data-tippy-content]", { trigger: "mouseenter focus" });
+        });
+
+        $(window).resize(function () {
+          const width = Math.max(
+            document.documentElement.clientWidth,
+            window.innerWidth || 0
+          );
+          if (width <= 992) {
+            var paper_list = document.getElementById("accordionPaperList");
+            paper_list.classList.remove("d-none");
+            var canvas = document.getElementById("canvas");
+            canvas.classList.add("d-none");
+            button1.checked = true;
+            button2.checked = false;
+          }
         });
       </script>
     </main>
