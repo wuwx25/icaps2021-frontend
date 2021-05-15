@@ -254,8 +254,8 @@ function render_paper_list() {
     ) {
       paper_cntr += 1;
       for (var k in element["topics"]) {
-        keyword_str += keyword_template_str.replaceAll(
-          "@INDIV_KEYWORD@",
+        keyword_str += keyword_template_str.replace(
+          /@INDIV_KEYWORD@/g,
           element["topics"][k]
         );
       }
@@ -268,11 +268,11 @@ function render_paper_list() {
         author_str = element["authors"][0];
       }
       str += template_str
-        .replaceAll("@ID@", element["UID"])
-        .replaceAll("@TITLE@", element["title"])
-        .replaceAll("@KEYWORD@", keyword_str)
-        .replaceAll("@AUTHOR_STR@", author_str)
-        .replaceAll("@ABSTRACT@", element["abstract"]);
+        .replace(/@ID@/g, element["UID"])
+        .replace(/@TITLE@/g, element["title"])
+        .replace(/@KEYWORD@/g, keyword_str)
+        .replace(/@AUTHOR_STR@/g, author_str)
+        .replace(/@ABSTRACT@/g, element["abstract"]);
     }
   }
 
@@ -371,9 +371,9 @@ function render_keyword_columns() {
       }
     }
     str += topics_str
-      .replaceAll("@TPC@", tpc)
-      .replaceAll("@ACT@", active_str)
-      .replaceAll("@CNT@", cnt);
+      .replace(/@TPC@/g, tpc)
+      .replace(/@ACT@/g, active_str)
+      .replace(/@CNT@/g, cnt);
   }
 
   var column = document.getElementById("Keyword_column");
