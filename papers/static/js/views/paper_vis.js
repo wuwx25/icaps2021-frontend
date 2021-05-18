@@ -171,7 +171,7 @@ const updateVis = () => {
 
     const [pW, pH] = plot_size();
     plot.attr("width", pW).attr("height", pH);
-    d3.select("#table_info").style("height", `${pH}px`);
+    d3.select("#table_info").style("max-height", `${pH}px`);
 
     xS.range([sizes.margins.l, pW - sizes.margins.r]);
     yS.range([sizes.margins.t, pH - sizes.margins.b]);

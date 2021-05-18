@@ -30,7 +30,7 @@
     <!-- Bootstrap Icons -->
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+      href="https://cdn.jsdelivr.net/npm/bootstra p-2p-icons@1.4.1/font/bootstrap-icons.css"
     />
 
     <!-- Frontloading the JS for performance reasons-->
@@ -181,7 +181,7 @@
                     class="btn-check toggle-viz"
                     name="btnradio"
                     id="btnradio2"
-                    onchange="start()"
+                    onchange="currentTippy = null;start()"
                   />
                   <label class="btn btn-outline-dark" for="btnradio2"
                     >Graph</label
@@ -211,7 +211,7 @@
                     type="text"
                     class="form-control"
                     aria-label="Text input with 2 dropdown buttons"
-                    oninput="update(this.value);start()"
+                    oninput="update(this.value);currentTippy = null;start()"
                     placeholder="Search"
                     style="margin-top: 10px"
                   />
@@ -228,7 +228,7 @@
                     <li>
                       <a
                         class="dropdown-item dropdown-item-track"
-                        href='javascript:render_with_topics("main");start()'
+                        href='javascript:render_with_topics("main");currentTippy = null;start()'
                         name="Main Track"
                         >Main Track</a
                       >
@@ -236,7 +236,7 @@
                     <li>
                       <a
                         class="dropdown-item dropdown-item-track"
-                        href='javascript:render_with_topics("demo");start()'
+                        href='javascript:render_with_topics("demo");currentTippy = null;start()'
                         name="System Demonstrations"
                         >System Demonstrations</a
                       >
@@ -244,7 +244,7 @@
                     <li>
                       <a
                         class="dropdown-item dropdown-item-track"
-                        href='javascript:render_with_topics("dc");start()'
+                        href='javascript:render_with_topics("dc");currentTippy = null;start()'
                         name="Doctoral Consortium"
                         >Doctoral Consortium</a
                       >
@@ -252,7 +252,7 @@
                     <li>
                       <a
                         class="dropdown-item dropdown-item-track"
-                        href='javascript:render_with_topics("applications");start()'
+                        href='javascript:render_with_topics("applications");currentTippy = null;start()'
                         name="Applications Track"
                         >Applications Track</a
                       >
@@ -260,7 +260,7 @@
                     <li>
                       <a
                         class="dropdown-item dropdown-item-track"
-                        href='javascript:render_with_topics("robotics");start()'
+                        href='javascript:render_with_topics("robotics");currentTippy = null;start()'
                         name="Robotics Track"
                         onselect="render_with_topics(robotics)"
                         >Robotics Track</a
@@ -269,7 +269,7 @@
                     <li>
                       <a
                         class="dropdown-item dropdown-item-track"
-                        href='javascript:render_with_topics("learning");start()'
+                        href='javascript:render_with_topics("learning");currentTippy = null;start()'
                         name="Planning and Learning Track"
                         >Planning and Learning Track</a
                       >
@@ -277,7 +277,7 @@
                     <li>
                       <a
                         class="dropdown-item dropdown-item-track"
-                        href='javascript:render_with_topics("JOURNAL");start()'
+                        href='javascript:render_with_topics("JOURNAL");currentTippy = null;start()'
                         name="Journal Track"
                         >Journal Track</a
                       >
@@ -286,9 +286,9 @@
                     <li>
                       <a
                         class="dropdown-item dropdown-item-track"
-                        href="javascript:reset_track_program();start()"
+                        href="javascript:reset_track_program();currentTippy = null;start()"
                         name="Select Track"
-                        onselect="reset_track_program();start()"
+                        onselect="reset_track_program();currentTippy = null;start()"
                         >Unselect</a
                       >
                     </li>
@@ -350,7 +350,7 @@
                           </div>
                           <div
                             id="summary_area"
-                            class="results col col-6 float-end d-none"
+                            class="results col col-6 float-end p-2 d-none"
                             style="
                               display: inline-block;
                               text-align: left;
@@ -371,7 +371,7 @@
                                   margin-top: 5pt;
                                 "
                               >
-                                <div id="sel_papers"></div>
+                                <div id="sel_papers" style=""></div>
                               </div>
                             </div>
                           </div>
@@ -387,6 +387,10 @@
                   class="list-group list-group-flush"
                   id="Keyword_column"
                 ></div>
+                <p style="font-size: small" class="text-secondary pt-2">
+                  The numbers on the topics do not include papers from the DC,
+                  Demos, and the Journal tracks.
+                </p>
               </div>
             </div>
           </section>

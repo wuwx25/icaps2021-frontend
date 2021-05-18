@@ -1757,7 +1757,7 @@ function render_keyword_columns() {
 
   topics_str = `
                 <a
-                    href="javascript:update_paper_list_for_topics();start()"
+                    href="javascript:update_paper_list_for_topics();currentTippy = null;start()"
                     class="list-group-item list-group-keyword list-group-item-action d-flex justify-content-between align-items-start@ACT@"
                     id="KEYWORD_@TPC@"
                   >
