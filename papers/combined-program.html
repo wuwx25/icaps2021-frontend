@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="../assets/images/favicon.png"
+    />
+    <title>ICAPS 2021</title>
+
+    <!-- Bootstrap core CSS -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous"> -->
+
+    <!-- Bootstrap Overrides -->
+    <link href="../assets/bootstrap/css/styles.css" rel="stylesheet" />
+    <link href="../assets/css/custom.css" rel="stylesheet" />
+    <link href="program.css" rel="stylesheet" />
+
+    <!-- jQuery -->
+    <script src="../assets/js/jquery-3.6.0.min.js"></script>
+    <script src="../assets/js/custom.js"></script>
+    <script src="../assets/js/jquery-3.6.0.min.js"></script>
+    <script src="../assets/js/custom.js"></script>
+
+    <!-- External Javascript libs_ext  -->
+    <script src="https://cdn.jsdelivr.net/npm/d3@5/dist/d3.min.js"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/handlebars@4.7.3/dist/handlebars.min.js"
+      integrity="sha256-/PJBs6QWvXijOFIX04kZpLb6ZtSQckdOIavLWKKOgXU="
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+      integrity="sha256-WqU1JavFxSAMcLP2WIOI+GB2zWmShMI82mTpLDcqFUg="
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/moment@2.24.0/min/moment.min.js"
+      integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ="
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/moment-timezone@0.5.28/builds/moment-timezone-with-data.min.js"
+      integrity="sha256-IWYg4uIC8/erItNXYvLtyYHioRi2zT1TFva8qaAU/ww="
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Library libs_ext -->
+    <!--&lt;!&ndash;    <script src="static/js/libs_ext/typeahead.bundle.js"></script>&ndash;&gt;-->
+
+    <!--&lt;!&ndash;    &ndash;&gt;-->
+    <!--&lt;!&ndash;      <link rel="stylesheet" href="static/css/typeahead.css" />&ndash;&gt;-->
+    <link rel="stylesheet" href="static/css/paper_vis.css" />
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha256-L/W5Wfqfa0sdBNIKN9cG6QA5F2qx4qICmU2VgLruv9Y=" crossorigin="anonymous">-->
+    <script src="https://cdn.jsdelivr.net/npm/d3@5/dist/d3.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/handlebars@4.7.3/dist/handlebars.min.js"
+      integrity="sha256-/PJBs6QWvXijOFIX04kZpLb6ZtSQckdOIavLWKKOgXU="
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.0/dist/umd/popper.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.2.3/dist/tippy-bundle.umd.min.js"></script>
+
+    <script src="static/js/libs_ext/typeahead.bundle.js"></script>
+    <script src="https://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/tgdwyer/WebCola@3.3.8/WebCola/cola.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+  </head>
+  <body onload="initialize()">
+    >
+    <header class="navbar fixed-top p-3 border-bottom">
+      <nav class="navbar navbar-light navbar-expand-lg">
+        <div class="container-fluid d-flex">
+          <a class="navbar-brand text-dark">ICAPS 2021</a>
+          <div>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a href="../home" class="nav-link px-2">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link px-2">Papers</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link px-2 active">Calls</a>
+                </li>
+                <li class="nav-item">
+                  <a href="../workshops" class="nav-link px-2">Workshops</a>
+                </li>
+                <li class="nav-item">
+                  <a href="../Competitions" class="nav-link px-2"
+                    >Competitions</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a href="../Committee" class="nav-link px-2">Committee</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="container" style="min-height: 80vh">
+      <div class="album mt-3 p-4">
+        <div style="height: 100px" class="d-none d-md-block">
+          <!-- padding hack for the fixed navbar -->
+        </div>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link active"
+              id="paper-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#paper"
+              type="button"
+              role="tab"
+              aria-controls="home"
+              aria-selected="true"
+            >
+              Paper List
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="profile-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#profile"
+              type="button"
+              role="tab"
+              aria-controls="profile"
+              aria-selected="false"
+            >
+              Visualization
+            </button>
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <div
+            class="tab-pane fade show active"
+            id="paper"
+            role="tabpanel"
+            aria-labelledby="paper-tab"
+          >
+            <div class="col col-12 p-4">
+              <section>
+                <header>
+                  <h1 class="top">ICAPS 2021 Program</h1>
+                  <hr />
+                </header>
+                <div class="container">
+                  <div class="input-group col-12 mb-5 flex-nowrap">
+                    <!--          <span class="input-group-text"></span>-->
+                    <input
+                      type="search"
+                      style="width: 100%"
+                      oninput="update(this.value)"
+                      placeholder="Search"
+                    />
+                  </div>
+
+                  <div
+                    class="accordion accordion-flush mb-3"
+                    id="accordionProgram"
+                  ></div>
+                </div>
+              </section>
+            </div>
+          </div>
+
+          <div
+            class="tab-pane fade"
+            id="profile"
+            role="tabpanel"
+            aria-labelledby="profile-tab"
+          >
+            <div class="container-lg" id="container" style="padding-top: 20px">
+              <div class="row py-3">
+                <div class="col-12 col-sm-6 col-lg-4">
+                  <div class="input-group mb-3">
+                    <input
+                      type="text"
+                      class="form-control typeahead_all"
+                      placeholder="Search"
+                    />
+                    <div class="input-group-append">
+                      <button
+                        class="btn btn-outline-secondary typeahead_all_clear"
+                        type="button"
+                      >
+                        &times;
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="col-12 col-sm-6 col-lg-4 text-center"
+                  style="margin-bottom: 10px"
+                >
+                  <div class="btn-group btn-group-toggle filter_option">
+                    <label
+                      class="btn btn-outline-secondary"
+                      data-tippy-content="Search for papers titles"
+                    >
+                      <input
+                        type="radio"
+                        name="options"
+                        value="titles"
+                        autocomplete="off"
+                      />
+                      title
+                    </label>
+                    <label
+                      class="btn btn-outline-secondary active"
+                      data-tippy-content="Search for papers from specific authors"
+                    >
+                      <input
+                        type="radio"
+                        name="options"
+                        value="authors"
+                        autocomplete="off"
+                        checked
+                      />
+                      author
+                    </label>
+                    <label
+                      class="btn btn-outline-secondary"
+                      data-tippy-content="Search for papers with specific keywords"
+                    >
+                      <input
+                        type="radio"
+                        name="options"
+                        value="keywords"
+                        autocomplete="off"
+                      />
+                      keyword
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row py-1" style="text-align: center">
+                <div class="card" style="margin-right: -40px">
+                  <div class="card-header">
+                    <div
+                      id="outer_svg"
+                      style="display: inline-block; vertical-align: top"
+                    >
+                      <svg class="plot" style="display: block"></svg>
+                    </div>
+                    <div
+                      class="results"
+                      style="
+                        display: inline-block;
+                        vertical-align: top;
+                        text-align: left;
+                      "
+                    >
+                      <div
+                        style="display: block; overflow-y: auto"
+                        id="table_info"
+                      >
+                        <div id="explain_text_plot">
+                          <p>
+                            Each dot represents a paper. They are arranged by a
+                            measure of similarity.
+                          </p>
+                          <p>
+                            If you <b>hover</b> over a dot, you see the related
+                            paper.
+                          </p>
+                          <p>
+                            If you <b>click</b> on a dot, you go to the related
+                            paper page.
+                          </p>
+                          <p>
+                            You can <b>search</b> for papers by author, keyword,
+                            or title
+                          </p>
+                          <p>
+                            <b>Drag a rectangle </b> to summarize an area of the
+                            plot.
+                          </p>
+                        </div>
+                        <div id="summary_selection" style=""></div>
+                        <div
+                          style="overflow-y: auto; bottom: 0; margin-top: 5pt"
+                        >
+                          <div id="sel_papers"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script src="./static/js/modules/urlParams.js"></script>
+      <script src="./static/js/modules/typeaheadSetup.js"></script>
+      <script src="./static/js/data/persistor.js"></script>
+      <script src="./static/js/data/wrangle.js"></script>
+      <script src="./static/js/views/paper_vis.js"></script>
+      <script src="./static/js/data/api.js"></script>
+
+      <script>
+        $(document).ready(function () {
+          start();
+          tippy("[data-tippy-content]", { trigger: "mouseenter focus" });
+        });
+      </script>
+    </main>
+    <footer class="footer m-5">
+      <div class="container">
+        <hr />
+        <div class="row d-flex justify-content-center">
+          <div class="col col-12 col-lg-2 d-flex justify-content-center mb-2">
+            &copy; ICAPS 2021
+          </div>
+          <div class="col col-12 col-lg-2 d-flex justify-content-center mb-1">
+            <a href="../privacy-policy.html">Privacy Policy</a>
+          </div>
+          <div class="col col-12 col-lg-2 d-flex justify-content-center mb-1">
+            <a href="../terms-of-use.html">Terms of Use</a>
+          </div>
+          <div class="col col-12 col-lg-2 d-flex justify-content-center">
+            <a href="../code-of-conduct.html">Code of Conduct</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="program.js"></script>
+  </body>
+</html>

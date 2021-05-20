@@ -1,0 +1,39 @@
+[
+  {
+    "UID": [1],
+    "forum": [1],
+    "TLDR": ["abstract"],
+    "recs": [],
+    "sessions": ["sessions"],
+    "pdf_url": "",
+    "code_link": "https://github.com/Mini-Conf/Mini-Conf",
+    "link": "https://arxiv.org/abs/2007.12238",
+    "title"    : "Title is the Title",
+    "authors"  : ["Author1", "Author2", "Author3", "Author4" ],
+    "abstract" : "This is an abstract",
+    "id"       : "0",
+    "keywords" : ["Planning"],
+    "topics"   : ["Learning"],
+    "track"    : "Planning and Learning",
+    "render"   : true
+  },
+
+  {
+        "UID": [2],
+    "forum": [2],
+    "TLDR": ["abstract"],
+    "recs": [],
+    "sessions": ["sessions"],
+    "pdf_url": "",
+    "code_link": "https://github.com/Mini-Conf/Mini-Conf",
+    "link": "https://arxiv.org/abs/2007.12238",
+    "title"    : "This Title is different",
+    "authors"  : ["Author1", "Author5"],
+    "abstract" : "This abstract is also different, but yet the same",
+    "id"       : "2",
+    "keywords" : ["Explanation"],
+    "topics"   : ["Robotics"],
+    "track"    : "Main track",
+    "render"   : true
+  }
+]
