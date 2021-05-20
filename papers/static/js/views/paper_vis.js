@@ -101,7 +101,6 @@ function brush_ended() {
   const abstract_words = [...words_abstract.entries()]
     .sort((a, b) => -a[1] + b[1])
     .slice(0, 15);
-
   if (abstract_words.length > 0) {
     explain_text_plot.style("display", "none");
     const f_scale = d3
@@ -115,7 +114,7 @@ function brush_ended() {
       .attr("class", "topWords")
       .style("font-size", (d) => `${f_scale(d[1])}px`)
       .text((d) => d[0]);
-  } else {
+  } else if (all_sel.length == 0) {
     summary_selection.selectAll(".topWords").remove();
     explain_text_plot.style("display", null);
     summ.classList.add("d-none");
