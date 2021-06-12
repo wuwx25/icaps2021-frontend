@@ -10,7 +10,7 @@ var app = new Vue({
       ]
     },
     mounted:function(){
-      axios.get('http://39.108.98.226:5124/assets/data/speakers.json')
+      axios.get('https://icaps21.icaps-conference.org/assets/data/speakers.json')
             .then(res=>{
               console.log(res);
               console.log(this.speakers);
