@@ -23,7 +23,10 @@
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
   <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.js"></script>
   <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
-  <script src="https://cdn.bootcss.com/vue-resource/1.5.0/vue-resource.min.js"></script>
+  <script src="https://cdn.bootcss.com/vue-resource/1.5.0/vue-resource.min.js"></script> 
+  <!--jump to login.html-->
+  <script>  function tz(){window.location.href='login.html';}</script>
+  
   </head>
   <body>
     <header class="navbar fixed-top p-3 border-bottom">
@@ -110,7 +113,7 @@
 									<h2 class="layui-colla-title">1. Login or Create a new Profile</h2>
 									<div class="layui-colla-content layui-show">
                                     	<p>
-                                        Either <button type="button" class="layui-btn layui-btn-radius layui-btn-normal">Login >></button> to an exisitng profile<br>OR
+                                        Either <button type="button" onclick="tz()" class="layui-btn layui-btn-radius layui-btn-normal">Login >></button>to an exisitng profile<br>OR
                                         </p>
                                         <div class="layui-bg-gray" style="padding: 15px;">
                                       		<div class="layui-row layui-col-space15">
