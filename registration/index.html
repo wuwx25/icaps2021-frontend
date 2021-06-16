@@ -15,7 +15,7 @@
 	
 	<!-- Layout -->
 	<link href="static/css/layui.css" rel="stylesheet" />
-    <script src="static/js/layui.js"></script>
+    <!-- <script src="static/js/layui.js"></script> -->
     
     <link href="static/css/registration_style.css" rel="stylesheet"/>
 
@@ -150,9 +150,9 @@
                                                                         </div>
                                                                         <div class="layui-inline">
                                                                               <label class="layui-form-label">Pronoun: (optional, visible on badge)</label><br>
-
+                                                                              <div >{{message}}</div>
                                                                               <div class="layui-input-inline">
-                                                                                <select name="pronoun" v-model="user_info.pronoun">
+                                                                                <select name="pronoun" v-model="message">
                                                                                   <option value="--">--</option>
                                                                                   <option value="they/them">they/them</option>
                                                                                   <option value="she/her">she/her</option>
@@ -160,7 +160,6 @@
                                                                                   <option value="I don't use pronouns">I don't use pronouns</option>
                                                                                   <option value="Prefer not to say">Prefer not to say</option>
                                                                                   <option value="Specify your own">Specify your own</option>
-                                                                                 
                                                                                 </select>
                                                                               </div>
                                                                          </div>
@@ -191,20 +190,20 @@
                                                                         </div>
                                                                         <div class="layui-inline">
                                                                               <label class="layui-form-label">Country</label><br>
-
-                                                                              <div class="layui-input-inline">
+																			  
                                                                                 <select name="country" v-model="user_info.country">
                                                                                   <option value=""></option>
                                                                                   <option value="AFGHANISTAN">AFGHANISTAN</option>
                                                                                   <option value="ALAND ISLANDS">ALAND ISLANDS</option>
                                                                                 </select>
-                                                                              </div>
+																				<span>country:{{user_info.country}}</span>
                                                                         </div>
                                                                       </div>
                                                                 </div>      
                                                                
                                                                 <div class="layui-btn-container">
-                                                                	<button type="submit" class="layui-btn  layui-btn-normal layui-btn-radius">Next >></button>
+<!--                                                                	<button type="submit" class="layui-btn  layui-btn-normal layui-btn-radius" @tap="next">Next >></button>-->
+                                                                        <button @click="next" class="layui-btn  layui-btn-normal layui-btn-radius">NEXT>></button>
                                                                 </div>
                                                             </form>
                                                         </div>
