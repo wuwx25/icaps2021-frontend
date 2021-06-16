@@ -12,7 +12,6 @@
 
     <!-- Bootstrap core CSS -->
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous"> -->
-    
 
     <!-- Bootstrap Overrides -->
     <link href="../assets/bootstrap/css/styles.css" rel="stylesheet" />
@@ -23,11 +22,10 @@
     <script src="../assets/js/jquery-3.6.0.min.js"></script>
     <script src="../assets/js/custom.js"></script>
     <script src="../assets/js/bootstrap.min.js"></script>
-  <!-- import axios  -->
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <!-- vue dev version -->
-  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-
+    <!-- import axios  -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- vue dev version -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   </head>
   <body class="bg-light">
     <header class="navbar fixed-top p-3 border-bottom">
@@ -52,6 +50,9 @@
                   <a href="../papers" class="nav-link px-2">Papers</a>
                 </li>
                 <li class="nav-item">
+                  <a class="nav-link px-2 active">Invited Speakers</a>
+                </li>
+                <li class="nav-item">
                   <a href="../Calls" class="nav-link px-2">Calls</a>
                 </li>
                 <li class="nav-item">
@@ -63,12 +64,7 @@
                   >
                 </li>
                 <li class="nav-item">
-                  <a href="../Committee" class="nav-link px-2"
-                    >Committee</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link px-2 active">Invited Speakers</a>
+                  <a href="../Committee" class="nav-link px-2">Committee</a>
                 </li>
               </ul>
             </div>
@@ -77,15 +73,15 @@
       </nav>
     </header>
     <div id="app" v-cloak>
-    <div class="album mt-3 p-4" >
-      <div style="height: 100px" class="d-none d-md-block">
-        <!-- padding hack for the fixed navbar -->
-      </div>
+      <div class="album mt-3 p-4">
+        <div style="height: 100px" class="d-none d-md-block">
+          <!-- padding hack for the fixed navbar -->
+        </div>
 
-      <div class="container">
-        <div class="mb-5">
-          <h4>Invited Speakers</h4>
-          <hr />
+        <div class="container">
+          <div class="mb-5">
+            <h4>Invited Speakers</h4>
+            <hr />
             <!-- <div class="row" >
               <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6" v-for="speaker in speakers">
                 <div
@@ -104,17 +100,21 @@
                 </div>
               </div>
             </div> -->
-          
-            <div class="row" >
-              <div class="col-12 col-lg-4 col-md-4 col-sm-12" v-for="speaker in speakers">
-                <div
-                  class="card mb-3" style="max-width: 540px;"
-                >
+
+            <div class="row">
+              <div
+                class="col-12 col-lg-4 col-md-4 col-sm-12"
+                v-for="speaker in speakers"
+              >
+                <div class="card mb-3" style="max-width: 540px">
                   <div class="row no-gutters">
                     <div class="col-md-4">
-                      <img  :src="'../assets/images/speakers/'+speaker.name.split(' ')[0].toLowerCase()+'.jpg'" class="card-img" />
+                      <img
+                        :src="'../assets/images/speakers/'+speaker.name.split(' ')[0].toLowerCase()+'.jpg'"
+                        class="card-img"
+                      />
                     </div>
-                    <div class="col-md-8" >
+                    <div class="col-md-8">
                       <div class="card-body">
                         <h5 class="card-title">{{speaker.name}}</h5>
                         <p class="card-text">{{speaker.department}}</p>
@@ -130,7 +130,7 @@
                 </div>
               </div>
             </div>
-            
+
             <!-- <div class="row" >
               <div class="card md-3" style="max-width: 540px;">
                 <div class="row no-gutters">
@@ -148,11 +148,10 @@
               </div>
             </div>
         </div> -->
-
+          </div>
+        </div>
       </div>
     </div>
-    </div>
-    
 
     <footer class="footer m-5">
       <div class="container">
