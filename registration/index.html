@@ -18,9 +18,12 @@
     <script src="static/js/layui.js"></script>
     
     <link href="static/css/registration_style.css" rel="stylesheet"/>
-    
-    <!-- jQuery -->
-    <script src="../assets/js/jquery-3.6.0.min.js"></script>
+
+  <!--introduce the vue and axios-->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.js"></script>
+  <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+  <script src="https://cdn.bootcss.com/vue-resource/1.5.0/vue-resource.min.js"></script>
   </head>
   <body>
     <header class="navbar fixed-top p-3 border-bottom">
@@ -98,7 +101,8 @@
 				  </h4>
 				  <hr />
 				</header>
-				<div class="row">
+				<div class="row" id="app" v-cloak>
+          {{message}}
 					<!--<div class="col col-12 col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">-->
 						<div class="d-none d-lg-block" id="container">
 							<div class="layui-collapse" lay-accordion lay-filter="test">
@@ -127,28 +131,28 @@
                                                                           <label class="layui-form-label">Email</label><br>
 
                                                                           <div class="layui-input-inline">
-                                                                            <input type="text" name="email" lay-verify="email" autocomplete="off" class="layui-input">
+                                                                            <input type="text" name="email" v-model="user_info.email" autocomplete="off" class="layui-input">
                                                                           </div>
                                                                         </div>
                                                                         <div class="layui-inline">
                                                                           <label class="layui-form-label">First name</label><br>
 
                                                                           <div class="layui-input-inline">
-                                                                            <input type="text" name="first_name:" lay-verify="first_name" autocomplete="off" class="layui-input">
+                                                                            <input type="text" name="first_name:" v-model="user_info.first_name" autocomplete="off" class="layui-input">
                                                                           </div>
                                                                         </div>
                                                                         <div class="layui-inline">
                                                                           <label class="layui-form-label">Last name</label><br>
 
                                                                           <div class="layui-input-inline">
-                                                                            <input type="text" name="last_name:" lay-verify="last_name" autocomplete="off" class="layui-input">
+                                                                            <input type="text" name="last_name:" v-model="user_info.last_name" autocomplete="off" class="layui-input">
                                                                           </div>
                                                                         </div>
                                                                         <div class="layui-inline">
                                                                               <label class="layui-form-label">Pronoun: (optional, visible on badge)</label><br>
 
                                                                               <div class="layui-input-inline">
-                                                                                <select name="pronoun" lay-verify="pronoun">
+                                                                                <select name="pronoun" v-model="user_info.pronoun">
                                                                                   <option value="--">--</option>
                                                                                   <option value="they/them">they/them</option>
                                                                                   <option value="she/her">she/her</option>
@@ -168,28 +172,28 @@
                                                                           <label class="layui-form-label">Institution</label><br>
 
                                                                           <div class="layui-input-inline">
-                                                                            <input type="text" name="institution" lay-verify="institution" autocomplete="off" class="layui-input">
+                                                                            <input type="text" name="institution" v-model="user_info.institution" autocomplete="off" class="layui-input">
                                                                           </div>
                                                                         </div>
                                                                         <div class="layui-inline">
                                                                           <label class="layui-form-label">Password</label><br>
 
                                                                           <div class="layui-input-inline">
-                                                                            <input type="password" name="password" lay-verify="password" autocomplete="off" class="layui-input">
+                                                                            <input type="password" name="password" v-model="user_info.password" autocomplete="off" class="layui-input">
                                                                           </div>
                                                                         </div>
                                                                         <div class="layui-inline">
                                                                           <label class="layui-form-label">Confirm  Password</label><br>
 
                                                                           <div class="layui-input-inline">
-                                                                            <input type="password" name="confirm_password" lay-verify="confirm_password" autocomplete="off" class="layui-input">
+                                                                            <input type="password" name="confirm_password" v-model="user_info.password2" autocomplete="off" class="layui-input">
                                                                           </div>
                                                                         </div>
                                                                         <div class="layui-inline">
                                                                               <label class="layui-form-label">Country</label><br>
 
                                                                               <div class="layui-input-inline">
-                                                                                <select name="country" lay-verify="country">
+                                                                                <select name="country" v-model="user_info.country">
                                                                                   <option value=""></option>
                                                                                   <option value="AFGHANISTAN">AFGHANISTAN</option>
                                                                                   <option value="ALAND ISLANDS">ALAND ISLANDS</option>
@@ -311,5 +315,6 @@
         </div>
       </div>
     </footer>
+    <script src="./index.js" ></script>
   </body>
 </html>

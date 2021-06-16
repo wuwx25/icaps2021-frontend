@@ -11,7 +11,9 @@ var app = new Vue({
     },
     mounted:function(){
       axios.defaults.baseURL=window.location.origin;
-      axios.get('/assets/data/speakers.json')
+      axios.get('/assets/data/speakers.json',{headers:{
+		  "access-control-allow-headers": "Content-Type"
+	  }})
             .then(res=>{
               console.log(res);
               console.log(this.speakers);
@@ -20,6 +22,5 @@ var app = new Vue({
             .catch(
               err=>{console.log(err);}
             );
-    }
-
+    },
   })
