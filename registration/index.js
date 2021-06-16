@@ -3,16 +3,9 @@ var app = new Vue({
     data: {
       message: 'Hello Vue!',
       user_info:{
-          email: "",
-          first_name:"",
-          last_name:"",
-          pronoun:"",
-          institution:"",
-          password:"",
-          password2:"",
-          country:"hahah"
+        
       },
-	  test:"test"
+	
     },
     mounted:function(){
         console.log("这是moutned")
