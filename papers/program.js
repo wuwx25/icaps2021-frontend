@@ -1730,9 +1730,9 @@ function render_paper_list() {
                           <b>Abstract: </b>
                           @ABSTRACT@
                         </p>
-                        <button href=@URL@ type="button" class="btn btn-dark btn-sm">
+                        <a href=@URL@ type="button" class="btn btn-dark btn-sm">
                           PDF
-                        </button>
+                        </a>
                       </div>
                     </div>
                   </div>
