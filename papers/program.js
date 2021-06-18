@@ -1730,8 +1730,8 @@ function render_paper_list() {
                           <b>Abstract: </b>
                           @ABSTRACT@
                         </p>
-                        <button type="button" class="btn btn-dark btn-sm d-none">
-                          PDF - Will be added soon
+                        <button href=@URL@ type="button" class="btn btn-dark btn-sm">
+                          PDF
                         </button>
                       </div>
                     </div>
@@ -1766,7 +1766,8 @@ function render_paper_list() {
         .replace(/@TITLE@/g, element["title"])
         .replace(/@KEYWORD@/g, keyword_str)
         .replace(/@AUTHOR_STR@/g, author_str)
-        .replace(/@ABSTRACT@/g, element["abstract"]);
+        .replace(/@ABSTRACT@/g, element["abstract"])
+        .replace(/@URL@/g, element["url"]);
     }
   }
 
