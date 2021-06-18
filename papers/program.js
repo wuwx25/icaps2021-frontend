@@ -1753,6 +1753,11 @@ function render_paper_list() {
           element["topics"][k]
         );
       }
+      if (element["url"] != "") {
+        url_str = element["url"];
+      } else {
+        url_str = "#";
+      }
       if (element["authors"].length > 1) {
         author_str =
           element["authors"].slice(0, -1).join(", ") +
@@ -1767,7 +1772,7 @@ function render_paper_list() {
         .replace(/@KEYWORD@/g, keyword_str)
         .replace(/@AUTHOR_STR@/g, author_str)
         .replace(/@ABSTRACT@/g, element["abstract"])
-        .replace(/@URL@/g, element["url"]);
+        .replace(/@URL@/g, url_str);
     }
   }
 
