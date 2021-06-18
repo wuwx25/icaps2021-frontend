@@ -30,12 +30,13 @@ function initialize_program() {
       authors: ["Sarah Keren", "Gerard Canal", "Michael Cashmore"],
       keyphrases: "Task and motion planning\n Robotics\n Waypoint sampling",
       abstract:
-        "To achieve a complex task, a robot often needs to navigate in a physical space to complete activities in different locations. For example, it may need to inspect several structures, making multiple observations of each structure from different\n perspectives. Typically, the positions from which these activities can be performed are represented as waypoints \u2013 discrete positions that are sampled from the continuous physical space. Existing approaches to waypoint selection either iteratively consider the entire space or each activity separately, which can lead to task planning problems that are more complex than is necessary or to plans of compromised quality. We offer an approach that produces more efficient plans by performing a one-time computation of the connectivity graph and by prioritizing waypoints from which multiple activities can be performed. In addition, we support user specified performance preferences that represent preferences a system operator may have about the generated task plan but that cannot be directly represented in the map used for navigation, such as areas near doorways where it is preferable that the robot does not stop to perform activities. We demonstrate the performance benefits of our approach on simulated manufacturing tasks in an automated factory.",
+        "To achieve a complex task, a robot often needs to navigate in a physical space to complete activities in different locations. For example, it may need to inspect several structures, making multiple observations of each structure from different\n perspectives. Typically, the positions from which these activities can be performed are represented as waypoints – discrete positions that are sampled from the continuous physical space. Existing approaches to waypoint selection either iteratively consider the entire space or each activity separately, which can lead to task planning problems that are more complex than is necessary or to plans of compromised quality. We offer an approach that produces more efficient plans by performing a one-time computation of the connectivity graph and by prioritizing waypoints from which multiple activities can be performed. In addition, we support user specified performance preferences that represent preferences a system operator may have about the generated task plan but that cannot be directly represented in the map used for navigation, such as areas near doorways where it is preferable that the robot does not stop to perform activities. We demonstrate the performance benefits of our approach on simulated manufacturing tasks in an automated factory.",
       topics: [
         "Integrated task and motion planning",
         "Planning with uncertainty in robotics",
       ],
       track: "robotics",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/16013",
     },
     {
       UID: "5",
@@ -47,6 +48,7 @@ function initialize_program() {
         "Translations into propositional logic are currently one of the most efficient techniques for solving Totally-Ordered HTN planning problems.\n The two current encodings both iterate over the maximum allowed depth of decomposition.\n Given this depth, they compute a tree that represents all possible decompositions up to this depth.\n Based on this tree, a formula in propositional logic is created.\n We show that much of the computed tree is actually useless as it cannot possibly belong to a solution.\n We provide a technique for removing (parts of) these useless structures using state invariants.\n We further show that is often not necessary to encode all leafs of this tree as separate timesteps, as the prior encodings did.\n Instead, we can compress the leafs into blocks and encode all leafs of a block at one timestep.\n We show that these changes provide an improvement over the state-of-the-art in HTN planning.",
       topics: ["HTN and knowledge-based planning"],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15943",
     },
     {
       UID: "17",
@@ -58,6 +60,7 @@ function initialize_program() {
         "We consider the bi-criteria shortest-path problem where we want to compute shortest paths on a graph that simultaneously balance two cost functions. While this problem has numerous applications, there is usually no path minimizing both cost functions simultaneously. Thus, we typically consider the set of paths where no path is strictly better than the others in both cost functions, a set called the Pareto-optimal frontier. Unfortunately, the size of this set may be exponential in the number of graph vertices and the general problem is NP-hard. While existing schemes to approximate this set exist, they may be slower than exact approaches when applied to relatively small instances and running them on graphs with even a moderate number of nodes is often impractical. The crux of the problem lies in how to efficiently approximate the Pareto-optimal frontier. Our key insight is that the Pareto-optimal frontier can be approximated using pairs of paths. This simple observation allows us to run a best-first-search while efficiently and effectively pruning away intermediate solutions in order to obtain an approximation of the Pareto frontier for any given approximation factor. We compared our approach with an adaptation of BOA*, the state-of-the-art algorithm for computing exact solutions to the bi-criteria shortest-path problem. Our experiments show that as the problem becomes harder, the speedup obtained becomes more pronounced. Specifically, on large roadmaps, when using an approximation factor of 10% we obtain a speedup on the average running time of more than X19.",
       topics: ["Multi-objective planning and scheduling", "Search techniques"],
       track: "main",
+      url: "",
     },
     {
       UID: "24",
@@ -75,6 +78,7 @@ function initialize_program() {
         "We address the problem of situated temporal planning, in which an agent's plan can depend on scheduled exogenous events, and thus it becomes important to take the passage of time into account during the planning process. \n Previous work on situated temporal planning has proposed simple pruning strategies, as well as complex schemes for a simplified version of the associated metareasoning problem. Although even the\n simplified version of the metareasoning problem is NP-hard,\n we provide a pseudo-polynomial time\n optimal solution to the case with known deadlines.\n We leverage intuitions emerging from this case to provide a fast greedy\n scheme that significantly improves upon previous schemes even for the case\n of unknown deadlines.\n Finally, we show how this new method can be applied inside an actual situated temporal planner.\n An empirical evaluation suggests that the new planner provides state-of-the-art results on problems where external deadlines play a significant role.",
       topics: ["Temporal planning", "Online/real-time planning and scheduling"],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15979",
     },
     {
       UID: "34",
@@ -89,9 +93,10 @@ function initialize_program() {
       keyphrases:
         "heuristic\n pathfinding\n jump point search\n temporal obstacles",
       abstract:
-        "We consider a novel symmetry breaking algorithm - in the style of Jump Point Search \u2013 for pathfinding in 4-connected uniform-cost grids with temporal obstacles that appear and disappear at set times. This problem appears in several important contexts such as multi-agent coordination and computer games. Our approach is evaluated in these contexts and is shown to result in significant improvements, especially when the temporal obstacles are sparse",
+        "We consider a novel symmetry breaking algorithm - in the style of Jump Point Search – for pathfinding in 4-connected uniform-cost grids with temporal obstacles that appear and disappear at set times. This problem appears in several important contexts such as multi-agent coordination and computer games. Our approach is evaluated in these contexts and is shown to result in significant improvements, especially when the temporal obstacles are sparse",
       topics: ["Temporal planning", "Classical planning"],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15961",
     },
     {
       UID: "36",
@@ -109,6 +114,7 @@ function initialize_program() {
         "The field of bidirectional heuristic search has greatly advanced in the past few years. However, the subject of memory-restricted bidirectional search has scarcely been pursued.\n In this paper we introduce a general iterative deepening bidirectional heuristic search algorithm (IDBHS) that searches simultaneously from both directions while controlling the meeting point of the search frontiers thus balancing the effort of the forward and backward searches. First we preset the basic variant of IDBHS, whose memory is linear in the search depth. We then add improvements that exploit consistency and front-to-front heuristics. Next, we move to the case where a fixed amount of memory is available to store nodes during the search. Here, we develop two variants of IDBHS: (1) IDBHS+A*, that uses A* as a preliminary stage and moves to IDBHS after memory is exhausted.\n (2) A variant that iteratively stores a partial forward frontier, until memory is exhausted and then tries to match it from the backward side.\n Finally, we empirically compare the new algorithms to existing ones (both unidirectional and bidirectional). In many cases our new algorithms require less runtime and node expansions than the previous methods.",
       topics: ["Search techniques"],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15978",
     },
     {
       UID: "37",
@@ -121,18 +127,20 @@ function initialize_program() {
         "Partial Order Causal Link (POCL) planning follows the principle of least commitment in that it maintains only a partial order on its actions to prevent unnecessary early commitment during search. This can reduce the search space significantly by systematically representing up to an exponential number of action sequences in just a single search node. Progress on goal achievement is represented fully by this partial order and by causal links, which represent the causal relationships between these actions as well as between the initial state and goal. Plan existence for a state in classical planning thus corresponds to plan existence for a partial plan in POCL planning. Yet almost no theoretical investigations for POCL plan existence were conducted so far. While delete-relaxation makes plan existence tractable in classical planning, we show it to be NP-hard in POCL planning unless the current plan is totally ordered or causal links are almost completely ignored.",
       topics: ["Classical planning", "Complexity analysis"],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15944",
     },
     {
       UID: "38",
       title:
         "Translating Totally Ordered HTN Planning Problems to Classical Planning Problems Using Regular Approximation of Context-Free Languages",
-      authors: ["Daniel H\u00f6ller"],
+      authors: ["Daniel Höller"],
       keyphrases:
         "HTN planning\n planning system\n translation\n classical planning",
       abstract:
         "There have been several approaches to use techniques from classical planning in HTN planning. While a direct translation is in general not possible due to the different expressiveness, there have been translations of bounded HTN problems and approaches to use classical heuristics in HTN search procedures. In this paper, we introduce a different approach. We exploit methods from the field of Computational Linguistics introduced to approximate Context-Free Languages by Finite Automata. We use them to approximate the decomposition structure of totally ordered (TO) HTN planning problems by classical problems. The resulting problem can then be solved using standard classical planning systems. A subset of TOHTN problems can be translated exactly, i.e., without changing the set of solutions. For problems where an approximation is necessarily, we use an overapproximation, i.e., the set of solutions to the classical problem is a superset of that of the HTN problem. We then use plan verification to check whether a solution is valid and thus obtain a sound and complete overall solver. The resulting system outperforms the state of the art on the IPC 2020 benchmark set in terms of coverage.",
       topics: ["HTN and knowledge-based planning"],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15958",
     },
     {
       UID: "44",
@@ -149,6 +157,7 @@ function initialize_program() {
         "Complexity analysis",
       ],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15949",
     },
     {
       UID: "48",
@@ -165,16 +174,18 @@ function initialize_program() {
         "Explanation of planning and learning models",
       ],
       track: "main",
+      url: "",
     },
     {
       UID: "49",
       title: "Loop Detection in the PANDA Planning System",
-      authors: ["Daniel H\u00f6ller", "Gregor Behnke"],
+      authors: ["Daniel Höller", "Gregor Behnke"],
       keyphrases: "HTN planning\n loop detection\n graph search",
       abstract:
         "The International Planning Competition (IPC) in 2020 was the first one for a long time to host tracks on Hierarchical Task Network (HTN) planning. HyperTensioN, the winner of the tack on totally ordered problems, comes with an interesting technique: it stores parts of the decomposition path in the state to mark expanded tasks and forces its depth first search to leave recursive structures in the hierarchy. This can be seen as a form of loop detection (LD) -- a technique that is not very common in HTN planning. This might be due to the spirit of encoding enough advice in the model to find plans (so that loop detection is simply not necessary), or because it becomes a computationally hard task in the general (i.e. partially ordered) setting. We integrated several (approximate and exact) techniques for LD into the heuristic progression search of the HTN planning system PANDA. We test our new techniques on the benchmark set of the IPC 2020. Both in the partially ordered (PO) and totally ordered (TO) track, PANDA with LD beats the winners of the competition. In the PO setting, our LD techniques increase the lead in comparison to the IPC systems. In the TO setting, PANDA is placed 3rd place without our LD techniques, but 1st when using it.",
       topics: ["HTN and knowledge-based planning", "Search techniques"],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15959",
     },
     {
       UID: "54",
@@ -191,6 +202,7 @@ function initialize_program() {
         "Applications and case studies",
       ],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15972",
     },
     {
       UID: "55",
@@ -211,6 +223,7 @@ function initialize_program() {
         "Reinforcement learning using planning (model-based, Bayesian, deep, etc.)",
       ],
       track: "learning",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/16001",
     },
     {
       UID: "60",
@@ -227,6 +240,7 @@ function initialize_program() {
         "Reasoning about action and change",
       ],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15954",
     },
     {
       UID: "61",
@@ -248,6 +262,7 @@ function initialize_program() {
         "Distributed and multi-agent planning",
       ],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15942",
     },
     {
       UID: "62",
@@ -264,6 +279,7 @@ function initialize_program() {
         "Industry / application challenge problems",
       ],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15985",
     },
     {
       UID: "67",
@@ -280,6 +296,7 @@ function initialize_program() {
         "Manipulation task and/or motion planning",
       ],
       track: "robotics",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/16012",
     },
     {
       UID: "76",
@@ -289,9 +306,10 @@ function initialize_program() {
       keyphrases:
         "Plan verification\n Probabilistic-Timed Automata\n Performance-Level Profiles",
       abstract:
-        "Performance-Level Profiles (PLPs) were introduced as a type of action representation language suitable for capturing the behavior of functional code for robotics. This paper addresses two issues that PLPs raise: (1) Their formal semantics. (2) How to verify a script or a plan that schedule the use of components that have been documented by PLPs. We provide a formal semantics for PLPs by mapping them to probabilistic timed automata (PTAs). We also show how, given a script that refers to components specified using PLPs, we derive a PTA specification of the entire system. This PTA can be used to verify the system\u2019s properties and answers queries about its behavior. Finally, we empirically evaluate an implemented system based on these ideas, demonstrating its scalability. The result is a pragmatic approach for verifying component-based robotic systems.",
+        "Performance-Level Profiles (PLPs) were introduced as a type of action representation language suitable for capturing the behavior of functional code for robotics. This paper addresses two issues that PLPs raise: (1) Their formal semantics. (2) How to verify a script or a plan that schedule the use of components that have been documented by PLPs. We provide a formal semantics for PLPs by mapping them to probabilistic timed automata (PTAs). We also show how, given a script that refers to components specified using PLPs, we derive a PTA specification of the entire system. This PTA can be used to verify the system’s properties and answers queries about its behavior. Finally, we empirically evaluate an implemented system based on these ideas, demonstrating its scalability. The result is a pragmatic approach for verifying component-based robotic systems.",
       topics: ["Formal methods for robot planning and control"],
       track: "robotics",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/16016",
     },
     {
       UID: "79",
@@ -312,6 +330,7 @@ function initialize_program() {
         "Distributed and multi-agent planning",
       ],
       track: "learning",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/16006",
     },
     {
       UID: "84",
@@ -335,6 +354,7 @@ function initialize_program() {
         "Model representation and learning domain models for planning",
       ],
       track: "robotics",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/16015",
     },
     {
       UID: "85",
@@ -350,6 +370,7 @@ function initialize_program() {
         "Temporal reasoning is central to many AI applications. However, the existing algorithmic frameworks for temporal reasoning are not expressive enough to be applicable to robots with complex kinodynamic constraints typically described using differential equations. For example, while minimum and maximum velocity constraints can be encoded in Simple Temporal Networks (STNs), higher-order kinodynamic constraints cannot be represented in existing frameworks. In this paper, we present a novel framework for temporal reasoning called Kinodynamic Networks (KDNs). KDNs combine elements of existing temporal reasoning frameworks with the idea of Bernstein polynomials. The velocity profiles of robots are represented using Bernstein polynomials; and dynamic constraints on these velocity profiles can be converted to linear constraints on the to-be-determined coefficients of their Bernstein polynomials. We study KDNs for their attractive theoretical properties and apply them to the Multi-Agent Path Finding (MAPF) problem with higher-order kinodynamic constraints. We show that our approach is not only scalable but also yields smooth velocity profiles for all robots that can be executed by their controllers.",
       topics: ["Temporal planning", "Scheduling"],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15987",
     },
     {
       UID: "86",
@@ -370,6 +391,7 @@ function initialize_program() {
         "Planning with uncertainty in robotics",
       ],
       track: "robotics",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/16011",
     },
     {
       UID: "99",
@@ -383,6 +405,7 @@ function initialize_program() {
         "Distributed and multi-agent planning",
       ],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15953",
     },
     {
       UID: "109",
@@ -395,6 +418,7 @@ function initialize_program() {
         "Uncertainty is an omnipresent issue in real-world optimization problems. This paper studies a fundamental problem concerning uncertainty, known as the $\\beta$-robust scheduling problem. Given a set of identical machines and a set of jobs whose processing times follow a normal distribution, the goal is to assign jobs to machines such that the probability that all the jobs are completed by a given common due date is maximized. We give the first systematic study on the complexity and algorithms for this problem. A strong negative result is shown by ruling out the existence of any polynomial-time algorithm with a constant approximation ratio for the general problem unless P=NP. On the positive side, we provide the first FPT-AS (fixed parameter tractable approximation scheme) parameterized by the number of different kinds of jobs, which is a common parameter in scheduling problems. It returns a solution arbitrarily close to the optimal solution, provided that the job processing times follow a few different types of distributions. We further complement the theoretical results by implementing our algorithm. The experiments demonstrate that by choosing an appropriate approximation ratio, the algorithm can efficiently compute a near-optimal solution.",
       topics: ["Scheduling", "Scheduling under uncertainty"],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15982",
     },
     {
       UID: "118",
@@ -416,6 +440,7 @@ function initialize_program() {
         "Industry / application challenge problems",
       ],
       track: "applications",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15996",
     },
     {
       UID: "120",
@@ -434,6 +459,7 @@ function initialize_program() {
         "We consider optimal numeric planning with numeric conditions consisting of linear expressions of numeric state variables and actions that increase or decrease numeric state variables by constant quantities. We build on previous research to introduce a new variant of the numeric h^{max} heuristic based on the delete-relaxed version of such planning tasks. Although our h^{max} heuristic is inadmissible, it yields a numeric version of the classical LM-cut heuristic which is admissible. Further, we prove that our LM-cut heuristic neither dominates nor is dominated by the existing numeric heuristic h^{max}_{hbd}. We show that admissibility also holds when integrating the numeric cuts into the operator-counting (OC) heuristic producing an admissible numeric version of the OC heuristic. Through experiments, we demonstrate that both these heuristics compete favorably with the state-of-the-art heuristics: in particular, while sometimes expanding more nodes than other heuristics, numeric OC solves 19 more problem instances than the next closest heuristic.",
       topics: ["Planning in mixed discrete / continuous domains"],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15964",
     },
     {
       UID: "123",
@@ -444,13 +470,14 @@ function initialize_program() {
         "It has been shown recently that duality mapping is a viable strategy to turn progression (forward search) into regression (backward search), but the experimental results suggest that the dual versions of standard IPCs benchmarks are quite difficult to solve for heuristic search planners. We aim to study the performance of width based planners over regression. Our experiments show that width-based search can solve dual problems efficiently when the goal state is restricted to single fluent, but it becomes challenging when the goal state contains conjunctive fluents. We then show that the backward versions of best-first width search with the evaluation function f5, BFWS(f5), and its polynomial variant, k-BFWS, are not competitive with their forward versions, but can be orthogonal over the IPC benchmarks. Hence, we propose a front-to-end bidirectional search k-BDWS and its front-to-front variant by integrating forward and backward k-BFWS with the additional intersection check between expanded states whose novelty is 1 in the opposite close list. Practical findings on the challenges of regression in classical planning are briefly discussed.",
       topics: ["Classical planning"],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15965",
     },
     {
       UID: "128",
       title: "Delete-Relaxation Heuristics for Lifted Classical Planning",
       authors: [
-        "Augusto B. Corr\u00eaa",
-        "Guillem Franc\u00e8s",
+        "Augusto B. Corrêa",
+        "Guillem Francès",
         "Florian Pommerening",
         "Malte Helmert",
       ],
@@ -460,6 +487,7 @@ function initialize_program() {
         "Recent research in classical planning has shown the importance of search techniques that operate directly on the lifted representation of the problem, particularly in domains where the ground representation is prohibitively large. In this paper, we show how to compute the additive and maximum heuristics from the lifted representation of a problem. We do this by adapting well-known reachability analysis techniques based on a Datalog formulation of the delete relaxation of the problem. Our adaptation allows us to obtain not only the desired heuristic value, but also other useful heuristic information such as helpful actions. Our empirical evaluation shows that our lifted version of the additive heuristic is competitive with its ground counterpart on most of the standard international competition benchmarks, and significantly outperforms other state-of-the-art lifted heuristic methods in the literature.",
       topics: ["Classical planning"],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15951",
     },
     {
       UID: "130",
@@ -474,6 +502,7 @@ function initialize_program() {
         "Complexity analysis",
       ],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15975",
     },
     {
       UID: "132",
@@ -493,16 +522,17 @@ function initialize_program() {
         "Adversarial planning",
       ],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15973",
     },
     {
       UID: "134",
       title:
         "Pattern Databases for Goal-Probability Maximization in Probabilistic Planning",
       authors: [
-        "Thorsten Kl\u00f6\u00dfner",
-        "\u00c1lvaro Torralba",
+        "Thorsten Klößner",
+        "Álvaro Torralba",
         "Marcel Steinmetz",
-        "J\u00f6rg Hoffmann",
+        "Jörg Hoffmann",
       ],
       keyphrases:
         "Probabilistic Planning\n Goal-Probability Maximization\n Probabilistic Heuristic Search\n Pattern Databases\n Probabilistic Abstractions",
@@ -510,6 +540,7 @@ function initialize_program() {
         "Heuristic search algorithms for goal-probability maximization\n (MaxProb) have been known since a decade. Yet prior work on heuristic\n functions for MaxProb relies on determinization, not actually taking\n the probabilities into account. Here we begin to fix this, by\n introducing MaxProb pattern databases (PDB). We show that, for the\n special case of PDBs in contrast to more general abstractions,\n abstract transitions have a unique probability so that the abstract\n planning task is still an MDP. The resulting heuristic functions are\n admissible, i.e., they upper-bound the real goal probability. We\n identify conditions allowing to admissibly multiply heuristic values\n across several PDBs. Our experiments show that even non-probabilistic\n PDB heuristics often outperform previous MaxProb heuristics, and that\n our new probabilistic PDBs can in turn yield significant performance\n gains over non-probabilistic ones.",
       topics: ["Probabilistic planning, MDPs and POMDPs"],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15963",
     },
     {
       UID: "139",
@@ -528,17 +559,19 @@ function initialize_program() {
         "Optimal cost partitioning can produce high quality heuristic estimates even from small abstractions. It can be computed with a linear program (LP) but the size of this LP often makes this impractical. Recent work used Lagrangian decomposition to speed up the computation. Here we use a different decomposition technique called Dantzig-Wolfe decomposition to tackle the problem. This gives new insights into optimal cost partitioning and has several advantages over Lagrangian decomposition: our method has an explicit stopping condition that detects when a cost partitioning is optimal; it can deal with general cost functions; and it does not consider abstractions in the linear program that do not contribute to the heuristic value. We also show the advantage of the method empirically and investigate several improvements that are useful for all cost partitioning methods.",
       topics: ["OR techniques", "Classical planning"],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15971",
     },
     {
       UID: "140",
       title:
         "The Consistent Case in Bidirectional Search and a Bucket-to-Bucket Algorithm as a Middle Ground between Front-to-End and Front-to-Front",
-      authors: ["Vidal Alc\u00e1zar"],
+      authors: ["Vidal Alcázar"],
       keyphrases: "bidirectional\n heuristic\n consistency",
       abstract:
         "Recently, the proposal of individual bounds that use heuristic inaccuracies in front-to-end bidirectional search has improved the state of the art. These bounds apply to pairs of states as well, so we create a new definition of must-expand pairs when consistency is exploited explicitly. Furthermore, the lower bound of such pairs can also be seen as an admissible estimation of the lowest cost of any path between both states thanks to its formulation as a triangle inequality. This cost depends only on the g values and the heuristic estimates and not on the states themselves. Therefore, by grouping nodes by these values in buckets, such an estimate can be computed for sets of nodes and not individual pairs without loss of information. This bucket-to-bucket computation, although as expensive as front-to-front in the worst case, allows implementing a near-optimal algorithm with respect to front-to-end algorithms that use heuristic inaccuracies. Experiments show that bucket-to-bucket algorithms are the state of the art in the Pancake Problem and offer an insightful measurement of how far front-to-end algorithms are from their theoretical limit.",
       topics: ["Search techniques"],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15941",
     },
     {
       UID: "143",
@@ -547,7 +580,7 @@ function initialize_program() {
       keyphrases:
         "Multi-agent systems\n Decentralized cooperative agents\n Hierarchical task refinement\n Integrating acting and planning\n Operational models\n Online planning",
       abstract:
-        "We describe Dec-RPAE, a system for decentralized multi-agent acting and planning in partially observable and nondeterministic environments. The system includes both an acting component and an online planning component. The acting component is similar to RAE, a well-known acting engine, but incorporates changes that enable it to be used by autonomous agents working independently in a collaborative setting.\n Agents can communicate with each other to exchange information about their states, tasks, goals and plans in order to cooperatively succeed in missions. Communication is not always guaranteed or free, and agents need to reason about strategies to achieve optimal success and efficiency in missions under various constraints and with possibility of failures. \n Each agent runs a local copy of Dec-RPAE, with a set of hierarchical refinement methods using operational models that specify various ways to accomplish its designated tasks. To perform actions, the agent uses Dec-RPAE's acting component to execute the methods in the agent's environment. To advise the acting component on which method to execute, the planning component repeatedly does Monte Carlo simulations of the methods to estimate their potential outcomes.\n Our experimental results demonstrate that this online planning process is useful for improving the agents\u2019 performance in cooperative missions.",
+        "We describe Dec-RPAE, a system for decentralized multi-agent acting and planning in partially observable and nondeterministic environments. The system includes both an acting component and an online planning component. The acting component is similar to RAE, a well-known acting engine, but incorporates changes that enable it to be used by autonomous agents working independently in a collaborative setting.\n Agents can communicate with each other to exchange information about their states, tasks, goals and plans in order to cooperatively succeed in missions. Communication is not always guaranteed or free, and agents need to reason about strategies to achieve optimal success and efficiency in missions under various constraints and with possibility of failures. \n Each agent runs a local copy of Dec-RPAE, with a set of hierarchical refinement methods using operational models that specify various ways to accomplish its designated tasks. To perform actions, the agent uses Dec-RPAE's acting component to execute the methods in the agent's environment. To advise the acting component on which method to execute, the planning component repeatedly does Monte Carlo simulations of the methods to estimate their potential outcomes.\n Our experimental results demonstrate that this online planning process is useful for improving the agents’ performance in cooperative missions.",
       topics: [
         "HTN and knowledge-based planning",
         "Distributed and multi-agent scheduling",
@@ -556,6 +589,7 @@ function initialize_program() {
         "Distributed and multi-agent planning",
       ],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15966",
     },
     {
       UID: "144",
@@ -576,6 +610,7 @@ function initialize_program() {
         "Plan execution, failure detection and recovery",
       ],
       track: "learning",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/16004",
     },
     {
       UID: "145",
@@ -585,24 +620,26 @@ function initialize_program() {
       keyphrases:
         "Motion and path planning\n Collision avoidance\n Perception for grasping and manipulation\n Dynamic environments\n Moving obstacles\n Trajectory prediction",
       abstract:
-        "We present a novel framework for motion planning in dynamic environments that accounts for the predicted trajectories of moving objects. We explore the use of composite signed-distance fields in motion planning and detail how they can be used to both generate signed-distance fields (SDFs) in real-time and enable SDF-based motion planners to incorporate predicted obstacle motions; to achieve this, we introduce the concept of `predicted signed-distance fields\u2019. We benchmark our approach of using composite SDFs against performing exact SDF calculations on the workspace occupancy grid. Our proposed technique generates predictions substantially faster and typically exhibits an 81-97% reduction in time for subsequent predictions. We integrate our framework with the GPMP2 motion planner to demonstrate a full implementation of our approach in real-time, enabling a 7-DoF Panda manipulator to smoothly avoid a moving obstacle in simulation and hardware experiments.",
+        "We present a novel framework for motion planning in dynamic environments that accounts for the predicted trajectories of moving objects. We explore the use of composite signed-distance fields in motion planning and detail how they can be used to both generate signed-distance fields (SDFs) in real-time and enable SDF-based motion planners to incorporate predicted obstacle motions; to achieve this, we introduce the concept of `predicted signed-distance fields’. We benchmark our approach of using composite SDFs against performing exact SDF calculations on the workspace occupancy grid. Our proposed technique generates predictions substantially faster and typically exhibits an 81-97% reduction in time for subsequent predictions. We integrate our framework with the GPMP2 motion planner to demonstrate a full implementation of our approach in real-time, enabling a 7-DoF Panda manipulator to smoothly avoid a moving obstacle in simulation and hardware experiments.",
       topics: [
         "Representation and acquisition of planning models",
         "Real-world robotic planning applications",
         "Manipulation task and/or motion planning",
       ],
       track: "robotics",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/16010",
     },
     {
       UID: "146",
       title: "Endomorphisms of Lifted Planning Problems",
-      authors: ["Rostislav Horcik", "Daniel Fi\u0161er"],
+      authors: ["Rostislav Horcik", "Daniel Fišer"],
       keyphrases:
         "Lifted pruning\n Endomorphism\n Lifted mutex group\n PDDL\n Symmetry",
       abstract:
         "Classical planning tasks are usually modelled in the PDDL which is a schematic language based on first-order logic. Nevertheless, most of the current planners turn this first-order representation into a propositional one via the grounding process. It is well known that the grounding process may cause an exponential blowup. Therefore it is important to detect which grounded atoms are redundant in a sense that they are not necessary for finding a plan and therefore the grounding process does not need to generate them. This is usually done by a relaxed reachability analysis, which can be improved by employing structural symmetries. Symmetries are bijective self-maps preserving the structure of the PDDL task. In this paper, we introduce a new method which is based on self-maps preserving the structure but which need not be bijective. We call these maps PDDL endomorphisms and we show that they can be used for pruning of redundant objects even if they appear in a reachable atom. We formulate the computation of endomorphisms as a constraint satisfaction problem (CSP) that can be solved by an off-the-shelf CSP solver.",
       topics: ["Classical planning"],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15960",
     },
     {
       UID: "147",
@@ -619,6 +656,7 @@ function initialize_program() {
         "Representations for learned models in planning",
       ],
       track: "learning",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/16009",
     },
     {
       UID: "151",
@@ -627,7 +665,7 @@ function initialize_program() {
       authors: [
         "David Speck",
         "David Borukhson",
-        "Robert Mattm\u00fcller",
+        "Robert Mattmüller",
         "Bernhard Nebel",
       ],
       keyphrases:
@@ -636,6 +674,7 @@ function initialize_program() {
         "While state-dependent action costs are practically relevant and have been studied before, it is still unclear if they are an essential feature of planning tasks. In this paper, we study to what extent state-dependent action costs are an essential feature by analyzing under which circumstances they can be compiled away. We give a complete classification for all combinations of action cost functions and possible cost measures for the compilations.\n Our theoretical results show that if both task sizes and plan lengths are to be preserved polynomially, then the boundary between compilability and non-compilability lies between FP and FPSPACE computable action cost functions (under a mild assumption on the polynomial hierarchy). Preserving task sizes polynomially and plan lengths linearly at the same time is impossible.",
       topics: ["Classical planning", "Complexity analysis"],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15981",
     },
     {
       UID: "152",
@@ -643,9 +682,9 @@ function initialize_program() {
         "Learning Heuristic Selection with Dynamic Algorithm Configuration",
       authors: [
         "David Speck",
-        "Andr\u00e9 Biedenkapp",
+        "André Biedenkapp",
         "Frank Hutter",
-        "Robert Mattm\u00fcller",
+        "Robert Mattmüller",
         "Marius Lindauer",
       ],
       keyphrases:
@@ -658,17 +697,19 @@ function initialize_program() {
         "Learning to improve the effectiveness of planning & scheduling systems",
       ],
       track: "learning",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/16008",
     },
     {
       UID: "153",
       title: "Exploiting Cyclic Dependencies in Landmark Heuristics",
-      authors: ["Clemens B\u00fcchner", "Thomas Keller", "Malte Helmert"],
+      authors: ["Clemens Büchner", "Thomas Keller", "Malte Helmert"],
       keyphrases:
         "optimal planning\n landmarks\n classical planning\n heuristic search\n linear program",
       abstract:
         "Landmarks of a planning task denote properties that must be satisfied\n by all plans. Existing landmark heuristics exploit that each landmark\n must be achieved at least once. However, if the orderings between the\n landmarks induce cyclic dependencies, one of the landmarks in each\n cycle must be achieved an additional time. We propose two novel\n heuristics for cost-optimal planning that consider cyclic dependencies\n between landmarks in addition to the cost for achieving all landmarks\n once.\n \n We show that our heuristics dominate the minimum hitting set solution\n over any set of landmarks as well as h+ if all delete-relaxation\n landmarks are considered. An experimental evaluation on benchmarks\n from the International Planning Competition reveals that exploiting\n cyclic dependencies pays off.",
       topics: ["OR techniques", "Classical planning"],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15948",
     },
     {
       UID: "163",
@@ -684,6 +725,7 @@ function initialize_program() {
         "Temporal planning",
       ],
       track: "applications",
+      url: "",
     },
     {
       UID: "165",
@@ -712,6 +754,7 @@ function initialize_program() {
         "Distributed and multi-agent planning",
       ],
       track: "applications",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15994",
     },
     {
       UID: "180",
@@ -739,6 +782,7 @@ function initialize_program() {
         "Reinforcement learning using planning (model-based, Bayesian, deep, etc.)",
       ],
       track: "learning",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15998",
     },
     {
       UID: "187",
@@ -754,6 +798,7 @@ function initialize_program() {
         "Width-based search algorithms seek plans by prioritizing states according to a suitably defined measure of novelty, that maps states into a set of novelty categories. Space and time complexity to evaluate state novelty is known to be exponential on the cardinality of the set. We present novel methods to obtain polynomial approximations of novelty and width-based search. First, we approximate novelty computation via random sampling and Bloom filters, reducing the runtime and memory footprint. Second, we approximate the best-first search using an adaptive policy that decides whether to forgo the expansion of nodes in the open list. These two techniques are integrated into existing width-based algorithms, resulting in new planners that perform significantly better than other state-of-the-art planners over benchmarks from the International Planning Competitions.",
       topics: ["Classical planning"],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15980",
     },
     {
       UID: "190",
@@ -772,13 +817,14 @@ function initialize_program() {
       keyphrases:
         "Simulator-based planning\n Greenhouse control strategy\n Artificial intelligence\n Reinforcement learning\n Heuristic algorithm",
       abstract:
-        "The rapidly growing global population presents challenges and demands for efficient production of healthy fresh food. Autonomous greenhouse equipped with standard sensors and actuators (such as heating and lighting) which enables control of indoor climate for crop production, contributes to producing higher yields. However, it requires skilled and expensive labor, as well as a large amount of energy. An autonomous greenhouse control strategy, powered by AI algorithms by optimizing the yields and resource use simultaneously, offers an ideal solution to the dilemma. \n In this paper, we propose a two-stage planning framework to automatically optimize greenhouse control setpoints given specific outside weather conditions. Firstly, we take advantage of cumulative planting data and horticulture knowledge to build a multi-modular simulator using neural networks, to simulate climate change and crop growth in the greenhouse. Secondly, two AI algorithms (reinforcement learning and heuristic algorithm) as planning methods are applied to obtain optimal control strategies based on the simulator.\n We evaluate our framework on a cherry-tomato planting dataset and demonstrate that the simulator is able to simulate greenhouse planting processes with high accuracy and fast speed. Moreover, the control strategies produced by the AI algorithms all obtain superhuman performance, in particular, significantly outperform all teams of the second \u201cAutonomous Greenhouse Challenge\u201d in terms of net profits.",
+        "The rapidly growing global population presents challenges and demands for efficient production of healthy fresh food. Autonomous greenhouse equipped with standard sensors and actuators (such as heating and lighting) which enables control of indoor climate for crop production, contributes to producing higher yields. However, it requires skilled and expensive labor, as well as a large amount of energy. An autonomous greenhouse control strategy, powered by AI algorithms by optimizing the yields and resource use simultaneously, offers an ideal solution to the dilemma. \n In this paper, we propose a two-stage planning framework to automatically optimize greenhouse control setpoints given specific outside weather conditions. Firstly, we take advantage of cumulative planting data and horticulture knowledge to build a multi-modular simulator using neural networks, to simulate climate change and crop growth in the greenhouse. Secondly, two AI algorithms (reinforcement learning and heuristic algorithm) as planning methods are applied to obtain optimal control strategies based on the simulator.\n We evaluate our framework on a cherry-tomato planting dataset and demonstrate that the simulator is able to simulate greenhouse planting processes with high accuracy and fast speed. Moreover, the control strategies produced by the AI algorithms all obtain superhuman performance, in particular, significantly outperform all teams of the second “Autonomous Greenhouse Challenge” in terms of net profits.",
       topics: [
         "Integration of multiple planning and scheduling techniques, or of planning and scheduling techniques with techniques from other areas or disciplines",
         "Description and modeling of novel application domains",
         "Industry / application challenge problems",
       ],
       track: "applications",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15989",
     },
     {
       UID: "191",
@@ -795,6 +841,7 @@ function initialize_program() {
         "Complexity analysis",
       ],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15967",
     },
     {
       UID: "201",
@@ -810,6 +857,7 @@ function initialize_program() {
         "Probabilistic planning, MDPs and POMDPs",
       ],
       track: "learning",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/16007",
     },
     {
       UID: "206",
@@ -826,6 +874,7 @@ function initialize_program() {
         "Compressed Path Databases (CPD) are powerful database-driven methods for shortest path extraction in grids and in spatial networks. Yet CPDs have two main drawbacks: (1) constructing the database requires an offline all-pairs precompute, which can sometimes be prohibitive and; (2) extracting a path requires a number of database lookups equal to its number of edges, which can be costly in terms of time. In this work, we consider how CPD methods can be improved and enhanced by: (i) contracting the input graph before preprocessing and; (ii) by limiting the preprocessing step to only a selected subset of graph nodes. We also describe a new bi-directional path extraction algorithm which we call CH-CPD. In a range of experiments on road networks, we show that CH-CPD substantially improves on conventional CPDs in terms of preprocessing costs and online performance. We also report convincing query time improvements against a range of methods from the recent literature.",
       topics: ["Planning activities, motions and paths", "Search techniques"],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15977",
     },
     {
       UID: "208",
@@ -842,6 +891,7 @@ function initialize_program() {
         "Probabilistic planning, MDPs and POMDPs",
       ],
       track: "learning",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/16002",
     },
     {
       UID: "209",
@@ -857,6 +907,7 @@ function initialize_program() {
         "Search techniques",
       ],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15986",
     },
     {
       UID: "215",
@@ -867,6 +918,7 @@ function initialize_program() {
         "Hybrid PDDL+ models are amongst the most advanced models of systems and the resulting problems are notoriously difficult for planning engines to cope with. An additional limiting factor for the exploitation of PDDL+ approaches in real-world applications is the restricted number of domain-independent planning engines that can reason upon those models.\n \n With the aim of deepening the understanding of PDDL+ models, in this work we study a novel mapping between a time discretisation of PDDL+ and numeric planning as for PDDL2.1 (level 2). The proposed mapping not only clarifies the relationship between these two formalisms, but also enables the use of a wider pool of engines, thus fostering the use of hybrid planning in real-world applications. Our experimental analysis shows the usefulness of the proposed translation, and demonstrates the potential of the approach for improving the solvability of complex PDDL+ instances.",
       topics: ["Planning in mixed discrete / continuous domains"],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15969",
     },
     {
       UID: "219",
@@ -883,6 +935,7 @@ function initialize_program() {
         "We tackle the problem of classical planning with qualitative state-trajectory constraints as those that can be expressed in \\pddlthree. These kinds of constraints allow a user to formally specify which temporal properties a plan has to conform with through a class of LTL formulae. We study a compilation-based approach that, without resorting to automata for representing and dealing with such properties, takes a \\pddlthree problem and generates a classical planning problem with conditional effects that is solvable iff so is the \\pddlthree problem. Our compilation leverages from the notion of regression for planning with conditional effects, and shows how this can be used to rework preconditions and conditional effects in a way to (i) prohibit executions that irreversibly violate temporal constraints (ii) promote executions that traverse those necessary subgoals implied by the temporal specification. \n An extensive experimental analysis shows that our approach performs better than \n both the native and other compilation-based approaches on the majority of the benchmark domains.",
       topics: ["Classical planning", "HTN and knowledge-based planning"],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15945",
     },
     {
       UID: "222",
@@ -902,6 +955,7 @@ function initialize_program() {
         "Evaluation, testing, and validation of planning and scheduling applications",
       ],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15952",
     },
     {
       UID: "230",
@@ -913,6 +967,7 @@ function initialize_program() {
         "Cost partitioning admissibly combines the information from multiple heuristics for optimal state-space search. One of the strongest cost partitioning algorithms is saturated cost partitioning. It considers the heuristics in sequence and assigns to each heuristic the minimal fraction of the remaining costs that are needed for preserving all heuristic estimates. Saturated cost partitioning has recently been generalized in two directions: first, by allowing to use different costs for the transitions induced by the same operator, and second, by preserving the heuristic estimates for only a subset of states. In this work, we unify these two generalizations and show that the resulting subset-saturated transition cost partitioning algorithm usually yields stronger heuristics than the two generalizations by themselves.",
       topics: ["Classical planning"],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15955",
     },
     {
       UID: "238",
@@ -936,6 +991,7 @@ function initialize_program() {
         "Industry / application challenge problems",
       ],
       track: "applications",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15992",
     },
     {
       UID: "257",
@@ -952,6 +1008,7 @@ function initialize_program() {
         "Scheduling under uncertainty",
       ],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15988",
     },
     {
       UID: "261",
@@ -972,6 +1029,7 @@ function initialize_program() {
         "Description and modeling of novel application domains",
       ],
       track: "applications",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15991",
     },
     {
       UID: "264",
@@ -990,6 +1048,7 @@ function initialize_program() {
         "Learning to improve the effectiveness of planning & scheduling systems",
       ],
       track: "learning",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/16005",
     },
     {
       UID: "273",
@@ -1004,6 +1063,7 @@ function initialize_program() {
         "Learning to improve the effectiveness of planning & scheduling systems",
       ],
       track: "learning",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/16003",
     },
     {
       UID: "274",
@@ -1019,16 +1079,18 @@ function initialize_program() {
         "Probabilistic planning, MDPs and POMDPs",
       ],
       track: "main",
+      url: "",
     },
     {
       UID: "282",
       title: "Automatic Instance Generation for Classical Planning",
-      authors: ["\u00c1lvaro Torralba", "Jendrik Seipp", "Silvan Sievers"],
+      authors: ["Álvaro Torralba", "Jendrik Seipp", "Silvan Sievers"],
       keyphrases: "classical planning\n benchmarks\n automatic configuration",
       abstract:
         "The benchmarks from previous International Planning Competitions (IPCs) are the de-facto standard for evaluating planning algorithms. The IPC set is both a collection of planning domains and a selection of instances from these domains. Most of the domains come with a parameterized generator that generates new instances for a given set of parameter values. Due to the steady progress of planning research the instances generated by the IPC organizers are often inadequate to evaluate current planners. To alleviate this problem, we introduce an automatic method that selects instances for a given domain. Our method takes into account constraints from the domain designer as well as the performance of current planners to generate an instance set of appropriate difficulty, while avoiding too much bias with respect to the considered planners. We show that the resulting benchmark set is superior to the IPC set and has the potential of improving empirical evaluation of planning research.",
       topics: ["Classical planning"],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15983",
     },
     {
       UID: "287",
@@ -1040,6 +1102,7 @@ function initialize_program() {
         "Cost partitioning is a general method for admissibly summing up heuristic estimates for optimal state-space search. Most cost partitioning algorithms can optimize the resulting cost-partitioned heuristic for a specific state. Since computing a new cost-partitioned heuristic for each evaluated state is usually too expensive in practice, the strongest planners based on cost partitioning over abstraction heuristics precompute a set of cost-partitioned heuristics before the search and maximize over their estimates during the search. This makes state evaluations very fast, but since there is no better termination criterion than a time limit, it requires a long precomputation phase, even for the simplest planning tasks. A prototypical example for this is the Scorpion planner which computes saturated cost partitionings over abstraction heuristics offline before the search. Using Scorpion as a case study, we show that by incrementally extending the set of cost-partitioned heuristics online during the search, we drastically speed up the planning process and even solve slightly more tasks.",
       topics: ["Classical planning"],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15976",
     },
     {
       UID: "297",
@@ -1052,6 +1115,7 @@ function initialize_program() {
         "We combine ideas from uni-directional and bi-directional heuristic search, and approximation algorithms for the Traveling Salesman Problem, to develop a novel framework for a Target Path Finding (TPF) problem that provides a 2-approximation guarantee. TPF aims to find a least-cost path from a start location to a destination such that each node in a given set of targets is visited at least once along the path. We present numerical results to illustrate the advantages of our framework over conventional alternates in terms of the number of explored nodes and run time.",
       topics: ["Classical planning", "Search techniques"],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15950",
     },
     {
       UID: "300",
@@ -1072,6 +1136,7 @@ function initialize_program() {
         "Industry / application challenge problems",
       ],
       track: "applications",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15997",
     },
     {
       UID: "305",
@@ -1087,6 +1152,7 @@ function initialize_program() {
         "Probabilistic planning, MDPs and POMDPs",
       ],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15956",
     },
     {
       UID: "306",
@@ -1107,6 +1173,7 @@ function initialize_program() {
         "User interface design, visualization, and explanation for a planning and scheduling application",
       ],
       track: "applications",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15995",
     },
     {
       UID: "309",
@@ -1119,6 +1186,7 @@ function initialize_program() {
         "We address the problem of non-deterministic conformant planning, \n i.e., the problem of finding a plan in a non-deterministic context \n where the system is not observable. \n Our approach uses an unsound reduction from conformant planning to classical planning\n to find a candidate plan; \n the validity of this plan is then verified by a SAT solver;\n if the plan is invalid, the reduction is revised to make guarantee \n that the invalid plan will not be valid in the classical planning problem. \n This procedure is executed until a valid plan is proved, \n or it is shown that there is no plan.\n Experiments show that this approach is competitive with the existing solvers, \n and is able to solve difficult instances.",
       topics: ["Conformant/contingent planning"],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15974",
     },
     {
       UID: "312",
@@ -1136,11 +1204,12 @@ function initialize_program() {
         "Probabilistic planning, MDPs and POMDPs",
       ],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15940",
     },
     {
       UID: "322",
       title: "Hierarchical Width-Based Planning and Learning",
-      authors: ["Miquel Junyent", "Vicen\u00e7 G\u00f3mez", "Anders Jonsson"],
+      authors: ["Miquel Junyent", "Vicenç Gómez", "Anders Jonsson"],
       keyphrases: "Hierarchical planning\n Iterated Width\n IW\n Atari",
       abstract:
         "Width-based search methods have demonstrated state-of-the-art performance in a wide range of testbeds, from classical planning problems to image-based simulators such as Atari games. These methods scale independently of the size of the state-space, but exponentially in the problem width. In practice, running the algorithm with a width larger than 1 is computationally intractable, prohibiting IW from solving higher width problems. In this paper, we present a hierarchical algorithm that plans at two levels of abstraction. A high-level planner uses abstract features that are incrementally discovered from low-level pruning decisions. We illustrate this algorithm in classical planning PDDL domains as well as in pixel-based simulator domains. In classical planning, we show how IW(1) at two levels of abstraction can solve problems of width 2. For pixel-based domains, we show how in combination with a learned policy and a learned value function, the proposed hierarchical IW can outperform current flat IW-based planners in Atari games with sparse rewards.",
@@ -1149,6 +1218,7 @@ function initialize_program() {
         "Learning to improve the effectiveness of planning & scheduling systems",
       ],
       track: "learning",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15999",
     },
     {
       UID: "325",
@@ -1158,7 +1228,7 @@ function initialize_program() {
       keyphrases:
         "job scheduling\n uniform machines\n makespan\n total completion time\n approximation schemes\n NP-hardness\n incompatibility graph",
       abstract:
-        "In this paper we consider a problem of job scheduling on parallel machines with a presence of incompatibilities between jobs. The incompatibility relation can be modeled as a complete multipartite graph in which each edge denotes a pair of jobs that cannot be scheduled on the same machine. Our research stems from the works of Bodlaender, Jansen, and Woeginger (1994) and Bodlaender and Jansen (1993). In particular, we pursue the line investigated recently by Mallek, Bendraouche, and Boudhar (2019). \n \n We provide several results concerning schedules, optimal or approximate with respect to the two most popular criteria of optimality: Cmax (makespan) and \u03a3Cj (total completion time). We consider a variety of machine types in our paper: identical, uniform, and unrelated. Our results consist of delimitation of the easy (polynomial) and NP-hard problems within these constraints. We also provide algorithms, either polynomial exact algorithms for the easier problems, or algorithms with a guaranteed constant worst-case approximation ratio. \n \n In particular, we fill the gap on research for the problem of finding a schedule with the smallest \u03a3Cj on uniform machines. We address this problem by developing a linear programming relaxation technique with an appropriate rounding, which to our knowledge is a novelty for this criterion in the considered setting.",
+        "In this paper we consider a problem of job scheduling on parallel machines with a presence of incompatibilities between jobs. The incompatibility relation can be modeled as a complete multipartite graph in which each edge denotes a pair of jobs that cannot be scheduled on the same machine. Our research stems from the works of Bodlaender, Jansen, and Woeginger (1994) and Bodlaender and Jansen (1993). In particular, we pursue the line investigated recently by Mallek, Bendraouche, and Boudhar (2019). \n \n We provide several results concerning schedules, optimal or approximate with respect to the two most popular criteria of optimality: Cmax (makespan) and ΣCj (total completion time). We consider a variety of machine types in our paper: identical, uniform, and unrelated. Our results consist of delimitation of the easy (polynomial) and NP-hard problems within these constraints. We also provide algorithms, either polynomial exact algorithms for the easier problems, or algorithms with a guaranteed constant worst-case approximation ratio. \n \n In particular, we fill the gap on research for the problem of finding a schedule with the smallest ΣCj on uniform machines. We address this problem by developing a linear programming relaxation technique with an appropriate rounding, which to our knowledge is a novelty for this criterion in the considered setting.",
       topics: [
         "Classical planning",
         "Scheduling",
@@ -1166,6 +1236,7 @@ function initialize_program() {
         "Complexity analysis",
       ],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15970",
     },
     {
       UID: "328",
@@ -1188,6 +1259,7 @@ function initialize_program() {
         "Complexity analysis",
       ],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15962",
     },
     {
       UID: "338",
@@ -1200,6 +1272,7 @@ function initialize_program() {
         "Traditionally, planning provides for execution plans as sequences of actions with preconditions and effects. Execution monitoring identifies failure conditions when the preconditions of an action do not match the state. Interestingly, planning proceeds by consuming a given initial state and abandoning reasoning about any facts not true in that state. In this paper, we define opportunities as such missing facts, and contribute an algorithm to compute them and augment a plan for execution with them. We then introduce a new execution opportunity monitoring that focusedly checks for these opportunities at each execution state. Opportunistic replanning proceeds now from the new state including the detected opportunities.",
       topics: ["Execution, monitoring and repair"],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15946",
     },
     {
       UID: "339",
@@ -1217,12 +1290,13 @@ function initialize_program() {
       keyphrases:
         "Large-scale exploration\n Hierarchical planning\n Stochastic coverage planning\n POMDPs",
       abstract:
-        "In order for a robot to explore an unknown environment autonomously, it must account for uncertainty in sensor measurements, hazard assessment, localization, and motion execution. Making decisions for maximal reward in a stochastic setting requires learning values and constructing policies over belief space, i.e., probability distribution of the robot-world state. Value learning over belief spaces suffer from computational challenges in high-dimensional spaces, such as large spatial environments and long temporal horizons for exploration. At the same time, it should be adaptive and resilient to disturbances at run time in order to ensure the robot\u2019s safety, as required in many real-world applications. This work proposes a scalable value learning framework, PLGRIM (Probabilistic Local and Global Reasoning on Information roadMaps), that bridges the gap between (i) local, risk-aware resiliency and (ii) global, reward seeking mission objectives. By leveraging hierarchical belief-space planners with information-rich graph structures, PLGRIM can address large-scale exploration problems while providing locally near-optimal coverage plans. PLGRIM is a step toward enabling belief space planners on physical robots operating in unknown and complex environments. We validate our proposed framework with a high-fidelity dynamic simulation in diverse environments and with physical hardware, Boston Dynamics\u2019 Spot robot, in a lava tube.",
+        "In order for a robot to explore an unknown environment autonomously, it must account for uncertainty in sensor measurements, hazard assessment, localization, and motion execution. Making decisions for maximal reward in a stochastic setting requires learning values and constructing policies over belief space, i.e., probability distribution of the robot-world state. Value learning over belief spaces suffer from computational challenges in high-dimensional spaces, such as large spatial environments and long temporal horizons for exploration. At the same time, it should be adaptive and resilient to disturbances at run time in order to ensure the robot’s safety, as required in many real-world applications. This work proposes a scalable value learning framework, PLGRIM (Probabilistic Local and Global Reasoning on Information roadMaps), that bridges the gap between (i) local, risk-aware resiliency and (ii) global, reward seeking mission objectives. By leveraging hierarchical belief-space planners with information-rich graph structures, PLGRIM can address large-scale exploration problems while providing locally near-optimal coverage plans. PLGRIM is a step toward enabling belief space planners on physical robots operating in unknown and complex environments. We validate our proposed framework with a high-fidelity dynamic simulation in diverse environments and with physical hardware, Boston Dynamics’ Spot robot, in a lava tube.",
       topics: [
         "Real-world robotic planning applications",
         "Planning with uncertainty in robotics",
       ],
       track: "robotics",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/16014",
     },
     {
       UID: "345",
@@ -1246,6 +1320,7 @@ function initialize_program() {
         "Distributed and multi-agent planning",
       ],
       track: "main",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15984",
     },
     {
       UID: "353",
@@ -1259,6 +1334,7 @@ function initialize_program() {
         "Learning effective heuristics and other forms of control knowledge",
       ],
       track: "learning",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/16000",
     },
     {
       UID: "354",
@@ -1279,6 +1355,7 @@ function initialize_program() {
         "Integration of multiple planning and scheduling techniques, or of planning and scheduling techniques with techniques from other areas or disciplines",
       ],
       track: "applications",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15993",
     },
     {
       UID: "360",
@@ -1295,6 +1372,7 @@ function initialize_program() {
         "In domains such as electric vehicle charging, smart distribution grids and autonomous warehouses, multiple agents share the same resources. When planning the use of these resources, agents need to deal with the uncertainty in these domains. Although several models and algorithms for such constrained multiagent planning problems under uncertainty have been proposed in the literature, it remains unclear when which algorithm can be applied. In this survey we conceptualize these domains and establish a generic problem class based on Markov decision processes. We identify and compare the conditions under which algorithms from the planning literature for problems in this class can be applied: whether constraints are soft or hard, whether agents are continuously connected, whether the domain is fully observable, whether a constraint is momentarily (instantaneous) or on a budget, and whether the constraint is on a single resource or on multiple. Further we discuss the advantages and disadvantages of these algorithms. We conclude by identifying open problems that are directly related to the conceptualized domains, as well as in adjacent research areas.",
       topics: [],
       track: "JOURNAL",
+      url: "",
     },
     {
       UID: "361",
@@ -1306,6 +1384,7 @@ function initialize_program() {
         "Factories in the automotive supply industry paint a large number of items requested by car manufacturing companies on a daily basis. As these factories face numerous constraints and optimization objectives, finding a good schedule becomes a challenging task in practice, and full-time employees are expected to manually create feasible production plans.\n In this study, we propose novel constraint programming models for a real-life paint shop scheduling problem. We evaluate and compare our models experimentally by performing a series of benchmark experiments using real-life instances in the industry. We also show that the decision variant of the paint shop scheduling problem is NP-complete.",
       topics: [],
       track: "JOURNAL",
+      url: "",
     },
     {
       UID: "362",
@@ -1314,9 +1393,10 @@ function initialize_program() {
       authors: ["Mohan Sridharan", "Rocio Gomez", "Heather Riley"],
       keyphrases: "",
       abstract:
-        "The architecture described in this paper encodes a theory of intentions based on the key principles of non-procrastination, persistence, and refinement, and by automatically limiting reasoning to relevant knowledge and observations. The architecture reasons with transition diagrams of any given domain at two different resolutions, with the fine-resolution description defined as a refinement of, and hence tightly-coupled to, a coarse-resolution description. For any given goal, non-monotonic logical reasoning with the coarse-resolution description computes an activity, i.e., a plan, comprising a sequence of abstract actions to be executed to achieve the goal. Each abstract action is implemented as a sequence of concrete actions by automatically zooming to and reasoning with the part of the fine-resolution transition diagram relevant to the current coarse-resolution transition and the goal. Each concrete action in this sequence is executed using probabilistic models of the uncertainty in sensing and actuation, and the corresponding fine-resolution outcomes are used to infer coarse-resolution observations that are added to the coarse-resolution history. The architecture\u2019s capabilities are evaluated in the context of a simulated robot assisting humans in an office domain, on a physical robot (Baxter) manipulating tabletop objects, and on a wheeled robot (Turtlebot) moving objects to particular places or people. The experimental results indicate improvements in reliability and computational efficiency compared with an architecture that does not include the theory of intentions, and an architecture that does not include zooming for fine-resolution reasoning.",
+        "The architecture described in this paper encodes a theory of intentions based on the key principles of non-procrastination, persistence, and refinement, and by automatically limiting reasoning to relevant knowledge and observations. The architecture reasons with transition diagrams of any given domain at two different resolutions, with the fine-resolution description defined as a refinement of, and hence tightly-coupled to, a coarse-resolution description. For any given goal, non-monotonic logical reasoning with the coarse-resolution description computes an activity, i.e., a plan, comprising a sequence of abstract actions to be executed to achieve the goal. Each abstract action is implemented as a sequence of concrete actions by automatically zooming to and reasoning with the part of the fine-resolution transition diagram relevant to the current coarse-resolution transition and the goal. Each concrete action in this sequence is executed using probabilistic models of the uncertainty in sensing and actuation, and the corresponding fine-resolution outcomes are used to infer coarse-resolution observations that are added to the coarse-resolution history. The architecture’s capabilities are evaluated in the context of a simulated robot assisting humans in an office domain, on a physical robot (Baxter) manipulating tabletop objects, and on a wheeled robot (Turtlebot) moving objects to particular places or people. The experimental results indicate improvements in reliability and computational efficiency compared with an architecture that does not include the theory of intentions, and an architecture that does not include zooming for fine-resolution reasoning.",
       topics: [],
       track: "JOURNAL",
+      url: "",
     },
     {
       UID: "363",
@@ -1324,15 +1404,16 @@ function initialize_program() {
         "Attributed Transition-based Domain Control Knowledge for Domain-Independent Planning",
       authors: [
         "Lukas Chrpa",
-        "Roman Bart\u00e1k",
-        "Jind\u0159ich Vodr\u00e1\u017eka",
-        "Marta Vomlelov\u00e1",
+        "Roman Barták",
+        "Jindřich Vodrážka",
+        "Marta Vomlelová",
       ],
       keyphrases: "",
       abstract:
-        "Domain-independent planning decouples planning task specification and planning engines. As the specification is usually describing only the physics of the environment, actions and a goal, the planning engines being generic solvers designed to solve any planning task tend to struggle with tasks that can be easily solved by domain-specific algorithms. Additional control knowledge can, to large extent, bridge such a performance gap. Instead of providing a specific planner supporting a given form of control knowledge, control knowledge can be directly encoded within the planning task specification and thus can be exploited by generic planners. In this paper, we propose Attributed Transition-Based Domain Control Knowledge (ATB-DCK) that is represented by a finite state automaton with attributed states, referring to specific states of objects, connected by transitions imposing constraints on action applicability. ATB-DCK, roughly speaking, represents \u201cgrammar\u201d of solution plans that guides the search. We show that ATB-DCK can be compiled into a classical planning task and thus it complements domain-independent planning techniques. Using several domains from the International Planning Competitions as benchmarks, we demonstrate that this approach often considerably improves efficiency of existing state-of-the-art planning engines.",
+        "Domain-independent planning decouples planning task specification and planning engines. As the specification is usually describing only the physics of the environment, actions and a goal, the planning engines being generic solvers designed to solve any planning task tend to struggle with tasks that can be easily solved by domain-specific algorithms. Additional control knowledge can, to large extent, bridge such a performance gap. Instead of providing a specific planner supporting a given form of control knowledge, control knowledge can be directly encoded within the planning task specification and thus can be exploited by generic planners. In this paper, we propose Attributed Transition-Based Domain Control Knowledge (ATB-DCK) that is represented by a finite state automaton with attributed states, referring to specific states of objects, connected by transitions imposing constraints on action applicability. ATB-DCK, roughly speaking, represents “grammar” of solution plans that guides the search. We show that ATB-DCK can be compiled into a classical planning task and thus it complements domain-independent planning techniques. Using several domains from the International Planning Competitions as benchmarks, we demonstrate that this approach often considerably improves efficiency of existing state-of-the-art planning engines.",
       topics: [],
       track: "JOURNAL",
+      url: "",
     },
     {
       UID: "364",
@@ -1343,6 +1424,7 @@ function initialize_program() {
         "Recognizing goals and plans from complete or partial observations can be efficiently achieved through automated planning techniques. In many applications, it is important to recognize goals and plans not only accurately, but also quickly. To address this challenge, we develop novel goal recognition approaches based on planning techniques that rely on planning landmarks. In automated planning, landmarks are properties (or actions) that cannot be avoided to achieve a goal. We show the applicability of a number of planning techniques with an emphasis on landmarks for goal recognition tasks in two settings: (1) we use the concept of landmarks to develop goal recognition heuristics; and (2) we develop a landmark-based filtering method to refine existing planning-based goal and plan recognition approaches. These recognition approaches are empirically evaluated in experiments over several classical planning domains. We show that our goal recognition approaches yield not only accuracy comparable to (and often higher than) other state-of-the-art techniques, but also result in substantially faster recognition time over existing techniques.",
       topics: [],
       track: "JOURNAL",
+      url: "",
     },
     {
       UID: "365",
@@ -1370,6 +1452,7 @@ function initialize_program() {
         "Achieving consistently high levels of productivity has been a challenge for Mars surface missions. While the rovers have made major discoveries and dramatically increased our understanding of Mars, they require a great deal of interaction from the operations teams, and achieving mission objectives can take longer than anticipated when productivity is paced by the ground teams' ability to react. We have conducted a project to explore technologies and techniques for creating Self-Reliant Rovers: rovers that are able to maintain high levels of productivity with reduced reliance on ground interactions. This paper describes the design of Self-Reliant Rovers and a prototype implementation that we deployed on a research rover. We evaluated the system by conducting a simulated campaign in which members of the Mars Science Laboratory (Curiosity rover) science team used our rover to explore a geographical region. The evaluation demonstrated the system's ability to maintain high levels of productivity with limited communication with operators.",
       topics: [],
       track: "JOURNAL",
+      url: "",
     },
     {
       UID: "366",
@@ -1387,6 +1470,7 @@ function initialize_program() {
         "In many real-world scenarios, the time it takes for a mobile agent, e.g., a robot, to move from one location to another may vary due to exogenous events and be difficult to predict accurately. Planning in such scenarios is challenging, especially in the context of Multi-Agent Pathfinding (MAPF), where the goal is to find paths to multiple agents and temporal coordination is necessary to avoid collisions. In this work, we consider a MAPF problem with this form of time uncertainty, where we are only given upper and lower bounds on the time it takes each agent to move. The objective is to find a safe solution, which is a solution that can be executed by all agents and is guaranteed to avoid collisions.\n We propose two complete and optimal algorithms for finding safe solutions based on well-known MAPF algorithms, namely, A* with Operator Decomposition (A*+OD) and Conflict-Based Search (CBS). Experimentally, we observe that on several standard MAPF grids the CBS-based algorithm performs better. We also explore the option of online replanning in this context, i.e., modifying the agents' plans during execution, to reduce the overall execution cost. We consider two online settings: (a) when an agent can sense the current time and its current location, and (b) when the agents can also communicate seamlessly during execution. For each setting, we propose a replanning algorithm and analyze its behavior theoretically and empirically. Our experimental evaluation confirms that indeed online replanning in both settings can significantly reduce solution cost.",
       topics: [],
       track: "JOURNAL",
+      url: "",
     },
     {
       UID: "367",
@@ -1395,13 +1479,14 @@ function initialize_program() {
         "Dominik Thalmeier",
         "Hilbert J. Kappen",
         "Simone Totaro",
-        "Vicen\u00e7 G\u00f3mez",
+        "Vicenç Gómez",
       ],
       keyphrases: "",
       abstract:
         "In Path Integral control problems a representation of an optimally controlled dynamical system can be formally computed and serve as a guidepost to learn a parametrized policy. The Path Integral Cross-Entropy (PICE) method tries to exploit this, but is hampered by poor sample efficiency. We propose a model-free algorithm called ASPIC (Adaptive Smoothing of Path Integral Control) that applies an inf-convolution to the cost function to speedup convergence of policy optimization. We identify PICE as the infinite smoothing limit of such technique and show that the sample efficiency problems that PICE suffers disappear for finite levels of smoothing. For zero smoothing, ASPIC becomes a greedy optimization of the cost, which is the standard approach in current reinforcement learning. ASPIC adapts the smoothness parameter to keep the variance of the gradient estimator at a predefined level, independently of the number of samples. We show analytically and empirically that intermediate levels of smoothing are optimal, which renders the new method superior to both PICE and direct cost optimization.",
       topics: [],
       track: "JOURNAL",
+      url: "",
     },
     {
       UID: "368",
@@ -1410,9 +1495,10 @@ function initialize_program() {
       authors: ["Alexander Shleyfman", "Peter Jonsson"],
       keyphrases: "",
       abstract:
-        "Symmetry-based pruning is a powerful method for reducing the search effort in finite-domain planning. This method is based on exploiting an automorphism group connected to the ground description of the planning task \u2013 these automorphisms are known as structural symmetries. In particular, we are interested in the StructSym problem where the generators of this group are to be computed. It has been observed in practice that the StructSym problem is surprisingly easy to solve. We explain this phenomenon by showing that StructSym is GI-complete, i.e., the graph isomorphism problem is polynomial-time equivalent to it and, consequently, solvable in quasi-polynomial time. This implies that it is solvable substantially faster than most computationally hard problems encountered in AI. We accompany this result by identifying natural restrictions of the planning task and its causal graph that ensure that StructSym can be solved in polynomial time. Given that the StructSym problem is GI-complete and thus solvable quite efficiently, it is interesting to analyse if other symmetries (than those that are encompassed by the StructSym problem) can be computed and/or analysed efficiently, too. To this end, we present a highly negative result: checking whether there exists an automorphism of the state transition graph that maps one state s into another state t is a PSPACE-hard problem and, consequently, at least as hard as the planning problem itself.",
+        "Symmetry-based pruning is a powerful method for reducing the search effort in finite-domain planning. This method is based on exploiting an automorphism group connected to the ground description of the planning task – these automorphisms are known as structural symmetries. In particular, we are interested in the StructSym problem where the generators of this group are to be computed. It has been observed in practice that the StructSym problem is surprisingly easy to solve. We explain this phenomenon by showing that StructSym is GI-complete, i.e., the graph isomorphism problem is polynomial-time equivalent to it and, consequently, solvable in quasi-polynomial time. This implies that it is solvable substantially faster than most computationally hard problems encountered in AI. We accompany this result by identifying natural restrictions of the planning task and its causal graph that ensure that StructSym can be solved in polynomial time. Given that the StructSym problem is GI-complete and thus solvable quite efficiently, it is interesting to analyse if other symmetries (than those that are encompassed by the StructSym problem) can be computed and/or analysed efficiently, too. To this end, we present a highly negative result: checking whether there exists an automorphism of the state transition graph that maps one state s into another state t is a PSPACE-hard problem and, consequently, at least as hard as the planning problem itself.",
       topics: [],
       track: "JOURNAL",
+      url: "",
     },
     {
       UID: "370",
@@ -1423,6 +1509,7 @@ function initialize_program() {
         "Planning deals with the task of finding an ordered set of actions that achieves some goals from an initial state. In many real-world applications it is unfeasible to find a plan achieving all goals due to limitations in the available resources. A common case consists of having a bound on a given cost measure that is less than the optimal cost needed to achieve all goals. Oversubscription planning (OSP) is the field of Automated Planning dealing with such kinds of problems. Usually, OSP generates plans that achieve only a subset of the goals set. In this paper we present a new technique to a priori select goals in no-hard-goals satisficing OSP by searching in the space of subsets of goals. A key property of the proposed approach is that it is planner-independent once the goals have been selected; it creates a new non-OSP problem that can be solved using off-the-shelf planners. Extensive experimental results show that the proposed approach outperforms state-of-the-art OSP techniques in several domains of the International Planning Competition.",
       topics: [],
       track: "JOURNAL",
+      url: "",
     },
   ];
   keyword_filter = [];
