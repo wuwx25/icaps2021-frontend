@@ -60,7 +60,7 @@ function initialize_program() {
         "We consider the bi-criteria shortest-path problem where we want to compute shortest paths on a graph that simultaneously balance two cost functions. While this problem has numerous applications, there is usually no path minimizing both cost functions simultaneously. Thus, we typically consider the set of paths where no path is strictly better than the others in both cost functions, a set called the Pareto-optimal frontier. Unfortunately, the size of this set may be exponential in the number of graph vertices and the general problem is NP-hard. While existing schemes to approximate this set exist, they may be slower than exact approaches when applied to relatively small instances and running them on graphs with even a moderate number of nodes is often impractical. The crux of the problem lies in how to efficiently approximate the Pareto-optimal frontier. Our key insight is that the Pareto-optimal frontier can be approximated using pairs of paths. This simple observation allows us to run a best-first-search while efficiently and effectively pruning away intermediate solutions in order to obtain an approximation of the Pareto frontier for any given approximation factor. We compared our approach with an adaptation of BOA*, the state-of-the-art algorithm for computing exact solutions to the bi-criteria shortest-path problem. Our experiments show that as the problem becomes harder, the speedup obtained becomes more pronounced. Specifically, on large roadmaps, when using an approximation factor of 10% we obtain a speedup on the average running time of more than X19.",
       topics: ["Multi-objective planning and scheduling", "Search techniques"],
       track: "main",
-      url: "",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15957/15768",
     },
     {
       UID: "24",
@@ -174,7 +174,7 @@ function initialize_program() {
         "Explanation of planning and learning models",
       ],
       track: "main",
-      url: "",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15947/15758",
     },
     {
       UID: "49",
@@ -725,7 +725,7 @@ function initialize_program() {
         "Temporal planning",
       ],
       track: "applications",
-      url: "",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15990/15801",
     },
     {
       UID: "165",
@@ -1079,7 +1079,7 @@ function initialize_program() {
         "Probabilistic planning, MDPs and POMDPs",
       ],
       track: "main",
-      url: "",
+      url: "https://ojs.aaai.org/index.php/ICAPS/article/view/15968/15779",
     },
     {
       UID: "282",
@@ -1730,7 +1730,7 @@ function render_paper_list() {
                           <b>Abstract: </b>
                           @ABSTRACT@
                         </p>
-                        <a href=@URL@ target="_blank" type="button" class="btn btn-outline-dark btn-sm">
+                        <a href=@URL@ target="_blank" type="button" class="btn btn-outline-dark btn-sm @DISPLAY@">
                           PDF
                         </a>
                       </div>
@@ -1766,12 +1766,18 @@ function render_paper_list() {
       } else {
         author_str = element["authors"][0];
       }
+      if (element["track"] == "JOURNAL") {
+        display_str = "d-none";
+      } else {
+        diplay_str = "";
+      }
       str += template_str
         .replace(/@ID@/g, element["UID"])
         .replace(/@TITLE@/g, element["title"])
         .replace(/@KEYWORD@/g, keyword_str)
         .replace(/@AUTHOR_STR@/g, author_str)
         .replace(/@ABSTRACT@/g, element["abstract"])
+        .replace(/@DISPLAY@/g, diplay_str)
         .replace(/@URL@/g, url_str);
     }
   }
