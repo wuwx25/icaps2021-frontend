@@ -126,7 +126,7 @@ function brush_ended() {
     .join("div")
     .attr("class", "sel_paper")
     .html((d) => {
-      if (d.track == "JOURNAL") {
+      if (d.track != "JOURNAL") {
         download_icon = `<a href=${d.url} target="_blank"><i class="bi bi-download"></i></a>`;
       } else {
         download_icon = "";

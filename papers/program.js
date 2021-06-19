@@ -1769,7 +1769,7 @@ function render_paper_list() {
       if (element["track"] == "JOURNAL") {
         display_str = "d-none";
       } else {
-        diplay_str = "";
+        display_str = "";
       }
       str += template_str
         .replace(/@ID@/g, element["UID"])
@@ -1777,7 +1777,7 @@ function render_paper_list() {
         .replace(/@KEYWORD@/g, keyword_str)
         .replace(/@AUTHOR_STR@/g, author_str)
         .replace(/@ABSTRACT@/g, element["abstract"])
-        .replace(/@DISPLAY@/g, diplay_str)
+        .replace(/@DISPLAY@/g, display_str)
         .replace(/@URL@/g, url_str);
     }
   }
