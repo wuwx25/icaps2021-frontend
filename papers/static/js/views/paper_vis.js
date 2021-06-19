@@ -127,7 +127,7 @@ function brush_ended() {
     .attr("class", "sel_paper")
     .html(
       (d) =>
-        `<div class="p_title">${d.title} &nbsp <a href=${
+        `<div class="p_title">${d.title} <a href=${
           d.url
         } target="_blank"><i class="bi bi-download"></i></a></div> <div class="p_authors">${d.authors.join(
           ", "
