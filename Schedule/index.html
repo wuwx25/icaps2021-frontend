@@ -25,6 +25,7 @@
     <script src="../assets/js/bootstrap.min.js"></script>
   <!-- import axios  -->
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
   <!-- vue dev version -->
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
@@ -77,80 +78,3703 @@
       </nav>
     </header>
     <div id="app" v-cloak>
-    <div class="album mt-3 p-4" >
-      <div style="height: 100px" class="d-none d-md-block">
-        <!-- padding hack for the fixed navbar -->
-      </div>
+        <div class="album mt-3 p-4" >
+            <div style="height: 100px" class="d-none d-md-block">
+            <!-- padding hack for the fixed navbar -->
+            </div>
 
-      <div class="container">
-        <div class="mb-5">
-          <h4>Invited Speakers</h4>
-          <hr />
-            <!-- <div class="row" >
-              <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6" v-for="speaker in speakers">
-                <div
-                  class="card shadow-sm mb-4 d-flex justify-content-center align-self-center"
-                >
-                  <img
-                    :src="'../assets/images/speakers/'+speaker.name.split('\n')[0].toLowerCase()+'.jpg'"
-                    class="card-img-top"
-                  />
-                  <div class="card-body bg-light">
-                    <h5>{{speaker.name}}</h5>
-                  </div>
-                  <div class="card-body">
-                    <p class="card-text">{{speaker.department}}</p>
-                  </div>
-                </div>
-              </div>
-            </div> -->
-          
-            <div class="row" >
-              <div class="col-12 col-lg-4 col-md-4 col-sm-12" v-for="speaker in speakers">
-                <div
-                  class="card mb-3" style="max-width: 540px;"
-                >
-                  <div class="row no-gutters">
-                    <div class="col-md-4">
-                      <img  :src="'../assets/images/speakers/'+speaker.name.split(' ')[0].toLowerCase()+'.jpg'" class="card-img" />
-                    </div>
-                    <div class="col-md-8" >
-                      <div class="card-body">
-                        <h5 class="card-title">{{speaker.name}}</h5>
-                        <p class="card-text">{{speaker.department}}</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-body bg-light">
-                    <p class="card-text">BIO: {{'bio' in speaker?speaker.bio:"TBD"}}</p>
-                  </div>
-                  <div class="card-body">
-                    <p class="card-text">Abstract: {{'abstract' in speaker?speaker.abstract:"TBD"}}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <!-- <div class="row" >
-              <div class="card md-3" style="max-width: 540px;">
-                <div class="row no-gutters">
-                  <div class="col-md-4">
-                    <img src="../assets/images/speakers/stefan.jpg" class="card-img" >
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-        </div> -->
-		</div>
-      </div>
-    </div>
+
+            <div class="container">
+				<div class="row">
+								
+        		<div class="col" class="day1"  style="border:0.3px #cccccc ;border-left-style:solid ;border-right-style:solid">
+        			<div class="w-100"></div>
+        			<div class="col" style="margin: 1em 0em 0em 0em">
+        			    <h2 class="text-center">
+        					<span class="badge badge-primary" style="background-color: #0072bc;" >July 2nd</span>
+        				</h2>
+        			</div>
+        			
+        			<div class="col">		
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">12 a.m.</h6>	
+        				</div>	
+        			</div>
+        								
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">1 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" class="h-50 d-inline-block" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        				    <div style="margin: 0em 0em 0em 0.5em">
+        				    	<font color="#0072bc">	
+        						    <p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>		    		
+        			    		</font>	
+        				    </div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">2 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" class="h-50 d-inline-block" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">3 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>				    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">4 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #1987547a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Socializing</strong></font>
+        					    </h6>
+        					</div>										
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">6 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">7 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa" class="text-justify">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc" >	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">8 p.m.</h6>	
+        				</div>	
+        			</div><div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc" >	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>				    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">9 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #f52c007a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Invited</strong></font>
+        					    </h6>
+        					</div>														
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">10 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">				
+        				<div style ="border:solid 4px #f52c007a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Event</strong></font>
+        					    </h6>
+        				    </div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">12 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #1987547a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Socializing</strong></font>
+        					    </h6>
+        					</div>										
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">2 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">3 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">4 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        		    <div class="col">
+        		    	<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        		    		<h6 class="text-center">5 a.m.</h6>	
+        		    	</div>	
+        		    </div>
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">6 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #1987547a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Socializing</strong></font>
+        					    </h6>
+        					</div>										
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">8 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">9 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>				    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">10 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			
+        		</div>				
+        		
+        		<div class="col" class="day1"  style="border:0.3px #cccccc ;border-left-style:solid ;border-right-style:solid">
+        			<div class="w-100"></div>
+        			<div class="col" style="margin: 1em 0em 0em 0em">
+        			    <h2 class="text-center">
+        					<span class="badge badge-primary" style="background-color: #0072bc;" >July 2nd</span>
+        				</h2>
+        			</div>
+        			
+        			<div class="col">		
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">12 a.m.</h6>	
+        				</div>	
+        			</div>
+        								
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">1 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" class="h-50 d-inline-block" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        				    <div style="margin: 0em 0em 0em 0.5em">
+        				    	<font color="#0072bc">	
+        						    <p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>		    		
+        			    		</font>	
+        				    </div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">2 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" class="h-50 d-inline-block" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">3 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>				    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">4 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #1987547a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Socializing</strong></font>
+        					    </h6>
+        					</div>										
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">6 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">7 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa" class="text-justify">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc" >	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">8 p.m.</h6>	
+        				</div>	
+        			</div><div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc" >	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>				    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">9 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #f52c007a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Invited</strong></font>
+        					    </h6>
+        					</div>														
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">10 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">				
+        				<div style ="border:solid 4px #f52c007a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Event</strong></font>
+        					    </h6>
+        				    </div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">12 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #1987547a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Socializing</strong></font>
+        					    </h6>
+        					</div>										
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">2 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">3 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">4 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        		    <div class="col">
+        		    	<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        		    		<h6 class="text-center">5 a.m.</h6>	
+        		    	</div>	
+        		    </div>
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">6 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #1987547a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Socializing</strong></font>
+        					    </h6>
+        					</div>										
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">8 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">9 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>				    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">10 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			
+        		</div>				
+        		
+        		<div class="col" class="day1"  style="border:0.3px #cccccc ;border-left-style:solid ;border-right-style:solid">
+        			<div class="w-100"></div>
+        			<div class="col" style="margin: 1em 0em 0em 0em">
+        			    <h2 class="text-center">
+        					<span class="badge badge-primary" style="background-color: #0072bc;" >July 2nd</span>
+        				</h2>
+        			</div>
+        			
+        			<div class="col">		
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">12 a.m.</h6>	
+        				</div>	
+        			</div>
+        								
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">1 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" class="h-50 d-inline-block" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        				    <div style="margin: 0em 0em 0em 0.5em">
+        				    	<font color="#0072bc">	
+        						    <p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>		    		
+        			    		</font>	
+        				    </div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">2 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" class="h-50 d-inline-block" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">3 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>				    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">4 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #1987547a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Socializing</strong></font>
+        					    </h6>
+        					</div>										
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">6 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">7 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa" class="text-justify">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc" >	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">8 p.m.</h6>	
+        				</div>	
+        			</div><div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc" >	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>				    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">9 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #f52c007a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Invited</strong></font>
+        					    </h6>
+        					</div>														
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">10 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">				
+        				<div style ="border:solid 4px #f52c007a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Event</strong></font>
+        					    </h6>
+        				    </div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">12 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #1987547a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Socializing</strong></font>
+        					    </h6>
+        					</div>										
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">2 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">3 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">4 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        		    <div class="col">
+        		    	<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        		    		<h6 class="text-center">5 a.m.</h6>	
+        		    	</div>	
+        		    </div>
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">6 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #1987547a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Socializing</strong></font>
+        					    </h6>
+        					</div>										
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">8 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">9 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>				    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">10 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			
+        		</div>				
+        		
+        		<div class="col" class="day1"  style="border:0.3px #cccccc ;border-left-style:solid ;border-right-style:solid">
+        			<div class="w-100"></div>
+        			<div class="col" style="margin: 1em 0em 0em 0em">
+        			    <h2 class="text-center">
+        					<span class="badge badge-primary" style="background-color: #0072bc;" >July 2nd</span>
+        				</h2>
+        			</div>
+        			
+        			<div class="col">		
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">12 a.m.</h6>	
+        				</div>	
+        			</div>
+        								
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">1 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" class="h-50 d-inline-block" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        				    <div style="margin: 0em 0em 0em 0.5em">
+        				    	<font color="#0072bc">	
+        						    <p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>		    		
+        			    		</font>	
+        				    </div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">2 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" class="h-50 d-inline-block" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">3 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>				    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">4 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #1987547a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Socializing</strong></font>
+        					    </h6>
+        					</div>										
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">6 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">7 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa" class="text-justify">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc" >	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">8 p.m.</h6>	
+        				</div>	
+        			</div><div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc" >	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>				    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">9 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #f52c007a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Invited</strong></font>
+        					    </h6>
+        					</div>														
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">10 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">				
+        				<div style ="border:solid 4px #f52c007a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Event</strong></font>
+        					    </h6>
+        				    </div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">12 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #1987547a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Socializing</strong></font>
+        					    </h6>
+        					</div>										
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">2 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">3 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">4 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        		    <div class="col">
+        		    	<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        		    		<h6 class="text-center">5 a.m.</h6>	
+        		    	</div>	
+        		    </div>
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">6 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #1987547a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Socializing</strong></font>
+        					    </h6>
+        					</div>										
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">8 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">9 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>				    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">10 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			
+        		</div>				
+        		
+        		<div class="col" class="day1"  style="border:0.3px #cccccc ;border-left-style:solid ;border-right-style:solid">
+        			<div class="w-100"></div>
+        			<div class="col" style="margin: 1em 0em 0em 0em">
+        			    <h2 class="text-center">
+        					<span class="badge badge-primary" style="background-color: #0072bc;" >July 2nd</span>
+        				</h2>
+        			</div>
+        			
+        			<div class="col">		
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">12 a.m.</h6>	
+        				</div>	
+        			</div>
+        								
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">1 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" class="h-50 d-inline-block" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        				    <div style="margin: 0em 0em 0em 0.5em">
+        				    	<font color="#0072bc">	
+        						    <p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>		    		
+        			    		</font>	
+        				    </div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">2 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" class="h-50 d-inline-block" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">3 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>				    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">4 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #1987547a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Socializing</strong></font>
+        					    </h6>
+        					</div>										
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">6 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">7 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa" class="text-justify">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc" >	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">8 p.m.</h6>	
+        				</div>	
+        			</div><div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc" >	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>				    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">9 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #f52c007a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Invited</strong></font>
+        					    </h6>
+        					</div>														
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">10 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">				
+        				<div style ="border:solid 4px #f52c007a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Event</strong></font>
+        					    </h6>
+        				    </div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">12 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #1987547a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Socializing</strong></font>
+        					    </h6>
+        					</div>										
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">2 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">3 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">4 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        		    <div class="col">
+        		    	<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        		    		<h6 class="text-center">5 a.m.</h6>	
+        		    	</div>	
+        		    </div>
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">6 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #1987547a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Socializing</strong></font>
+        					    </h6>
+        					</div>										
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">8 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">9 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>				    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">10 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			
+        		</div>				
+        		
+        		<div class="col" class="day1"  style="border:0.3px #cccccc ;border-left-style:solid ;border-right-style:solid">
+        			<div class="w-100"></div>
+        			<div class="col" style="margin: 1em 0em 0em 0em">
+        			    <h2 class="text-center">
+        					<span class="badge badge-primary" style="background-color: #0072bc;" >July 2nd</span>
+        				</h2>
+        			</div>
+        			
+        			<div class="col">		
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">12 a.m.</h6>	
+        				</div>	
+        			</div>
+        								
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">1 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" class="h-50 d-inline-block" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        				    <div style="margin: 0em 0em 0em 0.5em">
+        				    	<font color="#0072bc">	
+        						    <p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>		    		
+        			    		</font>	
+        				    </div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">2 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" class="h-50 d-inline-block" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">3 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>				    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">4 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #1987547a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Socializing</strong></font>
+        					    </h6>
+        					</div>										
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">6 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">7 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa" class="text-justify">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc" >	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">8 p.m.</h6>	
+        				</div>	
+        			</div><div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc" >	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>				    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">9 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #f52c007a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Invited</strong></font>
+        					    </h6>
+        					</div>														
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">10 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">				
+        				<div style ="border:solid 4px #f52c007a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Event</strong></font>
+        					    </h6>
+        				    </div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">12 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #1987547a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Socializing</strong></font>
+        					    </h6>
+        					</div>										
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">2 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">3 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">4 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        		    <div class="col">
+        		    	<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        		    		<h6 class="text-center">5 a.m.</h6>	
+        		    	</div>	
+        		    </div>
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">6 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #1987547a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Socializing</strong></font>
+        					    </h6>
+        					</div>										
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">8 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">9 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>				    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">10 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			
+        		</div>				
+        		
+        		<div class="col" class="day1"  style="border:0.3px #cccccc ;border-left-style:solid ;border-right-style:solid">
+        			<div class="w-100"></div>
+        			<div class="col" style="margin: 1em 0em 0em 0em">
+        			    <h2 class="text-center">
+        					<span class="badge badge-primary" style="background-color: #0072bc;" >July 2nd</span>
+        				</h2>
+        			</div>
+        			
+        			<div class="col">		
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">12 a.m.</h6>	
+        				</div>	
+        			</div>
+        								
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">1 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" class="h-50 d-inline-block" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        				    <div style="margin: 0em 0em 0em 0.5em">
+        				    	<font color="#0072bc">	
+        						    <p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>		    		
+        			    		</font>	
+        				    </div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">2 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" class="h-50 d-inline-block" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">3 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>				    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">4 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #1987547a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Socializing</strong></font>
+        					    </h6>
+        					</div>										
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">6 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">7 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa" class="text-justify">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc" >	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">8 p.m.</h6>	
+        				</div>	
+        			</div><div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc" >	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>				    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">9 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #f52c007a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Invited</strong></font>
+        					    </h6>
+        					</div>														
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">10 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">				
+        				<div style ="border:solid 4px #f52c007a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Event</strong></font>
+        					    </h6>
+        				    </div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">12 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #1987547a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Socializing</strong></font>
+        					    </h6>
+        					</div>										
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">2 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">3 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">4 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        		    <div class="col">
+        		    	<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        		    		<h6 class="text-center">5 a.m.</h6>	
+        		    	</div>	
+        		    </div>
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">6 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #1987547a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Socializing</strong></font>
+        					    </h6>
+        					</div>										
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">8 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">9 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>				    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">10 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			
+        		</div>				
+        		
+        		<div class="col" class="day1"  style="border:0.3px #cccccc ;border-left-style:solid ;border-right-style:solid">
+        			<div class="w-100"></div>
+        			<div class="col" style="margin: 1em 0em 0em 0em">
+        			    <h2 class="text-center">
+        					<span class="badge badge-primary" style="background-color: #0072bc;" >July 2nd</span>
+        				</h2>
+        			</div>
+        			
+        			<div class="col">		
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">12 a.m.</h6>	
+        				</div>	
+        			</div>
+        								
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">1 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" class="h-50 d-inline-block" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        				    <div style="margin: 0em 0em 0em 0.5em">
+        				    	<font color="#0072bc">	
+        						    <p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>		    		
+        			    		</font>	
+        				    </div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">2 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" class="h-50 d-inline-block" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">3 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>				    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">4 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #1987547a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Socializing</strong></font>
+        					    </h6>
+        					</div>										
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">6 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">7 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa" class="text-justify">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc" >	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">8 p.m.</h6>	
+        				</div>	
+        			</div><div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc" >	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>				    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">9 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #f52c007a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Invited</strong></font>
+        					    </h6>
+        					</div>														
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">10 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">				
+        				<div style ="border:solid 4px #f52c007a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Event</strong></font>
+        					    </h6>
+        				    </div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">12 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #1987547a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Socializing</strong></font>
+        					    </h6>
+        					</div>										
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">2 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">3 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">4 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        		    <div class="col">
+        		    	<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        		    		<h6 class="text-center">5 a.m.</h6>	
+        		    	</div>	
+        		    </div>
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">6 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #1987547a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Socializing</strong></font>
+        					    </h6>
+        					</div>										
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">8 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">9 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>				    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">10 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			
+        		</div>				
+        		
+        		<div class="col" class="day1"  style="border:0.3px #cccccc ;border-left-style:solid ;border-right-style:solid">
+        			<div class="w-100"></div>
+        			<div class="col" style="margin: 1em 0em 0em 0em">
+        			    <h2 class="text-center">
+        					<span class="badge badge-primary" style="background-color: #0072bc;" >July 2nd</span>
+        				</h2>
+        			</div>
+        			
+        			<div class="col">		
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">12 a.m.</h6>	
+        				</div>	
+        			</div>
+        								
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">1 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" class="h-50 d-inline-block" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        				    <div style="margin: 0em 0em 0em 0.5em">
+        				    	<font color="#0072bc">	
+        						    <p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>		    		
+        			    		</font>	
+        				    </div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">2 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" class="h-50 d-inline-block" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">3 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>				    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">4 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #1987547a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Socializing</strong></font>
+        					    </h6>
+        					</div>										
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">6 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">7 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa" class="text-justify">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc" >	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">8 p.m.</h6>	
+        				</div>	
+        			</div><div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc" >	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>				    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">9 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #f52c007a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Invited</strong></font>
+        					    </h6>
+        					</div>														
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">10 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">				
+        				<div style ="border:solid 4px #f52c007a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Event</strong></font>
+        					    </h6>
+        				    </div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">12 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #1987547a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Socializing</strong></font>
+        					    </h6>
+        					</div>										
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">2 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">3 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">4 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        		    <div class="col">
+        		    	<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        		    		<h6 class="text-center">5 a.m.</h6>	
+        		    	</div>	
+        		    </div>
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">6 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #1987547a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Socializing</strong></font>
+        					    </h6>
+        					</div>										
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">8 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">9 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>				    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">10 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			
+        		</div>				
+        		
+        		<div class="col" class="day1"  style="border:0.3px #cccccc ;border-left-style:solid ;border-right-style:solid">
+        			<div class="w-100"></div>
+        			<div class="col" style="margin: 1em 0em 0em 0em">
+        			    <h2 class="text-center">
+        					<span class="badge badge-primary" style="background-color: #0072bc;" >July 2nd</span>
+        				</h2>
+        			</div>
+        			
+        			<div class="col">		
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">12 a.m.</h6>	
+        				</div>	
+        			</div>
+        								
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">1 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" class="h-50 d-inline-block" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        				    <div style="margin: 0em 0em 0em 0.5em">
+        				    	<font color="#0072bc">	
+        						    <p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>		    		
+        			    		</font>	
+        				    </div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">2 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" class="h-50 d-inline-block" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">3 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>				    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">4 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #1987547a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Socializing</strong></font>
+        					    </h6>
+        					</div>										
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">6 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">7 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa" class="text-justify">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc" >	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">8 p.m.</h6>	
+        				</div>	
+        			</div><div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc" >	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>				    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">9 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #f52c007a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Invited</strong></font>
+        					    </h6>
+        					</div>														
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">10 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">				
+        				<div style ="border:solid 4px #f52c007a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Event</strong></font>
+        					    </h6>
+        				    </div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">12 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #1987547a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Socializing</strong></font>
+        					    </h6>
+        					</div>										
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">2 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">3 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">4 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        		    <div class="col">
+        		    	<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        		    		<h6 class="text-center">5 a.m.</h6>	
+        		    	</div>	
+        		    </div>
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">6 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #1987547a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Socializing</strong></font>
+        					    </h6>
+        					</div>										
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">8 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">9 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>				    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">10 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			
+        		</div>				
+        		
+        		<div class="col" class="day1"  style="border:0.3px #cccccc ;border-left-style:solid ;border-right-style:solid">
+        			<div class="w-100"></div>
+        			<div class="col" style="margin: 1em 0em 0em 0em">
+        			    <h2 class="text-center">
+        					<span class="badge badge-primary" style="background-color: #0072bc;" >July 2nd</span>
+        				</h2>
+        			</div>
+        			
+        			<div class="col">		
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">12 a.m.</h6>	
+        				</div>	
+        			</div>
+        								
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">1 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" class="h-50 d-inline-block" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        				    <div style="margin: 0em 0em 0em 0.5em">
+        				    	<font color="#0072bc">	
+        						    <p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>		    		
+        			    		</font>	
+        				    </div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">2 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" class="h-50 d-inline-block" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">3 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>				    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">4 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #1987547a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Socializing</strong></font>
+        					    </h6>
+        					</div>										
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">6 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">7 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa" class="text-justify">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc" >	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">8 p.m.</h6>	
+        				</div>	
+        			</div><div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc" >	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>				    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">9 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #f52c007a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Invited</strong></font>
+        					    </h6>
+        					</div>														
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">10 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">				
+        				<div style ="border:solid 4px #f52c007a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Event</strong></font>
+        					    </h6>
+        				    </div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">12 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #1987547a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Socializing</strong></font>
+        					    </h6>
+        					</div>										
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">2 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">3 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">4 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        		    <div class="col">
+        		    	<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        		    		<h6 class="text-center">5 a.m.</h6>	
+        		    	</div>	
+        		    </div>
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">6 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #1987547a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Socializing</strong></font>
+        					    </h6>
+        					</div>										
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">8 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">9 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>				    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">10 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			
+        		</div>				
+        		
+        		<div class="col" class="day1"  style="border:0.3px #cccccc ;border-left-style:solid ;border-right-style:solid">
+        			<div class="w-100"></div>
+        			<div class="col" style="margin: 1em 0em 0em 0em">
+        			    <h2 class="text-center">
+        					<span class="badge badge-primary" style="background-color: #0072bc;" >July 2nd</span>
+        				</h2>
+        			</div>
+        			
+        			<div class="col">		
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">12 a.m.</h6>	
+        				</div>	
+        			</div>
+        								
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">1 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" class="h-50 d-inline-block" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        				    <div style="margin: 0em 0em 0em 0.5em">
+        				    	<font color="#0072bc">	
+        						    <p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>		    		
+        			    		</font>	
+        				    </div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">2 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" class="h-50 d-inline-block" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">3 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>				    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">4 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #1987547a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Socializing</strong></font>
+        					    </h6>
+        					</div>										
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">6 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">7 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa" class="text-justify">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc" >	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">8 p.m.</h6>	
+        				</div>	
+        			</div><div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc" >	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>				    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">9 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #f52c007a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Invited</strong></font>
+        					    </h6>
+        					</div>														
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">10 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">				
+        				<div style ="border:solid 4px #f52c007a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Event</strong></font>
+        					    </h6>
+        				    </div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">12 p.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #1987547a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Socializing</strong></font>
+        					    </h6>
+        					</div>										
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">2 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">3 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">4 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        		    <div class="col">
+        		    	<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        		    		<h6 class="text-center">5 a.m.</h6>	
+        		    	</div>	
+        		    </div>
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">6 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border:solid 4px #1987547a">
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Socializing</strong></font>
+        					    </h6>
+        					</div>										
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">8 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>					    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">9 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 0.7em 0em 0.7em 0em">
+        				<div style ="border-left:solid 7px #c580fa">	
+        					<div style="margin: 0em 0em 0em 0.5em">
+        					    <font color="#0072bc">	
+        							<p class="text-break">
+        							    <strong>S07:</strong>
+        								Classical/path/search
+        							</p>				    		
+        			    		</font>	
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col">
+        				<div style="background-color: #ddd;" style="text-muted:#ffffff">
+        					<h6 class="text-center">10 a.m.</h6>	
+        				</div>	
+        			</div>
+        			<div class="col" style="margin: 1em 0em 1em 0em">
+        				<div style ="border:solid 4px #c7009d52" class="rounded-pill">					
+        					<div class="text-center" style="margin: 0.5em 0em 0em 0em">
+        						<h6>
+        							<font color="#0072bc"><strong>Live Get-Together</strong></font>
+        						</h6>
+        					</div>	
+        				</div>
+        			</div>
+        			
+        		</div>				
+        		
+        		
+        </div>
+   
+        </div>
     </div>
     
 
