@@ -129,7 +129,9 @@ function brush_ended() {
       (d) =>
         `<div class="p_title">${
           d.title
-        }</div> <div class="p_authors">${d.authors.join(", ")}</div>`
+        }</div> <div class="p_authors">${d.authors.join(", ")}</div> <a href=${
+          d.url
+        }><i class="bi bi-download"></i></a>`
     )
     .on("click", (d) => openPaper(d))
     .on("mouseenter", (d) => {
