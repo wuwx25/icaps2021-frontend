@@ -12,3 +12,7 @@
 .accordion-header-item.collapsed {
   color: black !important;
 }
+
+#proc_text :hover {
+  color: white;
+}
