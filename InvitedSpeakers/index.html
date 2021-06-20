@@ -12,17 +12,24 @@
 
     <!-- Bootstrap core CSS -->
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous"> -->
+    
 
     <!-- Bootstrap Overrides -->
     <link href="../assets/bootstrap/css/styles.css" rel="stylesheet" />
     <link href="../assets/css/custom.css" rel="stylesheet" />
-    <link href="calls.css" rel="stylesheet" />
+    <link href="schedule.css" rel="stylesheet" />
 
     <!-- jQuery -->
     <script src="../assets/js/jquery-3.6.0.min.js"></script>
     <script src="../assets/js/custom.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+  <!-- import axios  -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <!-- vue dev version -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
   </head>
-  <body>
+  <body class="bg-light">
   <header class="navbar fixed-top p-3 border-bottom">
     <nav class="navbar navbar-light navbar-expand-lg">
       <div class="container-fluid d-flex">
@@ -71,91 +78,69 @@
       </div>
     </nav>
   </header>
-
-    <div class="album mt-3 p-4">
+    <div id="app" v-cloak>
+    <div class="album mt-3 p-4" >
       <div style="height: 100px" class="d-none d-md-block">
         <!-- padding hack for the fixed navbar -->
       </div>
 
       <div class="container">
-        <div class="row">
-          <a
-            href="main-track.html"
-            type="button"
-            class="btn btn-light call-button mb-2"
-            ><span class="p-3">Main Track</span>
-            <span class="badge bg-secondary pl-3">Expired</span></a
-          >
-          <a
-            href="application-track.html"
-            type="button"
-            class="btn btn-light call-button mb-2"
-            ><span class="p-3">Application Track</span>
-            <span class="badge bg-secondary pl-3">Expired</span></a
-          >
-          <a
-            href="robotics-track.html"
-            type="button"
-            class="btn btn-light call-button mb-2"
-            ><span class="p-3">Robotics Track</span>
-            <span class="badge bg-secondary pl-3">Expired</span></a
-          >
-          <a
-            href="learning-track.html"
-            type="button"
-            class="btn btn-light call-button mb-2"
-            ><span class="p-3">Planning and Learning Track</span>
-            <span class="badge bg-secondary pl-3">Expired</span></a
-          >
-          <a
-            href="journal-track.html"
-            type="button"
-            class="btn btn-light call-button mb-2"
-            ><span class="p-3">Journal Track</span>
-            <span class="badge bg-secondary pl-3">Expired</span></a
-          >
-          <a
-            href="doctoral-consortium.html"
-            type="button"
-            class="btn btn-light call-button mb-2"
-            ><span class="p-3">Doctoral Consortium</span>
-            <span class="badge bg-secondary pl-3">Expired</span></a
-          >
-          <a
-            href="demos.html"
-            type="button"
-            class="btn btn-light call-button mb-2"
-            ><span class="p-3">System Demonstrations Track</span>
-            <span class="badge bg-danger pl-3">Active</span></a
-          >
-          <a
-            href="competition-track.html"
-            type="button"
-            class="btn btn-light call-button mb-2"
-            ><span class="p-3">Competition Proposals</span>
-            <span class="badge bg-secondary pl-3">Expired</span></a
-          >
-          <a
-            href="workshop.html"
-            type="button"
-            class="btn btn-light call-button mb-2"
-            ><span class="p-3">Workshop Proposals</span>
-            <span class="badge bg-secondary pl-3">Expired</span></a
-          >
-          <a
-            href="awards.html"
-            type="button"
-            class="btn btn-light call-button mb-2"
-            ><span class="p-3">Award Nominations</span>
-            <span class="badge bg-secondary pl-3">Expired</span></a
-          >
-          <a type="button" class="btn btn-light call-button mb-2 disabled"
-            ><span class="p-3">Tutorial Proposals</span>
-            <span class="badge bg-primary pl-3">Coming soon</span></a
-          >
-        </div>
+        <div class="mb-5">
+          <h4>Invited Speakers</h4>
+          <hr />
+            <!-- <div class="row" >
+              <div class="col-6 col-lg-2 col-md-4 col-sm-6 col-xs-6" v-for="speaker in speakers">
+                <div
+                  class="card shadow-sm mb-4 d-flex justify-content-center align-self-center"
+                >
+                  <img
+                    :src="'../assets/images/speakers/'+speaker.name.split('\n')[0].toLowerCase()+'.jpg'"
+                    class="card-img-top"
+                  />
+                  <div class="card-body bg-light">
+                    <h5>{{speaker.name}}</h5>
+                  </div>
+                  <div class="card-body">
+                    <p class="card-text">{{speaker.department}}</p>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+          
+            <div class="row clearfix" >
+              <div class="col-12 col-lg-6 col-md-12 col-sm-12" v-for="speaker in speakers">
+                <div
+                  class="card mb-3" style="white-space: pre-line;"
+                >
+                  <div class="row no-gutters" >
+                    <div class="clearfix visible-xs-block"></div>
+                    <div class="col-md-3">
+                      <img  :src="'../assets/images/speakers/'+speaker.name.split(' ')[0].toLowerCase()+'.jpg'" class="card-img" />
+                    </div>
+                    <div class="col-md-8 clearfix">
+                      <div class="card-body">
+                        <h5 class="card-title">{{speaker.name}}</h5>
+                        <p class="card-text" style="font-size: small">{{speaker.department}}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div  style="height:30vh;overflow-y: auto">
+                  <div class="card-body bg-light clearfix" >
+                    <p class="card-text clearfix">BIO: {{'bio' in speaker?speaker.bio:"TBD"}}</p>
+                  </div>
+                  <div class="card-body clearfix" >
+                    <p class="card-text">Abstract: {{'abstract' in speaker?speaker.abstract:"TBD"}}</p>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+		</div>
       </div>
     </div>
+    </div>
+    
 
     <footer class="footer m-5">
       <div class="container">
@@ -176,7 +161,6 @@
         </div>
       </div>
     </footer>
-
-    <script src="../assets/js/bootstrap.min.js"></script>
   </body>
+  <script src="./index.js"></script>
 </html>

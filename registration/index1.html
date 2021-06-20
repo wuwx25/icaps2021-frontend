@@ -48,7 +48,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link px-2 active">Home</a>
+                            <a href="../home" class="nav-link px-2">Home</a>
                         </li>
                         <li class="nav-item">
                             <a href="../papers" class="nav-link px-2">Papers</a>
@@ -60,15 +60,19 @@
                             <a href="../workshops" class="nav-link px-2">Workshops</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../Competitions" class="nav-link px-2"
-                            >Competitions</a
-                            >
+                            <a href="../Competitions" class="nav-link px-2">Competitions</a>
                         </li>
                         <li class="nav-item">
                             <a href="../Committee" class="nav-link px-2">Committee</a>
+                        <li class="nav-item">
+                            <a href="../InvitedSpeakers/" class="nav-link px-2">Invited Speakers</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../Schedule/" class="nav-link px-2">Invited Speakers</a>
+                            <a href="../exhibition/" class="nav-link px-2">Exhibition</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../Schedule/" class="nav-link px-2">Schedule</a>
+                        </li>
                         </li>
                     </ul>
                 </div>
@@ -297,6 +301,12 @@
         },
         methods:{
             Create(){
+                if(this.user_info.email){
+                    const regEmail = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
+                    console.log(regEmail.test(this.user_info.email))
+                }else{
+                    return
+                }
                 console.log(this.user_info)
                 let url = 'http://192.168.0.224:5438/api/users/register'
                 axios.post(url,this.user_info,{headers:{
@@ -309,10 +319,7 @@
                 console.log(e.target.files)
             },
             checkForm(){
-                if(this.user_info.email){
-                    const regEmail = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
-                    console.log(regEmail.test(this.user_info.email))
-                }
+
             }
         }
     })
