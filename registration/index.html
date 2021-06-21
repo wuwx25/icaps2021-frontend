@@ -80,29 +80,13 @@
 				<header>
 				  <h4 class="top align-middle">
 					<span> Registration </span>
-                    <!--
-					<div class="btn-group btn-group-sm d-none d-lg-inline-flex" role="group">
-						<input
-							type="radio"
-							class="btn-check toggle-viz"
-							name="btnradio"
-							id="btnradio1"
-							checked
-						/>
-						<input
-							type="radio"
-							class="btn-check toggle-viz"
-							name="btnradio"
-							id="btnradio2"
-							onchange="currentTippy = null;start()"
-						/>
-					</div>
-                    -->
 				  </h4>
 				  <hr />
 				</header>
+                <div>
+                    <input type="button" name="" id="test" onclick="submitForm123()">
+                </div>
 				<div class="row" id="app" v-cloak>
-          {{message}}
 					<!--<div class="col col-12 col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">-->
 						<div class="d-none d-lg-block" id="container">
 							<div class="layui-collapse" lay-accordion lay-filter="test">
@@ -124,7 +108,7 @@
 																<li><b>Visa Name</b> will be used in your Visa letter of invitation. It should match exactly the name on your <b>passport.</b></li>
                                                             </ul>
                                                             <hr/>
-                                                            <form class="layui-form" action="#">
+                                                            <form class="layui-form" action="#" id="registerForm">
                                                             	<div class="layui-form-item">
                                                                 	<div class="layui-form-item">
                                                                         <div class="layui-inline">
@@ -150,9 +134,8 @@
                                                                         </div>
                                                                         <div class="layui-inline">
                                                                               <label class="layui-form-label">Pronoun: (optional, visible on badge)</label><br>
-                                                                         
-                                                                              <div class="layui-input-inline">
-                                                                                <select name="pronoun" v-model="message">
+                                                                              <div class="">
+                                                                                <select name="pronoun" v-model="user_info.pronoun">
                                                                                   <option value="--">--</option>
                                                                                   <option value="they/them">they/them</option>
                                                                                   <option value="she/her">she/her</option>
@@ -190,7 +173,6 @@
                                                                         </div>
                                                                         <div class="layui-inline">
                                                                               <label class="layui-form-label">Country</label><br>
-																			  
                                                                                 <select name="country" v-model="user_info.country">
                                                                                   <option value=""></option>
                                                                                   <option value="AFGHANISTAN">AFGHANISTAN</option>
@@ -202,7 +184,7 @@
                                                                 </div>      
                                                                
                                                                 <div class="layui-btn-container">
-                                                               	<button type="submit" class="layui-btn  layui-btn-normal layui-btn-radius" >Next >></button>
+                                                               	<button @tap="next" class="layui-btn  layui-btn-normal layui-btn-radius">Next</button>
                                                           
                                                                 </div>
                                                             </form>
@@ -225,7 +207,7 @@
 <p><label><input type="checkbox" name="like1[write]" lay-skin="primary" >    <b>Conference, Tutorials, Workshops and Expo</b></label></p>
 <p style="color:#B8B8B8">Check at least one</p>
 <div class="layui-btn-container">
-                                                                	<button type="submit" class="layui-btn  layui-btn-normal">Next >></button>
+                                                                	<input type="button" onclick="submitForm123()">Next >></input>
                                                                 </div>
 		                                </div>
                                     
@@ -254,46 +236,18 @@
                                   <hr/>
                                   <p>Please use the PDF format for your CV if possible.</p>
                                   <p><b>Upload My CV</b></p>
-									<input type="file" name="file" id="test20">
+									<input type="file" name="file" id="test">
                                 </div>
                                     </div>
 								</div>
 							</div>
 						</div>
 					</div>
-				<!--</div>-->
+
 			</section>
         </div>
       </div>
-	<!--
-      <script>
-        var button1 = document.getElementById("btnradio1");
-        var button2 = document.getElementById("btnradio2");
 
-        $(document).ready(function () {
-          button1.checked = true;
-          button2.checked = false;
-          setup_paper_page();
-          start();
-          tippy("[data-tippy-content]", { trigger: "mouseenter focus" });
-        });
-
-        $(window).resize(function () {
-          const width = Math.max(
-            document.documentElement.clientWidth,
-            window.innerWidth || 0
-          );
-          if (width <= 992) {
-            var paper_list = document.getElementById("accordionPaperList");
-            paper_list.classList.remove("d-none");
-            var canvas = document.getElementById("canvas");
-            canvas.classList.add("d-none");
-            button1.checked = true;
-            button2.checked = false;
-          }
-        });
-      </script>
-    -->
 	</main>
     <footer class="footer m-5">
       <div class="container">
@@ -314,6 +268,13 @@
         </div>
       </div>
     </footer>
-    <script src="./index.js" ></script>
   </body>
 </html>
+<script type="text/javascript">
+    function submitForm123(){
+        console.log("调用submitForm")
+        var firstname = document.forms[0].firstname.value;
+        var email = document.forms[0].email.value;
+        console.log(email)
+    }
+</script>

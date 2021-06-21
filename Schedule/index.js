@@ -17,7 +17,10 @@ var app = new Vue({
             .then(res=>{
               console.log(res);
               console.log(this.speakers);
-              this.speakers=res.data;
+              var JP = res.data[1]
+                res.data[1] = res.data[2]
+                res.data[2] = JP
+                this.speakers=res.data;
             })
             .catch(
               err=>{console.log(err);}

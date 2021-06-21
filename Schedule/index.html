@@ -30,52 +30,54 @@
 
   </head>
   <body class="bg-light">
-    <header class="navbar fixed-top p-3 border-bottom">
-      <nav class="navbar navbar-light navbar-expand-lg">
-        <div class="container-fluid d-flex">
-          <a class="navbar-brand text-dark">ICAPS 2021</a>
-          <div>
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarSupportedContent"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a href="../home" class="nav-link px-2">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a href="../papers" class="nav-link px-2">Papers</a>
-                </li>
-                <li class="nav-item">
-                  <a href="../Calls" class="nav-link px-2">Calls</a>
-                </li>
-                <li class="nav-item">
-                  <a href="../workshops" class="nav-link px-2">Workshops</a>
-                </li>
-                <li class="nav-item">
-                  <a href="../Competitions" class="nav-link px-2"
-                    >Competitions</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a href="../Committee" class="nav-link px-2"
-                    >Committee</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link px-2 active">Invited Speakers</a>
-                </li>
-              </ul>
-            </div>
+  <header class="navbar fixed-top p-3 border-bottom">
+    <nav class="navbar navbar-light navbar-expand-lg">
+      <div class="container-fluid d-flex">
+        <a class="navbar-brand text-dark">ICAPS 2021</a>
+        <div>
+          <button
+                  class="navbar-toggler"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#navbarSupportedContent"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a href="../home" class="nav-link px-2">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="../papers" class="nav-link px-2">Papers</a>
+              </li>
+              <li class="nav-item">
+                <a href="../Calls" class="nav-link px-2">Calls</a>
+              </li>
+              <li class="nav-item">
+                <a href="../workshops" class="nav-link px-2">Workshops</a>
+              </li>
+              <li class="nav-item">
+                <a href="../Competitions" class="nav-link px-2">Competitions</a>
+              </li>
+              <li class="nav-item">
+                <a href="../Committee" class="nav-link px-2">Committee</a>
+              <li class="nav-item">
+                <a href="../InvitedSpeakers/" class="nav-link px-2">Invited Speakers</a>
+              </li>
+              <li class="nav-item">
+                <a href="../exhibition/" class="nav-link px-2">Exhibition</a>
+              </li>
+              <li class="nav-item">
+                <a href="../Schedule/" class="nav-link px-2">Schedule</a>
+              </li>
+              </li>
+            </ul>
           </div>
         </div>
-      </nav>
-    </header>
+      </div>
+    </nav>
+  </header>
     <div id="app" v-cloak>
     <div class="album mt-3 p-4" >
       <div style="height: 100px" class="d-none d-md-block">
@@ -105,49 +107,35 @@
               </div>
             </div> -->
           
-            <div class="row" >
-              <div class="col-12 col-lg-6 col-md-6 col-sm-12" v-for="speaker in speakers">
+            <div class="row clearfix" >
+              <div class="col-12 col-lg-6 col-md-12 col-sm-12" v-for="speaker in speakers">
                 <div
-                  class="card mb-3" style="max-width: 540px;white-space: pre-line;"
+                  class="card mb-3" style="white-space: pre-line;"
                 >
-                  <div class="row no-gutters">
-                    <div class="col-md-4">
+                  <div class="row no-gutters" >
+                    <div class="clearfix visible-xs-block"></div>
+                    <div class="col-md-3" style="height: 20vh">
                       <img  :src="'../assets/images/speakers/'+speaker.name.split(' ')[0].toLowerCase()+'.jpg'" class="card-img" />
                     </div>
-                    <div class="col-md-8" >
+                    <div class="col-md-8 clearfix">
                       <div class="card-body">
                         <h5 class="card-title">{{speaker.name}}</h5>
-                        <p class="card-text">{{speaker.department}}</p>
+                        <p class="card-text" style="font-size: small">{{speaker.department}}</p>
                       </div>
                     </div>
                   </div>
-                  <div class="card-body bg-light">
-                    <p class="card-text">BIO: {{'bio' in speaker?speaker.bio:"TBD"}}</p>
+                  <div  style="height:30vh;overflow-y: auto">
+                  <div class="card-body bg-light clearfix" >
+                    <p class="card-text clearfix">BIO: {{'bio' in speaker?speaker.bio:"TBD"}}</p>
                   </div>
-                  <div class="card-body">
+                  <div class="card-body clearfix" >
                     <p class="card-text">Abstract: {{'abstract' in speaker?speaker.abstract:"TBD"}}</p>
                   </div>
-                </div>
-              </div>
-            </div>
-            
-            <!-- <div class="row" >
-              <div class="card md-3" style="max-width: 540px;">
-                <div class="row no-gutters">
-                  <div class="col-md-4">
-                    <img src="../assets/images/speakers/stefan.jpg" class="card-img" >
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    </div>
                   </div>
                 </div>
               </div>
             </div>
-        </div> -->
+
 		</div>
       </div>
     </div>
