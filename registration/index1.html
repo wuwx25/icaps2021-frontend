@@ -75,6 +75,9 @@
                         </li>
                         </li>
                     </ul>
+                    <button type="button" class="btn btn-primary" style="margin-left: 2rem">
+                        <a href="../Login" style="color: white">Login</a>
+                    </button>
                 </div>
             </div>
         </div>
@@ -100,43 +103,51 @@
                                 <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
                                     <div class="mb-3">
                                         <label  class="form-label" style="margin: 1em 0 0.5em 0.8em">Email</label>
-                                        <input type="text" class="form-control" placeholder="Input your email" v-model="user_info.email">
+                                        <input type="text" class="form-control" :class="[isFirst_name?'warn':'']" placeholder="Input your email" v-model="user_info.email">
+                                        <small  style="color: red" v-if="isEmail"><ul><li>Email is not valid</li></ul></small>
                                     </div>
                                 </div>
                                 <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
                                     <div class="mb-3">
                                         <label  class="form-label" style="margin: 1em 0 0.5em 0.8em">First name</label>
-                                        <input type="text" class="form-control" placeholder="Input Password" v-model="user_info.first_name">
+                                        <input type="text" class="form-control" :class="[isFirst_name?'warn':'']"   placeholder="" v-model="user_info.first_name">
+                                        <small  style="color: red" v-if="isFirst_name"><ul><li>This field is required</li></ul></small>
                                     </div>
                                 </div>
                                 <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
                                     <div class="mb-3">
                                         <label  class="form-label" style="margin: 1em 0 0.5em 0.8em">Last name</label>
-                                        <input type="text" class="form-control" placeholder="Input Password" v-model="user_info.last_name">
+                                        <input type="text" class="form-control" :class="[isLast_name?'warn':'']" placeholder="" v-model="user_info.last_name">
+                                        <small  style="color: red" v-if="isLast_name"><ul><li>This field is required</li></ul></small>
                                     </div>
                                 </div>
                                 <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
                                     <div class="mb-3">
                                         <label  class="form-label" style="margin: 1em 0 0.5em 0.8em">Institution</label>
-                                        <input type="text" class="form-control" placeholder="Input Password" v-model="user_info.institution">
+                                        <input type="text" class="form-control" :class="[isInstitution?'warn':'']" placeholder="" v-model="user_info.institution">
+                                        <small  style="color: red" v-if="isInstitution"><ul><li>This field is required</li></ul></small>
                                     </div>
                                 </div>
                                 <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
                                     <div class="mb-3">
                                         <label  class="form-label" style="margin: 1.5em 0 0.5em 0.8em">Password</label>
-                                        <input type="password" class="form-control" placeholder="Input Password" v-model="user_info.password">
+                                        <input type="password" class="form-control" :class="[isPassword?'warn':'']" placeholder="Input Password" v-model="user_info.password">
+                                        <small  style="color: red" v-if="isPassword"><ul><li>This field is required</li></ul></small>
+                                        <small  style="color: red" v-if="isLessSix"><ul><li>Password minimum length is 6</li></ul></small>
                                     </div>
                                 </div>
                                 <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
                                     <div class="mb-3">
                                         <label  class="form-label" style="margin: 1.5em 0 0.5em 0.8em">Comfirm Password</label>
-                                        <input type="password" class="form-control" placeholder="Comfirm Password" v-model="user_info.password2">
+                                        <input type="password" class="form-control" :class="[isPassword2?'warn':'']"placeholder="Comfirm Password" v-model="user_info.password2">
+                                        <small  style="color: red" v-if="isPassword2"><ul><li>This field is required</li></ul></small>
+                                        <small  style="color: red" v-if="user_info.password != user_info.password2"><ul><li>Password mismatch</li></ul></small>
                                     </div>
                                 </div>
                                 <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
                                     <div class="mb-3">
                                         <label  class="form-label" style="margin: 1.5em 0 0.5em 0.8em">Pronoun</label>
-                                        <select class="form-select"  v-model="user_info.pronoun">
+                                        <select class="form-select"  :class="[isPronoun?'warn':'']" v-model="user_info.pronoun">
                                             <option value="they/them">they/them</option>
                                             <option value="she/her">she/her</option>
                                             <option value="he/him">he/him</option>
@@ -144,16 +155,18 @@
                                             <option value="Prefer no to say">Prefer no to say</option>
                                             <option value="Specify your own">Specify your own</option>
                                         </select>
+                                        <small  style="color: red" v-if="isPronoun"><ul><li>This field is required</li></ul></small>
                                     </div>
                                 </div>
                                 <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
                                     <div class="mb-3">
                                         <label  class="form-label" style="margin: 1.5em 0 0.5em 0.8em">Country/Region</label>
-                                        <select class="form-select"  v-model="user_info.country">
+                                        <select class="form-select"  :class="[isCountry?'warn':'']" v-model="user_info.country">
                                             <option selected disabled>Select your country/region</option>
                                             <option value="AFGHANISTAN">AFGHANISTAN</option>
                                             <option value="ALAND ISLANDS">ALAND ISLANDS</option>
                                         </select>
+                                        <small  style="color: red" v-if="isCountry"><ul><li>This field is required</li></ul></small>
                                     </div>
                                 </div>
                                 <button type="button" class="btn btn-primary"  @click="Create"  @click="checkForm" style="margin: 1.5em 0 0.5em 0em">Create</button>
@@ -296,18 +309,23 @@
             user_info:{
                 code:''
             },
+            isEmail:false,
+            isFirst_name:false,
+            isLast_name:false,
+            isInstitution:false,
+            isPronoun:false,
+            isPassword:false,
+            isLessSix:false,
+            isPassword2:false,
+            isMisMatch:false,
+            isCountry:false,
+
             checkStudent:true,
             checkOther:true
         },
         methods:{
             Create(){
-                if(this.user_info.email){
-                    const regEmail = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
-                    console.log(regEmail.test(this.user_info.email))
-                }else{
-                    return
-                }
-                console.log(this.user_info)
+                if(this.checkForm() == false) return
                 let url = 'http://192.168.0.224:5438/api/users/register'
                 axios.post(url,this.user_info,{headers:{
                         "access-control-allow-headers": "Content-Type"
@@ -319,8 +337,83 @@
                 console.log(e.target.files)
             },
             checkForm(){
-
+                let flag = false;
+                if(this.user_info.email){
+                    const regEmail = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
+                    if(regEmail.test(this.user_info.email)){
+                        this.isEmail = false
+                    }else{
+                        this.isEmail = true
+                    }
+                }else{
+                    this.isEmail = true
+                    flag = true
+                }
+                if(!this.user_info.first_name || this.user_info.first_name == undefined){
+                    this.isFirst_name = true
+                    flag = true
+                }else{
+                    this.isFirst_name = false
+                }
+                if(!this.user_info.last_name){
+                    this.isLast_name = true
+                    flag = true
+                }else{
+                    this.isLast_name = false
+                }
+                if(!this.user_info.password){
+                    this.isPassword = true
+                    flag = true
+                }else{
+                    this.isPassword = false
+                    if(this.user_info.password.length < 6){
+                        this.isLessSix = true
+                        flag = true
+                    }
+                    else
+                        this.isLessSix = false
+                }
+                if(!this.user_info.password2){
+                    this.isPassword2 = true
+                    flag = true
+                }else{
+                    this.isPassword2 = false
+                    if(this.user_info.password != this.user_info.password2){
+                        this.passwdMisMatch = true
+                        flag = true
+                    }
+                    else
+                        this.passwdMisMatch = false
+                }
+                if(!this.user_info.pronoun){
+                    this.isPronoun = true
+                    flag = true
+                }else{
+                    this.isPronoun = false
+                }
+                if(!this.user_info.institution){
+                    this.isInstitution = true
+                    flag = true
+                }else{
+                    this.isInstitution = false
+                }
+                if(!this.user_info.country){
+                    this.isCountry = true
+                    flag = true
+                }else{
+                    this.isCountry = false
+                }
+                if(flag == true){
+                    return true
+                }
+                return false
             }
         }
     })
 </script>
+<style type="text/css">
+    .warn{
+        border-style:solid;
+        border-color: red;
+    }
+</style>
