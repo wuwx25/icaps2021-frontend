@@ -402,3 +402,45 @@
              this.errorModal = new bootstrap.Modal(document.getElementById('Registered'))
         }
         })
+
+paypal
+  .Buttons({
+    createOrder: () => {
+      console.log("now is in create order");
+      return fetch('http://192.168.0.224:5438/api/registrations/createorder', {
+        method: 'post',
+        headers: {
+          'content-type': 'application/json',
+          'Authorization': localStorage.getItem("token")
+        },
+        body: JSON.stringify(app.reg_info)
+      }).then(function (res) {
+        return res.json();
+      }).then(function (data) {
+        console.log("data is", data);
+        return data.orderID; // Use the key sent by your server's response, ex. 'id' or 'token'
+      });
+    },
+    onApprove: (data) => {
+      console.log("now is in onApprove");
+      return fetch('http://192.168.0.224:5438/api/registrations/captureorder', {
+        method: 'post',
+        headers: {
+          'content-type': 'application/json',
+          'Authorization': localStorage.getItem("token")
+        },
+        body: JSON.stringify({
+          orderID: data.orderID,
+        })
+      }).then(function (res) {
+        console.log("get response", res);
+        window.a = res;
+        return res.json();
+      })
+        .then(function (details) {
+          console.log('Transaction approved by ' + details.payer.name.given_name);
+          window.alert('Transaction approved by ' + details.payer.name.given_name);
+        })
+    }
+  })
+  .render('#paypal-button-container');
