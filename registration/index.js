@@ -439,7 +439,8 @@ paypal
       })
         .then(function (details) {
           console.log('Transaction approved by ' + details.payer.name.given_name);
-          window.alert('Transaction approved by ' + details.payer.name.given_name);
+        //   window.alert('Transaction approved by ' + details.payer.name.given_name);
+            return Promise.resolve();
         })
     }
   })
