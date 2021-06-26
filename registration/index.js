@@ -25,7 +25,8 @@
     isMisMatch:false,
     isCountry:false,
     isErrorCode:false,
-
+    showOne:true,
+    showTwo:false,
     country:
     [
     "AFGHANISTAN",
@@ -289,8 +290,9 @@
     "ZAMBIA",
     "ZIMBABWE"
     ],
-        codeModal:{},
-        errorModal:{},
+    codeModal:{},
+    errorModal:{},
+    isLogin:false,
 },
     methods:{
     Create(){
@@ -302,7 +304,6 @@
     }).then(res=>{
         this.isErrorCode = false
         this.codeModal.hide()
-        console.log(",,,,hide")
     }).catch(err=>{
         this.isErrorCode = true
     })
@@ -400,5 +401,16 @@
             this.country.sort()
             this.codeModal = new bootstrap.Modal(document.getElementById('verifyCode'))
              this.errorModal = new bootstrap.Modal(document.getElementById('Registered'))
+            if(localStorage.getItem('token')){
+                axios.get('http://192.168.0.224:5438/api/users/profile',{headers:{
+                        "Authorization":localStorage.getItem('token')
+                    }}).then(res=>{
+                        console.log('..................')
+                    this.showOne = false
+                    this.showTwo = true
+                    isLogin = true
+                }).catch(err=>{console.log(err)})
+            }
+
         }
         })
