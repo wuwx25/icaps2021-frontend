@@ -13,7 +13,7 @@
     />
     <link rel="stylesheet" href="https://www.orchome.com/css/bootstrap/5.0.1/bootstrap.min.css">
     <script src="https://www.orchome.com/js/bootstrap/5.0.1/bootstrap.min.js"></script>
-
+    <script src="http://cdn.staticfile.org/moment.js/2.24.0/moment.min.js"></script>
     <title>ICAPS 2021</title>
 
     <!-- Bootstrap core CSS -->
@@ -35,7 +35,8 @@
     <script src="../assets/js/custom.js"></script>
 </head>
 <body>
-<header class="navbar fixed-top p-3 border-bottom">
+<div id="app">
+<header class="navbar fixed-top p-3 border-bottom" >
     <nav class="navbar navbar-light navbar-expand-lg">
         <div class="container-fluid d-flex">
             <a class="navbar-brand text-dark">ICAPS 2021</a>
@@ -83,7 +84,7 @@
         </div>
     </nav>
     <button type="button" class="btn btn-primary" style="position: fixed;right: 10%;">
-        <a href="../login" style="color: white">Login</a>
+        <a @click="logout" style="color: white">Logout</a>
     </button>
 </header>
 <div class="album mt-3">
@@ -110,50 +111,21 @@
                         email
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-8 col-lg-9" style="text-align: left">
-                        1934410205@qq.com
+                        {{user.email}}
                     </div>
                 </div>
             </li>
-            <li class="list-group-item">
+            <li class="list-group-item" v-for="(value,key) in user.profile">
                 <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 " style="text-align: right;font-weight: bold">
-                    department
+                    {{columns[key]}}
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-8 col-lg-9" style="text-align: left">
-                    None
+                    {{value}}
                 </div>
                 </div>
             </li>
-            <li class="list-group-item">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" style="text-align: right;font-weight: bold">
-                        address
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-8 col-lg-9" style="text-align: left">
-                        None
-                    </div>
-                </div>
-            </li>
-            <li class="list-group-item">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" style="text-align: right;font-weight: bold">
-                        Phone
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-8 col-lg-9" style="text-align: left">
-                        None
-                    </div>
-                </div>
-            </li>
-            <li class="list-group-item">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" style="text-align: right;font-weight: bold">
-                        Time zone
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-8 col-lg-9" style="text-align: left">
-                        None
-                    </div>
-                </div>
-            </li>
+            
         </ul>
         </div>
         </div>
@@ -161,7 +133,7 @@
         <div class="mt-5">
                 <div style="height: 100%"></div>
         </div>
-        <ul class="list-group">
+        <ul class="list-group" >
             <li class="list-group-item active" aria-current="true">
                 <div class="row">
                     <div class="col-xs-6 col-sm-8 col-md-9 col-xl-10">Registration History</div>
@@ -172,8 +144,26 @@
                     </div>
                 </div>
             </li>
-            <li class="list-group-item"></li>
-
+            <div v-if="user.reg">
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-xl-3">Publication</div>
+                        <div class="col-xs-3 col-sm-3 col-md-2 col-xl-2">{{(user&&user.reg.publication)==1?"Yes":"No"}}</div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-xl-3">Conference,Tutorials,Workshops and Expo</div>
+                        <div class="col-xs-3 col-sm-3 col-md-2 col-xl-2">Yes</div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-xl-3">Registration Time</div>
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-xl-3">{{user.reg.registration_datetime}}</div>
+                    </div>
+                </li>
+            </div>
         </ul>
     </div>
 </div>
@@ -196,6 +186,7 @@
             </div>
         </div>
     </footer>
+</div>
 </body>
 <script src="./index.js"></script>
 </html>

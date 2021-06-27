@@ -1,9 +1,12 @@
  var app = new Vue({
     el:'#app',
     data:{
+    message:"Hello ",
+    first_name: "",
+    last_name: "",
     user_info:{
-
     },
+    user:{},
     reg_info:{
         publication:false,
         is_student:false,
@@ -397,23 +400,26 @@
             })
          },
         },
-         mounted() {
-            this.country.sort()
-            this.codeModal = new bootstrap.Modal(document.getElementById('verifyCode'))
-             this.errorModal = new bootstrap.Modal(document.getElementById('Registered'))
-            if(localStorage.getItem('token')){
-                axios.get('http://192.168.0.224:5438/api/users/profile',{headers:{
-                        "Authorization":localStorage.getItem('token')
-                    }}).then(res=>{
-                        console.log('..................')
-                    this.showOne = false
-                    this.showTwo = true
-                    isLogin = true
-                }).catch(err=>{console.log(err)})
-            }
-
+    mounted:function() {
+        this.country.sort();
+        this.codeModal = new bootstrap.Modal(document.getElementById('verifyCode'));
+        this.errorModal = new bootstrap.Modal(document.getElementById('Registered'));
+        if(localStorage.getItem('token')){
+            axios.get('http://192.168.0.224:5438/api/users/profile', {
+                headers: {
+                    "Authorization": localStorage.getItem('token')
+                }
+            }).then(res => {
+                console.log('get response',res);
+                this.showOne = false;
+                this.showTwo = true;
+                this.isLogin = true;
+                this.user = res.data;
+            }).catch(err => { console.log(err) });
         }
-        })
+
+    }
+})
 
 paypal
   .Buttons({
@@ -452,6 +458,7 @@ paypal
         .then(function (details) {
           console.log('Transaction approved by ' + details.payer.name.given_name);
         //   window.alert('Transaction approved by ' + details.payer.name.given_name);
+            window.location.href="../userInfo";
             return Promise.resolve();
         })
     }
