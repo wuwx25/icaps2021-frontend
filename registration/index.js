@@ -321,7 +321,7 @@
     let flag = false;
     if(this.user_info.email){
     const regEmail = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
-    if(true){//regEmail.test(this.user_info.email)){
+    if(regEmail.test(this.user_info.email)){
     this.isEmail = false
 }else{
     this.isEmail = true
