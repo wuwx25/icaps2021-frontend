@@ -30,6 +30,9 @@
     isErrorCode:false,
     showOne:true,
     showTwo:false,
+    showThree:false,
+    showFour:false,
+    showLoading:false,
     country:
     [
     "AFGHANISTAN",
@@ -311,7 +314,10 @@
         .then(res => {
             localStorage.setItem("token",res.data.token);
             console.log(localStorage.getItem("token"));
-        
+            this.showOne = false
+            this.showTwo = true
+            this.isLogin = true
+            window.location.href = './index.html'
     })
     }).catch(err=>{
         this.isErrorCode = true
@@ -407,7 +413,32 @@
                 this.errorModal.show()
             })
          },
-        },
+    getfile(e){
+        console.log(e.target.files[0]);
+        var formData = new FormData();
+        var formData = new window.FormData();
+        formData.append('personal_cv',e.target.files[0]);
+        var options = {
+            url: 'http://192.168.0.224:5440/api/registrations/uploadcv',
+            data:formData,
+            method:'post',
+            headers:{
+                "Authorization": localStorage.getItem('token')
+            }
+        }
+        axios(options).then(res=>{
+            
+        })
+    },
+    submit(){
+
+    },
+    logout(){
+        localStorage.setItem("token", "");
+        window.alert("Log out seccessfully!");
+        window.location.href = "../login";
+    },
+    },
     mounted:function() {
         this.country.sort();
         this.codeModal = new bootstrap.Modal(document.getElementById('verifyCode'));
@@ -419,9 +450,14 @@
                 }
             }).then(res => {
                 console.log('get response',res);
-                this.showOne = false;
-                this.showTwo = true;
                 this.isLogin = true;
+                this.showOne = false;
+                if(res.data.reg&&res.data.reg.is_paid){
+                    this.showTwo = false
+                    this.showFour = true
+                }else{
+                    this.showTwo = true
+                }
                 this.user = res.data;
             }).catch(err => { console.log(err) });
         }

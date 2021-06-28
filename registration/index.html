@@ -86,7 +86,12 @@
     <button type="button" class="btn btn-primary" style="position: fixed;right: 10%;" v-if="!isLogin">
         <a href="../login" style="color: white">Login</a>
     </button>
-    <div v-else>{{message}}{{user?user.profile.first_name:""}} {{user?user.profile.last_name:""}}</div>
+
+    <button type="button" class="btn btn-primary" style="position: fixed;right: 10%;" v-else>
+        <a @click="logout" style="color: white">Logout</a>
+    </button>
+<!--        {{user?user.profile.first_name:""}} {{user?user.profile.last_name:""}}-->
+
 </header>
 
     <main class="container" style="min-height: 80vh">
@@ -310,16 +315,35 @@
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingSix">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                            <button class="accordion-button "  :class="{collapsed:!showFour}" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" :aria-expanded="showFour" aria-controls="collapseSix">
                                 <strong>4.Get Recruited by our Sponsors</strong>
                             </button>
                         </h2>
-                        <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+                        <div id="collapseSix" class="accordion-collapse collapse"  :class="{show:showFour}" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                <p style="text-align: justify">If you would like to let the ICAPS 2021 sponsors know that you are job hunting, check this box and we will share your information with them.</p></div>
+                                <p style="text-align: justify">If you would like to let the ICAPS 2021 sponsors know that you are job hunting, check this box and we will share your information with them.</p>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" >
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        <p>Share my profile information and my accepted papers and presentations</p>
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" >
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        <p >Add me to a temporary ICAPS email list (email remains anonymous)</p>
+                                    </label>
+                                </div>
+                                <div class="card-text" style="margin-left: 1.5rem"><small class="text-muted">You do not need to save. Changes are immediate in this panel.</small></div>
+                                <hr>
+                                <div class="mb-3">
+                                    <label for="formFile" class="form-label" >Please use the PDF format for your CV if possible.</label>
+                                    <input class="form-control" type="file" id="formFile" @change="getfile">
+                                    <button type="button" style="width: 100%;height:30px;margin-top: 1rem" class="btn btn-primary" >submit</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
                 </div>
                 <div class="modal fade "  id="verifyCode" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
