@@ -305,8 +305,14 @@
     "access-control-allow-headers": "Content-Type"
     }
     }).then(res=>{
-        this.isErrorCode = false
-        this.codeModal.hide()
+        this.isErrorCode = false;
+        this.codeModal.hide();
+        axios.post('http://192.168.0.224:5438/api/users/login', this.user_info)
+        .then(res => {
+            localStorage.setItem("token",res.data.token);
+            console.log(localStorage.getItem("token"));
+        
+    })
     }).catch(err=>{
         this.isErrorCode = true
     })
@@ -314,8 +320,8 @@
     checkForm(){
     let flag = false;
     if(this.user_info.email){
-    const regEmail = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
-    if(regEmail.test(this.user_info.email)){
+    const regEmail = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
+    if(true){//regEmail.test(this.user_info.email)){
     this.isEmail = false
 }else{
     this.isEmail = true
@@ -391,8 +397,10 @@
     if(this.checkForm() == false) return ;
 
         axios.post('http://192.168.0.224:5438/api/users/emailverify',{email:this.user_info.email}
-        ).then(res=>{
-            this.codeModal.show()
+        ).then(res => {
+            this.codeModal.show();
+           
+            
             }).catch(err=>{
                 window.err=err;
                 console.log(err);
@@ -423,9 +431,14 @@
 
 paypal
   .Buttons({
-    createOrder: () => {
-      console.log("now is in create order");
-      return fetch('http://192.168.0.224:5438/api/registrations/createorder', {
+      createOrder: () => {
+          let token = localStorage.getItem("token");
+          if (token == null || token == "") {
+              window.alert("login or create a new profile first!")
+              return Promise.reject();
+          }
+        console.log("now is in create order");
+        return fetch('http://192.168.0.224:5438/api/registrations/createorder', {
         method: 'post',
         headers: {
           'content-type': 'application/json',
