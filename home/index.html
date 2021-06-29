@@ -70,12 +70,21 @@
               <li class="nav-item">
                 <a href="../Schedule/" class="nav-link px-2">Schedule</a>
               </li>
+              <li class="nav-item">
+                <a href="../code-of-conduct.html" class="nav-link px-2">Code of conduct</a>
               </li>
             </ul>
           </div>
         </div>
       </div>
     </nav>
+    <button type="button" class="btn btn-primary" style="position: fixed;right: 10%;" v-if="localstorage.getItem('isLogin')">
+      <a href="../login" style="color: white">Login</a>
+    </button>
+
+    <button type="button" class="btn btn-primary" style="position: fixed;right: 10%;" v-else>
+     Logout
+    </button>
   </header>
 
     <main id="cover">

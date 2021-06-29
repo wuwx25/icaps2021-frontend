@@ -1,3 +1,4 @@
+import {backendBaseUrl} from '../assets/js/backendBaseUrl.js'
 var app = new Vue({
     el: '#app',
     data: {
@@ -9,10 +10,11 @@ var app = new Vue({
     },
     methods:{
         login(){
-            axios.post('http://192.168.0.224:5438/api/users/login',this.user
+            axios.post(backendBaseUrl+'/api/users/login',this.user
             ).then(res=>{
                 localStorage.setItem("token",res.data.token);
                 window.location.href = "../userInfo";
+                localStorage.setItem('isLogin',1)
             }).catch(err=>{
                 console.log(err)
                 this.user.password = ''

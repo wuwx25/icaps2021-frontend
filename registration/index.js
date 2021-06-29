@@ -1,4 +1,5 @@
- var app = new Vue({
+import {backendBaseUrl} from '../assets/js/backendBaseUrl.js'
+var app = new Vue({
     el:'#app',
     data:{
     message:"Hello ",
@@ -303,14 +304,14 @@
     methods:{
     Create(){
     console.log(this.user_info.email)
-    axios.post('http://192.168.0.224:5438/api/users/createprofile',this.user_info,{
+    axios.post(backendBaseUrl+'/api/users/createprofile',this.user_info,{
     headers:{
         "access-control-allow-headers": "Content-Type"
     }
     }).then(res=>{
         this.isErrorCode = false;
         this.codeModal.hide();
-        axios.post('http://192.168.0.224:5438/api/users/login', this.user_info)
+        axios.post(backendBaseUrl+'/api/users/login', this.user_info)
         .then(res => {
             localStorage.setItem("token",res.data.token);
             console.log(localStorage.getItem("token"));
@@ -402,7 +403,7 @@
     checkEmail(){
     if(this.checkForm() == false) return ;
 
-        axios.post('http://192.168.0.224:5438/api/users/emailverify',{email:this.user_info.email}
+        axios.post(backendBaseUrl+'/api/users/emailverify',{email:this.user_info.email}
         ).then(res => {
             this.codeModal.show();
             }).catch(err=>{
@@ -417,7 +418,7 @@
         var formData = new window.FormData();
         formData.append('personal_cv',e.target.files[0]);
         var options = {
-            url: 'http://192.168.0.224:5440/api/registrations/uploadcv',
+            url: backendBaseUrl+'/api/registrations/uploadcv',
             data:formData,
             method:'post',
             headers:{
@@ -433,8 +434,7 @@
     },
     logout(){
         localStorage.setItem("token", "");
-        window.alert("Log out seccessfully!");
-        window.location.href = "../login";
+        this.isLogin = false;
     },
     },
     mounted:function() {
@@ -442,13 +442,14 @@
         this.codeModal = new bootstrap.Modal(document.getElementById('verifyCode'));
         this.errorModal = new bootstrap.Modal(document.getElementById('Registered'));
         if(localStorage.getItem('token')){
-            axios.get('http://192.168.0.224:5438/api/users/profile', {
+            axios.get(backendBaseUrl+'/api/users/profile', {
                 headers: {
                     "Authorization": localStorage.getItem('token')
                 }
             }).then(res => {
                 console.log('get response',res);
                 this.isLogin = true;
+                localStorage.setItem('isLogin',1)
                 this.showOne = false;
                 if(res.data.reg&&res.data.reg.is_paid){
                     this.showTwo = false
@@ -472,7 +473,7 @@ paypal
               return Promise.reject();
           }
         console.log("now is in create order");
-        return fetch('http://192.168.0.224:5438/api/registrations/createorder', {
+        return fetch(backendBaseUrl+'/api/registrations/createorder', {
         method: 'post',
         headers: {
           'content-type': 'application/json',
@@ -492,7 +493,7 @@ paypal
     },
     onApprove: (data) => {
       console.log("now is in onApprove");
-      return fetch('http://192.168.0.224:5438/api/registrations/captureorder', {
+      return fetch(backendBaseUrl+'/api/registrations/captureorder', {
         method: 'post',
         headers: {
           'content-type': 'application/json',

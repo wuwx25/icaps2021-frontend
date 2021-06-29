@@ -1,3 +1,5 @@
+//import {backendBaseUrl} from '../assets/js/backendBaseUrl.js'
+let backendBaseUrl = 'http://192.168.0.224:5438'
 var app = new Vue({
     el: '#app',
     data: {
@@ -10,9 +12,14 @@ var app = new Vue({
             pronoun: "Pronoun",
             institution: "Institution",
             country: "Country"
-        }
+        },
+        Edit:true,
     },
     methods: {
+        updateProfile: function () {
+            this.Edit = !this.Edit;
+            console.log(user.profile)
+        },
         logout: function () {
             localStorage.setItem("token", "");
             window.alert("Log out seccessfully!");
@@ -30,8 +37,7 @@ var app = new Vue({
             this.forceQuit();
             return;
         }
-        console.log("getting user's info");
-        axios.get('http://192.168.0.224:5438/api/users/profile', { headers: { Authorization: localStorage.getItem("token") } }
+        axios.get(backendBaseUrl+'/api/users/profile', { headers: { Authorization: localStorage.getItem("token") } }
         ).then(res => {
             console.log(res);
             this.user = res.data;

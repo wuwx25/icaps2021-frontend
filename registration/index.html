@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
-    <script src="../assets/valid.js/dist/validate.js"></script>
+
 
     <link
             rel="shortcut icon"
@@ -78,14 +78,16 @@
                         <li class="nav-item">
                             <a href="../Schedule/" class="nav-link px-2">Schedule</a>
                         </li>
+                        <li class="nav-item">
+                            <a href="../code-of-conduct.html" class="nav-link px-2">Code of conduct</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
     </nav>
-    <button type="button" class="btn btn-primary" style="position: fixed;right: 10%;" v-if="!isLogin">
-        <a href="../login" style="color: white">Login</a>
+    <button type="button" class="btn btn-primary" style="position: fixed;right: 10%;" v-if="!localStorage.getItem('isLogin')">
+        <a href="../login" style="color: white" target="_blank">Login</a>
     </button>
 
     <button type="button" class="btn btn-primary" style="position: fixed;right: 10%;" v-else>
@@ -381,10 +383,6 @@
             </div>
         </section>
 
-
-
-
-
     </main>
 </div>
 <footer class="footer m-5">
@@ -407,7 +405,7 @@
     </div>
 </footer>
 </body>
-<script src="./index.js"></script>
+<script src="./index.js" type="module"></script>
 </html>
 
 <style type="text/css">
