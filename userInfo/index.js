@@ -44,18 +44,3 @@ var app = new Vue({
         })
     }
 })
-var header = new Vue({
-    el: '#header',
-    data: {
-        message: "hello wdnmd",
-        user: {
-        }
-    },
-    methods: {
-        logout: function () {
-            localStorage.setItem("token", null);
-            window.alert("Log out seccessfully!");
-            window.location.href = "../login";
-        }
-    },
-})

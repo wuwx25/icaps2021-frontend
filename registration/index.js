@@ -486,6 +486,8 @@ paypal
       }).then(function (data) {
         console.log("data is", data);
         return data.orderID; // Use the key sent by your server's response, ex. 'id' or 'token'
+      }).catch(err=>{
+          console.log('err',err)
       });
     },
     onApprove: (data) => {
