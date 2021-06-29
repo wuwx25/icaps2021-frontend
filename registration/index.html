@@ -6,6 +6,7 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 
+
     <link
             rel="shortcut icon"
             type="image/png"
@@ -77,14 +78,16 @@
                         <li class="nav-item">
                             <a href="../Schedule/" class="nav-link px-2">Schedule</a>
                         </li>
+                        <li class="nav-item">
+                            <a href="../code-of-conduct.html" class="nav-link px-2">Code of conduct</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
     </nav>
-    <button type="button" class="btn btn-primary" style="position: fixed;right: 10%;" v-if="!isLogin">
-        <a href="../login" style="color: white">Login</a>
+    <button type="button" class="btn btn-primary" style="position: fixed;right: 10%;" v-if="!localStorage.getItem('isLogin')">
+        <a href="../login" style="color: white" target="_blank">Login</a>
     </button>
 
     <button type="button" class="btn btn-primary" style="position: fixed;right: 10%;" v-else>
@@ -103,7 +106,7 @@
                 <div class="accordion row" id="accordionExample">
                     <div class="accordion-item ">
                         <h2 class="accordion-header" id="headingOne">
-                            <button class="accordion-button " :class="{collapsed:!showOne}" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" :aria-expanded="showOne" aria-controls="collapseOne">
+                            <button class="accordion-button " :class="{collapsed:!showOne}" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" :aria-expanded="showOne" aria-controls="collapseOne" >
                                 <strong>1.Login or Create a new Profile</strong>
                             </button>
                         </h2>
@@ -184,8 +187,9 @@
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button" :class="{collapsed:!showTwo}" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" :aria-expanded="showTwo" aria-controls="collapseTwo">
-                                <strong>2.Payment</strong>
+                            <button class="accordion-button" :class="{collapsed:!showTwo}" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" :aria-expanded="showTwo" aria-controls="collapseTwo" :disabled="!isLogin" >
+                                <strong>2.Register and Payment</strong>
+                                 <span v-if="!isLogin" style="font-weight: lighter;margin-left: 1rem">Only logged-in users can register and pay</span>
                             </button>
                         </h2>
                         <div id="collapseTwo" class="accordion-collapse collapse"  :class="{show:showTwo}"  aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
@@ -303,11 +307,11 @@
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingFive">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            <button class="accordion-button  collapsed"   type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
                                 <strong>3.VISA Letter of Invitation</strong>
                             </button>
                         </h2>
-                        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                        <div id="collapseFive" class="accordion-collapse collapse"  aria-labelledby="headingFive" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                                 <p style="text-align: justify">This is a virtual-only conference. VISA letters of invitation are generated only for the purpose of applying for a VISA. If you need documentation of your participation at the meeting for reimbursemnet, please use your registration receipt as proof of payment and your certificate of attendance (above in the Payment and Receipt section as your proof of attendance.</p>
                             </div>
@@ -370,7 +374,6 @@
                             <div class="modal-header">
                                 <p class="modal-body" id="exampleModalLabel1">Email has already been registered</p>
                             </div>
-
                             <div class="modal-footer ">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             </div>
@@ -379,6 +382,7 @@
                 </div>
             </div>
         </section>
+
     </main>
 </div>
 <footer class="footer m-5">
@@ -401,7 +405,7 @@
     </div>
 </footer>
 </body>
-<script src="./index.js"></script>
+<script src="./index.js" type="module"></script>
 </html>
 
 <style type="text/css">
