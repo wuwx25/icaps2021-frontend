@@ -92,7 +92,7 @@
         <!-- padding hack for the fixed navbar -->
     </div>
 </div>
-<div id="app">
+
     <div class="container" style="min-height: 68vh">
         <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-6">
@@ -125,7 +125,6 @@
                 </div>
                 </div>
             </li>
-            
         </ul>
         </div>
         </div>
@@ -133,7 +132,7 @@
         <div class="mt-5">
                 <div style="height: 100%"></div>
         </div>
-        <ul class="list-group" >
+        <ul class="list-group">
             <li class="list-group-item active" aria-current="true">
                 <div class="row">
                     <div class="col-xs-6 col-sm-8 col-md-9 col-xl-10">Registration History</div>
@@ -144,23 +143,23 @@
                     </div>
                 </div>
             </li>
-            <div v-if="user.reg">
+            <div v-if="user.reg && user.reg.is_paid">
                 <li class="list-group-item">
                     <div class="row">
-                        <div class="col-xs-3 col-sm-3 col-md-3 col-xl-3">Publication</div>
-                        <div class="col-xs-3 col-sm-3 col-md-2 col-xl-2">{{(user&&user.reg.publication)==1?"Yes":"No"}}</div>
+                        <div class="col-xs-10 col-sm-10 col-md-10 col-xl-10">Publication</div>
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-xl-2">{{(user&&user.reg.publication)==1?"Yes":"No"}}</div>
                     </div>
                 </li>
                 <li class="list-group-item">
                     <div class="row">
-                        <div class="col-xs-3 col-sm-3 col-md-3 col-xl-3">Conference,Tutorials,Workshops and Expo</div>
-                        <div class="col-xs-3 col-sm-3 col-md-2 col-xl-2">Yes</div>
+                        <div class="col-xs-10 col-sm-10 col-md-10 col-xl-10">Conference,Tutorials,Workshops and Expo</div>
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-xl-2">Yes</div>
                     </div>
                 </li>
                 <li class="list-group-item">
                     <div class="row">
-                        <div class="col-xs-3 col-sm-3 col-md-3 col-xl-3">Registration Time</div>
-                        <div class="col-xs-3 col-sm-3 col-md-3 col-xl-3">{{user.reg.registration_datetime}}</div>
+                        <div class="col-xs-10 col-sm-10 col-md-10 col-xl-10">Registration Time</div>
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-xl-2">{{user.reg.registration_datetime}}</div>
                     </div>
                 </li>
             </div>

@@ -305,7 +305,7 @@
     console.log(this.user_info.email)
     axios.post('http://192.168.0.224:5438/api/users/createprofile',this.user_info,{
     headers:{
-    "access-control-allow-headers": "Content-Type"
+        "access-control-allow-headers": "Content-Type"
     }
     }).then(res=>{
         this.isErrorCode = false;
@@ -405,8 +405,6 @@
         axios.post('http://192.168.0.224:5438/api/users/emailverify',{email:this.user_info.email}
         ).then(res => {
             this.codeModal.show();
-           
-            
             }).catch(err=>{
                 window.err=err;
                 console.log(err);
@@ -484,9 +482,13 @@ paypal
       }).then(function (res) {
         return res.json();
       }).then(function (data) {
+        if(data.message == "user already paid and registered!"){
+            window.alert(data.message)
+            return
+        }
         console.log("data is", data);
         return data.orderID; // Use the key sent by your server's response, ex. 'id' or 'token'
-      });
+      })
     },
     onApprove: (data) => {
       console.log("now is in onApprove");
