@@ -95,7 +95,7 @@
     </div>
 </div>
 
-    <div class="container" style="min-height: 68vh">
+    <div class="container" style="min-height: 68vh" v-if="localStorage.getItem('token') && localStorage.getItem('token') != ''">
         <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-6">
         <ul class="list-group  ">
@@ -123,8 +123,20 @@
                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 " style="text-align: right;font-weight: bold" >
                     {{columns[key]}}
                 </div>
-                <div class="col-xs-12 col-sm-6 col-md-8 col-lg-9" style="text-align: left" contenteditable="true" :contenteditable="!Edit" >
-                    {{value}}
+                <div class="col-xs-12 col-sm-6 col-md-8 col-lg-9" style="text-align: left"  >
+                    <select class="form-select"  v-model="user.profile[key]" v-if="!Edit && columns[key] == 'Country'">
+                        <option v-for="item in country" :value="item" >{{item}}</option>
+                    </select>
+                    <select class="form-select"   v-model="user.profile[key]" v-else-if="!Edit && columns[key]=='Pronoun'">
+                        <option value="they/them">they/them</option>
+                        <option value="she/her">she/her</option>
+                        <option value="he/him">he/him</option>
+                        <option value="I don't use pronouns">I don't use pronouns</option>
+                        <option value="Prefer no to say">Prefer no to say</option>
+                        <option value="Specify your own">Specify your own</option>
+                    </select>
+                    <input type="text" v-model="user.profile[key]" class="form-control" v-else-if="!Edit">
+                    <div v-else>{{value}}</div>
                 </div>
                 </div>
             </li>
@@ -190,5 +202,5 @@
     </footer>
 </div>
 </body>
-<script src="./index.js" ></script>
+<script src="./index.js" type="module"></script>
 </html>

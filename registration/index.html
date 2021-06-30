@@ -86,7 +86,7 @@
             </div>
         </div>
     </nav>
-    <button type="button" class="btn btn-primary" style="position: fixed;right: 10%;" v-if="!localStorage.getItem('isLogin')">
+    <button type="button" class="btn btn-primary" style="position: fixed;right: 10%;" v-if="!isLogin">
         <a href="../login" style="color: white" target="_blank">Login</a>
     </button>
 
@@ -185,7 +185,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item">
+                    <div class="accordion-item" >
                         <h2 class="accordion-header" id="headingTwo">
                             <button class="accordion-button" :class="{collapsed:!showTwo}" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" :aria-expanded="showTwo" aria-controls="collapseTwo" :disabled="!isLogin" >
                                 <strong>2.Register and Payment</strong>
@@ -343,7 +343,7 @@
                                 <div class="mb-3">
                                     <label for="formFile" class="form-label" >Please use the PDF format for your CV if possible.</label>
                                     <input class="form-control" type="file" id="formFile" @change="getfile">
-                                    <button type="button" style="width: 100%;height:30px;margin-top: 1rem" class="btn btn-primary" >submit</button>
+                                    <button type="button" style="width: 100%;height:30px;margin-top: 1rem" class="btn btn-primary" @click="submit">submit</button>
                                 </div>
                             </div>
                         </div>

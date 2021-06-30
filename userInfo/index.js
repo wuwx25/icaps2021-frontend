@@ -1,9 +1,9 @@
-//import {backendBaseUrl} from '../assets/js/backendBaseUrl.js'
-let backendBaseUrl = 'http://192.168.0.224:5438'
+import {backendBaseUrl} from '../assets/js/backendBaseUrl.js';
+import {country} from '../assets/js/data.js';
 var app = new Vue({
     el: '#app',
     data: {
-        message:"hello wdnmd",
+        isLogin:false,
         user: {
         },
         columns: {
@@ -14,15 +14,18 @@ var app = new Vue({
             country: "Country"
         },
         Edit:true,
+        country:country
     },
     methods: {
         updateProfile: function () {
             this.Edit = !this.Edit;
-            console.log(user.profile)
+            axios.patch(backendBaseUrl+'/api/users/profile',this.user.profile,{ headers: { Authorization: localStorage.getItem("token") }})
+            .then(res=>{
+                console.log(res);
+            })
         },
         logout: function () {
             localStorage.setItem("token", "");
-            window.alert("Log out seccessfully!");
             window.location.href = "../login";
         },
         forceQuit: function () {
@@ -31,12 +34,14 @@ var app = new Vue({
         }
     },
     mounted: function () {
+
         let token = localStorage.getItem("token");
         if (token == null || token == "") {
             console.log("No token detected");
             this.forceQuit();
             return;
         }
+        // this.isLogin = isLogin(token);
         axios.get(backendBaseUrl+'/api/users/profile', { headers: { Authorization: localStorage.getItem("token") } }
         ).then(res => {
             console.log(res);

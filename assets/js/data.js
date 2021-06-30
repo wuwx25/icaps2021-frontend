@@ -272,7 +272,7 @@ export async function isLogin(arg_window){
             headers: {"Authorization": token},
             method: 'GET'
         });
-        return res;
+        return true;
     } catch (err){
         return false;
     }
