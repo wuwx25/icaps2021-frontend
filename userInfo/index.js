@@ -3,7 +3,8 @@ import {country} from '../assets/js/data.js';
 var app = new Vue({
     el: '#app',
     data: {
-        isLogin:false,
+        isLogin: false,
+        
         user: {
         },
         columns: {
@@ -53,5 +54,8 @@ var app = new Vue({
             console.log(err);
             this.forceQuit();
         })
+    },
+    computed: {
+        
     }
 })

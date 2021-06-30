@@ -3,6 +3,7 @@ import {country, checkForm} from '../assets/js/data.js';
 var app = new Vue({
     el: '#app',
     data: {
+        token:"",
         message: "Hello ",
         first_name: "",
         last_name: "",
@@ -48,16 +49,20 @@ var app = new Vue({
                 }
             }).then(res=>{
                     this.isErrorCode = false;
-                    this.codeModal.hide();
-                    axios.post(backendBaseUrl + '/api/users/login', this.user_info).then(res=>{
-                            localStorage.setItem("token", res.data.token);
-                            console.log(localStorage.getItem("token"));
-                            this.showOne = false
-                            this.showTwo = true
-                            // this.isLogin = true
-                            window.location.href = './index.html'
-                        }
-                    )
+                this.codeModal.hide();
+                localStorage.setItem("token", res.data.token);
+                console.log(localStorage.getItem("token"));
+                this.showOne = false;
+                this.showTwo = true;
+                    // axios.post(backendBaseUrl + '/api/users/login', this.user_info).then(res=>{
+                    //         localStorage.setItem("token", res.data.token);
+                    //         console.log(localStorage.getItem("token"));
+                    //         this.showOne = false
+                    //         this.showTwo = true
+                    //         // this.isLogin = true
+                    //         window.location.href = './index.html'
+                    //     }
+                    // )
                 }
             ).catch(err=>{
                     this.isErrorCode = true
@@ -203,6 +208,25 @@ var app = new Vue({
             }).catch(err => { console.log(err) });
         }
 
+    },
+    watch: {
+        token: async function () {
+            console.log(`token now is ${this.token}`);
+            if (this.token == "") {
+                return Promise.resolve();
+            } else {
+                axios.get(backendBaseUrl + '/api/users/profile',{
+                    headers: {
+                        "Authorization": this.token
+                    }
+                }).then(res => {
+                    this.isLogin = true;
+                }).catch(err => {
+                    this.token = "";
+                    this.isLogin = false;
+                });
+            }
+        }
     }
 })
 
