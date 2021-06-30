@@ -221,8 +221,10 @@ var app = new Vue({
                     }
                 }).then(res => {
                     this.isLogin = true;
+                    this.user = res.data;
                 }).catch(err => {
                     this.token = "";
+                    this.user = {};
                     this.isLogin = false;
                 });
             }
