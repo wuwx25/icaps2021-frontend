@@ -7,6 +7,7 @@ var app = new Vue({
 		nowZone: new Date().getTimezoneOffset() / -60,
 		nowHour: (new Date().getTimezoneOffset() / 60) - 4 + new Date().getHours(),
 		day:[{sty:'style_day'},2,3,4,5,6,7,8,9,10,11,12,13,14],
+		week:1,
 		zone: new Date().getTimezoneOffset() / -60 ,			
 		zoneOptions:[
 			{ text:'GMT+12', value:12},
@@ -61,7 +62,13 @@ var app = new Vue({
 			'Representation/POCL/multi-agent',
 			'Probabilistic/scheduling/robotics',
 			'Execution/control'
-		]
+		],
+		session4:[
+			{paper:'Approximate bi-criteria search by efficient representation of subsets of the Pareto-optimal frontier'},
+			{paper:'Conflict-Free Multi-Agent Meeting'},
+			{paper:'OMCoRP: An Online Mechanism for Competitive Robot Prioritization'},
+			{paper:'Safe Multi-Agent Pathfinding with Time Uncertainty'}
+		]	
 	},
 	methods:{
 		showDay: function(day,hour){
