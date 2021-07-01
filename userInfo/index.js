@@ -27,6 +27,7 @@ var app = new Vue({
         },
         logout: function () {
             localStorage.setItem("token", "");
+            window.alert("logout successfully!");
             window.location.href = "../login";
         },
         forceQuit: function () {
