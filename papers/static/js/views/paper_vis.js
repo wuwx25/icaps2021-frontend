@@ -125,12 +125,18 @@ function brush_ended() {
     .data(all_sel)
     .join("div")
     .attr("class", "sel_paper")
-    .html(
-      (d) =>
-        `<div class="p_title">${
-          d.title
-        }</div> <div class="p_authors">${d.authors.join(", ")}</div>`
-    )
+    .html((d) => {
+      if (d.track != "JOURNAL") {
+        download_icon = `<a href=${d.url} target="_blank"><i class="bi bi-download"></i></a>`;
+      } else {
+        download_icon = "";
+      }
+      return `<div class="p_title">${
+        d.title
+      } ${download_icon}</div> <div class="p_authors">${d.authors.join(
+        ", "
+      )}</div>`;
+    })
     .on("click", (d) => openPaper(d))
     .on("mouseenter", (d) => {
       l_main
