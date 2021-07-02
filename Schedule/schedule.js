@@ -63,12 +63,7 @@ var app = new Vue({
 			'Probabilistic/scheduling/robotics',
 			'Execution/control'
 		],
-		session4:[
-			{paper:'Approximate bi-criteria search by efficient representation of subsets of the Pareto-optimal frontier'},
-			{paper:'Conflict-Free Multi-Agent Meeting'},
-			{paper:'OMCoRP: An Online Mechanism for Competitive Robot Prioritization'},
-			{paper:'Safe Multi-Agent Pathfinding with Time Uncertainty'}
-		]	
+		
 	},
 	methods:{
 		showDay: function(day,hour){
