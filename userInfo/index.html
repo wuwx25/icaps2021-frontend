@@ -177,6 +177,23 @@
                         <div class="col-xs-2 col-sm-2 col-md-2 col-xl-2">{{user.reg.registration_datetime}}</div>
                     </div>
                 </li>
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-2" v-model="user.reg.paper.id"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-8" v-model="user.reg.paper.title"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2" >registered</div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="row" v-if="user.cv_info.share_inform">
+                        <div class="col-xs-10 col-sm-10 col-md-10 col-xl-10">Get Recruited by our Sponsors</div>
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-xl-2">Yes</div>
+                    </div>
+                </li>
             </div>
         </ul>
     </div>
