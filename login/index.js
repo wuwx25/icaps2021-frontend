@@ -1,12 +1,21 @@
-import {backendBaseUrl} from '../assets/js/backendBaseUrl.js'
+import {backendBaseUrl} from "../assets/js/backendBaseUrl.js"
 var app = new Vue({
     el: '#app',
     data: {
         user: {
             email: "",
-            password: ""
+            password: "",
+			code:""
         },
         SafariModal:{},
+		Emailaddress:'',
+		isEmail:true,
+		isErrorCode:{},
+		isCode:true,
+		isErrorCode:true,
+		isLogin:false,
+		password:"",
+		confirmPassword:""
     },
     methods:{
         login(){
@@ -25,12 +34,37 @@ var app = new Vue({
                 this.user.password = ''
             })
         },
+		submit:function(){
+			const regEmail = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
+			if(regEmail.test(this.user.email)){
+				this.isEmail = true
+			}else{
+			    this.isEmail = false
+			}
+			if(this.isEmail){
+				console.log(this.Emailaddress);
+				axios.post('http://192.168.0.224:5438/api/users/forgotemailverify',this.user,{
+					headers:{"Content-Type":"application/json"}
+				}
+				).then(res=>{
+					this.codeModal.show();
+				})
+			}
+		},
+		passwordReset:function(){
+			
+			axios.post('http://192.168.0.224:5438/api/users/resetpassword',this.user,{
+				headers:{"Content-Type":"application/json"}
+			}
+			).then(res=>{
+				this.codeModal.hide();
+			}).catch(err=>{
+				this.isErrorCode = false
+			})
+		}
     },
     mounted(){
-        var userAgent = navigator.userAgent;
-        var isSafari = userAgent.indexOf("Safari") > -1 && userAgent.indexOf("Chrome") == -1;
-        this.SafariModal = new bootstrap.Modal(document.getElementById('SafariModal'))
-        // if(isSafari)
-            // this.SafariModal.show()
+        this.codeModal = new bootstrap.Modal(document.getElementById('verifyCode'));
+		
     }
 })
