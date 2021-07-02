@@ -64,6 +64,6 @@ var app = new Vue({
 		}
     },
     mounted(){
-        this.codeModal = new bootstrap.Modal(document.getElementById('verifyCode'));
+        
     }
 })
