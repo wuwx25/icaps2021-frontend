@@ -161,22 +161,31 @@
             <div v-if="user.reg && user.reg.is_paid">
                 <li class="list-group-item">
                     <div class="row">
-                        <div class="col-xs-10 col-sm-10 col-md-10 col-xl-10">Publication</div>
-                        <div class="col-xs-2 col-sm-2 col-md-2 col-xl-2">{{(user&&user.reg.publication)==1?"Yes":"No"}}</div>
+                        <div class="col-6">Publication</div>
+                        <div class="col-6">{{(user&&user.reg.publication)==1?user.reg.paper.title:"No"}}</div>
+                    </div>
+                </li>
+
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-6">Conference,Tutorials,Workshops and Expo</div>
+                        <div class="col-6">Yes</div>
                     </div>
                 </li>
                 <li class="list-group-item">
                     <div class="row">
-                        <div class="col-xs-10 col-sm-10 col-md-10 col-xl-10">Conference,Tutorials,Workshops and Expo</div>
-                        <div class="col-xs-2 col-sm-2 col-md-2 col-xl-2">Yes</div>
+                        <div class="col-6">Registration Time</div>
+                        <div class="col-6">{{user.reg.registration_datetime}}</div>
                     </div>
                 </li>
                 <li class="list-group-item">
-                    <div class="row">
-                        <div class="col-xs-10 col-sm-10 col-md-10 col-xl-10">Registration Time</div>
-                        <div class="col-xs-2 col-sm-2 col-md-2 col-xl-2">{{user.reg.registration_datetime}}</div>
+                    <div class="row" v-if="user.cv_info.share_inform">
+                        <div class="col-6">Get Recruited by our Sponsors</div>
+                        <div class="col-6">Yes</div>
                     </div>
                 </li>
+
+
             </div>
         </ul>
     </div>
