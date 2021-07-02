@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="../assets/js/vue.min.js"></script>
 
 
     <link
@@ -34,9 +34,21 @@
     <!-- jQuery -->
     <script src="../assets/js/jquery-3.6.0.min.js"></script>
     <script src="../assets/js/custom.js"></script>
+    <style type="text/css">
+        .warn{
+            border-style:solid;
+            border-color: red;
+        }
+        .examplmModal{
+            display: none;
+        }
+        [v-cloak] {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-<div id="app">
+<div id="app" v-cloak>
 <header class="navbar fixed-top p-3 border-bottom">
     <nav class="navbar navbar-light navbar-expand-lg">
         <div class="container-fluid d-flex">
@@ -95,7 +107,6 @@
     <div v-if="isLogin">
        <a href="../userInfo/"> {{user?user.profile.first_name:""}} {{user?user.profile.last_name:""}}</a>
     </div>
-    
 </header>
     <main class="container" style="min-height: 80vh">
 
@@ -225,6 +236,10 @@
                                                             <label class="form-check-label" for="flexCheckDefault">
                                                                 <p>Publication fee</p>
                                                             </label>
+                                                            <div v-if="reg_info.publication">
+                                                                <p @click="publicationModal.show()">Paper ID : <span>{{reg_info.paper_id}}</span> </p>
+                                                                <p @click="publicationModal.show()">Paper Title : <span>{{reg_info.paper_title}}</span></p>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="card-text" style="margin-left: 1.5rem"><small class="text-muted">Check at least one</small></div>
@@ -348,6 +363,7 @@
                                 <div class="mb-3">
                                     <label for="formFile" class="form-label" >Please use the PDF format for your CV if possible.</label>
                                     <input class="form-control" type="file" id="formFile" @change="getfile">
+                                    <small  style="color: red" v-if="uploadFile.fail"><ul><li>Fail to submit.</li></ul></small>
                                     <button type="button" style="width: 100%;height:30px;margin-top: 1rem" class="btn btn-primary" @click="submit">submit</button>
                                 </div>
                             </div>
@@ -437,15 +453,4 @@
 <script src="./index.js" type="module"></script>
 </html>
 
-<style type="text/css">
-    .warn{
-        border-style:solid;
-        border-color: red;
-    }
-    .examplmModal{
-        display: none;
-    }
-    [v-cloak] {
-        display: none;
-    }
-</style>
+

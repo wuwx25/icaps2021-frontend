@@ -122,6 +122,7 @@ var app = new Vue({
             ],
         uploadFile:{
             success:false,
+            fail:false,
             share_inform:false,
             add_mail_list:false,
         }
@@ -245,7 +246,7 @@ var app = new Vue({
             var formData = new FormData();
             var formData = new window.FormData();
             formData.append('personal_cv', this.cvFile);
-            formDate.append('share_inform',this.uploadFile.share_inform?"true":"false");
+            formData.append('share_inform',this.uploadFile.share_inform?"true":"false");
             formData.append('add_mail_list',this.uploadFile.add_mail_list?"true":"false");
             var options = {
                 url: backendBaseUrl + '/api/registrations/uploadcv',
@@ -256,9 +257,11 @@ var app = new Vue({
                 }
             }
             axios(options).then(res=>{
-                    console.log(res)
+                    window.location.href = "../userInfo"
                 }
-            )
+            ).catch(err=>{
+                this.uploadFile.fail = true;
+            })
         },
         logout() {
             console.log("user logout");
@@ -295,6 +298,7 @@ var app = new Vue({
             if(this.reg_info.paper_id && this.reg_info.paper_title){
                 axios.post(url,this.reg_info).then(res=>{
                     console.log(res)
+                    this.publicationModal.hide()
                 }).catch(err=>{
                     this.isErrorPaper = true;
                     this.errorPaperMessage = err.response.data.msg
