@@ -275,6 +275,8 @@ var app = new Vue({
         },
         updateProfile: function () {
             this.Edit = !this.Edit;
+            this.showOne = false;
+            this.showTwo = true;
             var url = backendBaseUrl+'/api/users/profile';
             var options = {
                 body: JSON.stringify(app.user_info),
@@ -314,6 +316,10 @@ var app = new Vue({
         this.codeModal = new bootstrap.Modal(document.getElementById('verifyCode'));
         this.errorModal = new bootstrap.Modal(document.getElementById('Registered'));
         this.publicationModal = new bootstrap.Modal(document.getElementById('publication'));
+        var myModalEl = document.getElementById('publication')
+        myModalEl.addEventListener('hidden.bs.modal', function (event) {
+            app.reg_info.publication = false;
+        })
         if(localStorage.getItem('token')){
             axios.get(backendBaseUrl+'/api/users/profile', {
                 headers: {

@@ -117,7 +117,7 @@
                 <div class="accordion row" id="accordionExample">
                     <div class="accordion-item ">
                         <h2 class="accordion-header" id="headingOne">
-                            <button class="accordion-button " :class="{collapsed:!showOne}" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" :aria-expanded="showOne" aria-controls="collapseOne" >
+                            <button class="accordion-button " :class="{collapsed:!showOne}" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" :aria-expanded="showOne" aria-controls="collapseOne" @click="showOne = !showOne">
                                 <strong>1.{{isLogin?"Update Profile":"Login or Create a new Profile"}} </strong>
                             </button>
                         </h2>
@@ -199,7 +199,7 @@
                     </div>
                     <div class="accordion-item" >
                         <h2 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button" :class="{collapsed:!showTwo}" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" :aria-expanded="showTwo" aria-controls="collapseTwo" :disabled="!isLogin" >
+                            <button class="accordion-button" :class="{collapsed:!showTwo}" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" :aria-expanded="showTwo" aria-controls="collapseTwo" :disabled="!isLogin" @click="showTwo = !showTwo">
                                 <strong>2.Register and Payment</strong>
                                  <span v-if="!isLogin" style="font-weight: lighter;margin-left: 1rem">Only logged-in users can register and pay</span>
                             </button>
