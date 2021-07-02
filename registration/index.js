@@ -275,6 +275,8 @@ var app = new Vue({
         },
         updateProfile: function () {
             this.Edit = !this.Edit;
+            this.showOne = false;
+            this.showTwo = true;
             var url = backendBaseUrl+'/api/users/profile';
             var options = {
                 body: JSON.stringify(app.user_info),
