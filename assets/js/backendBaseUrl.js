@@ -1,1 +1,1 @@
-export let backendBaseUrl = 'http://192.168.0.224';
+export let backendBaseUrl = 'http://3.13.255.173';
