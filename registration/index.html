@@ -117,7 +117,7 @@
                                         <div class="mb-3">
                                             <label  class="form-label" style="margin: 1em 0 0.5em 0.8em">Email</label>
                                             <input type="text" class="form-control"  placeholder="Input your email" v-model="user_info.email" :disabled="isLogin">
-<!--                                            <small  style="color: red" v-if="isEmail"><ul><li>Email is not valid</li></ul></small>-->
+                                            <small  style="color: red" v-if="isEmail"><ul><li>Email is not valid</li></ul></small>
                                         </div>
                                     </div>
                                     <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
@@ -308,7 +308,7 @@
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingFive">
-                            <button class="accordion-button"  :class="{collapsed:!showThree}" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" :aria-expanded="showThree" aria-controls="collapseFive">
+                            <button class="accordion-button"  :class="{collapsed:!showThree}" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" :aria-expanded="showThree" aria-controls="collapseFive" @click="showThree = !showThree">
                                 <strong>3.VISA Letter of Invitation</strong>
                             </button>
                         </h2>
@@ -324,7 +324,7 @@
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingSix">
-                            <button class="accordion-button "  :class="{collapsed:!showFour}" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" :aria-expanded="showFour" aria-controls="collapseSix">
+                            <button class="accordion-button "  :class="{collapsed:!showFour}" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" :aria-expanded="showFour" aria-controls="collapseSix" @click="showFour = !showFour">
                                 <strong>4.Get Recruited by our Sponsors</strong>
                             </button>
                         </h2>
@@ -332,13 +332,13 @@
                             <div class="accordion-body">
                                 <p style="text-align: justify">If you would like to let the ICAPS 2021 sponsors know that you are job hunting, check this box and we will share your information with them.</p>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" >
+                                    <input class="form-check-input" type="checkbox" value="" v-model="uploadFile.share_inform">
                                     <label class="form-check-label" for="flexCheckDefault">
                                         <p>Share my profile information and my accepted papers and presentations</p>
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" >
+                                    <input class="form-check-input" type="checkbox" value="" v-model="uploadFile.add_mail_list">
                                     <label class="form-check-label" for="flexCheckDefault">
                                         <p >Add me to a temporary ICAPS email list (email remains anonymous)</p>
                                     </label>

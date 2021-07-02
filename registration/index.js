@@ -119,7 +119,12 @@ var app = new Vue({
             "edu.ua",
             "edu.uy",
             "edu.vn"
-            ]
+            ],
+        uploadFile:{
+            success:false,
+            share_inform:false,
+            add_mail_list:false,
+        }
 
     },
     methods: {
@@ -240,6 +245,8 @@ var app = new Vue({
             var formData = new FormData();
             var formData = new window.FormData();
             formData.append('personal_cv', this.cvFile);
+            formDate.append('share_inform',this.uploadFile.share_inform?"true":"false");
+            formData.append('add_mail_list',this.uploadFile.add_mail_list?"true":"false");
             var options = {
                 url: backendBaseUrl + '/api/registrations/uploadcv',
                 data: formData,
@@ -293,7 +300,6 @@ var app = new Vue({
                     this.errorPaperMessage = err.response.data.msg
                 })
             }
-           
         },
         nextWindow(){
             this.showThree = false;
@@ -322,7 +328,6 @@ var app = new Vue({
                 this.user = res.data;
                 this.user_info = this.user.profile;
                 this.user_info.email=this.user.email;
-
                 
                     var is_edu_email=false;
                     for(var i=0;i < this.eduMail.length;i++){
