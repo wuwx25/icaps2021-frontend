@@ -43,7 +43,7 @@ var app = new Vue({
 			}
 			if(this.isEmail){
 				console.log(this.Emailaddress);
-				axios.post('http://192.168.0.224:5438/api/users/forgotemailverify',this.user,{
+				axios.post(backendBaseUrl+'/api/users/forgotemailverify',this.user,{
 					headers:{"Content-Type":"application/json"}
 				}
 				).then(res=>{
@@ -53,7 +53,7 @@ var app = new Vue({
 		},
 		passwordReset:function(){
 			
-			axios.post('http://192.168.0.224:5438/api/users/resetpassword',this.user,{
+			axios.post(backendBaseUrl+'/api/users/resetpassword',this.user,{
 				headers:{"Content-Type":"application/json"}
 			}
 			).then(res=>{
