@@ -1,5 +1,5 @@
 import {backendBaseUrl} from '../assets/js/backendBaseUrl.js';
-import {country} from '../assets/js/data.js';
+import {country, isLogin} from '../assets/js/data.js';
 var app = new Vue({
     el: '#app',
     data: {
@@ -30,20 +30,16 @@ var app = new Vue({
         isPassword2: false,
         isMisMatch: false,
         isCountry: false,
-
+        collapse:[],
         emailErrorMsg:'',
         errorPaperMessage:'',
         isErrorCode: false,
         is_student: false,
-        showOne: true,
-        showTwo: false,
-        showThree: false,
-        showFour: false,
-        cvFile: {},
         country: country,
         codeModal: {},
         errorModal: {},
         publicationModal: {},
+        updateProfileModal:{},
         isLogin: false,
         eduMail: [
             "ac.at",
@@ -119,6 +115,7 @@ var app = new Vue({
             "edu.vn"
             ],
         uploadFile:{
+            cvFile:{},
             success:false,
             fail:false,
             share_inform:false,
@@ -238,12 +235,17 @@ var app = new Vue({
             )
         },
         getfile(e) {
-            this.cvFile = e.target.files[0];
+            this.uploadFile.cvFile = e.target.files[0];
         },
         submit() {
+            if(!this.isLogin){
+                console.log('.....')
+                window.location.href = '../login';
+                return ;
+            }
             var formData = new FormData();
             var formData = new window.FormData();
-            formData.append('personal_cv', this.cvFile);
+            formData.append('personal_cv', this.uploadFile.cvFile);
             formData.append('share_inform',this.uploadFile.share_inform?"true":"false");
             formData.append('add_mail_list',this.uploadFile.add_mail_list?"true":"false");
             var options = {
@@ -255,7 +257,10 @@ var app = new Vue({
                 }
             }
             axios(options).then(res=>{
-                    window.location.href = "../userInfo"
+                    this.updateProfileModal.show()
+                    setTimeout(() => {
+                        window.location.href = "../userInfo"
+                    }, 1500);
                 }
             ).catch(err=>{
                 this.uploadFile.fail = true;
@@ -273,7 +278,6 @@ var app = new Vue({
         },
         updateProfile: function () {
             this.Edit = !this.Edit;
-            window.alert('')
             var url = backendBaseUrl+'/api/users/profile';
             var options = {
                 body: JSON.stringify(app.user_info),
@@ -287,7 +291,12 @@ var app = new Vue({
             fetch(url,options).then(res=>{
                 return res.json()
             }).then(res=>{
-                console.log(res)
+                this.collapse[1].hide();
+                this.collapse[2].show();
+                this.updateProfileModal.show();
+                setTimeout(() => {
+                    this.updateProfileModal.hide();
+                }, 1500);
             }).catch(err=>{
                 console.log(err)
             })
@@ -309,22 +318,50 @@ var app = new Vue({
             }
         },
         nextWindow(){
-            this.showThree = false;
-            if(this.showFour == true)
-                this.showFour = false;
-            this.showFour = true;
+            this.collapse[3].hide();
+            this.collapse[4].show();
         }
     },
     mounted: function() {
         this.codeModal = new bootstrap.Modal(document.getElementById('verifyCode'));
         this.errorModal = new bootstrap.Modal(document.getElementById('Registered'));
         this.publicationModal = new bootstrap.Modal(document.getElementById('publication'));
+        this.updateProfileModal = new bootstrap.Modal(document.getElementById('updateProfile'));
         var myModalEl = document.getElementById('publication')
         myModalEl.addEventListener('hidden.bs.modal', function (event) {
            if(app.reg_info.paper.length == 0){
                app.reg_info.publication = false;
            }
+        });
+        var collapse1 = document.getElementById('collapseOne')
+        var collapse2 = document.getElementById('collapseTwo')
+        var collapse3 = document.getElementById('collapseThree')
+        var collapse4 = document.getElementById('collapseFour')
+        this.collapse[1]= new bootstrap.Collapse(collapse1, {toggle:false})
+        this.collapse[2]= new bootstrap.Collapse(collapse2, {toggle:false})
+        this.collapse[3]= new bootstrap.Collapse(collapse3, {toggle:false})
+        this.collapse[4]= new bootstrap.Collapse(collapse4, {toggle:false})
+        collapse1.addEventListener('show.bs.collapse', function () {
+            app.collapse[2].hide();
+            app.collapse[3].hide();
+            app.collapse[4].hide();
         })
+        collapse2.addEventListener('show.bs.collapse', function () {
+            app.collapse[1].hide();
+            app.collapse[3].hide();
+            app.collapse[4].hide();
+        })
+        collapse3.addEventListener('show.bs.collapse', function () {
+            app.collapse[1].hide();
+            app.collapse[2].hide();
+            app.collapse[4].hide();
+        })
+        collapse4.addEventListener('show.bs.collapse', function () {
+            app.collapse[1].hide();
+            app.collapse[2].hide();
+            app.collapse[3].hide();
+        })
+
         if(localStorage.getItem('token')){
             axios.get(backendBaseUrl+'/api/users/profile', {
                 headers: {
@@ -334,11 +371,10 @@ var app = new Vue({
                 console.log('get response',res);
                 this.isLogin = true;
                 localStorage.setItem('isLogin',1)
-                this.showOne = false;
                 if(res.data.reg&&res.data.reg.is_paid){
-                    this.showThree = true
+                    this.collapse[3].show();
                 }else{
-                    this.showTwo = true
+                    this.collapse[2].show();
                 }
                 this.user = res.data;
                 this.user_info = this.user.profile;
@@ -357,7 +393,9 @@ var app = new Vue({
                         this.is_student = false;
                     }
                 
-            }).catch(err => { console.log(err) });
+            }).catch(err => {});
+        }else{
+            this.collapse[1].show()
         }
     },
     watch: {
