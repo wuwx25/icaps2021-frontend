@@ -10,12 +10,13 @@ var app = new Vue({
         SafariModal:{},
 		Emailaddress:'',
 		isEmail:true,
-		isErrorCode:{},
 		isCode:true,
 		isErrorCode:true,
 		isLogin:false,
+		isSuccess:false,
 		password:"",
-		confirmPassword:""
+		confirmPassword:"",
+		codeModal:{}
     },
     methods:{
         login(){
@@ -47,7 +48,7 @@ var app = new Vue({
 					headers:{"Content-Type":"application/json"}
 				}
 				).then(res=>{
-					this.codeModal.show();
+					this.codeModal.show();					
 				})
 			}
 		},
@@ -57,13 +58,14 @@ var app = new Vue({
 				headers:{"Content-Type":"application/json"}
 			}
 			).then(res=>{
-				this.codeModal.hide();
+				this.codeModal.hide();	
+				this.isSuccess = true;
 			}).catch(err=>{
 				this.isErrorCode = false
 			})
 		}
     },
     mounted(){
-        
+        this.codeModal = new bootstrap.Modal(document.getElementById('verifyCode'));
     }
 })
