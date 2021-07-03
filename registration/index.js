@@ -12,15 +12,14 @@ var app = new Vue({
         reg_info: {
             publication: false,
             is_student: false,
-            paper_id:'',
-            paper_title:''
+            paper:[],
         },
         reg_fee: {
             student: 20,
             publication: 150,
             non_student: 50
         },
-
+        isErrorPaper:false,
         isEmail: false,
         isFirst_name: false,
         isLast_name: false,
@@ -34,7 +33,6 @@ var app = new Vue({
 
         emailErrorMsg:'',
         errorPaperMessage:'',
-        isErrorPaper:true,
         isErrorCode: false,
         is_student: false,
         showOne: true,
@@ -275,8 +273,7 @@ var app = new Vue({
         },
         updateProfile: function () {
             this.Edit = !this.Edit;
-            this.showOne = false;
-            this.showTwo = true;
+            window.alert('')
             var url = backendBaseUrl+'/api/users/profile';
             var options = {
                 body: JSON.stringify(app.user_info),
@@ -295,11 +292,14 @@ var app = new Vue({
                 console.log(err)
             })
         },
+        addPaper(){
+            this.publicationModal.show()
+        },
         checkPaper(){
             var url = backendBaseUrl+'/api/test/getpaper';
             if(this.reg_info.paper_id && this.reg_info.paper_title){
                 axios.post(url,this.reg_info).then(res=>{
-                    console.log(res)
+                    this.reg_info.paper.push({id:this.reg_info.paper_id,title:this.reg_info.paper_title})
                     this.publicationModal.hide()
                 }).catch(err=>{
                     this.isErrorPaper = true;
@@ -310,6 +310,8 @@ var app = new Vue({
         },
         nextWindow(){
             this.showThree = false;
+            if(this.showFour == true)
+                this.showFour = false;
             this.showFour = true;
         }
     },
@@ -319,9 +321,9 @@ var app = new Vue({
         this.publicationModal = new bootstrap.Modal(document.getElementById('publication'));
         var myModalEl = document.getElementById('publication')
         myModalEl.addEventListener('hidden.bs.modal', function (event) {
-            if(app.isErrorPaper){
-                app.reg_info.publication = false;
-            }    
+           if(app.reg_info.paper.length == 0){
+               app.reg_info.publication = false;
+           }
         })
         if(localStorage.getItem('token')){
             axios.get(backendBaseUrl+'/api/users/profile', {
@@ -380,7 +382,6 @@ var app = new Vue({
         },
         'reg_info.publication': {
            handler: function (){
-                console.log('.....')
               if(this.reg_info.publication)
                   this.publicationModal.show()
             }

@@ -100,7 +100,7 @@
     </nav>
     <div class="btn-group dropdown">
         <button type="button" class="btn btn-primary">
-            <a href="../userInfo/" v-if="isLogin" style="color: white;">userInfo</a>
+            <a href="../userInfo/" v-if="isLogin" style="color: white;">{{user.profile.first_name}}</a>
             <a href="../login" v-if="!isLogin" style="color:white">Login</a>
           </button>
           <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
@@ -239,23 +239,19 @@
                                                             <label class="form-check-label" for="flexCheckDefault">
                                                                 <p>Publication<span style="margin-left: 1rem">( If you have a paper accepted,please be sure to click this option!</span></p>
                                                             </label>
-                                                            <div v-if="reg_info.publication">
-                                                                <p @click="publicationModal.show()">Paper ID : <span>{{reg_info.paper_id}}</span> </p>
-                                                                <p @click="publicationModal.show()">Paper Title : <span>{{reg_info.paper_title}}</span></p>
-                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div v-if="reg_info.publication">
                                                         <ul class="list-group list-group-horizontal" style="width: 100%;">
-                                                        <li class="list-group-item" style="width: 20%;">Paper ID</li>
-                                                        <li class="list-group-item" style="width: 80%;">Paper Title</li>
+                                                        <li class="list-group-item" style="width: 30%;">Paper ID</li>
+                                                        <li class="list-group-item" style="width: 70%;">Paper Title</li>
                                                     </ul>
                                                     <ul class="list-group list-group-horizontal" style="width: 100%;" v-for="paper in reg_info.paper">
-                                                        <li class="list-group-item" style="width: 20%;" contenteditable="true">{{paper.id}}</li>
-                                                        <li class="list-group-item" style="width: 80%;" contenteditable="true">{{paper.title}}</li>
+                                                        <li class="list-group-item" style="width: 30%;" >{{paper.id}}</li>
+                                                        <li class="list-group-item" style="width: 70%;" >{{paper.title}}</li>
                                                     </ul>
                                                     <ul class="list-group list-group-horizontal" style="width: 100%;">
-                                                        <li class="list-group-item" style="width: 100%;color: darkblue;font-size: x-large;text-align: center;" @click=''>+</li>
+                                                        <li class="list-group-item" style="width: 100%;color: darkblue;font-size: x-large;text-align: center;" @click='addPaper'>+</li>
                                                     </ul>
                                                     </div>
                                                      
@@ -300,7 +296,7 @@
                                                             </div>
                                                         </div>
                                                     </li>
-                                                    <li class="list-group-item" v-if="reg_info.publication">
+                                                    <li class="list-group-item" v-if="reg_info.paper.length > 0">
                                                         <div class="row">
                                                             <div class="col-xs-1 col-sm-1 col-sm-1 col-lg-1">
                                                                 <strong>2</strong>
@@ -309,7 +305,7 @@
                                                                 Publication
                                                             </div>
                                                             <div class="col-xs-2 col-sm-2 col-sm-2 col-lg-2" style="text-align: right;">
-                                                                150
+                                                                {{reg_info.paper.length * 150}}
                                                             </div>
                                                         </div>
                                                     </li>
@@ -322,7 +318,7 @@
                                                                 <strong>Total:</strong>
                                                             </div>
                                                             <div class="col-xs-4 col-sm-2 col-sm-2 col-lg-2" style="text-align: right;" >
-                                                                {{reg_info.is_student * 20 + !reg_info.is_student * 50 + reg_info.publication * 150}}
+                                                                {{reg_info.is_student * 20 + !reg_info.is_student * 50 + reg_info.paper.length * 150}}
                                                             </div>
                                                         </div>
                                                     </li>
