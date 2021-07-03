@@ -219,13 +219,13 @@
                                             <div class="card">
                                                 <div class="card-body">
                                                     <h6 class="card-title"><strong>Sessions</strong></h6>
-                                                    <div class="form-check" v-if="user.reg && user.reg.is_paid==0">
-                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked disabled >
+                                                    <div class="form-check" v-if="(user.reg &&user.reg.is_paid==0) || !user.reg">
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" :checked="(user.reg && user.reg.is_paid==0) || !user.reg" disabled >
                                                         <label class="form-check-label" for="flexCheckDefault">
                                                             <p>Conference,Tutorials,Workshops and Expo (This is a must-option</p>
                                                         </label>
                                                     </div>
-                                                    <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12" v-if="user.reg &&user.reg.is_paid==0">
+                                                    <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12" v-if="(user.reg &&user.reg.is_paid==0) || !user.reg">
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox" id="check_item" value="" v-model="reg_info.is_student" :disabled="!is_student">
                                                             <label class="form-check-label" for="flexCheckDefault">
@@ -283,7 +283,7 @@
                                                         </div>
                                                     </li>
 
-                                                    <li class="list-group-item">
+                                                    <li class="list-group-item" v-if='!user.reg || (user.reg && user.reg.is_paid == 0)'>
                                                         <div class="row">
                                                             <div class="col-xs-1 col-sm-1 col-sm-1 col-lg-1">
                                                                 <strong>1</strong>
@@ -412,11 +412,11 @@
                             <div class="modal-body">
                                 <div class="mb-3">
                                     <label  class="form-label" style="margin: 1.5em 0 0.5em 0.8em">Paper ID</label>
-                                    <input type="text" class="form-control"  v-model="reg_info.paper_id">
+                                    <input type="text" class="form-control"  v-model="reg_info.id">
                                 </div>
                                 <div class="mb-3">
                                     <label  class="form-label" style="margin: 1.5em 0 0.5em 0.8em">Paper title</label>
-                                    <input type="text" class="form-control"  v-model="reg_info.paper_title">
+                                    <input type="text" class="form-control"  v-model="reg_info.title">
                                     <small  style="color: red" v-if="isErrorPaper"><ul><li>{{errorPaperMessage}}</li></ul></small>
                                 </div>
                             </div>

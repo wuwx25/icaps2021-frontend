@@ -305,8 +305,8 @@ var app = new Vue({
             this.publicationModal.show()
         },
         checkPaper(){
-            var url = backendBaseUrl+'/api/test/getpaper';
-            if(this.reg_info.paper_id && this.reg_info.paper_title){
+            var url = backendBaseUrl+'/api/test/checkpaper';
+            if(this.reg_info.id && this.reg_info.title){
                 axios.post(url,this.reg_info).then(res=>{
                     this.reg_info.paper.push({id:this.reg_info.paper_id,title:this.reg_info.paper_title})
                     this.publicationModal.hide()
@@ -393,7 +393,7 @@ var app = new Vue({
                         this.is_student = false;
                     }
                 
-            }).catch(err => {});
+            }).catch(err => {this.collapse[1].show()});
         }else{
             this.collapse[1].show()
         }
@@ -424,11 +424,16 @@ var app = new Vue({
                   this.publicationModal.show()
             }
         },
-        'reg_info.is_student': {
-            handler: function (){
-                
-            }
-        }
+        // 'reg_info.is_student': {
+        //     handler: function (){
+        //         if(app.user_info.email.indexOf('edu') > 0 || app.user_info.email.indexOf('ac') > 0){
+        //             console.log('app.reg_info.is_student',app.reg_info.is_student)
+        //         }else{
+        //             app.reg_info.is_student = false;
+        //         }
+                   
+        //     }
+        // },      
     }
 })
 
