@@ -96,16 +96,26 @@
                     </ul>
                 </div>
             </div>
-            <button type="button" class="btn btn-primary" style="position: fixed;right: 10%;" v-if="isLogin">
+            
+            <!-- <button type="button" class="btn btn-primary" style="position: fixed;right: 10%;" v-if="isLogin">
                 <a  @click="logout" style="color: white" >Logout</a>
             </button>
             <button type="button" class="btn btn-primary" style="position: fixed;right: 10%;" v-if="!isLogin">
                 <a @click="login" style="color: white" >Login</a>
-            </button>
+            </button> -->
         </div>
     </nav>
-    <div v-if="isLogin">
-       <a href="../userInfo/"> {{user?user.profile.first_name:""}} {{user?user.profile.last_name:""}}</a>
+    <div class="btn-group dropdown">
+        <button type="button" class="btn btn-primary">
+            <a href="../userInfo/" v-if="isLogin" style="color: white;">userInfo</a>
+            <a href="../login" v-if="!isLogin" style="color:white">Login</a>
+          </button>
+          <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+            <span class="visually-hidden">Toggle Dropdown</span>
+          </button>
+        <ul class="dropdown-menu">
+          <li><buttom class="dropdown-item" @click="logout" v-if="isLogin">Logout</a></li>
+        </ul>
     </div>
 </header>
     <main class="container" style="min-height: 80vh">
