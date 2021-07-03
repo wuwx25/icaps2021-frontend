@@ -34,7 +34,7 @@ var app = new Vue({
 
         emailErrorMsg:'',
         errorPaperMessage:'',
-        isErrorPaper:false,
+        isErrorPaper:true,
         isErrorCode: false,
         is_student: false,
         showOne: true,
@@ -319,8 +319,9 @@ var app = new Vue({
         this.publicationModal = new bootstrap.Modal(document.getElementById('publication'));
         var myModalEl = document.getElementById('publication')
         myModalEl.addEventListener('hidden.bs.modal', function (event) {
-            if(this.isErrorPaper)
+            if(app.isErrorPaper){
                 app.reg_info.publication = false;
+            }    
         })
         if(localStorage.getItem('token')){
             axios.get(backendBaseUrl+'/api/users/profile', {
