@@ -304,6 +304,7 @@ var app = new Vue({
                 }).catch(err=>{
                     this.isErrorPaper = true;
                     this.errorPaperMessage = err.response.data.msg
+                    console.log(err.response.data.msg)
                 })
             }
         },
@@ -318,7 +319,8 @@ var app = new Vue({
         this.publicationModal = new bootstrap.Modal(document.getElementById('publication'));
         var myModalEl = document.getElementById('publication')
         myModalEl.addEventListener('hidden.bs.modal', function (event) {
-            app.reg_info.publication = false;
+            if(this.isErrorPaper)
+                app.reg_info.publication = false;
         })
         if(localStorage.getItem('token')){
             axios.get(backendBaseUrl+'/api/users/profile', {
