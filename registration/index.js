@@ -40,6 +40,7 @@ var app = new Vue({
         errorModal: {},
         publicationModal: {},
         updateProfileModal:{},
+        checkPaperModal:{},
         isLogin: false,
         eduMail: [
             "ac.at",
@@ -306,9 +307,20 @@ var app = new Vue({
         },
         checkPaper(){
             var url = backendBaseUrl+'/api/test/checkpaper';
+            for(var i = 0; i < this.reg_info.paper.length; i++){
+                if(this.reg_info.id == this.reg_info.paper[i].id){
+                    this.checkPaperModal.show();
+                    this.publicationModal.hide();
+                    setTimeout(() => {
+                        this.checkPaperModal.hide();
+                    }, 1000);
+                    return ;
+                }
+                    
+            }
             if(this.reg_info.id && this.reg_info.title){
                 axios.post(url,this.reg_info).then(res=>{
-                    this.reg_info.paper.push({id:this.reg_info.paper_id,title:this.reg_info.paper_title})
+                    this.reg_info.paper.push({id:this.reg_info.id,title:this.reg_info.title})
                     this.publicationModal.hide()
                 }).catch(err=>{
                     this.isErrorPaper = true;
@@ -326,6 +338,7 @@ var app = new Vue({
         this.codeModal = new bootstrap.Modal(document.getElementById('verifyCode'));
         this.errorModal = new bootstrap.Modal(document.getElementById('Registered'));
         this.publicationModal = new bootstrap.Modal(document.getElementById('publication'));
+        this.checkPaperModal = new bootstrap.Modal(document.getElementById('checkPaper'));
         this.updateProfileModal = new bootstrap.Modal(document.getElementById('updateProfile'));
         var myModalEl = document.getElementById('publication')
         myModalEl.addEventListener('hidden.bs.modal', function (event) {
