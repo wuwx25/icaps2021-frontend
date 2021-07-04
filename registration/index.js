@@ -41,6 +41,7 @@ var app = new Vue({
         publicationModal: {},
         updateProfileModal:{},
         subSuccessfulModal:{},
+        paySuccessfulModal:{},
         checkPaperModal:{},
         isLogin: false,
         eduMail: [
@@ -342,7 +343,7 @@ var app = new Vue({
         this.checkPaperModal = new bootstrap.Modal(document.getElementById('checkPaper'));
         this.updateProfileModal = new bootstrap.Modal(document.getElementById('updateProfile'));
         this.subSuccessfulModal = new bootstrap.Modal(document.getElementById('submitSuccessful'));
-
+        this.paySuccessfulModal = new bootstrap.Modal(document.getElementById('paymentSuccessful'));
 
         var myModalEl = document.getElementById('publication')
         myModalEl.addEventListener('hidden.bs.modal', function (event) {
@@ -494,8 +495,13 @@ paypal
       })
         .then(function (details) {
           console.log('Transaction approved by ' + details.payer.name.given_name);
-          window.location.href = './index.html';
-            return Promise.resolve();
+        //   window.location.href = './index.html';
+        app.paySuccessfulModal.show();
+        setTimeout(() => {
+            app.paySuccessfulModal.hide();
+            app.collapse[3].show();
+        }, 1500); 
+        return Promise.resolve();
         })
     }
 }).render('#paypal-button-container');

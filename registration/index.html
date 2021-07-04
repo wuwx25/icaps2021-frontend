@@ -305,7 +305,7 @@
                                                                 Publication
                                                             </div>
                                                             <div class="col-xs-2 col-sm-2 col-sm-2 col-lg-2" style="text-align: right;">
-                                                                {{reg_info.papers.length * 150}}
+                                                                {{reg_info.papers.length * 150}}.00
                                                             </div>
                                                         </div>
                                                     </li>
@@ -318,9 +318,14 @@
                                                                 <strong>Total:</strong>
                                                             </div>
                                                             <div class="col-xs-4 col-sm-2 col-sm-2 col-lg-2" style="text-align: right;" >
-                                                                {{reg_info.is_student * 20 + (!reg_info.is_student && reg_info.registration)* 50 + reg_info.papers.length * 150}}
+                                                                {{reg_info.is_student * 20 + (!reg_info.is_student && reg_info.registration)* 50 + reg_info.papers.length * 150}}.00
                                                             </div>
                                                         </div>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <p style="text-align: justify;color: dimgray;">
+                                                            We have limited fund for reimbursing all requesters in the order of earliest-registration-first. The requirement is that the given person attends at least X amount of time (e.g., 5 hours) of ICAPS 2021.
+                                                        </p>
                                                     </li>
                                                 </ul>
                                             </div>
