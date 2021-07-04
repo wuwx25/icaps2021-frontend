@@ -12,7 +12,7 @@ var app = new Vue({
         reg_info: {
             publication: false,
             is_student: false,
-            paper:[],
+            papers:[],
         },
         reg_fee: {
             student: 20,
@@ -149,7 +149,7 @@ var app = new Vue({
         checkForm(){
             let flag = false;
             if(this.user_info.email){
-                const regEmail = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
+                const regEmail = /^([a-zA-Z]|[0-9])(\w|\.|\-)+@[a-zA-Z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
                 if(regEmail.test(this.user_info.email)){
                 this.isEmail = false
             }else{
@@ -307,8 +307,8 @@ var app = new Vue({
         },
         checkPaper(){
             var url = backendBaseUrl+'/api/test/checkpaper';
-            for(var i = 0; i < this.reg_info.paper.length; i++){
-                if(this.reg_info.id == this.reg_info.paper[i].id){
+            for(var i = 0; i < this.reg_info.papers.length; i++){
+                if(this.reg_info.id == this.reg_info.papers[i].id){
                     this.checkPaperModal.show();
                     this.publicationModal.hide();
                     setTimeout(() => {
@@ -320,7 +320,7 @@ var app = new Vue({
             }
             if(this.reg_info.id && this.reg_info.title){
                 axios.post(url,this.reg_info).then(res=>{
-                    this.reg_info.paper.push({id:this.reg_info.id,title:this.reg_info.title})
+                    this.reg_info.papers.push({id:this.reg_info.id,title:this.reg_info.title})
                     this.publicationModal.hide()
                 }).catch(err=>{
                     this.isErrorPaper = true;
@@ -342,7 +342,7 @@ var app = new Vue({
         this.updateProfileModal = new bootstrap.Modal(document.getElementById('updateProfile'));
         var myModalEl = document.getElementById('publication')
         myModalEl.addEventListener('hidden.bs.modal', function (event) {
-           if(app.reg_info.paper.length == 0){
+           if(app.reg_info.papers.length == 0){
                app.reg_info.publication = false;
            }
         });

@@ -246,7 +246,7 @@
                                                         <li class="list-group-item" style="width: 30%;">Paper ID</li>
                                                         <li class="list-group-item" style="width: 70%;">Paper Title</li>
                                                     </ul>
-                                                    <ul class="list-group list-group-horizontal" style="width: 100%;" v-for="paper in reg_info.paper">
+                                                    <ul class="list-group list-group-horizontal" style="width: 100%;" v-for="paper in reg_info.papers">
                                                         <li class="list-group-item" style="width: 30%;" >{{paper.id}}</li>
                                                         <li class="list-group-item" style="width: 70%;" >{{paper.title}}</li>
                                                     </ul>
@@ -296,7 +296,7 @@
                                                             </div>
                                                         </div>
                                                     </li>
-                                                    <li class="list-group-item" v-if="reg_info.paper.length > 0">
+                                                    <li class="list-group-item" v-if="reg_info.papers.length > 0">
                                                         <div class="row">
                                                             <div class="col-xs-1 col-sm-1 col-sm-1 col-lg-1">
                                                                 <strong>2</strong>
@@ -305,7 +305,7 @@
                                                                 Publication
                                                             </div>
                                                             <div class="col-xs-2 col-sm-2 col-sm-2 col-lg-2" style="text-align: right;">
-                                                                {{reg_info.paper.length * 150}}
+                                                                {{reg_info.papers.length * 150}}
                                                             </div>
                                                         </div>
                                                     </li>
@@ -318,7 +318,7 @@
                                                                 <strong>Total:</strong>
                                                             </div>
                                                             <div class="col-xs-4 col-sm-2 col-sm-2 col-lg-2" style="text-align: right;" >
-                                                                {{reg_info.is_student * 20 + !reg_info.is_student * 50 + reg_info.paper.length * 150}}
+                                                                {{reg_info.is_student * 20 + !reg_info.is_student * 50 + reg_info.papers.length * 150}}
                                                             </div>
                                                         </div>
                                                     </li>
