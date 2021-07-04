@@ -318,7 +318,7 @@
                                                                 <strong>Total:</strong>
                                                             </div>
                                                             <div class="col-xs-4 col-sm-2 col-sm-2 col-lg-2" style="text-align: right;" >
-                                                                {{reg_info.is_student * 20 + (!reg_info.is_student && user.reg && user && !user.reg.registration)* 50 + reg_info.papers.length * 150}}
+                                                                {{reg_info.is_student * 20 + (!reg_info.is_student && reg_info.registration)* 50 + reg_info.papers.length * 150}}
                                                             </div>
                                                         </div>
                                                     </li>
@@ -457,7 +457,7 @@
                       </div>
                     </div>
                 </div>
-                <div class="modal" tabindex="-1" id='sumbitSuccessful'>
+                <div class="modal" tabindex="-1" id='submitSuccessful'>
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-body">

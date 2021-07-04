@@ -341,7 +341,7 @@ var app = new Vue({
         this.publicationModal = new bootstrap.Modal(document.getElementById('publication'));
         this.checkPaperModal = new bootstrap.Modal(document.getElementById('checkPaper'));
         this.updateProfileModal = new bootstrap.Modal(document.getElementById('updateProfile'));
-        this.subSuccessfulModal = new bootstrap.Modal(document.getElementById('sumbitSuccessful'));
+        this.subSuccessfulModal = new bootstrap.Modal(document.getElementById('submitSuccessful'));
 
 
         var myModalEl = document.getElementById('publication')
@@ -480,15 +480,14 @@ paypal
     },
     onApprove: (data) => {
       console.log("now is in onApprove");
+      app.reg_info.orderID=data.orderID;
       return fetch(backendBaseUrl+'/api/registrations/captureorder', {
         method: 'post',
         headers: {
           'content-type': 'application/json',
           'Authorization': localStorage.getItem("token")
         },
-        body: JSON.stringify({
-          orderID: data.orderID,
-        })
+        body: JSON.stringify(app.reg_info)
       }).then(function (res) {
         window.a = res;
         return res.json();
