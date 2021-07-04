@@ -326,8 +326,8 @@ var app = new Vue({
                     this.publicationModal.hide()
                 }).catch(err=>{
                     this.isErrorPaper = true;
-                    this.errorPaperMessage = err.response.data.msg
-                    console.log(err.response.data.msg)
+                    this.errorPaperMessage = err.response.data.message;
+                    console.log(err.response.data.message);
                 })
             }
         },
