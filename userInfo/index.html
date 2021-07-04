@@ -84,10 +84,11 @@
                 </div>
             </div>
         </div>
+        <button type="button" class="btn" style="position: fixed;right: 10%;background-color: #f5821f;">
+            <a @click="logout" style="color: white">Logout</a>
+        </button>
     </nav>
-    <button type="button" class="btn btn-primary" style="position: fixed;right: 10%;">
-        <a @click="logout" style="color: white">Logout</a>
-    </button>
+    
 </header>
 <div class="album mt-3">
     <div style="height: 100px" class="d-none d-md-block">
@@ -99,7 +100,7 @@
         <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-6">
         <ul class="list-group  ">
-            <li class="list-group-item active">
+            <li class="list-group-item" style="background-color: #f5821f;color: white;">
                 <div class="row ">
                     <div class="col-10">Contact Information</div>
                     <div class="col-2">
@@ -148,21 +149,21 @@
                 <div style="height: 100%"></div>
         </div>
         <ul class="list-group">
-            <li class="list-group-item active" aria-current="true">
+            <li class="list-group-item" style="background-color: #f5821f;color: white;">
                 <div class="row">
                     <div class="col-xs-6 col-sm-8 col-md-9 col-xl-10">Registration History</div>
                     <div class="col-xs-6 col-sm-4 col-md-3 col-xl-2">
                         <button type="button" class="btn btn-light">
-                            <a href="../registration/">Registration 2021>></a>
+                            <a style="color: black;" href="../registration/">Registration 2021>></a>
                         </button>
                     </div>
                 </div>
             </li>
-            <div v-if="user.reg && user.reg.is_paid">
-                <li class="list-group-item">
+            <div v-if="user.reg && user.reg.registration">
+                <li class="list-group-item" v-for="paper in user.reg.paper">
                     <div class="row">
                         <div class="col-6">Publication</div>
-                        <div class="col-6">{{(user&&user.reg.publication)==1?user.reg.paper.title:"No"}}</div>
+                        <div class="col-6">{{(user.reg&&user.reg.publication)?paper.title:"No"}}</div>
                     </div>
                 </li>
 

@@ -96,16 +96,19 @@
                     </ul>
                 </div>
             </div>
-            <button type="button" class="btn btn-primary" style="position: fixed;right: 10%;" v-if="isLogin">
-                <a  @click="logout" style="color: white" >Logout</a>
-            </button>
-            <button type="button" class="btn btn-primary" style="position: fixed;right: 10%;" v-if="!isLogin">
-                <a @click="login" style="color: white" >Login</a>
-            </button>
         </div>
     </nav>
-    <div v-if="isLogin">
-       <a href="../userInfo/"> {{user?user.profile.first_name:""}} {{user?user.profile.last_name:""}}</a>
+    <div class="btn-group dropdown">
+        <button type="button" class="btn btn-primary">
+            <a href="../userInfo/" v-if="isLogin && user.profile.first_name" style="color: white;">{{user.profile.first_name}}</a>
+            <a href="../login" v-if="!isLogin" style="color:white">Login</a>
+          </button>
+          <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false" v-if='isLogin'>
+            <span class="visually-hidden">Toggle Dropdown</span>
+          </button>
+        <ul class="dropdown-menu">
+          <li><buttom class="dropdown-item" @click="logout" v-if="isLogin">Logout</a></li>
+        </ul>
     </div>
 </header>
     <main class="container" style="min-height: 80vh">
@@ -117,11 +120,11 @@
                 <div class="accordion row" id="accordionExample">
                     <div class="accordion-item ">
                         <h2 class="accordion-header" id="headingOne">
-                            <button class="accordion-button " :class="{collapsed:!showOne}" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" :aria-expanded="showOne" aria-controls="collapseOne" @click="showOne = !showOne">
-                                <strong>1.{{isLogin?"Update Profile":"Login or Create a new Profile"}} </strong>
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"  aria-controls="collapseOne" aria-expanded="false">
+                                <strong>1.{{isLogin?"Update Profile":"Create a new Profile"}} </strong>
                             </button>
                         </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse"  :class="{show:showOne}" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div id="collapseOne" class="accordion-collapse collapse"   aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                                 <div class="row">
                                     <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
@@ -162,8 +165,8 @@
                                     </div>
                                     <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3" v-if="!isLogin">
                                         <div class="mb-3">
-                                            <label  class="form-label" style="margin: 1.5em 0 0.5em 0.8em">Comfirm Password</label>
-                                            <input type="password" class="form-control" :class="{warn:isPassword2}"placeholder="Comfirm Password" v-model="user_info.password2">
+                                            <label  class="form-label" style="margin: 1.5em 0 0.5em 0.8em">Confirm Password</label>
+                                            <input type="password" class="form-control" :class="{warn:isPassword2}"placeholder="Confirm Password" v-model="user_info.password2">
                                             <small  style="color: red" v-if="isPassword2"><ul><li>This field is required</li></ul></small>
                                             <small  style="color: red" v-if="user_info.password != user_info.password2"><ul><li>Password mismatch</li></ul></small>
                                         </div>
@@ -176,7 +179,7 @@
                                                 <option value="she/her">she/her</option>
                                                 <option value="he/him">he/him</option>
                                                 <option value="I don't use pronouns">I don't use pronouns</option>
-                                                <option value="Prefer no to say">Prefer no to say</option>
+                                                <option value="Prefer no to say">Prefer not to say</option>
                                                 <option value="Specify your own">Specify your own</option>
                                             </select>
                                             <small  style="color: red" v-if="isPronoun"><ul><li>This field is required</li></ul></small>
@@ -199,12 +202,12 @@
                     </div>
                     <div class="accordion-item" >
                         <h2 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button" :class="{collapsed:!showTwo}" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" :aria-expanded="showTwo" aria-controls="collapseTwo" :disabled="!isLogin" @click="showTwo = !showTwo">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"  aria-controls="collapseTwo" :disabled="!isLogin">
                                 <strong>2.Register and Payment</strong>
                                  <span v-if="!isLogin" style="font-weight: lighter;margin-left: 1rem">Only logged-in users can register and pay</span>
                             </button>
                         </h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse"  :class="{show:showTwo}"  aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                        <div id="collapseTwo" class="accordion-collapse collapse"    aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                             <div class="accordion-body " :hidden="!isLogin">
                                 <div class="row">
                                     <div class="clearfix col-md-12 col-xs-12 col-sm-12 col-lg-12">
@@ -216,17 +219,17 @@
                                             <div class="card">
                                                 <div class="card-body">
                                                     <h6 class="card-title"><strong>Sessions</strong></h6>
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked disabled >
+                                                    <div class="form-check" v-if="(user.reg && !user.reg.registration) || !user.reg">
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" :checked="(user.reg && !user.reg.registration) || !user.reg" disabled >
                                                         <label class="form-check-label" for="flexCheckDefault">
-                                                            <p>Conference,Tutorials,Workshops and Expo</p>
+                                                            <p>Conference,Tutorials,Workshops and Expo (This is a must-option</p>
                                                         </label>
                                                     </div>
-                                                    <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+                                                    <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12" v-if="(user.reg && !user.reg.registration) || !user.reg">
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox" id="check_item" value="" v-model="reg_info.is_student" :disabled="!is_student">
                                                             <label class="form-check-label" for="flexCheckDefault">
-                                                                <p>I am full time student</p>
+                                                                <p>I am full time student<span v-if="!is_student" style="margin-left: 1rem">(You can select this option only if you use the student email during registration.</span></p>
                                                             </label>
                                                         </div>
                                                     </div>
@@ -234,14 +237,25 @@
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox" value="" v-model="reg_info.publication">
                                                             <label class="form-check-label" for="flexCheckDefault">
-                                                                <p>Publication fee</p>
+                                                                <p>Publication<span style="margin-left: 1rem">( If you have a paper accepted,please be sure to click this option!</span></p>
                                                             </label>
-                                                            <div v-if="reg_info.publication">
-                                                                <p @click="publicationModal.show()">Paper ID : <span>{{reg_info.paper_id}}</span> </p>
-                                                                <p @click="publicationModal.show()">Paper Title : <span>{{reg_info.paper_title}}</span></p>
-                                                            </div>
                                                         </div>
                                                     </div>
+                                                    <div v-if="reg_info.publication">
+                                                        <ul class="list-group list-group-horizontal" style="width: 100%;">
+                                                        <li class="list-group-item" style="width: 30%;">Paper ID</li>
+                                                        <li class="list-group-item" style="width: 70%;">Paper Title</li>
+                                                    </ul>
+                                                    <ul class="list-group list-group-horizontal" style="width: 100%;" v-for="paper in reg_info.papers">
+                                                        <li class="list-group-item" style="width: 30%;" >{{paper.id}}</li>
+                                                        <li class="list-group-item" style="width: 70%;" >{{paper.title}}</li>
+                                                    </ul>
+                                                    <ul class="list-group list-group-horizontal" style="width: 100%;">
+                                                        <li class="list-group-item" style="width: 100%;color: darkblue;font-size: x-large;text-align: center;" @click='addPaper'>+</li>
+                                                    </ul>
+                                                    </div>
+                                                     
+                                            
                                                     <div class="card-text" style="margin-left: 1.5rem"><small class="text-muted">Check at least one</small></div>
                                                 </div>
                                             </div>
@@ -269,7 +283,7 @@
                                                         </div>
                                                     </li>
 
-                                                    <li class="list-group-item">
+                                                    <li class="list-group-item" v-if='!user.reg || (user.reg && !user.reg.registration)'>
                                                         <div class="row">
                                                             <div class="col-xs-1 col-sm-1 col-sm-1 col-lg-1">
                                                                 <strong>1</strong>
@@ -282,16 +296,16 @@
                                                             </div>
                                                         </div>
                                                     </li>
-                                                    <li class="list-group-item" v-if="reg_info.publication">
+                                                    <li class="list-group-item" v-if="reg_info.papers.length > 0">
                                                         <div class="row">
                                                             <div class="col-xs-1 col-sm-1 col-sm-1 col-lg-1">
-                                                                <strong>2</strong>
+                                                                <strong>{{(user.reg && user.reg.registration)?'1':'2'}}</strong>
                                                             </div>
                                                             <div class="col-xs-9 col-sm-9 col-sm-9 col-lg-9">
-                                                                Publication fee
+                                                                Publication
                                                             </div>
                                                             <div class="col-xs-2 col-sm-2 col-sm-2 col-lg-2" style="text-align: right;">
-                                                                150
+                                                                {{reg_info.papers.length * 150}}.00
                                                             </div>
                                                         </div>
                                                     </li>
@@ -304,9 +318,14 @@
                                                                 <strong>Total:</strong>
                                                             </div>
                                                             <div class="col-xs-4 col-sm-2 col-sm-2 col-lg-2" style="text-align: right;" >
-                                                                {{reg_info.is_student * 20 + !reg_info.is_student * 50 + reg_info.publication * 150}}
+                                                                {{reg_info.is_student * 20 + (!reg_info.is_student && reg_info.registration)* 50 + reg_info.papers.length * 150}}.00
                                                             </div>
                                                         </div>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <p style="text-align: justify;color: dimgray;">
+                                                            We have limited fund for reimbursing all requesters in the order of earliest-registration-first. The requirement is that the given person attends at least X amount of time (e.g., 5 hours) of ICAPS 2021.
+                                                        </p>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -324,12 +343,12 @@
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingFive">
-                            <button class="accordion-button"  :class="{collapsed:!showThree}" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" :aria-expanded="showThree" aria-controls="collapseFive" @click="showThree = !showThree">
-                                <strong>3.VISA Letter of Invitation</strong>
+                            <button class="accordion-button collapsed"  type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                                <strong>3.Invitation Letter and Proof of Participation</strong>
                             </button>
                         </h2>
                         
-                            <div id="collapseFive" class="accordion-collapse collapse" :class="{show: showThree}" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                            <div id="collapseThree" class="accordion-collapse collapse"  aria-labelledby="headingFive" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
                                     <div class="row">
                                     <p style="text-align: justify">This is a virtual-only conference. VISA letters of invitation are generated only for the purpose of applying for a VISA. If you need documentation of your participation at the meeting for reimbursemnet, please use your registration receipt as proof of payment and your certificate of attendance (above in the Payment and Receipt section as your proof of attendance.</p>
@@ -340,13 +359,13 @@
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingSix">
-                            <button class="accordion-button "  :class="{collapsed:!showFour}" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" :aria-expanded="showFour" aria-controls="collapseSix" @click="showFour = !showFour">
+                            <button class="accordion-button collapsed"   type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
                                 <strong>4.Get Recruited by our Sponsors</strong>
                             </button>
                         </h2>
-                        <div id="collapseSix" class="accordion-collapse collapse"  :class="{show:showFour}" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+                        <div id="collapseFour" class="accordion-collapse collapse"   aria-labelledby="headingSix" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                <p style="text-align: justify">If you would like to let the ICAPS 2021 sponsors know that you are job hunting, check this box and we will share your information with them.</p>
+                                <p style="text-align: justify">If you would like to let the ICAPS 2021 sponsors know that you are looking for a job/position, check this box and we will share your information with them.</p>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="" v-model="uploadFile.share_inform">
                                     <label class="form-check-label" for="flexCheckDefault">
@@ -399,12 +418,12 @@
                             <div class="modal-body">
                                 <div class="mb-3">
                                     <label  class="form-label" style="margin: 1.5em 0 0.5em 0.8em">Paper ID</label>
-                                    <input type="text" class="form-control"  v-model="reg_info.paper_id">
+                                    <input type="text" class="form-control"  v-model="reg_info.id">
                                 </div>
                                 <div class="mb-3">
                                     <label  class="form-label" style="margin: 1.5em 0 0.5em 0.8em">Paper title</label>
-                                    <input type="text" class="form-control"  v-model="reg_info.paper_title">
-                                    <small  style="color: red" v-if="isErrorPaper"><ul><li>errorPaperMessage</li></ul></small>
+                                    <input type="text" class="form-control"  v-model="reg_info.title">
+                                    <small  style="color: red" v-if="isErrorPaper"><ul><li>{{errorPaperMessage}}</li></ul></small>
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -424,6 +443,42 @@
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div class="modal" tabindex="-1" id='updateProfile'>
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-body">
+                          <p>Updata profile successful</p>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="modal" tabindex="-1" id='checkPaper'>
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-body">
+                          <p>Duplicate ID</p>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="modal" tabindex="-1" id='submitSuccessful'>
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-body">
+                          <p>Submit successful!</p>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="modal" tabindex="-1" id='paymentSuccessful'>
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-body">
+                          <p>Payment successful!</p>
+                        </div>
+                      </div>
                     </div>
                 </div>
             </div>

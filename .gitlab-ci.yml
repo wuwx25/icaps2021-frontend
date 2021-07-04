@@ -20,4 +20,4 @@ before_script:
 uniapp-deploy:
   stage: app_deploy
   script:
-    - ssh root@$SERVER_HOST "cd ~/code/icaps2021-frontend/;git pull origin;rsync -avz --exclude '.git*' ./ /var/www/html/ "
+    - ssh root@$SERVER_HOST "cd ~/code/icaps2021-frontend/;git pull origin;rsync -avz ./ /var/www/html/ "

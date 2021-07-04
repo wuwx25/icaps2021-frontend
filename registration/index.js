@@ -1,5 +1,5 @@
 import {backendBaseUrl} from '../assets/js/backendBaseUrl.js';
-import {country} from '../assets/js/data.js';
+import {country, isLogin} from '../assets/js/data.js';
 var app = new Vue({
     el: '#app',
     data: {
@@ -12,15 +12,14 @@ var app = new Vue({
         reg_info: {
             publication: false,
             is_student: false,
-            paper_id:'',
-            paper_title:''
+            papers:[],
         },
         reg_fee: {
             student: 20,
             publication: 150,
             non_student: 50
         },
-
+        isErrorPaper:false,
         isEmail: false,
         isFirst_name: false,
         isLast_name: false,
@@ -31,21 +30,19 @@ var app = new Vue({
         isPassword2: false,
         isMisMatch: false,
         isCountry: false,
-
+        collapse:[],
         emailErrorMsg:'',
         errorPaperMessage:'',
-        isErrorPaper:false,
         isErrorCode: false,
         is_student: false,
-        showOne: true,
-        showTwo: false,
-        showThree: false,
-        showFour: false,
-        cvFile: {},
         country: country,
         codeModal: {},
         errorModal: {},
         publicationModal: {},
+        updateProfileModal:{},
+        subSuccessfulModal:{},
+        paySuccessfulModal:{},
+        checkPaperModal:{},
         isLogin: false,
         eduMail: [
             "ac.at",
@@ -121,6 +118,7 @@ var app = new Vue({
             "edu.vn"
             ],
         uploadFile:{
+            cvFile:{},
             success:false,
             fail:false,
             share_inform:false,
@@ -153,7 +151,7 @@ var app = new Vue({
         checkForm(){
             let flag = false;
             if(this.user_info.email){
-                const regEmail = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
+                const regEmail = /^([a-zA-Z]|[0-9])(\w|\.|\-)+@[a-zA-Z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
                 if(regEmail.test(this.user_info.email)){
                 this.isEmail = false
             }else{
@@ -240,12 +238,17 @@ var app = new Vue({
             )
         },
         getfile(e) {
-            this.cvFile = e.target.files[0];
+            this.uploadFile.cvFile = e.target.files[0];
         },
         submit() {
+            if(!this.isLogin){
+                console.log('.....')
+                window.location.href = '../login';
+                return ;
+            }
             var formData = new FormData();
             var formData = new window.FormData();
-            formData.append('personal_cv', this.cvFile);
+            formData.append('personal_cv', this.uploadFile.cvFile);
             formData.append('share_inform',this.uploadFile.share_inform?"true":"false");
             formData.append('add_mail_list',this.uploadFile.add_mail_list?"true":"false");
             var options = {
@@ -257,7 +260,10 @@ var app = new Vue({
                 }
             }
             axios(options).then(res=>{
-                    window.location.href = "../userInfo"
+                    this.subSuccessfulModal.show()
+                    setTimeout(() => {
+                        window.location.href = "../userInfo"
+                    }, 1500);
                 }
             ).catch(err=>{
                 this.uploadFile.fail = true;
@@ -275,8 +281,6 @@ var app = new Vue({
         },
         updateProfile: function () {
             this.Edit = !this.Edit;
-            this.showOne = false;
-            this.showTwo = true;
             var url = backendBaseUrl+'/api/users/profile';
             var options = {
                 body: JSON.stringify(app.user_info),
@@ -290,36 +294,92 @@ var app = new Vue({
             fetch(url,options).then(res=>{
                 return res.json()
             }).then(res=>{
-                console.log(res)
+                this.collapse[1].hide();
+                this.collapse[2].show();
+                this.updateProfileModal.show();
+                setTimeout(() => {
+                    this.updateProfileModal.hide();
+                }, 1500);
             }).catch(err=>{
                 console.log(err)
             })
         },
+        addPaper(){
+            this.publicationModal.show()
+        },
         checkPaper(){
-            var url = backendBaseUrl+'/api/test/getpaper';
-            if(this.reg_info.paper_id && this.reg_info.paper_title){
+            var url = backendBaseUrl+'/api/test/checkpaper';
+            for(var i = 0; i < this.reg_info.papers.length; i++){
+                if(this.reg_info.id == this.reg_info.papers[i].id){
+                    this.checkPaperModal.show();
+                    this.publicationModal.hide();
+                    setTimeout(() => {
+                        this.checkPaperModal.hide();
+                    }, 1000);
+                    return ;
+                }
+                    
+            }
+            if(this.reg_info.id && this.reg_info.title){
                 axios.post(url,this.reg_info).then(res=>{
-                    console.log(res)
+                    this.reg_info.papers.push({id:this.reg_info.id,title:this.reg_info.title})
                     this.publicationModal.hide()
                 }).catch(err=>{
                     this.isErrorPaper = true;
                     this.errorPaperMessage = err.response.data.msg
+                    console.log(err.response.data.msg)
                 })
             }
         },
         nextWindow(){
-            this.showThree = false;
-            this.showFour = true;
+            this.collapse[3].hide();
+            this.collapse[4].show();
         }
     },
     mounted: function() {
         this.codeModal = new bootstrap.Modal(document.getElementById('verifyCode'));
         this.errorModal = new bootstrap.Modal(document.getElementById('Registered'));
         this.publicationModal = new bootstrap.Modal(document.getElementById('publication'));
+        this.checkPaperModal = new bootstrap.Modal(document.getElementById('checkPaper'));
+        this.updateProfileModal = new bootstrap.Modal(document.getElementById('updateProfile'));
+        this.subSuccessfulModal = new bootstrap.Modal(document.getElementById('submitSuccessful'));
+        this.paySuccessfulModal = new bootstrap.Modal(document.getElementById('paymentSuccessful'));
+
         var myModalEl = document.getElementById('publication')
         myModalEl.addEventListener('hidden.bs.modal', function (event) {
-            app.reg_info.publication = false;
+           if(app.reg_info.papers.length == 0){
+               app.reg_info.publication = false;
+           }
+        });
+        var collapse1 = document.getElementById('collapseOne')
+        var collapse2 = document.getElementById('collapseTwo')
+        var collapse3 = document.getElementById('collapseThree')
+        var collapse4 = document.getElementById('collapseFour')
+        this.collapse[1]= new bootstrap.Collapse(collapse1, {toggle:false})
+        this.collapse[2]= new bootstrap.Collapse(collapse2, {toggle:false})
+        this.collapse[3]= new bootstrap.Collapse(collapse3, {toggle:false})
+        this.collapse[4]= new bootstrap.Collapse(collapse4, {toggle:false})
+        collapse1.addEventListener('show.bs.collapse', function () {
+            app.collapse[2].hide();
+            app.collapse[3].hide();
+            app.collapse[4].hide();
         })
+        collapse2.addEventListener('show.bs.collapse', function () {
+            app.collapse[1].hide();
+            app.collapse[3].hide();
+            app.collapse[4].hide();
+        })
+        collapse3.addEventListener('show.bs.collapse', function () {
+            app.collapse[1].hide();
+            app.collapse[2].hide();
+            app.collapse[4].hide();
+        })
+        collapse4.addEventListener('show.bs.collapse', function () {
+            app.collapse[1].hide();
+            app.collapse[2].hide();
+            app.collapse[3].hide();
+        })
+
         if(localStorage.getItem('token')){
             axios.get(backendBaseUrl+'/api/users/profile', {
                 headers: {
@@ -329,16 +389,20 @@ var app = new Vue({
                 console.log('get response',res);
                 this.isLogin = true;
                 localStorage.setItem('isLogin',1)
-                this.showOne = false;
-                if(res.data.reg&&res.data.reg.is_paid){
-                    this.showThree = true
+                if(res.data.reg&&res.data.reg.registration){
+                    this.collapse[3].show();
                 }else{
-                    this.showTwo = true
+                    this.collapse[2].show();
                 }
                 this.user = res.data;
                 this.user_info = this.user.profile;
                 this.user_info.email=this.user.email;
-                
+                if(this.user.reg && this.user.reg.registration){
+                    this.reg_info.registration = false;
+                }
+                else{
+                    this.reg_info.registration = true;
+                }
                     var is_edu_email=false;
                     for(var i=0;i < this.eduMail.length;i++){
                         var edu_str=this.eduMail[i];
@@ -352,7 +416,9 @@ var app = new Vue({
                         this.is_student = false;
                     }
                 
-            }).catch(err => { console.log(err) });
+            }).catch(err => {this.collapse[1].show()});
+        }else{
+            this.collapse[1].show()
         }
     },
     watch: {
@@ -377,16 +443,10 @@ var app = new Vue({
         },
         'reg_info.publication': {
            handler: function (){
-                console.log('.....')
               if(this.reg_info.publication)
                   this.publicationModal.show()
             }
         },
-        'reg_info.is_student': {
-            handler: function (){
-                
-            }
-        }
     }
 })
 
@@ -421,25 +481,27 @@ paypal
     },
     onApprove: (data) => {
       console.log("now is in onApprove");
+      app.reg_info.orderID=data.orderID;
       return fetch(backendBaseUrl+'/api/registrations/captureorder', {
         method: 'post',
         headers: {
           'content-type': 'application/json',
           'Authorization': localStorage.getItem("token")
         },
-        body: JSON.stringify({
-          orderID: data.orderID,
-        })
+        body: JSON.stringify(app.reg_info)
       }).then(function (res) {
-        console.log("get response", res);
         window.a = res;
         return res.json();
       })
         .then(function (details) {
           console.log('Transaction approved by ' + details.payer.name.given_name);
-        //   window.alert('Transaction approved by ' + details.payer.name.given_name);
-            window.location.href="./index.html";
-            return Promise.resolve();
+        //   window.location.href = './index.html';
+        app.paySuccessfulModal.show();
+        setTimeout(() => {
+            app.paySuccessfulModal.hide();
+            app.collapse[3].show();
+        }, 1500); 
+        return Promise.resolve();
         })
     }
 }).render('#paypal-button-container');

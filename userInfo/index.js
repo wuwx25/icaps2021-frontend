@@ -56,7 +56,4 @@ var app = new Vue({
             this.forceQuit();
         })
     },
-    computed: {
-        
-    }
 })
