@@ -396,9 +396,6 @@ var app = new Vue({
                 this.user = res.data;
                 this.user_info = this.user.profile;
                 this.user_info.email=this.user.email;
-                if(this.user_info.email.indexOf('edu') > -1|| this.user_info.email.indexOf('ac') >-1){
-                    this.reg_info.is_student = true;
-                }
                 if(this.user.reg && this.user.reg.registration){
                     this.reg_info.registration = false;
                 }
