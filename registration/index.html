@@ -103,7 +103,7 @@
             <a href="../userInfo/" v-if="isLogin && user.profile.first_name" style="color: white;">{{user.profile.first_name}}</a>
             <a href="../login" v-if="!isLogin" style="color:white">Login</a>
           </button>
-          <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+          <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false" v-if='isLogin'>
             <span class="visually-hidden">Toggle Dropdown</span>
           </button>
         <ul class="dropdown-menu">
