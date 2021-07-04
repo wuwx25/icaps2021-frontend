@@ -100,7 +100,7 @@
     </nav>
     <div class="btn-group dropdown">
         <button type="button" class="btn btn-primary">
-            <a href="../userInfo/" v-if="isLogin" style="color: white;">{{user.profile.first_name}}</a>
+            <a href="../userInfo/" v-if="isLogin && user.profile.first_name" style="color: white;">{{user.profile.first_name}}</a>
             <a href="../login" v-if="!isLogin" style="color:white">Login</a>
           </button>
           <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
@@ -219,13 +219,13 @@
                                             <div class="card">
                                                 <div class="card-body">
                                                     <h6 class="card-title"><strong>Sessions</strong></h6>
-                                                    <div class="form-check" v-if="(user.reg &&user.reg.is_paid==0) || !user.reg">
-                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" :checked="(user.reg && user.reg.is_paid==0) || !user.reg" disabled >
+                                                    <div class="form-check" v-if="(user.reg && !user.reg.registration) || !user.reg">
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" :checked="(user.reg && !user.reg.registration) || !user.reg" disabled >
                                                         <label class="form-check-label" for="flexCheckDefault">
                                                             <p>Conference,Tutorials,Workshops and Expo (This is a must-option</p>
                                                         </label>
                                                     </div>
-                                                    <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12" v-if="(user.reg &&user.reg.is_paid==0) || !user.reg">
+                                                    <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12" v-if="(user.reg && !user.reg.registration) || !user.reg">
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox" id="check_item" value="" v-model="reg_info.is_student" :disabled="!is_student">
                                                             <label class="form-check-label" for="flexCheckDefault">
@@ -283,7 +283,7 @@
                                                         </div>
                                                     </li>
 
-                                                    <li class="list-group-item" v-if='!user.reg || (user.reg && user.reg.is_paid == 0)'>
+                                                    <li class="list-group-item" v-if='!user.reg || (user.reg && !user.reg.registration)'>
                                                         <div class="row">
                                                             <div class="col-xs-1 col-sm-1 col-sm-1 col-lg-1">
                                                                 <strong>1</strong>
@@ -299,7 +299,7 @@
                                                     <li class="list-group-item" v-if="reg_info.papers.length > 0">
                                                         <div class="row">
                                                             <div class="col-xs-1 col-sm-1 col-sm-1 col-lg-1">
-                                                                <strong>2</strong>
+                                                                <strong>{{(user.reg && user.reg.registration)?'1':'2'}}</strong>
                                                             </div>
                                                             <div class="col-xs-9 col-sm-9 col-sm-9 col-lg-9">
                                                                 Publication
@@ -318,7 +318,7 @@
                                                                 <strong>Total:</strong>
                                                             </div>
                                                             <div class="col-xs-4 col-sm-2 col-sm-2 col-lg-2" style="text-align: right;" >
-                                                                {{reg_info.is_student * 20 + !reg_info.is_student * 50 + reg_info.papers.length * 150}}
+                                                                {{reg_info.is_student * 20 + (!reg_info.is_student && user.reg && user && !user.reg.registration)* 50 + reg_info.papers.length * 150}}
                                                             </div>
                                                         </div>
                                                     </li>
@@ -453,6 +453,24 @@
                       <div class="modal-content">
                         <div class="modal-body">
                           <p>Duplicate ID</p>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="modal" tabindex="-1" id='sumbitSuccessful'>
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-body">
+                          <p>Submit successful!</p>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="modal" tabindex="-1" id='paymentSuccessful'>
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-body">
+                          <p>Payment successful!</p>
                         </div>
                       </div>
                     </div>

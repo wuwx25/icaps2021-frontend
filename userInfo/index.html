@@ -158,11 +158,11 @@
                     </div>
                 </div>
             </li>
-            <div v-if="user.reg && user.reg.is_paid">
-                <li class="list-group-item">
+            <div v-if="user.reg && user.reg.registration">
+                <li class="list-group-item" v-for="paper in user.reg.paper">
                     <div class="row">
                         <div class="col-6">Publication</div>
-                        <div class="col-6">{{(user&&user.reg.publication)==1?user.reg.paper.title:"No"}}</div>
+                        <div class="col-6">{{(user.reg&&user.reg.publication)?paper.title:"No"}}</div>
                     </div>
                 </li>
 

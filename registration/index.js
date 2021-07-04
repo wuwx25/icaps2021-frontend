@@ -40,6 +40,7 @@ var app = new Vue({
         errorModal: {},
         publicationModal: {},
         updateProfileModal:{},
+        subSuccessfulModal:{},
         checkPaperModal:{},
         isLogin: false,
         eduMail: [
@@ -258,7 +259,7 @@ var app = new Vue({
                 }
             }
             axios(options).then(res=>{
-                    this.updateProfileModal.show()
+                    this.subSuccessfulModal.show()
                     setTimeout(() => {
                         window.location.href = "../userInfo"
                     }, 1500);
@@ -340,6 +341,9 @@ var app = new Vue({
         this.publicationModal = new bootstrap.Modal(document.getElementById('publication'));
         this.checkPaperModal = new bootstrap.Modal(document.getElementById('checkPaper'));
         this.updateProfileModal = new bootstrap.Modal(document.getElementById('updateProfile'));
+        this.subSuccessfulModal = new bootstrap.Modal(document.getElementById('sumbitSuccessful'));
+
+
         var myModalEl = document.getElementById('publication')
         myModalEl.addEventListener('hidden.bs.modal', function (event) {
            if(app.reg_info.papers.length == 0){
@@ -384,7 +388,7 @@ var app = new Vue({
                 console.log('get response',res);
                 this.isLogin = true;
                 localStorage.setItem('isLogin',1)
-                if(res.data.reg&&res.data.reg.is_paid){
+                if(res.data.reg&&res.data.reg.registration){
                     this.collapse[3].show();
                 }else{
                     this.collapse[2].show();
@@ -392,7 +396,12 @@ var app = new Vue({
                 this.user = res.data;
                 this.user_info = this.user.profile;
                 this.user_info.email=this.user.email;
-                
+                if(this.user.reg && this.user.reg.registration){
+                    this.reg_info.registration = false;
+                }
+                else{
+                    this.reg_info.registration = true;
+                }
                     var is_edu_email=false;
                     for(var i=0;i < this.eduMail.length;i++){
                         var edu_str=this.eduMail[i];
@@ -437,16 +446,6 @@ var app = new Vue({
                   this.publicationModal.show()
             }
         },
-        // 'reg_info.is_student': {
-        //     handler: function (){
-        //         if(app.user_info.email.indexOf('edu') > 0 || app.user_info.email.indexOf('ac') > 0){
-        //             console.log('app.reg_info.is_student',app.reg_info.is_student)
-        //         }else{
-        //             app.reg_info.is_student = false;
-        //         }
-                   
-        //     }
-        // },      
     }
 })
 
@@ -491,14 +490,12 @@ paypal
           orderID: data.orderID,
         })
       }).then(function (res) {
-        console.log("get response", res);
         window.a = res;
         return res.json();
       })
         .then(function (details) {
           console.log('Transaction approved by ' + details.payer.name.given_name);
-        //   window.alert('Transaction approved by ' + details.payer.name.given_name);
-            window.location.href="./index.html";
+          window.location.href = './index.html';
             return Promise.resolve();
         })
     }
