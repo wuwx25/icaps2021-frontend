@@ -336,7 +336,7 @@ var app = new Vue({
                 }).catch(err=>{
                     this.isErrorPaper = true;
                     this.errorPaperMessage = err.response.data.message;
-                    console.log(err.response.data.message)
+                    console.log(err.response.data.message);
                 })
             }
         },
