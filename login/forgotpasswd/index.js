@@ -20,7 +20,7 @@ var app = new Vue({
     },
     methods:{
 		submit:function(){
-			const regEmail = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
+			const regEmail =/^([a-zA-Z]|[0-9])(\w|\.|\-)+@[a-zA-Z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
 			if(regEmail.test(this.user.email)){
 				this.isEmail = true
 			}else{

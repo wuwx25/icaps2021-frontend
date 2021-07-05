@@ -136,10 +136,14 @@ var app = new Vue({
 				{paper:'Computing Opportunities to Augment Plans for Novel Replanning during Execution'},
 				{paper:'Adaptive Smoothing for Path Integral Control'}
 			]			
-		}
+		},
+		sum:0,
+		oldTime: new Date,
 	},
 	mounted(){
 		this.sessionNum = decodeURI(window.location.href).split('=')[1];
-		console.log(this[this.sessionNum])
+		// setInterval(function(){
+		// 	axios.post(backendBaseUrl+'/api/users/forgotemailverify',this.user)
+		// },60000)
 	}
 })
