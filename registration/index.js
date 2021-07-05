@@ -3,48 +3,48 @@ import {country, isLogin} from '../assets/js/data.js';
 var app = new Vue({
     el: '#app',
     data: {
-        token:"",
-        message: "Hello ",
+        token     : "",
+        message   : "Hello ",
         first_name: "",
-        last_name: "",
-        user_info: {},
-        user: {},
-        reg_info: {
+        last_name : "",
+        user_info : {},
+        user      : {},
+        reg_info  : {
             publication: false,
-            is_student: false,
-            papers:[],
+            is_student : false,
+            papers     : [],
         },
         reg_fee: {
-            student: 20,
+            student    : 20,
             publication: 150,
             non_student: 50
         },
-        isErrorPaper:false,
-        isEmail: false,
-        isFirst_name: false,
-        isLast_name: false,
-        isInstitution: false,
-        isPronoun: false,
-        isPassword: false,
-        isLessSix: false,
-        isPassword2: false,
-        isMisMatch: false,
-        isCountry: false,
-        collapse:[],
-        emailErrorMsg:'',
-        errorPaperMessage:'',
-        isErrorCode: false,
-        is_student: false,
-        country: country,
-        codeModal: {},
-        errorModal: {},
-        publicationModal: {},
-        updateProfileModal:{},
-        subSuccessfulModal:{},
-        paySuccessfulModal:{},
-        checkPaperModal:{},
-        isLogin: false,
-        eduMail: [
+        isErrorPaper      : false,
+        isEmail           : false,
+        isFirst_name      : false,
+        isLast_name       : false,
+        isInstitution     : false,
+        isPronoun         : false,
+        isPassword        : false,
+        isLessSix         : false,
+        isPassword2       : false,
+        isMisMatch        : false,
+        isCountry         : false,
+        collapse          : [],
+        emailErrorMsg     : '',
+        errorPaperMessage : '',
+        isErrorCode       : false,
+        is_student        : false,
+        country           : country,
+        codeModal         : {},
+        errorModal        : {},
+        publicationModal  : {},
+        updateProfileModal: {},
+        subSuccessfulModal: {},
+        paySuccessfulModal: {},
+        checkPaperModal   : {},
+        isLogin           : false,
+        eduMail           : [
             "ac.at",
             "ac.bd",
             "ac.be",
@@ -118,11 +118,11 @@ var app = new Vue({
             "edu.vn"
             ],
         uploadFile:{
-            cvFile:{},
-            success:false,
-            fail:false,
-            share_inform:false,
-            add_mail_list:false,
+            cvFile       : {},
+            success      : false,
+            fail         : false,
+            share_inform : false,
+            add_mail_list: false,
         }
 
     },
@@ -156,7 +156,7 @@ var app = new Vue({
                 this.isEmail = false
             }else{
                 this.isEmail = true
-                flag = true
+                flag         = true
             }
             }else{
                 this.isEmail = true
@@ -238,7 +238,13 @@ var app = new Vue({
             )
         },
         getfile(e) {
-            this.uploadFile.cvFile = e.target.files[0];
+            if(e.target.files[0].size < 20000000)
+                this.uploadFile.cvFile = e.target.files[0];
+            else{
+                alert('File limit 20M')
+                return ;
+            }
+            
         },
         submit() {
             if(!this.isLogin){
@@ -280,9 +286,9 @@ var app = new Vue({
             window.location.href="/login";
         },
         updateProfile: function () {
-            this.Edit = !this.Edit;
-            var url = backendBaseUrl+'/api/users/profile';
-            var options = {
+            this.Edit     = !this.Edit;
+            var url       = backendBaseUrl+'/api/users/profile';
+            var options   = {
                 body: JSON.stringify(app.user_info),
                 method: 'PATCH',
                 headers: {
@@ -307,10 +313,13 @@ var app = new Vue({
         addPaper(){
             this.publicationModal.show()
         },
+        removePaper(index){
+            this.reg_info.papers.splice(index,1);   
+        },
         checkPaper(){
             var url = backendBaseUrl+'/api/test/checkpaper';
             for(var i = 0; i < this.reg_info.papers.length; i++){
-                if(this.reg_info.id == this.reg_info.papers[i].id){
+                if(this.reg_info.papers.length>0 && this.reg_info.id == this.reg_info.papers[i].id){
                     this.checkPaperModal.show();
                     this.publicationModal.hide();
                     setTimeout(() => {
@@ -326,8 +335,8 @@ var app = new Vue({
                     this.publicationModal.hide()
                 }).catch(err=>{
                     this.isErrorPaper = true;
-                    this.errorPaperMessage = err.response.data.msg
-                    console.log(err.response.data.msg)
+                    this.errorPaperMessage = err.response.data.message;
+                    console.log(err.response.data.message)
                 })
             }
         },
@@ -503,5 +512,6 @@ paypal
         }, 1500); 
         return Promise.resolve();
         })
+        
     }
 }).render('#paypal-button-container');
