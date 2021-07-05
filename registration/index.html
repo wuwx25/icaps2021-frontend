@@ -93,6 +93,9 @@
                         <li class="nav-item">
                             <a href="../code-of-conduct.html" class="nav-link px-2">Code of conduct</a>
                         </li>
+                        <li class="nav-item">
+                            <a href="../registration/" class="nav-link px-2 active">Registration</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -248,7 +251,7 @@
                                                     </ul>
                                                     <ul class="list-group list-group-horizontal" style="width: 100%;" v-for="(paper,index) in reg_info.papers">
                                                         <li class="list-group-item" style="width: 25%;" >{{paper.id}}</li>
-                                                        <li class="list-group-item" style="width: 70%;" >{{paper.title}}</li>
+                                                        <li class="list-group-item" style="width: 65%;" >{{paper.title}}</li>
                                                         <li class="list-group-item" style="width: 5%;" > <div style="font-size: x-large;font-weight: bolder;" @click='removePaper(index)'>-</div></li>
                                                     </ul>
                                                     <ul class="list-group list-group-horizontal" style="width: 100%;">
