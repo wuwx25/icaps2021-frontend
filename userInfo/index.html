@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="../assets/js/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="../assets/js/vue.min.js"></script>
 
     <link
             rel="shortcut icon"
@@ -13,7 +13,7 @@
     />
     <link rel="stylesheet" href="https://www.orchome.com/css/bootstrap/5.0.1/bootstrap.min.css">
     <script src="https://www.orchome.com/js/bootstrap/5.0.1/bootstrap.min.js"></script>
-    <script src="http://cdn.staticfile.org/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://cdn.staticfile.org/moment.js/2.24.0/moment.min.js"></script>
     <title>ICAPS 2021</title>
 
     <!-- Bootstrap core CSS -->
@@ -80,11 +80,14 @@
                         <li class="nav-item">
                             <a href="../code-of-conduct.html" class="nav-link px-2">Code of conduct</a>
                         </li>
+                        <li class="nav-item">
+                            <a href="../registration/" class="nav-link px-2">Registration</a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </div>
-        <button type="button" class="btn btn-primary" style="position: fixed;right: 10%;">
+        <button type="button" class="btn" style="position: fixed;right: 10%;background-color: #1f4e8f;">
             <a @click="logout" style="color: white">Logout</a>
         </button>
     </nav>
@@ -100,7 +103,7 @@
         <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-6">
         <ul class="list-group  ">
-            <li class="list-group-item" style="background-color:darkblue;color: white;">
+            <li class="list-group-item" style="background-color: #1f4e8f;color: white;">
                 <div class="row ">
                     <div class="col-10">Contact Information</div>
                     <div class="col-2">
@@ -149,7 +152,7 @@
                 <div style="height: 100%"></div>
         </div>
         <ul class="list-group">
-            <li class="list-group-item" style="background-color: darkblue;color: white;">
+            <li class="list-group-item" style="background-color: #1f4e8f;color: white;">
                 <div class="row">
                     <div class="col-xs-6 col-sm-8 col-md-9 col-xl-10">Registration History</div>
                     <div class="col-xs-6 col-sm-4 col-md-3 col-xl-2">
@@ -179,14 +182,12 @@
                         <div class="col-6">{{user.reg.registration_datetime}}</div>
                     </div>
                 </li>
-                <li class="list-group-item">
-                    <div class="row" v-if="user.cv_info.share_inform">
+                <li class="list-group-item"  v-if="user.cv_info && user.cv_info.share_inform">
+                    <div class="row">
                         <div class="col-6">I want to be recruited by sponsors</div>
                         <div class="col-6">Yes</div>
                     </div>
                 </li>
-
-
             </div>
         </ul>
     </div>
@@ -206,6 +207,9 @@
                 </div>
                 <div class="col col-12 col-lg-2 d-flex justify-content-center">
                     <a href="../code-of-conduct.html">Code of Conduct</a>
+                </div>
+                <div class="col col-12 col-lg-2 d-flex justify-content-center">
+                    <a href="mailto:icapsgz2021@gmail.com">Contact Us</a>
                 </div>
             </div>
         </div>
