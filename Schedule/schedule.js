@@ -88,8 +88,8 @@ var app = new Vue({
 			else return true;
 		}
 	},	
+
 	computed:{
 		
 	}
   })
-
