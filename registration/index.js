@@ -369,24 +369,24 @@ var app = new Vue({
         this.collapse[3]= new bootstrap.Collapse(collapse3, {toggle:false})
         this.collapse[4]= new bootstrap.Collapse(collapse4, {toggle:false})
         collapse1.addEventListener('show.bs.collapse', function () {
-            this.collapse[2].hide();
-            this.collapse[3].hide();
-            this.collapse[4].hide();
+            app.collapse[2].hide();
+            app.collapse[3].hide();
+            app.collapse[4].hide();
         })
         collapse2.addEventListener('show.bs.collapse', function () {
-            this.collapse[1].hide();
-            this.collapse[3].hide();
-            this.collapse[4].hide();
+            app.collapse[1].hide();
+            app.collapse[3].hide();
+            app.collapse[4].hide();
         })
         collapse3.addEventListener('show.bs.collapse', function () {
-            this.collapse[1].hide();
-            this.collapse[2].hide();
-            this.collapse[4].hide();
+            app.collapse[1].hide();
+            app.collapse[2].hide();
+            app.collapse[4].hide();
         })
         collapse4.addEventListener('show.bs.collapse', function () {
-            this.collapse[1].hide();
-            this.collapse[2].hide();
-            this.collapse[3].hide();
+            app.collapse[1].hide();
+            app.collapse[2].hide();
+            app.collapse[3].hide();
         })
 
         if(localStorage.getItem('token')){
