@@ -3,6 +3,9 @@
         "name":"Richard Sutton",
         "department":"University of Alberta"
     },
+        {
+        "name":"Manuela Veloso",
+        "department":"J.P. Morgan AI Research"},
     {
         "name":"Jieping Ye",
         "department":"University of Michigan & Beike\nVice President, Chief Scientist, Beike Inc.\nProfessor, University of Michigan, Ann Arbor\nIEEE Fellow, ACM Distinguished Scientist",
@@ -10,9 +13,6 @@
         "title": "AI for Housing",
         "abstract":"Marketplace KE Holdings Inc. (“Beike”) is a leading integrated online and offline platform for housing transactions and services. The company is a pioneer in building the industry infrastructure and standards in China to reinvent how service providers and housing customers efficiently navigate and consummate housing transactions, ranging from existing and new home sales, home rentals, to home renovation, real estate financial solutions, and other services. In this talk, we will discuss the challenges and opptunites for AI in housing marketplace, especially modern housing platforms like Beike. We will introduce how AI technologies have been applied to analyze unique data (including data for property, housing customers and agents) on Beike’s platform, to improve service efficiency and customer experience."
     },
-    {
-        "name":"Manuela Veloso",
-        "department":"J.P. Morgan AI Research"},
     {
         "name":"Stefan Edelkamp",
         "department":"Czech Technical University in Prague",
