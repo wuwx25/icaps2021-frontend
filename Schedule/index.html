@@ -129,16 +129,22 @@
                   <div style="overflow-y: auto" v-if="'bio' in speaker">
                     <div
                       class="card-body bg-light clearfix"
+                      <!--
                       style="height: 30vh; overflow-y: auto"
+                      --
                     >
+                      >
                       <p class="card-text clearfix">
                         <b>BIO</b>: {{'bio' in speaker?speaker.bio:"TBD"}}
                       </p>
                     </div>
                     <div
                       class="card-body clearfix"
+                      <!--
                       style="height: 30vh; overflow-y: auto"
+                      --
                     >
+                      >
                       <h5>{{'title' in speaker?speaker.title:"TBD"}}</h5>
                       <p class="card-text">
                         <b>Abstract</b>: {{'abstract' in
