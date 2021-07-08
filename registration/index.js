@@ -232,7 +232,7 @@ var app = new Vue({
                     this.codeModal.show();
                 }
             ).catch(err=>{
-                this.emailErrorMsg = err.response.datamessage;
+                this.emailErrorMsg = err.response.data.message;
                 this.errorModal.show();
                 }
             )
