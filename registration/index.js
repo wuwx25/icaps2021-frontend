@@ -236,16 +236,19 @@ var app = new Vue({
                     this.codeModal.show();
                 }
             ).catch(err=>{
-                this.emailErrorMsg = err.response.data.email;
-                this.errorModal.show()
+                this.emailErrorMsg = err.response.data.message;
+                this.errorModal.show();
                 }
             )
         },
         getfile(e) {
-            if(e.target.files[0].size < 20000000)
+            if(e.target.files[0].size < 1024*1024*20){
                 this.uploadFile.cvFile = e.target.files[0];
+                console.dir(e.target.files)
+            }
             else{
                 alert('File limit 20M')
+                document.getElementById('formFile').value = "";
                 return ;
             }
             
