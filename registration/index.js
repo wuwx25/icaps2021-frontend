@@ -412,6 +412,10 @@ var app = new Vue({
                 if(this.user.reg && this.user.reg.registration){
                     this.reg_info.registration = false;
                 }
+                if(this.user.cv_info){
+                    this.uploadFile.share_inform = Boolean(this.user.cv_info.share_inform)
+                    this.uploadFile.add_mail_list = Boolean(this.user.cv_info.add_mail_list)
+                }
                 else{
                     this.reg_info.registration = true;
                 }
