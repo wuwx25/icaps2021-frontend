@@ -118,7 +118,8 @@ var app = new Vue({
             "edu.vn",
             // Germany universitys
             "uni-leipzig.de",
-            "uni-saarland.de"
+            "uni-saarland.de",
+            ".edu"
             ],
         uploadFile:{
             cvFile       : {},
