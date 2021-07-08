@@ -385,7 +385,7 @@
                                 <hr>
                                 <div class="mb-3">
                                     <label for="formFile" class="form-label" >Please use the PDF format for your CV if possible.</label>
-                                    <input class="form-control" type="file" id="formFile" @change="getfile">
+                                    <input class="form-control" type="file" id="formFile" @change="getfile"> 
                                     <small  style="color: red" v-if="uploadFile.fail"><ul><li>Fail to submit.</li></ul></small>
                                     <button type="button" style="width: 100%;height:30px;margin-top: 1rem" class="btn btn-primary" @click="submit">submit</button>
                                 </div>
