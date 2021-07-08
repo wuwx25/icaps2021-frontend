@@ -232,6 +232,7 @@ var app = new Vue({
                     this.codeModal.show();
                 }
             ).catch(err=>{
+                console.dir(err)
                 this.emailErrorMsg = err.response.data.message;
                 this.errorModal.show();
                 }
@@ -279,7 +280,6 @@ var app = new Vue({
             })
         },
         logout() {
-            console.log("user logout");
             localStorage.setItem('token',"");
             window.location.href = "./index.html"
             this.isLogin = false;
@@ -349,6 +349,7 @@ var app = new Vue({
         }
     },
     mounted: function() {
+        console.log(this)
         this.codeModal = new bootstrap.Modal(document.getElementById('verifyCode'));
         this.errorModal = new bootstrap.Modal(document.getElementById('Registered'));
         this.publicationModal = new bootstrap.Modal(document.getElementById('publication'));
@@ -371,25 +372,26 @@ var app = new Vue({
         this.collapse[2]= new bootstrap.Collapse(collapse2, {toggle:false})
         this.collapse[3]= new bootstrap.Collapse(collapse3, {toggle:false})
         this.collapse[4]= new bootstrap.Collapse(collapse4, {toggle:false})
+        let that=this;
         collapse1.addEventListener('show.bs.collapse', function () {
-            app.collapse[2].hide();
-            app.collapse[3].hide();
-            app.collapse[4].hide();
+            that.collapse[2].hide();
+            that.collapse[3].hide();
+            that.collapse[4].hide();
         })
         collapse2.addEventListener('show.bs.collapse', function () {
-            app.collapse[1].hide();
-            app.collapse[3].hide();
-            app.collapse[4].hide();
+            that.collapse[1].hide();
+            that.collapse[3].hide();
+            that.collapse[4].hide();
         })
         collapse3.addEventListener('show.bs.collapse', function () {
-            app.collapse[1].hide();
-            app.collapse[2].hide();
-            app.collapse[4].hide();
+            that.collapse[1].hide();
+            that.collapse[2].hide();
+            that.collapse[4].hide();
         })
         collapse4.addEventListener('show.bs.collapse', function () {
-            app.collapse[1].hide();
-            app.collapse[2].hide();
-            app.collapse[3].hide();
+            that.collapse[1].hide();
+            that.collapse[2].hide();
+            that.collapse[3].hide();
         })
 
         if(localStorage.getItem('token')){
@@ -513,10 +515,7 @@ paypal
           console.log('Transaction approved by ' + details.payer.name.given_name);
         //   window.location.href = './index.html';
         app.paySuccessfulModal.show();
-        setTimeout(() => {
-            app.paySuccessfulModal.hide();
-            app.collapse[3].show();
-        }, 1500); 
+        setTimeout(window.location.href = './index.html',1000)
         return Promise.resolve();
         })
         
