@@ -36,11 +36,10 @@
 </head>
 <body>
 <div id="app">
-<header class="navbar fixed-top p-3 border-bottom" >
-    <nav class="navbar navbar-light navbar-expand-lg">
-        <div class="container-fluid d-flex">
+<header>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top p-3 border-bottom">
+        <div class="container-fluid">
             <a class="navbar-brand text-dark">ICAPS 2021</a>
-            <div>
                 <button
                         class="navbar-toggler"
                         type="button"
@@ -84,13 +83,15 @@
                             <a href="../registration/" class="nav-link px-2">Registration</a>
                         </li>
                     </ul>
+                    <span class="navbar-right">
+                        <button type="button" class="btn btn-primary" @click='logout'>
+                            Logout
+                        </button>
+                    </span>
                 </div>
-            </div>
         </div>
     </nav>
-    <button type="button" class="btn btn-primary" @click='logout'>
-        Logout
-    </button>
+   
 </header>
 <div class="album mt-3">
     <div style="height: 100px" class="d-none d-md-block">
