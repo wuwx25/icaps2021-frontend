@@ -24,9 +24,9 @@
     <script src="../assets/js/bootstrap.min.js"></script>
 
     <!-- import axios  -->
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
     <!-- vue dev version -->
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> -->
   </head>
   <body class="bg-light">
     <header class="navbar fixed-top p-3 border-bottom">
@@ -64,7 +64,9 @@
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li>
-                      <a class="dropdown-item active">Schedule Overview</a>
+                      <a class="dropdown-item" href="index.html"
+                        >Schedule Overview</a
+                      >
                     </li>
                     <li>
                       <a class="dropdown-item" href="invited-speakers.html"
@@ -72,9 +74,7 @@
                       >
                     </li>
                     <li>
-                      <a class="dropdown-item" href="industry-session.html"
-                        >Industry Session</a
-                      >
+                      <a class="dropdown-item active">Industry Session</a>
                     </li>
                   </ul>
                 </li>
@@ -99,19 +99,17 @@
         </div>
       </nav>
     </header>
-    <div id="app" v-cloak>
-      <div class="album mt-3 p-4">
-        <div style="height: 100px" class="d-none d-md-block">
-          <!-- padding hack for the fixed navbar -->
-        </div>
+    <div class="album mt-3 p-4">
+      <div style="height: 100px" class="d-none d-md-block">
+        <!-- padding hack for the fixed navbar -->
+      </div>
 
-        <div class="container">
-          <div class="mb-5">
-            <h4>Schedule</h4>
-            <hr />
+      <div class="container">
+        <div class="mb-5">
+          <h4>Industry Session</h4>
+          <hr />
 
-            <div class="alert alert-icaps" role="alert">Coming soon!</div>
-          </div>
+          <div class="alert alert-icaps" role="alert">Coming soon!</div>
         </div>
       </div>
     </div>
