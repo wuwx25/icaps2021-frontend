@@ -115,7 +115,8 @@ var app = new Vue({
             "edu.tr",
             "edu.ua",
             "edu.uy",
-            "edu.vn"
+            "edu.vn",
+            "edu"
             ],
         uploadFile:{
             cvFile       : {},
@@ -280,9 +281,18 @@ var app = new Vue({
             })
         },
         logout() {
-            localStorage.setItem('token',"");
-            window.location.href = "./index.html"
-            this.isLogin = false;
+            var options = {
+                url: backendBaseUrl + '/api/users/logout',
+                method: 'post'
+            }
+            axios(options).then(res=>{
+                console.log(res)
+                localStorage.setItem('token',"");
+                window.location.href = "./index.html"
+                this.isLogin = false;
+            }).catch(err=>{
+                console.log(err)
+            })
         },
         login(){
             console.log("user login");
@@ -349,6 +359,7 @@ var app = new Vue({
         }
     },
     mounted: function() {
+        axios.defaults.withCredentials = true;
         this.codeModal = new bootstrap.Modal(document.getElementById('verifyCode'));
         this.errorModal = new bootstrap.Modal(document.getElementById('Registered'));
         this.publicationModal = new bootstrap.Modal(document.getElementById('publication'));

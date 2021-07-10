@@ -27,8 +27,17 @@ var app = new Vue({
         },
         logout: function () {
             localStorage.setItem("token", "");
-            window.alert("logout successfully!");
-            window.location.href = "../login";
+            var options = {
+                url: backendBaseUrl + '/api/users/logout',
+                method: 'post'
+            }
+            axios(options).then(res=>{
+                localStorage.setItem('token',"");
+                window.location.href = "../login";
+                window.alert("logout successfully!");
+            }).catch(err=>{
+                console.log(err)
+            })
         },
         forceQuit: function () {
             window.alert("Please log in first!");
@@ -36,7 +45,7 @@ var app = new Vue({
         }
     },
     mounted: function () {
-
+        axios.defaults.withCredentials = true; 
         let token = localStorage.getItem("token");
         if (token == null || token == "") {
             console.log("No token detected");
