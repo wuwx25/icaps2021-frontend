@@ -69,6 +69,10 @@
                             <a href="../papers" class="nav-link px-2">Papers</a>
                         </li>
                         <li class="nav-item">
+                            <a href="../InvitedSpeakers/" class="nav-link px-2">Invited Speakers</a>
+                        </li>
+
+			<li class="nav-item">
                             <a href="../Calls" class="nav-link px-2">Calls</a>
                         </li>
                         <li class="nav-item">
@@ -79,15 +83,12 @@
                         </li>
                         <li class="nav-item">
                             <a href="../Committee" class="nav-link px-2">Committee</a>
-                        <li class="nav-item">
-                            <a href="../InvitedSpeakers/" class="nav-link px-2">Invited Speakers</a>
-                        </li>
                         <!-- <li class="nav-item">
                             <a href="../exhibition/" class="nav-link px-2">Exhibition</a>
                         </li>
                         <li class="nav-item">
                             <a href="../Schedule/" class="nav-link px-2">Schedule</a>
-                        </li> -->
+                        </li>  -->
                         <li class="nav-item">
                             <a href="../code-of-conduct.html" class="nav-link px-2">Code of conduct</a>
                         </li>
@@ -228,7 +229,7 @@
                                                     <div class="form-check" v-if="(user.reg && !user.reg.registration) || !user.reg">
                                                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" :checked="(user.reg && !user.reg.registration) || !user.reg" disabled >
                                                         <label class="form-check-label" for="flexCheckDefault">
-                                                            <p>Conference,Tutorials,Workshops and Expo (This is a must-option</p>
+                                                            <p>Conference,Tutorials,Workshops and Expo (This is required</p>
                                                         </label>
                                                     </div>
                                                     <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12" v-if="(user.reg && !user.reg.registration) || !user.reg">
@@ -243,7 +244,7 @@
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox" value="" v-model="reg_info.publication">
                                                             <label class="form-check-label" for="flexCheckDefault">
-                                                                <p>Publication<span style="margin-left: 1rem">( If you have a paper accepted,please be sure to click this option!</span></p>
+                                                                <p>Publication<span style="margin-left: 1rem">( Make sure to select this option if you have an accepted paper!</span></p>
                                                             </label>
                                                         </div>
                                                     </div>
@@ -263,7 +264,7 @@
                                                     </div>
                                                      
                                             
-                                                    <div class="card-text" style="margin-left: 1.5rem"><small class="text-muted">Check at least one</small></div>
+                                                    <div class="card-text" style="margin-left: 1.5rem"><small class="text-muted">Select at least one</small></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -351,14 +352,14 @@
                         <h2 class="accordion-header" id="headingFive">
                             <button class="accordion-button collapsed"  type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
                                 <strong>3.Invitation Letter and Proof of Participation</strong>
-                                <span v-if="!user.reg || (user.reg && !user.reg.registration)" style="font-weight: lighter;margin-left: 1rem">It can be opened after registration</span>
+                                <span v-if="!user.reg || (user.reg && !user.reg.registration)" style="font-weight: lighter;margin-left: 1rem">This is accessible only to registered users</span>
                             </button>
                         </h2>
                         
                             <div id="collapseThree" class="accordion-collapse collapse"  aria-labelledby="headingFive" data-bs-parent="#accordionExample">
                                 <div class="accordion-body" :hidden="!user.reg || (user.reg && !user.reg.registration)">
                                     <div class="row">
-                                    <p style="text-align: justify">This is a virtual-only conference. VISA letters of invitation are generated only for the purpose of applying for a VISA. If you need documentation of your participation at the meeting for reimbursemnet, please use your registration receipt as proof of payment and your certificate of attendance (above in the Payment and Receipt section as your proof of attendance.</p>
+                                    <p style="text-align: justify">This is a purely virtual conference, so we will not be providing any VISA invitation letters. If you need documentation of your participation at the meeting for reimbursement, please use your registration receipt as proof of payment and your certificate of attendance (above in the Payment and Receipt section) as your proof of attendance.</p>
                                     <button type="button" class="btn btn-primary"   @click="nextWindow"   style="margin: 1.5em 0 0.5em 0em" >Next</button>
                                 </div>
                             </div>
@@ -368,7 +369,7 @@
                         <h2 class="accordion-header" id="headingSix">
                             <button class="accordion-button collapsed"   type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
                                 <strong>4.Get Recruited by our Sponsors</strong>
-                                <span v-if="!user.reg || (user.reg && !user.reg.registration)" style="font-weight: lighter;margin-left: 1rem">It can be opened after registration</span>
+                                <span v-if="!user.reg || (user.reg && !user.reg.registration)" style="font-weight: lighter;margin-left: 1rem">This is accessible only to registered users</span>
                             </button>
                         </h2>
                         <div id="collapseFour" class="accordion-collapse collapse"   aria-labelledby="headingSix" data-bs-parent="#accordionExample">
@@ -511,6 +512,9 @@
             </div>
             <div class="col col-12 col-lg-2 d-flex justify-content-center">
                 <a href="../code-of-conduct.html">Code of Conduct</a>
+            </div>
+            <div class="col col-12 col-lg-2 d-flex justify-content-center">
+                <a href="mailto:icapsgz2021@gmail.com">Contact Us</a>
             </div>
         </div>
     </div>
