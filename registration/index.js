@@ -470,8 +470,7 @@ var app = new Vue({
             }
         },
     }
-})
-
+});
 paypal
   .Buttons({
       createOrder: () => {
@@ -493,7 +492,7 @@ paypal
       }).then(function (data) {
         if(data.message == "user already paid and registered!"){
             window.alert(data.message)
-            return
+            return Promise.reject();
         }
         console.log("data is", data);
         return data.orderID; // Use the key sent by your server's response, ex. 'id' or 'token'
@@ -501,6 +500,15 @@ paypal
           console.log('err',err)
       });
     },
+    onError: function (err) {
+        // For example, redirect to a specific error page
+        let message="Unknow server error";
+        if(!app.reg_info.registration&&!app.reg_info.publication){
+            message="you have not selected any sessions!";
+        }
+        console.log("now in error");
+        window.alert(message);
+      },
     onApprove: (data) => {
       console.log("now is in onApprove");
       app.reg_info.orderID=data.orderID;
