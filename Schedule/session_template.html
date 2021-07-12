@@ -90,11 +90,12 @@
 			
 			<div class="text-center">
 				<h1 >{{sessionNum}}</h1>
+				<hr>
 				
 				<p style="margin-top: 2em;">
-					<div v-for='item in session[sessionNum]'>
-						<p>
-							<a href='http:192.168.0.224:5444/api/rocketchat/home?username=12374&password=12374&email=821189433@qq.com&channel=test'>{{item.paper}}</a>
+					<div v-for='(item,key) in session[sessionNum]'>
+						<p @click='setId(key)'>
+							<a href='../exhibition/index.html'>{{item}}</a>
 						</p>
 					</div>
 				</p>

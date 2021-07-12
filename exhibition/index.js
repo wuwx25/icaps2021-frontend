@@ -4,7 +4,7 @@ var app = new Vue({
     el: '#app',
     data: {
         token     : "",
-        channel:'general'
+        channel:""
     },
     methods: {
 
@@ -13,7 +13,8 @@ var app = new Vue({
         axios.defaults.withCredentials = true;
         console.log("exhibition");
         if(localStorage.getItem("channel")){
-            channel=localStorage.getItem("channel");
+            this.channel=localStorage.getItem("channel");
+            console.log(this.channel)
         }
     },
     watch: {
