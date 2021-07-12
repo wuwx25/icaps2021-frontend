@@ -12,9 +12,7 @@ var app = new Vue({
     mounted: function() {
         axios.defaults.withCredentials = true;
         console.log("exhibition");
-        if(localStorage.getItem("channel")){
-            channel=localStorage.getItem("channel");
-        }
+        this.channel=localStorage.getItem("channel");
     },
     watch: {
         token: async function () {
