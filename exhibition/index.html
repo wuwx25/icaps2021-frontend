@@ -2,7 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/html">
   <head>
 	<meta charset="utf-8" />
-	<meta http-equiv="refresh" content="0;url=../home/" />
+	<!-- <meta http-equiv="refresh" content="0;url=../home/" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
       rel="shortcut icon"
@@ -22,62 +22,12 @@
     
     <!-- jQuery -->
     <script src="../assets/js/jquery-3.6.0.min.js"></script>
+	<script src="../assets/component/myheader.js" type="module"></script>
   </head>
 	<body class="bg-light">
-		<header class="navbar fixed-top p-3 border-bottom">
-		  <nav class="navbar navbar-light navbar-expand-lg">
-		    <div class="container-fluid d-flex">
-		      <a class="navbar-brand text-dark">ICAPS 2021</a>
-		      <div>
-		        <button
-		          class="navbar-toggler"
-		          type="button"
-		          data-bs-toggle="collapse"
-		          data-bs-target="#navbarSupportedContent"
-		        >
-		          <span class="navbar-toggler-icon"></span>
-		        </button>
-		        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-		          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-		            <li class="nav-item">
-		              <a href="../home" class="nav-link px-2">Home</a>
-		            </li>
-		            <li class="nav-item">
-		              <a href="../papers" class="nav-link px-2">Papers</a>
-		            </li>
-					  <li class="nav-item">
-					    <a href="../InvitedSpeakers/" class="nav-link px-2">Invited Speakers</a>
-					  </li>
-
-		            <li class="nav-item">
-		              <a href="../Calls" class="nav-link px-2">Calls</a>
-		            </li>
-		            <li class="nav-item">
-		              <a href="../workshops" class="nav-link px-2">Workshops</a>
-		            </li>
-		            <li class="nav-item">
-		              <a href="../Competitions" class="nav-link px-2">Competitions</a>
-		            </li>
-		            <li class="nav-item">
-		              <a href="../Committee" class="nav-link px-2">Committee</a>
-					  <li class="nav-item">
-					    <a href="../exhibition/" class="nav-link px-2 active">Exhibition</a>
-					  </li>
-					  <li class="nav-item">
-					    <a href="../Schedule/" class="nav-link px-2">Schedule</a>
-					  </li>
-					  <li class="nav-item">
-						  <a href="../code-of-conduct.html" class="nav-link px-2">Code of conduct</a>
-						</li>
-						<li class="nav-item">
-						  <a href="../registration/" class="nav-link px-2">Registration</a>
-						</li>
-					  </ul>
-		        </div>
-		      </div>
-		    </div>
-		  </nav>
-		</header>
+		<div id='icaps-header'>
+			<myheader curpage='exhibition'></myheader>
+		</div>
 		<main class="container" style="min-height: 80vh;">
 		<div class="album mt-3">
 		     <div style="height: 100px" class="d-none d-md-block">
@@ -88,9 +38,15 @@
 		<div class="col-12 col-lg-9 col-md-4 col-sm-12">
 		<div class="card shadow-sm mb-4" style="height: 40.75rem;">
 		              <div class="card-body">
-		                <ul class="list-group list-group-flush">
-		                  <h1>Slideslive</h1>
-		                </ul>
+						<div id="presentation-embed-38942367"></div>
+						<script src='https://slideslive.com/embed_presentation.js'></script>
+						<script>
+							embed = new SlidesLiveEmbed('presentation-embed-38942367', {
+								presentationId: '38942367',
+								autoPlay: false, // change to true to autoplay the embedded presentation
+								verticalEnabled: true
+							});
+						</script>
 		              </div>
 		            </div>
 		</div>

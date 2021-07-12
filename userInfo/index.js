@@ -1,10 +1,10 @@
 import {backendBaseUrl} from '../assets/js/backendBaseUrl.js';
 import {country} from '../assets/js/data.js';
+import {Vue} from '../assets/component/myheader.js'
 var app = new Vue({
     el: '#app',
     data: {
         isLogin: false,
-        
         user: {
         },
         columns: {
@@ -20,13 +20,13 @@ var app = new Vue({
     methods: {
         updateProfile: function () {
             this.Edit = !this.Edit;
-            axios.patch(backendBaseUrl+'/api/users/profile',this.user.profile,{ headers: { Authorization: localStorage.getItem("token") }})
+            axios.patch(backendBaseUrl+'/api/users/profile',this.user.profile,{ headers: { Authorization: window.localStorage.getItem("token") }})
             .then(res=>{
                 console.log(res);
             })
         },
         logout: function () {
-            localStorage.setItem("token", "");
+            window.localStorage.setItem("token", "");
             window.alert("logout successfully!");
             window.location.href = "../login";
         },
@@ -37,14 +37,14 @@ var app = new Vue({
     },
     mounted: function () {
 
-        let token = localStorage.getItem("token");
+        let token = window.localStorage.getItem("token");
         if (token == null || token == "") {
             console.log("No token detected");
             this.forceQuit();
             return;
         }
         // this.isLogin = isLogin(token);
-        axios.get(backendBaseUrl+'/api/users/profile', { headers: { Authorization: localStorage.getItem("token") } }
+        axios.get(backendBaseUrl+'/api/users/profile', { headers: { Authorization: window.localStorage.getItem("token") } }
         ).then(res => {
             console.log(res);
             this.user = res.data;
