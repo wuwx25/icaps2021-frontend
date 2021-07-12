@@ -218,7 +218,7 @@
                             <div class="accordion-body " :hidden="!isLogin">
                                 <div class="row">
                                     <div class="clearfix col-md-12 col-xs-12 col-sm-12 col-lg-12">
-                                        <p style="color: grey;">If you are a full time student,you must register with an email of your university.</p>
+                                        <p style="color: grey;">If you are a full time student, you must register with your university email id</p>
                                     </div>
 
                                     <div class="clearfix col-md-12 col-xs-12 col-sm-12 col-lg-12">
@@ -229,14 +229,14 @@
                                                     <div class="form-check" v-if="(user.reg && !user.reg.registration) || !user.reg">
                                                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" :checked="(user.reg && !user.reg.registration) || !user.reg" disabled >
                                                         <label class="form-check-label" for="flexCheckDefault">
-                                                            <p>Conference,Tutorials,Workshops and Expo (This is required</p>
+                                                            <p>Conference,Tutorials,Workshops and Expo (This is required)</p>
                                                         </label>
                                                     </div>
                                                     <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12" v-if="(user.reg && !user.reg.registration) || !user.reg">
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox" id="check_item" value="" v-model="reg_info.is_student" :disabled="!is_student">
                                                             <label class="form-check-label" for="flexCheckDefault">
-                                                                <p>I am full time student<span v-if="!is_student" style="margin-left: 1rem">(You can select this option only if you use the student email during registration.</span></p>
+                                                                <p>I am full time student<span v-if="!is_student" style="margin-left: 1rem">(You can select this option only if you use the student email during registration.)</span></p>
                                                             </label>
                                                         </div>
                                                     </div>
@@ -244,7 +244,7 @@
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox" value="" v-model="reg_info.publication">
                                                             <label class="form-check-label" for="flexCheckDefault">
-                                                                <p>Publication<span style="margin-left: 1rem">( Make sure to select this option if you have an accepted paper!</span></p>
+                                                                <p>Publication<span style="margin-left: 1rem">(Make sure to select this option if you have an accepted paper!)</span></p>
                                                             </label>
                                                         </div>
                                                     </div>
@@ -341,7 +341,8 @@
                                     </div>
 
                                     <div style="text-align: center;width: 100%;">
-                                        <script src="https://www.paypal.com/sdk/js?client-id=AWNahEkuGKJiJ3HHYXO6XNRBvL1WUnQpnv9bYBSOItoskfkjhP4d-EqOlQoYZFabgZone_r-qUyvpfm_"></script>
+                                        <!-- <script src="https://www.paypal.com/sdk/js?client-id=AWNahEkuGKJiJ3HHYXO6XNRBvL1WUnQpnv9bYBSOItoskfkjhP4d-EqOlQoYZFabgZone_r-qUyvpfm_"></script> -->
+                                        <script src="https://www.paypal.com/sdk/js?client-id=AVrWIwOUjJSbL0KvYZBxyOpje01WWC21yZyU2Xkvp6Ja6nl4Fz3QqS7c24gMFgK2fF_GB24jEle0y4o5"></script>
                                         <div id="paypal-button-container"></div>
                                     </div>
                                 </div>
@@ -394,7 +395,7 @@
                                     <label for="formFile" class="form-label" >Please use the PDF format for your CV if possible.</label>
                                     <input class="form-control" type="file" id="formFile" @change="getfile"> 
                                     <small  style="color: red" v-if="uploadFile.fail"><ul><li>Fail to submit.</li></ul></small>
-                                    <button type="button"  style="margin-top: 1rem;" class="btn btn-primary" @click="submit">submit</button>
+                                    <button type="button"  style="margin-top: 1rem;" class="btn btn-primary" @click="submit">Submit</button>
                                 </div>
                                 </div>
                             </div>
