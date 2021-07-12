@@ -403,7 +403,6 @@ var app = new Vue({
                     "Authorization": localStorage.getItem('token')
                 }
             }).then(res => {
-                console.log('get response',res);
                 this.isLogin = true;
                 localStorage.setItem('isLogin',1)
                 if(res.data.reg&&res.data.reg.registration){
