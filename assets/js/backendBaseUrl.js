@@ -1,1 +1,8 @@
-export let backendBaseUrl = 'https://icaps21.icaps-conference.org';
+import { test } from "../config/env.js";
+let backendBaseUrl;
+if(test) {
+    backendBaseUrl = "http://192.168.0.224";
+} else {
+    backendBaseUrl = 'https://icaps21.icaps-conference.org';
+}
+export {backendBaseUrl};
