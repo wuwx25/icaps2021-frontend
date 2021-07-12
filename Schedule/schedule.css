@@ -181,3 +181,9 @@
 		float: left;
 	}
 }
+
+.sessionPaper{
+	border:1px solid #cceff5;
+	background:#fafcfd;
+	border-radius: 25px;
+}

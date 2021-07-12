@@ -85,15 +85,15 @@
 		    </nav>
 		</header>
 		
-		<div id="app" class="album mt-3 p-4" >
+		<div id="app" class="album mt-3 p-4" style="min-height: 80vh;">
 			<div style="height: 100px" class="d-none d-md-block"></div>
 			
-			<div class="text-center">
+			<div style="margin-left: 4.5em;max-width: 80em;">
 				<h1 >{{sessionNum}}</h1>
 				<hr>
 				
 				<p style="margin-top: 2em;">
-					<div v-for='(item,key) in session[sessionNum]'>
+					<div v-for='(item,key) in session[sessionNum]' class="sessionPaper">
 						<p @click='setId(key)'>
 							<a href='../exhibition/index.html'>{{item}}</a>
 						</p>
