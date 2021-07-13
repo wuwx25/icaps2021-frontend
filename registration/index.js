@@ -298,7 +298,7 @@ var app = new Vue({
             }).then(res => {
                 this.collapse[1].hide();
                 this.collapse[2].show();
-                this.modalmsg = 'Updata Successful!'
+                this.modalmsg = 'Update Successful!'
                 this.tipsModal.show();
                 setTimeout(() => {
                     this.tipsModal.hide();
@@ -478,7 +478,7 @@ paypal
             if (token == null || token == "") {
                 app.modalmsg = "login or create a new profile first!";
                 app.tipsModal.show();
-                setTimeout(app.tipsModal.hide(), 1500)
+                setTimeout(()=>{app.tipsModal.hide();}, 1500)
                 return Promise.reject();
             }
             console.log("now is in create order");
@@ -495,7 +495,7 @@ paypal
                 if (data.message == "user already paid and registered!") {
                     app.modalmsg = data.message;
                     app.tipsModal.show();
-                    setTimeout(app.tipsModal.hide(), 2000)
+                    setTimeout(()=>{app.tipsModal.hide();}, 2000)
 
                     return Promise.reject();
                 }
@@ -514,7 +514,7 @@ paypal
             console.log("now in error");
             app.modalmsg = message;
             app.tipsModal.show();
-            setTimeout(app.tipsModal.hide(), 2000)
+            setTimeout(()=>{app.tipsModal.hide()}, 2000);
         },
         onApprove: (data) => {
             console.log("now is in onApprove");
