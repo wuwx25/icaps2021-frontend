@@ -1,13 +1,6 @@
-import {
-    backendBaseUrl
-} from '../assets/js/backendBaseUrl.js';
-import {
-    country,
-    isLogin
-} from '../assets/js/data.js';
-import {
-    Vue
-} from '../assets/component/myheader.js'
+import {backendBaseUrl} from '../assets/js/backendBaseUrl.js';
+import {country} from '../assets/js/data.js';
+import { Vue } from '../assets/component/myheader.js'
 var app = new Vue({
     el: '#app',
     data: {

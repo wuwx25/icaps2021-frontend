@@ -27,10 +27,30 @@
     <script src="../assets/js/jquery-3.6.0.min.js"></script>
     <script src="../assets/js/custom.js"></script>
     <script src="../assets/component/myheader.js" type='module'></script>
-    <!-- <script
-        src="https://www.paypal.com/sdk/js?client-id=AVrWIwOUjJSbL0KvYZBxyOpje01WWC21yZyU2Xkvp6Ja6nl4Fz3QqS7c24gMFgK2fF_GB24jEle0y4o5">
-    </script> -->
-    <script src="https://www.paypal.com/sdk/js?client-id=AWNahEkuGKJiJ3HHYXO6XNRBvL1WUnQpnv9bYBSOItoskfkjhP4d-EqOlQoYZFabgZone_r-qUyvpfm_"></script>
+    <script type="module">
+        import { paypal_url } from '../assets/config/paypal.js';
+        var s = document.createElement('script');
+        s.src=paypal_url;
+        document.head.appendChild(s);
+    </script>
+    <script type="module">
+        var s = document.createElement('script');
+        s.src="./index.js";
+        s.type="module";
+        document.head.appendChild(s);
+    </script>
+    <style type="text/css">
+        .warn{
+            border-style:solid;
+            border-color: red;
+        }
+        .examplmModal{
+            display: none;
+        }
+        [v-cloak] {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -360,8 +380,6 @@
                                         </div>
 
                                         <div style="text-align: center;width: 100%;" id='paypal'>
-                                            
-
                                             <div id="paypal-button-container"></div>
                                         </div>
                                     </div>
@@ -557,17 +575,4 @@
         </div>
     </footer>
 </body>
-<script src="./index.js" type="module"></script>
-
 </html>
-<style>
-    [v-cloak] {
-        display: none;
-    }
-
-    ;
-
-    .bg-successful {
-        background-color: aquamarine;
-    }
-</style>
