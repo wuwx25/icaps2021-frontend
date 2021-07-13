@@ -54,6 +54,11 @@
                     <label for="id_password">Password:</label> <input class="form-control" type="password" name="password" id="id_password" v-model="user.password">
                     <br>
                 </div>
+                <small style="color: red" v-if="errorTip.isError">
+                  <ul>
+                      <li>{{errorTip.message}}</li>
+                  </ul>
+              </small>
             </form>
 
                 <!-- <button  class="btn btn-primary pull-right" @click="login">Log In</button> -->

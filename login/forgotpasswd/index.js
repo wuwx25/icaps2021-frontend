@@ -1,4 +1,5 @@
 import {backendBaseUrl} from "../../assets/js/backendBaseUrl.js"
+import {Vue} from "/assets/component/myheader.js"
 var app = new Vue({
     el: '#app',
     data: {

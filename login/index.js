@@ -5,32 +5,24 @@ var app = new Vue({
         user: {
             email: "",
             password: "",
-			code:""
         },
-        SafariModal:{},
-		Emailaddress:'',
-		isEmail:true,
-		isCode:true,
-		isErrorCode:true,
-		isLogin:false,
-		isSuccess:false,
-		password:"",
-		confirmPassword:"",
-		codeModal:{}
+        errorTip:{
+            isError:false,
+            message:'',
+        }
     },
     methods:{
         login(){
             axios.post(backendBaseUrl+'/api/users/login',this.user
             ).then(res=>{
                 localStorage.setItem("token",res.data.token);
-                window.location.href = "../userInfo";
-                localStorage.setItem('isLogin',1)
+                window.location.href = "/home";
             }).catch(err=>{
-                console.log(err);
+                this.errorTip.isError = true;
                 if(err.response.status==400){
-                    window.alert('wrong password or email!');
+                    this.errorTip.message = 'wrong password or email!';
                 } else {
-                    window.alert('Unknown error!');
+                    this.errortip.message = 'Unknown error!';
                 }
                 this.user.password = ''
             })

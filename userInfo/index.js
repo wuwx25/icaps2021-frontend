@@ -25,6 +25,9 @@ var app = new Vue({
                 console.log(res);
             })
         },
+        toRegistration(){
+            window.location.href = '../registration'
+        },
         logout: function () {
             window.localStorage.setItem("token", "");
             window.alert("logout successfully!");
