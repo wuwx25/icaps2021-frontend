@@ -47,7 +47,7 @@
                         </li>
                     </ul>
                     <span class="btn-group dropdown navbar-right">
-                        <button type="button" class="btn btn-primary" @click="window.location.href='../userInfo'" v-if="isLogin && user.profile.first_name" style="color: white;">
+                        <button type="button" class="btn btn-primary" @click="userInfo()" v-if="isLogin && user.profile.first_name" style="color: white;">
                             {{user.profile.first_name}}
                         </button>
                         <button type="button" class="btn btn-primary" @click="login()" v-if="!isLogin" style="color: white;">
