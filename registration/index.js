@@ -1,5 +1,5 @@
 import {backendBaseUrl} from '../assets/js/backendBaseUrl.js';
-import {country} from '../assets/js/data.js';
+import {country,eduMail} from '../assets/js/data.js';
 import { Vue } from '../assets/component/myheader.js'
 var app = new Vue({
     el: '#app',
@@ -46,83 +46,7 @@ var app = new Vue({
         checkPaperModal: {},
         tipsModal: {},
         isLogin: false,
-        eduMail: [
-            "ac.at",
-            "ac.bd",
-            "ac.be",
-            "ac.cn",
-            "ac.cy",
-            "ac.fj",
-            "ac.in",
-            "ac.id",
-            "ac.ir",
-            "ac.il",
-            "ac.jp",
-            "ac.ke",
-            "ac.ma",
-            "ac.nz",
-            "ac.rw",
-            "ac.rs",
-            "ac.za",
-            "ac.kr",
-            "ac.ss",
-            "ac.lk",
-            "ac.tz",
-            "ac.th",
-            "ac.ug",
-            "ac.uk",
-            "ac.ae",
-            "edu.ar",
-            "edu.au",
-            "edu.bd",
-            "edu.br",
-            "edu.bn",
-            "edu.cn",
-            "edu.co",
-            "edu.dj",
-            "edu.ec",
-            "edu.eg",
-            "edu.sv",
-            "edu.er",
-            "edu.ee",
-            "edu.et",
-            "edu.gh",
-            "edu.hk",
-            "edu.it",
-            "edu.in",
-            "edu.jm",
-            "edu.jo",
-            "edu.lb",
-            "edu.ly",
-            "edu.mo",
-            "edu.my",
-            "edu.mt",
-            "edu.mx",
-            "edu.np",
-            "edu.ni",
-            "edu.ng",
-            "edu.om",
-            "edu.pk",
-            "edu.pe",
-            "edu.ph",
-            "edu.pl",
-            "edu.qa",
-            "edu.sa",
-            "edu.rs",
-            "edu.sg",
-            "edu.so",
-            "edu.es",
-            "edu.sd",
-            "edu.tw",
-            "edu.tr",
-            "edu.ua",
-            "edu.uy",
-            "edu.vn",
-            // Germany universitys
-            "uni-leipzig.de",
-            "uni-saarland.de",
-            ".edu"
-        ],
+        eduMail: eduMail,
         uploadFile: {
             cvFile: {},
             success: false,
@@ -298,7 +222,7 @@ var app = new Vue({
             }).then(res => {
                 this.collapse[1].hide();
                 this.collapse[2].show();
-                this.modalmsg = 'Updata Successful!'
+                this.modalmsg = 'Update Successful!'
                 this.tipsModal.show();
                 setTimeout(() => {
                     this.tipsModal.hide();
@@ -478,7 +402,7 @@ paypal
             if (token == null || token == "") {
                 app.modalmsg = "login or create a new profile first!";
                 app.tipsModal.show();
-                setTimeout(app.tipsModal.hide(), 1500)
+                setTimeout(()=>{app.tipsModal.hide();}, 1500)
                 return Promise.reject();
             }
             console.log("now is in create order");
@@ -495,7 +419,7 @@ paypal
                 if (data.message == "user already paid and registered!") {
                     app.modalmsg = data.message;
                     app.tipsModal.show();
-                    setTimeout(app.tipsModal.hide(), 2000)
+                    setTimeout(()=>{app.tipsModal.hide();}, 2000)
 
                     return Promise.reject();
                 }
@@ -514,7 +438,7 @@ paypal
             console.log("now in error");
             app.modalmsg = message;
             app.tipsModal.show();
-            setTimeout(app.tipsModal.hide(), 2000)
+            setTimeout(()=>{app.tipsModal.hide()}, 2000);
         },
         onApprove: (data) => {
             console.log("now is in onApprove");
