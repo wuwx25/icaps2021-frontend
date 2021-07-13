@@ -27,9 +27,10 @@
     <script src="../assets/js/jquery-3.6.0.min.js"></script>
     <script src="../assets/js/custom.js"></script>
     <script src="../assets/component/myheader.js" type='module'></script>
-    <script
+    <!-- <script
         src="https://www.paypal.com/sdk/js?client-id=AVrWIwOUjJSbL0KvYZBxyOpje01WWC21yZyU2Xkvp6Ja6nl4Fz3QqS7c24gMFgK2fF_GB24jEle0y4o5">
-    </script>
+    </script> -->
+    <script src="https://www.paypal.com/sdk/js?client-id=AWNahEkuGKJiJ3HHYXO6XNRBvL1WUnQpnv9bYBSOItoskfkjhP4d-EqOlQoYZFabgZone_r-qUyvpfm_"></script>
 </head>
 
 <body>
@@ -359,7 +360,7 @@
                                         </div>
 
                                         <div style="text-align: center;width: 100%;" id='paypal'>
-                                            <!-- <script src="https://www.paypal.com/sdk/js?client-id=AWNahEkuGKJiJ3HHYXO6XNRBvL1WUnQpnv9bYBSOItoskfkjhP4d-EqOlQoYZFabgZone_r-qUyvpfm_"></script> -->
+                                            
 
                                             <div id="paypal-button-container"></div>
                                         </div>
@@ -373,7 +374,7 @@
                                     data-bs-target="#collapseThree">
                                     <strong>3.Invitation Letter and Proof of Participation</strong>
                                     <span v-if="!user.reg || (user.reg && !user.reg.registration)"
-                                        style="font-weight: lighter;margin-left: 1rem">This is accessible only to
+                                        style="font-weight: lighter;margin-left: 1rem;">This is accessible only to
                                         registered users</span>
                                 </button>
                             </h2>
@@ -430,10 +431,6 @@
                                         <div class="row">
                                             <label for="formFile" class="form-label">Please use the PDF format for your
                                                 CV if possible.</label>
-                                            <input class="form-control" type="file" id="formFile" @change="getfile">
-                                            <input class="form-control" type="file" id="formFile" @change="getfile">
-                                            <input class="form-control" type="file" id="formFile" @change="getfile">
-                                            <input class="form-control" type="file" id="formFile" @change="getfile">
                                             <input class="form-control" type="file" id="formFile" @change="getfile">
                                             <small style="color: red" v-if="uploadFile.fail">
                                                 <ul>

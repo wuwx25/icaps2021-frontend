@@ -502,7 +502,7 @@ paypal
                 if (data.message == "user already paid and registered!") {
                     app.modalmsg = data.message;
                     app.tipsModal.show();
-                    setTimeout(app.tipsModal.hide(), 1500)
+                    setTimeout(app.tipsModal.hide(), 2000)
 
                     return Promise.reject();
                 }
@@ -521,7 +521,7 @@ paypal
             console.log("now in error");
             app.modalmsg = message;
             app.tipsModal.show();
-            setTimeout(app.tipsModal.hide(), 1500)
+            setTimeout(app.tipsModal.hide(), 2000)
         },
         onApprove: (data) => {
             console.log("now is in onApprove");
@@ -540,7 +540,7 @@ paypal
                     console.log('Transaction approved by ' + details.payer.name.given_name);
                     app.modalmsg = 'payment Successful!'
                     app.tipsModal.show();
-                    setTimeout(window.location.href = './index.html', 1000)
+                    setTimeout(window.location.href = './index.html', 5000)
                     return Promise.resolve();
                 })
 

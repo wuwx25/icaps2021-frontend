@@ -1,1 +1,1 @@
-export let backendBaseUrl = 'https://icaps21.icaps-conference.org';
+export let backendBaseUrl = 'http://192.168.0.224';
