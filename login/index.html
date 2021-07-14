@@ -50,15 +50,15 @@
             <h1 id="site-name">Login</h1>
             <form >
                 <div class="form-group" >
-                    <label for="id_username">Email:</label> <input class="form-control" type="email" name="username" id="id_username" v-model="user.email">
-                    <label for="id_password">Password:</label> <input class="form-control" type="password" name="password" id="id_password" v-model="user.password">
-                    <br>
+                    <label for="id_username">Email:</label> <input class="form-control" type="email" name="username" id="id_username" v-model="user.email" @click="handlerClick()">
+                    <label for="id_password">Password:</label> <input class="form-control" type="password" name="password" id="id_password" v-model="user.password" @click="handlerClick()">
+                    <small style="color: red" v-if="errorTip.isError">
+                      <ul>
+                          <li>{{errorTip.message}}</li>
+                      </ul>
+                    </small>
                 </div>
-                <small style="color: red" v-if="errorTip.isError">
-                  <ul>
-                      <li>{{errorTip.message}}</li>
-                  </ul>
-              </small>
+                
             </form>
 
                 <!-- <button  class="btn btn-primary pull-right" @click="login">Log In</button> -->
