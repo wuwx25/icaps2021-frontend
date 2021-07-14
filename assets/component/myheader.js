@@ -2,14 +2,15 @@ import {backendBaseUrl} from '../js/backendBaseUrl.js';
 import Vue from '../js/vue.esm.browser.js';
 import axios from '../js/axios.js';
 async function getTemplate(){
-    if (window.localStorage.getItem("header")==null||window.localStorage.getItem("header")==""){
-        window.localStorage.setItem("header",(await axios.get("/assets/component/myheader.html")).data);
-    }
-    return window.localStorage.getItem("header");
+    // if (window.localStorage.getItem("header")==null||window.localStorage.getItem("header")==""){
+    //     window.localStorage.setItem("header",(await axios.get("/assets/component/myheader.html")).data);
+    // }
+    // return window.localStorage.getItem("header");
+    return (await axios.get("/assets/component/myheader.html")).data;
 }
 Vue.component('myheader',async function(resolve,reject){
     return resolve({
-    props: ['curpage'],
+    props: ['curpage','curitem'],
     data: function(){
         return{
             isLogin:false,

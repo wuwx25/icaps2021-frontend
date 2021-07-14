@@ -18,9 +18,37 @@
                         <li class="nav-item">
                             <a href="/papers" class="nav-link px-2"  :class="{active:curpage=='papers'}">Papers</a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a href="/InvitedSpeakers/" class="nav-link px-2"  :class="{active:curpage=='invitedSpeakers'}">Invited Speakers</a>
-                        </li>
+                        </li> -->
+                        <li class="nav-item dropdown">
+                            <a
+                              class="nav-link dropdown-toggle"
+                              :class="{active:curpage=='schedule'}"
+                              href=""
+                              id="navbarDropdown"
+                              role="button"
+                              data-bs-toggle="dropdown"
+                              aria-expanded="false"
+                            >
+                              Schedule
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              <li>
+                                <a class="dropdown-item" href="/Schedule/index.html" :class="{active:curitem=='index'}"
+                                  >Schedule Overview</a
+                                >
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="/Schedule/invited-speakers.html" :class="{active:curitem=='invited-speakers'}"
+                                  >Invited Speakers</a
+                                >
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="/Schedule/industry-session.html" :class="{active:curitem=='industry-session'}">Industry Session</a>
+                              </li>
+                            </ul>
+                          </li>
 			            <li class="nav-item">
                             <a href="/Calls" class="nav-link px-2"  :class="{active:curpage=='calls'}">Calls</a>
                         </li>
@@ -42,11 +70,12 @@
                         <li class="nav-item">
                             <a href="/code-of-conduct.html" class="nav-link px-2"  :class="{active:curpage=='codeOfConduct'}">Code of conduct</a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a href="/registration/" class="nav-link px-2"  :class="{active:curpage=='registration'}">Registration</a>
-                        </li>
+                        </li> -->
                     </ul>
-                    <span class="btn-group dropdown navbar-right">
+                    <!--login and user info button-->
+                    <!-- <span class="btn-group dropdown navbar-right">
                         <button type="button" class="btn btn-primary" @click="userInfo()" v-if="isLogin && user.profile.first_name" style="color: white;">
                             {{user.profile.first_name}}
                         </button>
@@ -59,7 +88,7 @@
                         <ul class="dropdown-menu">
                         <li><button class="dropdown-item " @click="logout" v-if="isLogin">Logout</button></li>
                         </ul>
-                    </span>
+                    </span> -->
                 </div>
             </div>
             
