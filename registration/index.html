@@ -27,18 +27,7 @@
     <script src="../assets/js/jquery-3.6.0.min.js"></script>
     <script src="../assets/js/custom.js"></script>
     <script src="/assets/component/myheader.js" type='module'></script>
-    <script type="module">
-        import { paypal_url } from '../assets/config/paypal.js';
-        var s = document.createElement('script');
-        s.src=paypal_url;
-        document.head.appendChild(s);
-    </script>
-    <script type="module">
-        var s = document.createElement('script');
-        s.src="./index.js";
-        s.type="module";
-        document.head.appendChild(s);
-    </script>
+    <script type="module" src="./index.js"></script>
     <style type="text/css">
         .warn{
             border-style:solid;

@@ -1,6 +1,95 @@
 import {backendBaseUrl} from '../assets/js/backendBaseUrl.js';
 import {country,eduMail} from '../assets/js/data.js';
-import { Vue } from '/assets/component/myheader.js'
+import { Vue } from '/assets/component/myheader.js';
+import { paypal_url } from '../assets/config/paypal.js';
+
+// inject js file and export a handle after load it complete
+async function injectJS(src, onload) {
+    var loaded = Array.from(document.scripts).some(it => it.getAttribute('src') === src); // Warn：script.src !== script.getAttribute('src')
+    if (loaded) {
+        typeof onload === 'function' && onload();
+        return ;
+    }
+    var script = document.createElement('script');
+    script.src = src;
+    document.head.insertBefore(script, document.head.firstElementChild);
+    script.addEventListener('load', (ev) => {
+        typeof onload === 'function' && onload();
+    });
+}
+injectJS(paypal_url,()=>{
+    console.log("paypal load complete, rendering button");
+    paypal.Buttons({
+        createOrder: () => {
+            let token = localStorage.getItem("token");
+            if (token == null || token == "") {
+                app.modalmsg = "login or create a new profile first!";
+                app.tipsModal.show();
+                setTimeout(()=>{app.tipsModal.hide();}, 1500)
+                return Promise.reject();
+            }
+            console.log("now is in create order");
+            return fetch(backendBaseUrl + '/api/registrations/createorder', {
+                method: 'post',
+                headers: {
+                    'content-type': 'application/json',
+                    'Authorization': localStorage.getItem("token")
+                },
+                body: JSON.stringify(app.reg_info)
+            }).then(function (res) {
+                return res.json();
+            }).then(function (data) {
+                if (data.message == "user already paid and registered!") {
+                    app.modalmsg = data.message;
+                    app.tipsModal.show();
+                    setTimeout(()=>{app.tipsModal.hide();}, 2000)
+
+                    return Promise.reject();
+                }
+                console.log("data is", data);
+                return data.orderID; // Use the key sent by your server's response, ex. 'id' or 'token'
+            }).catch(err => {
+                console.log('err', err)
+            });
+        },
+        onError: function (err) {
+            // For example, redirect to a specific error page
+            let message = "Unknow server error";
+            if (!app.reg_info.registration && !app.reg_info.publication) {
+                message = "you have not selected any sessions!";
+            }
+            console.log("now in error");
+            app.modalmsg = message;
+            app.tipsModal.show();
+            setTimeout(()=>{app.tipsModal.hide()}, 2000);
+        },
+        onApprove: (data) => {
+            console.log("now is in onApprove");
+            app.reg_info.orderID = data.orderID;
+            return fetch(backendBaseUrl + '/api/registrations/captureorder', {
+                    method: 'post',
+                    headers: {
+                        'content-type': 'application/json',
+                        'Authorization': localStorage.getItem("token")
+                    },
+                    body: JSON.stringify(app.reg_info)
+                }).then(function (res) {
+                    return res.json();
+                })
+                .then(function (details) {
+                    console.log('Transaction approved by ' + details.payer.name.given_name);
+                    app.modalmsg = 'payment Successful!'
+                    app.tipsModal.show();
+                    setTimeout(window.location.href = './index.html', 5000)
+                    return Promise.resolve();
+                })
+
+        }
+    }).render('#paypal-button-container');
+})
+// var s = document.createElement('script');
+// s.src=paypal_url;
+// document.head.appendChild(s);
 var app = new Vue({
     el: '#app',
     data: {
@@ -396,71 +485,3 @@ var app = new Vue({
         },
     }
 });
-paypal
-    .Buttons({
-        createOrder: () => {
-            let token = localStorage.getItem("token");
-            if (token == null || token == "") {
-                app.modalmsg = "login or create a new profile first!";
-                app.tipsModal.show();
-                setTimeout(()=>{app.tipsModal.hide();}, 1500)
-                return Promise.reject();
-            }
-            console.log("now is in create order");
-            return fetch(backendBaseUrl + '/api/registrations/createorder', {
-                method: 'post',
-                headers: {
-                    'content-type': 'application/json',
-                    'Authorization': localStorage.getItem("token")
-                },
-                body: JSON.stringify(app.reg_info)
-            }).then(function (res) {
-                return res.json();
-            }).then(function (data) {
-                if (data.message == "user already paid and registered!") {
-                    app.modalmsg = data.message;
-                    app.tipsModal.show();
-                    setTimeout(()=>{app.tipsModal.hide();}, 2000)
-
-                    return Promise.reject();
-                }
-                console.log("data is", data);
-                return data.orderID; // Use the key sent by your server's response, ex. 'id' or 'token'
-            }).catch(err => {
-                console.log('err', err)
-            });
-        },
-        onError: function (err) {
-            // For example, redirect to a specific error page
-            let message = "Unknow server error";
-            if (!app.reg_info.registration && !app.reg_info.publication) {
-                message = "you have not selected any sessions!";
-            }
-            console.log("now in error");
-            app.modalmsg = message;
-            app.tipsModal.show();
-            setTimeout(()=>{app.tipsModal.hide()}, 2000);
-        },
-        onApprove: (data) => {
-            console.log("now is in onApprove");
-            app.reg_info.orderID = data.orderID;
-            return fetch(backendBaseUrl + '/api/registrations/captureorder', {
-                    method: 'post',
-                    headers: {
-                        'content-type': 'application/json',
-                        'Authorization': localStorage.getItem("token")
-                    },
-                    body: JSON.stringify(app.reg_info)
-                }).then(function (res) {
-                    return res.json();
-                })
-                .then(function (details) {
-                    console.log('Transaction approved by ' + details.payer.name.given_name);
-                    app.modalmsg = 'payment Successful!'
-                    app.tipsModal.show();
-                    setTimeout(window.location.href = './index.html', 5000)
-                    return Promise.resolve();
-                })
-
-        }
-    }).render('#paypal-button-container');
