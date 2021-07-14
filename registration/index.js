@@ -1,6 +1,7 @@
 import {backendBaseUrl} from '../assets/js/backendBaseUrl.js';
 import {country,eduMail} from '../assets/js/data.js';
-import { Vue } from '/assets/component/myheader.js'
+import { Vue,isLogin,isRegistration } from '/assets/component/myheader.js';
+
 var app = new Vue({
     el: '#app',
     data: {
@@ -45,7 +46,8 @@ var app = new Vue({
         paySuccessfulModal: {},
         checkPaperModal: {},
         tipsModal: {},
-        isLogin: false,
+        isLogin: isLogin,
+        isRegistration:isRegistration,
         eduMail: eduMail,
         uploadFile: {
             cvFile: {},
@@ -208,7 +210,6 @@ var app = new Vue({
             this.isLogin = false;
         },
         login() {
-            console.log("user login");
             window.location.href = "/login";
         },
         updateProfile: function () {
@@ -222,10 +223,10 @@ var app = new Vue({
                     "Content-Type": "application/json;charset=utf-8"
                 }
             }
-
             fetch(url, options).then(res => {
                 return res.json()
             }).then(res => {
+                console.log(res)
                 this.collapse[1].hide();
                 this.collapse[2].show();
                 this.modalmsg = 'Update Successful!'
@@ -276,53 +277,40 @@ var app = new Vue({
         }
     },
     mounted: function () {
+        console.log(isLogin,isRegistration)
         this.codeModal = new bootstrap.Modal(document.getElementById('verifyCode'));
         this.errorModal = new bootstrap.Modal(document.getElementById('Registered'));
         this.publicationModal = new bootstrap.Modal(document.getElementById('publication'));
         this.tipsModal = new bootstrap.Modal(document.getElementById('tips'));
+        
+
         var myModalEl = document.getElementById('publication')
         myModalEl.addEventListener('hidden.bs.modal', function (event) {
             if (app.reg_info.papers.length == 0) {
                 app.reg_info.publication = false;
             }
         });
-        var collapse1 = document.getElementById('collapseOne')
-        var collapse2 = document.getElementById('collapseTwo')
-        var collapse3 = document.getElementById('collapseThree')
-        var collapse4 = document.getElementById('collapseFour')
-        this.collapse[1] = new bootstrap.Collapse(collapse1, {
-            toggle: false
-        })
-        this.collapse[2] = new bootstrap.Collapse(collapse2, {
-            toggle: false
-        })
-        this.collapse[3] = new bootstrap.Collapse(collapse3, {
-            toggle: false
-        })
-        this.collapse[4] = new bootstrap.Collapse(collapse4, {
-            toggle: false
-        })
+
+
+        var collapse_doc = [];
+        for(var i=1;i < 5;i++){
+            let name=["","One","Two","Three","Four"];
+            collapse_doc[i]=document.getElementById('collapse'+name[i]);
+            this.collapse[i] = new bootstrap.Collapse(collapse_doc[i],{
+                toggle: false
+            })
+        }
         let that = this;
-        collapse1.addEventListener('show.bs.collapse', function () {
-            that.collapse[2].hide();
-            that.collapse[3].hide();
-            that.collapse[4].hide();
-        })
-        collapse2.addEventListener('show.bs.collapse', function () {
-            that.collapse[1].hide();
-            that.collapse[3].hide();
-            that.collapse[4].hide();
-        })
-        collapse3.addEventListener('show.bs.collapse', function () {
-            that.collapse[1].hide();
-            that.collapse[2].hide();
-            that.collapse[4].hide();
-        })
-        collapse4.addEventListener('show.bs.collapse', function () {
-            that.collapse[1].hide();
-            that.collapse[2].hide();
-            that.collapse[3].hide();
-        })
+        for(var i = 1; i < 5; i++){
+            collapse_doc[i].addEventListener('show.bs.collapse',function(){
+                for(var j=1;j < 5;j++){
+                    if(i != j){
+                        that.collapse[j].hide()
+                    }
+                }
+            })
+        }
+
 
         if (localStorage.getItem('token')) {
             axios.get(backendBaseUrl + '/api/users/profile', {
@@ -330,9 +318,7 @@ var app = new Vue({
                     "Authorization": localStorage.getItem('token')
                 }
             }).then(res => {
-                this.isLogin = true;
-                localStorage.setItem('isLogin', 1)
-                if (res.data.reg && res.data.reg.registration) {
+                if (this.isRegistration) {
                     this.collapse[3].show();
                 } else {
                     this.collapse[2].show();
@@ -340,7 +326,7 @@ var app = new Vue({
                 this.user = res.data;
                 this.user_info = this.user.profile;
                 this.user_info.email = this.user.email;
-                if (this.user.reg && this.user.reg.registration) {
+                if (this.isRegistration) {
                     this.reg_info.registration = false;
                 }
                 if (this.user.cv_info) {
@@ -362,17 +348,12 @@ var app = new Vue({
                 // if (!is_edu_email) {
                 //     this.is_student = false;
                 // }
-
             }).catch(err => {
                 this.collapse[1].show()
             });
         } else {
             this.collapse[1].show()
         }
-      
-        
-
-
     },
     watch: {
         token: async function () {
@@ -402,71 +383,3 @@ var app = new Vue({
         },
     }
 });
-paypal
-    .Buttons({
-        createOrder: () => {
-            let token = localStorage.getItem("token");
-            if (token == null || token == "") {
-                app.modalmsg = "login or create a new profile first!";
-                app.tipsModal.show();
-                setTimeout(()=>{app.tipsModal.hide();}, 1500)
-                return Promise.reject();
-            }
-            console.log("now is in create order");
-            return fetch(backendBaseUrl + '/api/registrations/createorder', {
-                method: 'post',
-                headers: {
-                    'content-type': 'application/json',
-                    'Authorization': localStorage.getItem("token")
-                },
-                body: JSON.stringify(app.reg_info)
-            }).then(function (res) {
-                return res.json();
-            }).then(function (data) {
-                if (data.message == "user already paid and registered!") {
-                    app.modalmsg = data.message;
-                    app.tipsModal.show();
-                    setTimeout(()=>{app.tipsModal.hide();}, 2000)
-
-                    return Promise.reject();
-                }
-                console.log("data is", data);
-                return data.orderID; // Use the key sent by your server's response, ex. 'id' or 'token'
-            }).catch(err => {
-                console.log('err', err)
-            });
-        },
-        onError: function (err) {
-            // For example, redirect to a specific error page
-            let message = "Unknow server error";
-            if (!app.reg_info.registration && !app.reg_info.publication) {
-                message = "you have not selected any sessions!";
-            }
-            console.log("now in error");
-            app.modalmsg = message;
-            app.tipsModal.show();
-            setTimeout(()=>{app.tipsModal.hide()}, 2000);
-        },
-        onApprove: (data) => {
-            console.log("now is in onApprove");
-            app.reg_info.orderID = data.orderID;
-            return fetch(backendBaseUrl + '/api/registrations/captureorder', {
-                    method: 'post',
-                    headers: {
-                        'content-type': 'application/json',
-                        'Authorization': localStorage.getItem("token")
-                    },
-                    body: JSON.stringify(app.reg_info)
-                }).then(function (res) {
-                    return res.json();
-                })
-                .then(function (details) {
-                    console.log('Transaction approved by ' + details.payer.name.given_name);
-                    app.modalmsg = 'payment Successful!'
-                    app.tipsModal.show();
-                    setTimeout(()=>{window.location.href = './index.html'}, 3000)
-                    return Promise.resolve();
-                })
-
-        }
-    }).render('#paypal-button-container');
