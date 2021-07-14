@@ -343,18 +343,19 @@ var app = new Vue({
                 } else {
                     this.reg_info.registration = true;
                 }
-                var is_edu_email = false;
-                for (var i = 0; i < this.eduMail.length; i++) {
-                    var edu_str = this.eduMail[i];
-                    if (edu_str == this.user.email.substr(this.user.email.length - edu_str.length)) {
-                        is_edu_email = true;
-                        this.is_student = true;
-                        break;
-                    }
-                }
-                if (!is_edu_email) {
-                    this.is_student = false;
-                }
+                this.is_student = true;
+                // var is_edu_email = false;
+                // for (var i = 0; i < this.eduMail.length; i++) {
+                //     var edu_str = this.eduMail[i];
+                //     if (edu_str == this.user.email.substr(this.user.email.length - edu_str.length)) {
+                //         is_edu_email = true;
+                //         this.is_student = true;
+                //         break;
+                //     }
+                // }
+                // if (!is_edu_email) {
+                //     this.is_student = false;
+                // }
 
             }).catch(err => {
                 this.collapse[1].show()
