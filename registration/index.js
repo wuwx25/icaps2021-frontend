@@ -53,6 +53,7 @@ var app = new Vue({
             fail: false,
             share_inform: false,
             add_mail_list: false,
+            errmsg:'',
         }
 
     },
@@ -166,14 +167,18 @@ var app = new Vue({
                 this.uploadFile.cvFile = e.target.files[0];
                 console.dir(e.target.files)
             } else {
-                alert('File limit 20M')
+                
+                this.modalmsg = 'File limit 20M';
+                this.tipsModal.show();
+                setTimeout(() => {
+                    this.tipsModal.hide()
+                }, 1500);
                 document.getElementById('formFile').value = "";
                 return;
             }
 
         },
         submit() {
-            var formData = new FormData();
             var formData = new window.FormData();
             formData.append('personal_cv', this.uploadFile.cvFile);
             formData.append('share_inform', this.uploadFile.share_inform ? "true" : "false");
@@ -194,6 +199,7 @@ var app = new Vue({
                 }, 1500);
             }).catch(err => {
                 this.uploadFile.fail = true;
+                this.uploadFile.errmsg = err.response.data.message;
             })
         },
         logout() {
@@ -458,7 +464,7 @@ paypal
                     console.log('Transaction approved by ' + details.payer.name.given_name);
                     app.modalmsg = 'payment Successful!'
                     app.tipsModal.show();
-                    setTimeout(window.location.href = './index.html', 5000)
+                    setTimeout(()=>{window.location.href = './index.html'}, 3000)
                     return Promise.resolve();
                 })
 

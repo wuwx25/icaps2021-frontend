@@ -451,7 +451,7 @@
                                             <input class="form-control" type="file" id="formFile" @change="getfile">
                                             <small style="color: red" v-if="uploadFile.fail">
                                                 <ul>
-                                                    <li>Fail to submit.</li>
+                                                    <li>{{uploadFile.errmsg}}</li>
                                                 </ul>
                                             </small>
                                             <button type="button" style="margin-top: 1rem;" class="btn btn-primary"
