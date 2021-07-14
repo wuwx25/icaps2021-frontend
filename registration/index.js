@@ -1,7 +1,6 @@
 import {backendBaseUrl} from '../assets/js/backendBaseUrl.js';
 import {country,eduMail} from '../assets/js/data.js';
-import { Vue,isLogin,isRegistration } from '/assets/component/myheader.js';
-
+import { Vue,header } from '/assets/component/myheader.js';
 var app = new Vue({
     el: '#app',
     data: {
@@ -46,9 +45,10 @@ var app = new Vue({
         paySuccessfulModal: {},
         checkPaperModal: {},
         tipsModal: {},
-        isLogin: isLogin,
-        isRegistration:isRegistration,
+        isLogin: header.$refs.header.isLogin,
+        isRegistration:header.$refs.header.isRegistration,
         eduMail: eduMail,
+        flag:false,
         uploadFile: {
             cvFile: {},
             success: false,
@@ -277,7 +277,6 @@ var app = new Vue({
         }
     },
     mounted: function () {
-        console.log(isLogin,isRegistration)
         this.codeModal = new bootstrap.Modal(document.getElementById('verifyCode'));
         this.errorModal = new bootstrap.Modal(document.getElementById('Registered'));
         this.publicationModal = new bootstrap.Modal(document.getElementById('publication'));
@@ -381,5 +380,99 @@ var app = new Vue({
                     this.publicationModal.show()
             }
         },
-    }
+    },
+    // computed: {
+    //     isEmail:function(){
+    //         const regEmail = /^([a-zA-Z]|[0-9])(\w|\.|\-)+@[a-zA-Z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
+    //         return regEmail.test(this.user_info.email);
+    //     },
+    //     'user_info.email':function(){
+    //         if (this.user_info.email) {
+    //             const regEmail = /^([a-zA-Z]|[0-9])(\w|\.|\-)+@[a-zA-Z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
+    //             if (regEmail.test(this.user_info.email)) {
+    //                 this.isEmail = false
+    //             } else {
+    //                 this.isEmail = true
+    //                 flag = true
+    //             }
+    //         } else {
+    //             this.isEmail = true
+    //             flag = true
+    //         }
+    //     },
+    //     'user_info.first_name':function(){
+    //          if (!this.user_info.first_name || this.user_info.first_name == undefined) {
+    //             this.isFirst_name = true
+    //             flag = true
+    //         } else {
+    //             this.isFirst_name = false
+    //         }
+    //     },
+    //     'user_info.last_name':function(){
+    //         if (!this.user_info.last_name) {
+    //             this.isLast_name = true
+    //             flag = true
+    //         } else {
+    //             this.isLast_name = false
+    //         }
+    //     },
+    //     'user_info.password':function(){
+    //          if (!this.user_info.password) {
+    //             this.isPassword = true
+    //             flag = true
+    //         } else {
+    //             this.isPassword = false
+    //             if (this.user_info.password != this.user_info.password2) {
+    //                 flag = true
+    //             }
+    //             if (this.user_info.password.length < 6) {
+    //                 this.isLessSix = true
+    //                 flag = true
+    //             } else
+    //                 this.isLessSix = false
+    //         }
+    //     },
+    //     'user_info.password2':function(){
+    //         if (!this.user_info.password2) {
+    //             this.isPassword2 = true
+    //             flag = true
+    //         } else {
+    //             this.isPassword2 = false
+    //             if (this.user_info.password != this.user_info.password2) {
+    //                 this.passwdMisMatch = true
+    //                 flag = true
+    //             } else
+    //                 this.passwdMisMatch = false
+    //         }
+    //     },
+    //     'user_info.pronoun':function(){
+    //         if (!this.user_info.pronoun) {
+    //             this.isPronoun = true
+    //             flag = true
+    //         } else {
+    //             this.isPronoun = false
+    //         }
+    //     },
+    //     'user_info.institution':function(){
+             
+    //         if (!this.user_info.institution) {
+    //             this.isInstitution = true
+    //             flag = true
+    //         } else {
+    //             this.isInstitution = false
+    //         }
+    //     },
+    //     user_info.conutry:function(){
+    //         console.log('....')
+    //         if (!this.user_info.country) {
+    //             this.isCountry = true
+    //             flag = true
+    //         } else {
+    //             this.isCountry = false
+    //         }
+    //         if (flag == true) {
+    //             return false
+    //         }
+    //     }
+    // }
 });

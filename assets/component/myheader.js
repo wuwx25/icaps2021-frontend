@@ -1,8 +1,6 @@
 import {backendBaseUrl} from '../js/backendBaseUrl.js';
 import Vue from '../js/vue.esm.browser.js';
 import axios from '../js/axios.js';
-var isLogin = false;
-var isRegistration = false;
 async function getTemplate(){
     let storage=window.localStorage;
     if (storage.getItem("header")==null||storage.getItem("header")==""||Number(storage.getItem("header_cnt"))>10) {
@@ -20,11 +18,13 @@ Vue.component('myheader',async function(resolve,reject){
     data: function(){
         return{
             isLogin:false,
+            isRegistration:false,
             user:{},
         }
     },
     template: await getTemplate(),
-    created:function(){
+    mounted:function(){
+        console.log('..........')
         if(window.localStorage.getItem('token')){
             axios.get(backendBaseUrl+'/api/users/profile', {
                 headers: {
@@ -32,12 +32,13 @@ Vue.component('myheader',async function(resolve,reject){
                 }
             }).then(res => {
                 this.isLogin = true;
-                isLogin = true;
                 this.user = res.data;
                 if(this.user.reg && this.user.reg.registration){
-                   isRegistration = true;
+                   this.isRegistration = true;
                 }
-            }).catch(err => {});
+            }).catch(err => {
+                console.log(err)
+            });
         }
     }, 
     methods:{
@@ -59,5 +60,5 @@ var header = new Vue({
     },
 
 });
-export {Vue,isLogin,isRegistration};
+export {Vue,header};
 

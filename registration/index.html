@@ -126,7 +126,7 @@
 
 <body>
     <div id='icaps-header' v-cloak>
-        <myheader curpage='registration'></myheader>
+        <myheader curpage='registration' ref="header"></myheader>
     </div>
     <div id="app" v-cloak>
         <main class="container" style="min-height: 80vh">
@@ -152,7 +152,7 @@
                                                 <label class="form-label"
                                                     style="margin: 1em 0 0.5em 0.8em">Email</label>
                                                 <input type="text" class="form-control" placeholder="Input your email"
-                                                    v-model="user_info.email" :disabled="isLogin">
+                                                    v-model="user_info.email" :disabled="isLogin" >
                                                 <small style="color: red" v-if="isEmail">
                                                     <ul>
                                                         <li>Email is not valid</li>
