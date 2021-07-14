@@ -1,6 +1,8 @@
 import {backendBaseUrl} from '../js/backendBaseUrl.js';
 import Vue from '../js/vue.esm.browser.js';
 import axios from '../js/axios.js';
+var isLogin = false;
+var isRegistration = false;
 async function getTemplate(){
     let storage=window.localStorage;
     if (storage.getItem("header")==null||storage.getItem("header")==""||Number(storage.getItem("header_cnt"))>10) {
@@ -30,9 +32,10 @@ Vue.component('myheader',async function(resolve,reject){
                 }
             }).then(res => {
                 this.isLogin = true;
+                isLogin = true;
                 this.user = res.data;
                 if(this.user.reg && this.user.reg.registration){
-                    this.reg_info.registration = false;
+                   isRegistration = true;
                 }
             }).catch(err => {});
         }
@@ -56,6 +59,5 @@ var header = new Vue({
     },
 
 });
-export {Vue};
-
+export {Vue,isLogin,isRegistration};
 
