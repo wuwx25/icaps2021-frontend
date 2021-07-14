@@ -16,7 +16,7 @@ var app = new Vue({
             axios.post(backendBaseUrl+'/api/users/login',this.user
             ).then(res=>{
                 localStorage.setItem("token",res.data.token);
-                window.location.href = "/home";
+                window.location.href = "/userInfo";
             }).catch(err=>{
                 this.errorTip.isError = true;
                 if(err.response.status==400){
