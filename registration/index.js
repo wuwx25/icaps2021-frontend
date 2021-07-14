@@ -1,6 +1,6 @@
 import {backendBaseUrl} from '../assets/js/backendBaseUrl.js';
 import {country,eduMail} from '../assets/js/data.js';
-import { Vue } from '../assets/component/myheader.js'
+import { Vue } from '/assets/component/myheader.js'
 var app = new Vue({
     el: '#app',
     data: {

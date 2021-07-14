@@ -2,11 +2,15 @@ import {backendBaseUrl} from '../js/backendBaseUrl.js';
 import Vue from '../js/vue.esm.browser.js';
 import axios from '../js/axios.js';
 async function getTemplate(){
-    // if (window.localStorage.getItem("header")==null||window.localStorage.getItem("header")==""){
-    //     window.localStorage.setItem("header",(await axios.get("/assets/component/myheader.html")).data);
-    // }
-    // return window.localStorage.getItem("header");
-    return (await axios.get("/assets/component/myheader.html")).data;
+    let storage=window.localStorage;
+    if (storage.getItem("header")==null||storage.getItem("header")==""||Number(storage.getItem("header_cnt"))>10) {
+        storage.setItem("header",(await axios.get("/assets/component/myheader.html")).data);
+        storage.setItem("header_cnt",0);
+    }
+    let cnt = Number(storage.getItem("header_cnt"));
+    storage.setItem("header_cnt",cnt+1);
+    return storage.getItem("header");
+    // return (await axios.get("/assets/component/myheader.html")).data;
 }
 Vue.component('myheader',async function(resolve,reject){
     return resolve({
