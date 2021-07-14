@@ -1,6 +1,23 @@
-/* h5 {
-    white-space: pre-line;
-} */
-[v-cloak] {
-    display: none;
+.tab-pane {
+  padding: 10px;
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+  color: white;
+  text-decoration: none;
+  background-color: #f5821e;
+}
+
+.dropdown-menu {
+  padding: 0;
+}
+
+.card-img {
+  border-radius: unset;
+}
+
+.pic-row {
+  padding-top: calc(var(--bs-gutter-x, 0.75rem) / 2);
+  padding-bottom: calc(var(--bs-gutter-x, 0.75rem) / 2);
 }
