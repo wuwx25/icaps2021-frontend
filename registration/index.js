@@ -4,7 +4,7 @@ import { Vue } from '/assets/component/myheader.js';
 import { paypal_url } from '../assets/config/paypal.js';
 
 // inject js file and export a handle after load it complete
-async function injectJS(src, onload) {
+function injectJS(src, onload) {
     var loaded = Array.from(document.scripts).some(it => it.getAttribute('src') === src); // Warn：script.src !== script.getAttribute('src')
     if (loaded) {
         typeof onload === 'function' && onload();
