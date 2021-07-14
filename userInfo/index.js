@@ -1,10 +1,10 @@
 import {backendBaseUrl} from '../assets/js/backendBaseUrl.js';
 import {country} from '../assets/js/data.js';
+import {Vue} from '/assets/component/myheader.js'
 var app = new Vue({
     el: '#app',
     data: {
         isLogin: false,
-        
         user: {
         },
         columns: {
@@ -20,19 +20,22 @@ var app = new Vue({
     methods: {
         updateProfile: function () {
             this.Edit = !this.Edit;
-            axios.patch(backendBaseUrl+'/api/users/profile',this.user.profile,{ headers: { Authorization: localStorage.getItem("token") }})
+            axios.patch(backendBaseUrl+'/api/users/profile',this.user.profile,{ headers: { Authorization: window.localStorage.getItem("token") }})
             .then(res=>{
                 console.log(res);
             })
         },
+        toRegistration(){
+            window.location.href = '../registration'
+        },
         logout: function () {
+            console.log("logout !!!");
             localStorage.setItem("token", "");
             var options = {
                 url: backendBaseUrl + '/api/users/logout',
                 method: 'post'
             }
             axios(options).then(res=>{
-                localStorage.setItem('token',"");
                 window.location.href = "../login";
                 window.alert("logout successfully!");
             }).catch(err=>{
@@ -46,14 +49,14 @@ var app = new Vue({
     },
     mounted: function () {
         axios.defaults.withCredentials = true; 
-        let token = localStorage.getItem("token");
+        let token = window.localStorage.getItem("token");
         if (token == null || token == "") {
             console.log("No token detected");
             this.forceQuit();
             return;
         }
         // this.isLogin = isLogin(token);
-        axios.get(backendBaseUrl+'/api/users/profile', { headers: { Authorization: localStorage.getItem("token") } }
+        axios.get(backendBaseUrl+'/api/users/profile', { headers: { Authorization: window.localStorage.getItem("token") } }
         ).then(res => {
             console.log(res);
             this.user = res.data;

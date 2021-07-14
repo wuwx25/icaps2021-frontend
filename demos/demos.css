@@ -1,0 +1,28 @@
+.trophy {
+  padding-right: 10px;
+  background-color: white;
+}
+
+.trophy-1 {
+  color: #ffd11e;
+}
+
+.trophy-2 {
+  color: silver;
+}
+
+.trophy-3 {
+  color: #cd7f32;
+}
+
+.card-no-border {
+  border: none;
+}
+
+.vote-number {
+  padding-left: 5px;
+}
+
+.disabled-button {
+  cursor: not-allowed;
+}

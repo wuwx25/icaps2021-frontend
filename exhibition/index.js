@@ -1,10 +1,12 @@
 import {backendBaseUrl} from '../assets/js/backendBaseUrl.js';
 import {country, isLogin} from '../assets/js/data.js';
+import {Vue} from '/assets/component/myheader.js';
+import axios from '/assets/js/axios.js';
 var app = new Vue({
     el: '#app',
     data: {
         token     : "",
-        channel:""
+        channel:"general"
     },
     methods: {
 
