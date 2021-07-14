@@ -88,11 +88,11 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label" style="margin: 1em 0 0.5em 0.8em">New Password</label>
-                                    <input type="text" class="form-control" v-model="user.password">
+                                    <input type="password" class="form-control" v-model="user.password">
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label" style="margin: 1em 0 0.5em 0.8em">Confirm Password</label>
-                                    <input type="text" class="form-control" v-model="confirmPassword">
+                                    <input type="password" class="form-control" v-model="confirmPassword">
                                     <small style="color: red" v-if="user.password != confirmPassword">
                                         <ul style="margin-top: 0.5em;">
                                             <li>Mismatch</li>
@@ -109,7 +109,16 @@
                 </div>
             </div>
         </div>
-
+        <div class="modal" tabindex="-1" id='tips'>
+            <div class="modal-dialog ">
+                <div class="modal-content">
+                    <div class="modal-body" style="background-color: rgb(231, 241, 255);">
+                        <p style="text-align: center;font-size: larger;color: rgb(12, 99, 228);">
+                            {{modalmsg}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
         <footer class="footer m-5">
