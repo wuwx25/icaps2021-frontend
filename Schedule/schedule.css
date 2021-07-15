@@ -21,3 +21,187 @@
   padding-top: calc(var(--bs-gutter-x, 0.75rem) / 2);
   padding-bottom: calc(var(--bs-gutter-x, 0.75rem) / 2);
 }
+
+.style_time{
+	background-color:#ddd;
+	font-size:18px;
+	font-family: ‘Gill Sans’, ‘Gill Sans MT’, Calibri, ‘Trebuchet MS’, sans-serif;
+	text-align:center;	
+}
+
+.style_timeover{
+	background-color:#ddd;
+	font-size:18px;
+	font-family: ‘Gill Sans’, ‘Gill Sans MT’, Calibri, ‘Trebuchet MS’, sans-serif;
+	text-align:center;
+	text-decoration: line-through;
+}
+
+.gather{	
+	margin: 1em 0em 1em 0em;
+	border-radius: 25px;
+	border:solid 4px #5B9BD5;		
+	text-align: center;
+	font-size: 15px;	
+	line-height: 2.5;	
+}
+
+.style_session{
+	margin: 0.7em 0em 0.7em 0em;
+	word-break: break-word;
+	border-left:solid 7px #E2EFDA;		
+}
+
+.style_sessionover{
+	margin: 0.7em 0em 0.7em 0em;
+	word-break: break-word;
+	border-left:solid 7px #51585E;		
+}
+
+.style_socializing{
+	margin: 1em 0em 1em 0em;		
+	border:solid 4px #ACB9CA;		
+	text-align: center;
+	font-size: 15px;	  
+	line-height: 2.5;	
+}
+
+.style_event{
+	margin: 1em 0em 1em 0em;		
+	border:solid 4px #FFC000;		
+	text-align: center;
+	font-size: 15px;	  
+	line-height: 2.5;	
+}
+
+.style_community{
+	margin: 1em 0em 1em 0em;		
+	border:solid 4px #198754;		
+	text-align: center;
+	font-size: 15px;	  
+	line-height: 2.5;	
+}
+
+.style_day{
+	border:0.3px #cccccc ;
+	border-left-style:solid;
+	border-right-style:solid;
+}
+
+.tip {
+			display: inline-block;
+			position: relative;
+		}
+
+		.tip:before, .tip:after {
+			opacity: 0; /*透明度为完全透明*/
+			position: absolute;
+			z-index: 1000; /*设为最上层*/
+			/*鼠标放上元素上时的动画，鼠标放上后效果在.tip-*:hover:before, .tip-*:hover:after中设置;
+			0.3s:规定完成过渡效果需要多少秒或毫秒,ease:规定慢速开始，然后变快，然后慢速结束的过渡效果*/
+			transition: 0.2s ease;
+			-webkit-transition: 0.2s ease;
+			-moz-transition: 0.2s ease;
+		}
+
+		.tip:before {
+			content: '';
+			border: 6px solid transparent;
+		}
+
+		.tip:after {
+			content: attr(data-tip); /*后去要提示的文本*/
+			padding: 5px;
+			white-space: nowrap; /*强制不换行*/			
+			font-size: 10px;
+			color: #0072bc;
+			background-color:#ddd;
+		}
+
+		.tip:hover:before, .tip:hover:after {
+			opacity: 1; /*鼠标放上时透明度为完全显示*/
+			z-index: 1000;
+		}
+		   
+		/*right*/
+		.tip-right:before {
+			top: 50%;
+			left: 100%;
+			border-right-color: #ddd;
+			margin-left: -9px;
+			margin-top: -3px;
+		}
+
+		.tip-right:after {
+			top: 50%;
+			left: 100%;
+			margin-left: 3px;
+			margin-top: -6px;
+		}
+
+		.tip-right:hover:before {
+			margin-left: -3px;
+		}
+
+		.tip-right:hover:after {
+			margin-left: 9px;
+		}
+		
+		/*left*/
+	   .tip-left:before {
+		   top: 50%;
+		   left: 0%;
+		   border-left-color: #ddd;
+		   margin-left: 0px;
+		   margin-top: -3px;
+	   }
+
+	   .tip-left:after {
+		   top: 50%;
+		   right: 100%;
+		   margin-right: 0px;
+		   margin-top: -6px;
+	   }
+
+	   .tip-left:hover:before {
+		   margin-left: -6px;
+	   }
+
+	   .tip-left:hover:after {
+		   margin-right: 6px;
+	   }
+
+.col-xs-1-5,
+.col-sm-1-5,
+.col-md-1-5,
+.col-lg-1-5 {
+	position: relative;
+	min-height: 1px;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+.col-xs-1-5 {
+	width: 20%;
+	float: left;
+}
+
+@media (min-width: 768px) {
+	.col-sm-1-5 {
+		width: 20%;
+		float: left;
+	}
+}
+@media (min-width: 992px) {
+	.col-md-1-5 {
+		width: 20%;
+		float: left;
+	}
+}
+@media (min-width: 1200px) {
+	.col-lg-1-5 {
+		width: 20%;
+		float: left;
+	}
+}
+
