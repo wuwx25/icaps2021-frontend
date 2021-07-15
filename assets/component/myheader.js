@@ -17,7 +17,11 @@ Vue.component('myheader',async function(resolve,reject){
     props: ['curpage','curitem'],
     data: function(){
         return{
-            isLogin:false,
+            status:{
+                isLogin:false,
+                isRegistration:false,
+            },
+            
             user:{},
         }
     },
@@ -30,12 +34,14 @@ Vue.component('myheader',async function(resolve,reject){
                     "Authorization": localStorage.getItem('token')
                 }
             }).then(res => {
-                this.isLogin = true;
+                this.status.isLogin = true;
                 this.user = res.data;
                 if(this.user.reg && this.user.reg.registration){
-                    this.reg_info.registration = false;
+                   this.status.isRegistration = true;
                 }
-            }).catch(err => {});
+            }).catch(err => {
+                console.log(err)
+            });
         }
     }, 
     methods:{
@@ -57,14 +63,14 @@ Vue.component('myheader',async function(resolve,reject){
         userInfo(){
             window.location.href = '/userInfo';
         }
-    }})  
+    },
+
+})  
 });
 var header = new Vue({
     el: '#icaps-header',
     data: {
     },
-
 });
-export {Vue};
-
+export {Vue,header};
 

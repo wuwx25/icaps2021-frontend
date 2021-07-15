@@ -15,7 +15,9 @@ var app = new Vue({
             country: "Country"
         },
         Edit:true,
-        country:country
+        country:country,
+        tipsModal:{},
+        modalmsg:'',
     },
     methods: {
         updateProfile: function () {
@@ -29,26 +31,21 @@ var app = new Vue({
             window.location.href = '../registration'
         },
         logout: function () {
-            console.log("logout !!!");
-            localStorage.setItem("token", "");
-            var options = {
-                url: backendBaseUrl + '/api/users/logout',
-                method: 'post'
-            }
-            axios(options).then(res=>{
-                window.location.href = "../login";
-                window.alert("logout successfully!");
-            }).catch(err=>{
-                console.log(err)
-            })
+            window.localStorage.setItem("token", "");
+            window.location.href = "../login";
         },
         forceQuit: function () {
-            window.alert("Please log in first!");
-            window.location.href = "../login";
+            this.modalmsg = "Please log in first!";
+            this.tipsModal.show();
+            setTimeout(() => {
+                window.location.href = "/login"
+            }, 1500);
+            
         }
     },
     mounted: function () {
         axios.defaults.withCredentials = true; 
+        this.tipsModal = new bootstrap.Modal(document.getElementById('tips'));
         let token = window.localStorage.getItem("token");
         if (token == null || token == "") {
             console.log("No token detected");
@@ -67,5 +64,6 @@ var app = new Vue({
             console.log(err);
             this.forceQuit();
         })
+        
     },
 })

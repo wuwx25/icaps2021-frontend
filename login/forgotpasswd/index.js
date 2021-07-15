@@ -8,6 +8,8 @@ var app = new Vue({
             password: "",
 			code:""
         },
+		tipsModal:{},
+		modalmsg:'',
         SafariModal:{},
 		Emailaddress:'',
 		isEmail:true,
@@ -28,12 +30,18 @@ var app = new Vue({
 			    this.isEmail = false
 			}
 			if(this.isEmail){
-				console.log(this.Emailaddress);
 				axios.post(backendBaseUrl+'/api/users/forgotemailverify',this.user,{
 					headers:{"Content-Type":"application/json"}
 				}
 				).then(res=>{
-					this.codeModal.show();					
+					this.codeModal.show();				
+				}).catch(err=>{
+					console.log(err)
+					this.modalmsg = err.response.data.message;
+					this.tipsModal.show();
+					setTimeout(() => {
+						this.tipsModal.hide()
+					}, 2000);
 				})
 			}
 		},
@@ -42,7 +50,11 @@ var app = new Vue({
 				headers:{"Content-Type":"application/json"}
 			}
 			).then(res=>{
-				this.codeModal.hide();	
+				this.codeModal.hide();
+				this.modalmsg='Password changed successfully';
+				this.tipsModal.show();	
+				setTimeout(() => this.tipsModal.hide(),2000)
+				setTimeout(() => window.location.href='/login',1000)
 				this.isSuccess = true;
 			}).catch(err=>{
 				this.isErrorCode = false
@@ -51,5 +63,6 @@ var app = new Vue({
     },
     mounted(){
         this.codeModal = new bootstrap.Modal(document.getElementById('verifyCode'));
+		this.tipsModal = new bootstrap.Modal(document.getElementById('tips'));
     }
 })
