@@ -43,9 +43,9 @@
 				<h4>{{sessionNum}}</h4>
 				<hr>
 				<p style="margin-top: 2em;">
-					<div v-for='item in sessionPaper[sessionNum]'>
-						<p @click="setID(sessionNum)">
-							<a href='../exhibition/index.html'>{{item.paper}}</a>
+					<div v-for='(item,id) in sessionPaper[sessionNum]'>
+						<p @click="setID(id)">
+							<a href='../exhibition/index.html'>{{item}}</a>
 						</p>
 					</div>
 				</p>
