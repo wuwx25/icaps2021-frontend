@@ -393,7 +393,7 @@
                                             your participation at the meeting for reimbursement, please use your
                                             registration receipt as proof of payment and your certificate of attendance
                                             (above in the Payment and Receipt section) as your proof of attendance.</p>
-                                        <button type="button" class="btn btn-primary" @click="nextWindow"
+                                        <button type="button" class="btn btn-primary" @click="nextWindow()"
                                             style="margin: 1.5em 0 0.5em 0em">Next</button>
                                     </div>
                                 </div>
@@ -449,6 +449,284 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="accordion-item ">
+                            <h2 class="accordion-header" id="headingseven">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseFive" aria-controls="collapseSeven" aria-expanded="false">
+                                    <strong>5.Order your ICAPS T-Shirt </strong>
+                                </button>
+                            </h2>
+                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body" style="background-color: #e7f1ff;">
+
+                                    <p style="text-align: justify;font-size: larger;margin-left: 1rem;">As part of your ICAPS-21 registration your eligible to receive an ICAPS-21 T-Shirt.</p>
+  <hr />
+                                    <div></div>
+                                        <p> Please select the T-Shirt style</p><br/>
+                                        <div class="row">
+                                            <div v-for="item in Tshirt" class="form-check col-xs-6 col-sm-6 col-md-3 col-lg-3 TorderTitle">
+                                                <input class="form-check-input" type="radio"  id="flexRadioDefault1" :value="item.value" v-model="survey.Tshirt_style">
+                                                <img :src="item.src" height=100 width=96.6 /><br/>
+                                            </div>
+                                        </div>
+                                        <hr />
+                                    <div class="TorderTitle">
+                                        <p class="text"> Please select the T-Shirt size</p><br/>
+                                        <div class="row">
+                                        <div class="form-check col-xs-3 col-sm-1 col-1">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="XS" v-model="survey.Tshirt_size">
+                                            <label class="form-check-label" for="flexRadioDefault2">
+                                              XS
+                                            </label>
+                                          </div>
+                                          <div class="form-check col-xs-3 col-sm-1 col-1">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="S" v-model="survey.Tshirt_size">
+                                            <label class="form-check-label" for="flexRadioDefault2">
+                                              S
+                                            </label>
+                                          </div>
+                                          <div class="form-check col-xs-3 col-1">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="M" v-model="survey.Tshirt_size">
+                                            <label class="form-check-label" for="flexRadioDefault2">
+                                              M
+                                            </label>
+                                          </div>
+                                          <div class="form-check col-xs-3 col-1">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="L" v-model="survey.Tshirt_size">
+                                            <label class="form-check-label" for="flexRadioDefault2">
+                                              L
+                                            </label>
+                                          </div>
+                                          <div class="form-check col-xs-3 col-1">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="XL" v-model="survey.Tshirt_size">
+                                            <label class="form-check-label" for="flexRadioDefault2">
+                                              XL
+                                            </label>
+                                          </div>
+                                          <div class="form-check col-xs-2 col-1">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="2XL" v-model="survey.Tshirt_size">
+                                            <label class="form-check-label" for="flexRadioDefault2">
+                                              2XL
+                                            </label>
+                                          </div>
+                                          <div class="form-check col-xs-2 col-1">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="3XL" v-model="survey.Tshirt_size">
+                                            <label class="form-check-label" for="flexRadioDefault2">
+                                              3XL
+                                            </label>
+                                          </div>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <p class="TorderTitle">Please enter your shipping details.</p>
+                                    <div class="row">
+                                        <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
+                                            <div class="mb-3">
+                                                <label class="form-label" style="margin: 1em 0 0.5em 0.8em">Full Name</label>
+                                                <input type="text" class="form-control" v-model="survey.full_name">
+                                                <small style="color: red" v-if="isEmail">
+                                                    <ul>
+                                                        <li>Email is not valid</li>
+                                                    </ul>
+                                                </small>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
+                                            <div class="mb-3">
+                                                <label class="form-label" style="margin: 1em 0 0.5em 0.8em">Address_1</label>
+                                                <input type="text" class="form-control" :class="{warn:isFirst_name}" placeholder=""
+                                                    v-model="survey.address1">
+                                                <small style="color: red" v-if="isFirst_name">
+                                                    <ul>
+                                                        <li>This field is required</li>
+                                                    </ul>
+                                                </small>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
+                                            <div class="mb-3">
+                                                <label class="form-label" style="margin: 1em 0 0.5em 0.8em">Address_2</label>
+                                                <input type="text" class="form-control" :class="{warn:isFirst_name}" placeholder=""
+                                                    v-model="survey.address2">
+                                                <small style="color: red" v-if="isFirst_name">
+                                                    <ul>
+                                                        <li>This field is required</li>
+                                                    </ul>
+                                                </small>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
+                                            <div class="mb-3">
+                                                <label class="form-label" style="margin: 1em 0 0.5em 0.8em">State</label>
+                                                <input type="text" class="form-control" :class="{warn:isLast_name}" placeholder=""
+                                                    v-model="survey.address_state">
+                                                <small style="color: red" v-if="isLast_name">
+                                                    <ul>
+                                                        <li>This field is required</li>
+                                                    </ul>
+                                                </small>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
+                                            <div class="mb-3">
+                                                <label class="form-label"
+                                                    style="margin: 1.5em 0 0.5em 0.8em">Country/Region</label>
+                                                <select class="form-select" :class="{warn:isCountry}"
+                                                    v-model="survey.country">
+                                                    <option v-for="item in country" :value="item">{{item}}</option>
+                                                </select>
+                                                <small style="color: red" v-if="isCountry">
+                                                    <ul>
+                                                        <li>This field is required</li>
+                                                    </ul>
+                                                </small>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
+                                            <div class="mb-3">
+                                                <label class="form-label" style="margin: 1em 0 0.5em 0.8em">Postal Code</label>
+                                                <input type="text" class="form-control" :class="{warn:isLast_name}" placeholder=""
+                                                    v-model="survey.postal_code">
+                                                <small style="color: red" v-if="isLast_name">
+                                                    <ul>
+                                                        <li>This field is required</li>
+                                                    </ul>
+                                                </small>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <!-- <small style="color: red" >
+                                                <ul>
+                                                    <li>Please fill in all the information</li>
+                                                </ul>
+                                            </small> -->
+                                            <button type="button" class="btn btn-primary" @click="nextWindow2()"
+                                            style="margin: 1.5em 0 0.5em 0em">Next</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+
+                    <div class="accordion-item ">
+                        <h2 class="accordion-header" id="headingEight">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseSix" aria-controls="collapseEight" aria-expanded="false">
+                                <strong>6.Other Information </strong>
+                            </button>
+                        </h2>
+                        <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p style="text-align: justify">Please select the workshops you would like to attend.</p>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" v-model="survey.attend_workshops.HPlan">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        <p>Workshop on Hierarchical Planning
+                                            <span class="text-icaps">HPlan</span></p>
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" v-model="survey.attend_workshops.HSDIP">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        <p>Workshop on Heuristics and Search for Domain-independent Planning
+                                            <span class="text-icaps">HSDIP</span></p>
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" v-model='survey.attend_workshops.IntEx'>
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        <p>Workshop on Integrating Planning, Acting, and Execution
+                                            <span class="text-icaps">IntEx</span></p>
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" v-model='survey.attend_workshops.KEPS'>
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        <p>Workshop on Knowledge Engineering for Planning and Scheduling
+                                            <span class="text-icaps">KEPS</span></p>
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" v-model="survey.attend_workshops.PRL">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        <p>Workshop on Bridging the Gap Between AI Planning and
+                                            Reinforcement Learning <span class="text-icaps">PRL</span></p>
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" v-model="survey.attend_workshops.WIPC">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        <p>Workshop on the International Planning Competition
+                                            <span class="text-icaps">WIPC</span></p>
+                                    </label>
+                                </div>
+
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" v-model="survey.attend_workshops.XAIP">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        <p>Workshop on Explainable AI Planning
+                                            <span class="text-icaps">XAIP</span></p>
+                                    </label>
+                                </div>
+
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" v-model="survey.attend_workshops.FinPlan">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        <p>Workshop on Planning for Financial Services
+                                            <span class="text-icaps">FinPlan</span></p>
+                                    </label>
+                                </div>
+
+
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" v-model="survey.attend_workshops.SPARK">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        <p>Scheduling and Planning Applications woRKshop
+                                            <span class="text-icaps">SPARK</span></p>
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" v-model="survey.attend_workshops.PlanRob">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        <p>Workshop on Planning and Robotics
+                                            <span class="text-icaps">PlanRob</span></p>
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" v-model="survey.attend_event">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        <p>Do you plan to attend the diversity enent at ICAPS 2021?
+                                    </label>
+                                </div>
+
+                                <div class="mb-3">
+                                    <div class="row">
+                                        <small style="color: red" v-if="survey.submit.fail">
+                                            <ul>
+                                                <li>Fail to submit.</li>
+                                            </ul>
+                                        </small>
+                                        <button type="button" style="margin-top: 1rem;" class="btn btn-primary"
+                                            @click="submitSurvey">Submit</button>
+                                    </div>
+                                </div>
+                                
+                                
+
+                            </div>
+                        </div>
+                    </div>
+
                     </div>
                     <div class="modal fade " id="verifyCode" tabindex="-1" aria-labelledby="exampleModalLabel"
                         aria-hidden="true">

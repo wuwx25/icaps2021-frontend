@@ -93,6 +93,30 @@ injectJS(paypal_url,()=>{
 var app = new Vue({
     el: '#app',
     data: {
+        survey:{
+            attend_workshops:{
+                HPlan:false,
+                HSDIP:false,
+                IntEx:false,
+                KEPS:false,
+                PRL:false,
+                WIPC:false,
+                XAIP:false,
+                FinPlan:false,
+                SPARK:false,
+                PlanRob:false,
+            },
+            submit:{
+                fail:false,
+                success:false,
+            }
+        },
+        Tshirt:[
+            {src:'../assets/images/T-shirt/typ1.png',value:'pink'},
+            {src:'../assets/images/T-shirt/typ2.png',value:'yellow'},
+            {src:'../assets/images/T-shirt/type3.jpg',value:'blue'},
+            {src:'../assets/images/T-shirt/type4.jpg',value:'white'},
+        ],
         token: "",
         message: "Hello ",
         first_name: "",
@@ -266,9 +290,29 @@ var app = new Vue({
                 })
             }
         },
+        submitSurvey(){
+            this.survey.submit.fail = false;
+            axios.post(backendBaseUrl + '/api/registrations/survey', this.survey,{
+                headers: {
+                    "Authorization": localStorage.getItem('token')
+                }
+            }).then(res => {
+                this.modalmsg = 'Submission Successful!'
+                this.tipsModal.show();
+                setTimeout(() => {
+                    this.tipsModal.hide();
+                }, 2000);
+            }).catch(err => {
+                this.survey.submit.fail = true;
+            })
+        },
         nextWindow() {
             this.collapse[3].hide();
             this.collapse[4].show();
+        },
+        nextWindow2() {
+            this.collapse[5].hide();
+            this.collapse[6].show();
         }
     },
     mounted: function () {
@@ -277,7 +321,6 @@ var app = new Vue({
         this.publicationModal = new bootstrap.Modal(document.getElementById('publication'));
         this.tipsModal = new bootstrap.Modal(document.getElementById('tips'));
         
-
         var myModalEl = document.getElementById('publication')
         myModalEl.addEventListener('hidden.bs.modal', function (event) {
             if (app.reg_info.papers.length == 0) {
@@ -287,17 +330,17 @@ var app = new Vue({
 
 
         var collapse_doc = [];
-        for(var i=1;i < 5;i++){
-            let name=["","One","Two","Three","Four"];
+        for(var i=1;i < 7;i++){
+            let name=["","One","Two","Three","Four","Five","Six"];
             collapse_doc[i]=document.getElementById('collapse'+name[i]);
             this.collapse[i] = new bootstrap.Collapse(collapse_doc[i],{
                 toggle: false
             })
         }
         let that = this;
-        for(var i = 1; i < 5; i++){
+        for(var i = 1; i < 7; i++){
             collapse_doc[i].addEventListener('show.bs.collapse',function(){
-                for(var j=1;j < 5;j++){
+                for(var j=1;j < 7;j++){
                     if(i != j){
                         that.collapse[j].hide()
                     }
