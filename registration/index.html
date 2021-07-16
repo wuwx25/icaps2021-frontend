@@ -44,7 +44,7 @@
 
 <body>
     <div id='icaps-header' v-cloak>
-        <myheader curpage='registration'></myheader>
+        <myheader curpage='registration' ref="header"></myheader>
     </div>
     <div id="app" v-cloak>
         <main class="container" style="min-height: 80vh">
@@ -70,7 +70,7 @@
                                                 <label class="form-label"
                                                     style="margin: 1em 0 0.5em 0.8em">Email</label>
                                                 <input type="text" class="form-control" placeholder="Input your email"
-                                                    v-model="user_info.email" :disabled="isLogin">
+                                                    v-model="user_info.email" :disabled="isLogin" >
                                                 <small style="color: red" v-if="isEmail">
                                                     <ul>
                                                         <li>Email is not valid</li>
@@ -147,7 +147,7 @@
                                                     </ul>
                                                 </small>
                                                 <small style="color: red"
-                                                    v-if="user_info.password != user_info.password2">
+                                                    v-if="passwdMisMatch">
                                                     <ul>
                                                         <li>Password mismatch</li>
                                                     </ul>
@@ -235,10 +235,9 @@
                                                             <div class="form-check">
                                                                 <input class="form-check-input" type="checkbox"
                                                                     id="check_item" value=""
-                                                                    v-model="reg_info.is_student"
-                                                                    :disabled="!is_student">
+                                                                    v-model="reg_info.is_student">
                                                                 <label class="form-check-label" for="flexCheckDefault">
-                                                                    <p>I am full time student<span v-if="!is_student"
+                                                                    <p>I am full time student<span
                                                                             style="margin-left: 1rem">(You can select
                                                                             this option only if you use the student
                                                                             email during registration) </span></p>
@@ -440,7 +439,7 @@
                                             <input class="form-control" type="file" id="formFile" @change="getfile">
                                             <small style="color: red" v-if="uploadFile.fail">
                                                 <ul>
-                                                    <li>Fail to submit.</li>
+                                                    <li>{{uploadFile.errmsg}}</li>
                                                 </ul>
                                             </small>
                                             <button type="button" style="margin-top: 1rem;" class="btn btn-primary"
