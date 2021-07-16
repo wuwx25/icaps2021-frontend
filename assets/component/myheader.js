@@ -21,7 +21,6 @@ Vue.component('myheader',async function(resolve,reject){
                 isLogin:false,
                 isRegistration:false,
             },
-            
             user:{},
         }
     },
@@ -56,8 +55,7 @@ Vue.component('myheader',async function(resolve,reject){
             window.location.href = '/userInfo';
         }
     },
-
-})  
+})
 });
 var header = new Vue({
     el: '#icaps-header',
