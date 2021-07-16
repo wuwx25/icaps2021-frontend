@@ -158,7 +158,6 @@ var app = new Vue({
             add_mail_list: false,
             errmsg:'',
         }
-
     },
     methods: {
         Create() {
@@ -224,8 +223,10 @@ var app = new Vue({
                 this.modalmsg = 'Submission Successful!';
                 this.tipsModal.show();
                 setTimeout(() => {
-                    window.location.href = "../userInfo"
+                    this.tipsModal.hide();
+                    this.collapse[5].show();
                 }, 1500);
+                
             }).catch(err => {
                 this.uploadFile.fail = true;
                 this.uploadFile.errmsg = err.response.data.message;
