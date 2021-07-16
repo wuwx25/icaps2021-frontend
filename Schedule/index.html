@@ -44,97 +44,93 @@
         <div class="container">
           <div class="mb-5">
             <div style="margin: 0em 0em 1em 0em">
-              <div v-if="week == 1">
-                <h4>Schedule of DC, workshops and tutorials(1st week)</h4>
-              </div>
-              <div v-else>
-                <h4>Schedule of Main Conference(2nd week)</h4>
-              </div>				
+              <h4>Schedule Overview</h4>
               <hr>
-              <div>
-                <div class="container">
-                  <div class="row">
-                    <div class="col">
-                      <div class="btn-group btn-group-sm" role="group" v-model="week">
-                        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-                        <label class="btn btn-outline-primary" for="btnradio1" @click="week = 1">Week 1st</label>
-                      
-                        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                        <label class="btn btn-outline-primary" for="btnradio2" @click="week = 2">Week 2nd</label>
-                      </div>
-                      <span style="margin-left:1em">Timezone:</span>
-                      <select v-model="zone">
-                        <option v-for="option in zoneOptions" v-bind:value="option.value">
-                          {{option.text}}
-                        </option>
-                      </select>
-                    </div>
-                    <div class="col col-2">								
-                      <span><span class="style_timeover">  Time  </span> : Session over</span>
-                    </div>
+              <div class="row justify-content-between">
+                <div class="col">
+                  <!-- <span>Week: </span> -->
+                  <div class="btn-group btn-block" role="group" v-model="week">
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="btnradio1" @click="week = 1" v-html="titleOfWeek1"></label>
+                  
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="btnradio2" @click="week = 2" v-html="titleOfWeek2"></label>
                   </div>
                 </div>
-              </div>					
+                <div class="col col-auto align-self-center">	
+                  <select v-model="zone" style="margin-top: 1em;">
+                    <option v-for="option in zoneOptions" v-bind:value="option.value">
+                      {{option.text}}
+                    </option>
+                  </select>
+                </div>
+              </div>				
             </div>
-            <div v-if="week == 1"></div>
-			<div v-if="week == 2">
-				<div class="container" class="week 2">
-					<div class="row row-cols-2">
-						<div class="col-md-1-5 col-lg-1-5" class="day 1" style="border:0.3px #cccccc;border-left-style:solid;border-right-style:solid;" v-for="(Workday,j) in Week2">
-							<div class="w-100"></div>						
-							<div class="col" style="margin: 1em 0em 0em 0em">
-								<h2 class="text-center">
-									<span class="badge badge-primary" style="background-color: #0072bc;"> Day {{j+1}} </span>
-								</h2>
-							</div>
+            <!-- Week1 -->
+            <div v-if="week == 1">
+              <div class="alert alert-warning" role="alert">
+                Coming soon!
+              </div>
+            </div>
+            <!-- Week2 -->
+            <div v-if="week == 2">
+              <div class="container">
+                <div class="row row-cols-2">
+                  <div class="col-md-1-5 col-lg-1-5" style="border:0.3px #cccccc;border-left-style:solid;border-right-style:solid;" v-for="(Workday,j) in Week2">
+                    <div class="w-100"></div>						
+                    <div class="col" style="margin: 1em 0em 0em 0em">
+                      <h2 class="text-center">
+                        <span class="badge badge-primary" style="background-color: #0072bc;"> Day{{j+1}} </span>
+                      </h2>
+                    </div>
 
-							<div v-for="item in Workday">
-								<div class="col">
-                  <!-- talbe time -->
-									<div v-if="isOver(Week2[j][0].day,item.time)"><div class="style_time">{{showDay(Week2[j][0].day,item.time)}}</div></div>
-									<div v-else> <div class="style_timeover">{{showDay(Week2[j][0].day,item.time)}}</div> </div>	
-                  <!-- table activities -->
-									<div v-if="item.type == 'session'">
-										<div v-if="isOver(Week2[j][0],item.time)">
-											<div class="style_session">
-												<div style="margin-left: 0.5em;" class="tip tip-right" data-tip="linklinklinklink">
-													<a :href="'session_template.html?sessionNum=Session'+item.num">
-														<BIG>Session{{item.num}}:</BIG><br><SMALL><I>{{session[item.num]}}</I></SMALL>
-													</a>
-												</div>
-											</div>	
-										</div>
-										<div v-else> 
-											<div class="style_sessionover">
-												<div style="margin-left: 0.5em;">
-													<strong  style="color: #51585E;">Session{{item.num}}:</strong><br>{{session[item.num]}}
-												</div>	
-											</div>
-										</div>
-									</div>		
-									<div v-else-if="item.type == 'socializing'">
-										<div class="style_socializing">
-											<strong >Socializing</strong>	
-										</div>	
-									</div>
-									<div v-else-if="item.type == 'gather'">
-										<div class="col">
-											<div v-html="gather"></div>
-										</div>
-									</div>
-									<div v-else>
-										<div class="style_event">
-											<strong>{{item.type}}</strong>
-										</div>
-									</div>
-								</div>
-							</div>
-							
-						</div>	
-							
-					</div>
-				</div>
-			</div>
+                    <div v-for="item in Workday">
+                      <div class="col">
+                        <!-- talbe time -->
+                        <div v-if="isOver(Week2[j][0].day,item.time)"><div class="style_time">{{showDay(Week2[j][0].day,item.time)}}</div></div>
+                        <div v-else> <div class="style_timeover">{{showDay(Week2[j][0].day,item.time)}}</div> </div>	
+                        <!-- table activities -->
+                        <div v-if="item.type == 'session'">
+                          <div v-if="isOver(Week2[j][0].day,item.time)">
+                            <div class="style_session">
+                              <div style="margin-left: 0.5em;" class="tip tip-right" data-tip="Click to view more!">
+                                <a :href="'session_template.html?sessionNum=Session'+item.num">
+                                  <BIG>Session{{item.num}}:</BIG><br><SMALL><I>{{session[item.num]}}</I></SMALL>
+                                </a>
+                              </div>
+                            </div>	
+                          </div>
+                          <div v-else> 
+                            <div class="style_sessionover">
+                              <div style="margin-left: 0.5em;">
+                                <strong  style="color: #51585E;">Session{{item.num}}:</strong><br>{{session[item.num]}}
+                              </div>	
+                            </div>
+                          </div>
+                        </div>		
+                        <div v-else-if="item.type == 'socializing'">
+                          <div class="style_socializing">
+                            <strong >Socializing</strong>	
+                          </div>	
+                        </div>
+                        <div v-else-if="item.type == 'gather'">
+                          <div class="col">
+                            <div v-html="gather"></div>
+                          </div>
+                        </div>
+                        <div v-else>
+                          <div class="style_event">
+                            <strong>{{item.type}}</strong>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>	
+                    
+                </div>
+              </div>
+            </div>
 			
           </div>
         </div>
