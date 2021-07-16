@@ -1,6 +1,6 @@
 import {backendBaseUrl} from '../assets/js/backendBaseUrl.js';
 import {country,eduMail} from '../assets/js/data.js';
-import { Vue } from '/assets/component/myheader.js';
+import { Vue , header} from '/assets/component/myheader.js';
 import { paypal_url } from '../assets/config/paypal.js';
 
 // inject js file and export a handle after load it complete
@@ -111,21 +111,11 @@ var app = new Vue({
         },
         modalmsg: '',
         isErrorPaper: false,
-        isEmail: false,
-        isFirst_name: false,
-        isLast_name: false,
-        isInstitution: false,
-        isPronoun: false,
-        isPassword: false,
-        isLessSix: false,
-        isPassword2: false,
-        isMisMatch: false,
-        isCountry: false,
+        check_form:false,
         collapse: [],
         emailErrorMsg: '',
         errorPaperMessage: '',
         isErrorCode: false,
-        is_student: false,
         country: country,
         codeModal: {},
         errorModal: {},
@@ -134,14 +124,15 @@ var app = new Vue({
         paySuccessfulModal: {},
         checkPaperModal: {},
         tipsModal: {},
-        isLogin: false,
         eduMail: eduMail,
+        flag:false,
         uploadFile: {
             cvFile: {},
             success: false,
             fail: false,
             share_inform: false,
             add_mail_list: false,
+            errmsg:'',
         }
 
     },
@@ -154,7 +145,6 @@ var app = new Vue({
             }).then(res => {
                 this.codeModal.hide();
                 localStorage.setItem("token", res.data.token);
-                console.log(localStorage.getItem("token"));
                 axios.post(backendBaseUrl + '/api/users/login', this.user_info).then(res => {
                     window.location.href = './index.html'
                 }).catch(err => {
@@ -164,82 +154,9 @@ var app = new Vue({
                 this.isErrorCode = true
             })
         },
-        checkForm() {
-            let flag = false;
-            if (this.user_info.email) {
-                const regEmail = /^([a-zA-Z]|[0-9])(\w|\.|\-)+@[a-zA-Z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
-                if (regEmail.test(this.user_info.email)) {
-                    this.isEmail = false
-                } else {
-                    this.isEmail = true
-                    flag = true
-                }
-            } else {
-                this.isEmail = true
-                flag = true
-            }
-            if (!this.user_info.first_name || this.user_info.first_name == undefined) {
-                this.isFirst_name = true
-                flag = true
-            } else {
-                this.isFirst_name = false
-            }
-            if (!this.user_info.last_name) {
-                this.isLast_name = true
-                flag = true
-            } else {
-                this.isLast_name = false
-            }
-            if (!this.user_info.password) {
-                this.isPassword = true
-                flag = true
-            } else {
-                this.isPassword = false
-                if (this.user_info.password != this.user_info.password2) {
-                    flag = true
-                }
-                if (this.user_info.password.length < 6) {
-                    this.isLessSix = true
-                    flag = true
-                } else
-                    this.isLessSix = false
-            }
-            if (!this.user_info.password2) {
-                this.isPassword2 = true
-                flag = true
-            } else {
-                this.isPassword2 = false
-                if (this.user_info.password != this.user_info.password2) {
-                    this.passwdMisMatch = true
-                    flag = true
-                } else
-                    this.passwdMisMatch = false
-            }
-            if (!this.user_info.pronoun) {
-                this.isPronoun = true
-                flag = true
-            } else {
-                this.isPronoun = false
-            }
-            if (!this.user_info.institution) {
-                this.isInstitution = true
-                flag = true
-            } else {
-                this.isInstitution = false
-            }
-            if (!this.user_info.country) {
-                this.isCountry = true
-                flag = true
-            } else {
-                this.isCountry = false
-            }
-            if (flag == true) {
-                return false
-            }
-            return true
-        },
         checkEmail() {
-            if (this.checkForm() == false) return;
+            this.check_form = true;
+            if(!this.checkflag) return;
             axios.post(backendBaseUrl + '/api/users/emailverify', {
                 email: this.user_info.email
             }).then(res => {
@@ -255,14 +172,18 @@ var app = new Vue({
                 this.uploadFile.cvFile = e.target.files[0];
                 console.dir(e.target.files)
             } else {
-                alert('File limit 20M')
+                
+                this.modalmsg = 'File limit 20M';
+                this.tipsModal.show();
+                setTimeout(() => {
+                    this.tipsModal.hide()
+                }, 1500);
                 document.getElementById('formFile').value = "";
                 return;
             }
 
         },
         submit() {
-            var formData = new FormData();
             var formData = new window.FormData();
             formData.append('personal_cv', this.uploadFile.cvFile);
             formData.append('share_inform', this.uploadFile.share_inform ? "true" : "false");
@@ -283,16 +204,8 @@ var app = new Vue({
                 }, 1500);
             }).catch(err => {
                 this.uploadFile.fail = true;
+                this.uploadFile.errmsg = err.response.data.message;
             })
-        },
-        logout() {
-            localStorage.setItem('token', "");
-            window.location.href = "./index.html"
-            this.isLogin = false;
-        },
-        login() {
-            console.log("user login");
-            window.location.href = "/login";
         },
         updateProfile: function () {
             this.Edit = !this.Edit;
@@ -305,10 +218,10 @@ var app = new Vue({
                     "Content-Type": "application/json;charset=utf-8"
                 }
             }
-
             fetch(url, options).then(res => {
                 return res.json()
             }).then(res => {
+                console.log(res)
                 this.collapse[1].hide();
                 this.collapse[2].show();
                 this.modalmsg = 'Update Successful!'
@@ -364,49 +277,35 @@ var app = new Vue({
         this.errorModal = new bootstrap.Modal(document.getElementById('Registered'));
         this.publicationModal = new bootstrap.Modal(document.getElementById('publication'));
         this.tipsModal = new bootstrap.Modal(document.getElementById('tips'));
+        
+
         var myModalEl = document.getElementById('publication')
         myModalEl.addEventListener('hidden.bs.modal', function (event) {
             if (app.reg_info.papers.length == 0) {
                 app.reg_info.publication = false;
             }
         });
-        var collapse1 = document.getElementById('collapseOne')
-        var collapse2 = document.getElementById('collapseTwo')
-        var collapse3 = document.getElementById('collapseThree')
-        var collapse4 = document.getElementById('collapseFour')
-        this.collapse[1] = new bootstrap.Collapse(collapse1, {
-            toggle: false
-        })
-        this.collapse[2] = new bootstrap.Collapse(collapse2, {
-            toggle: false
-        })
-        this.collapse[3] = new bootstrap.Collapse(collapse3, {
-            toggle: false
-        })
-        this.collapse[4] = new bootstrap.Collapse(collapse4, {
-            toggle: false
-        })
+
+
+        var collapse_doc = [];
+        for(var i=1;i < 5;i++){
+            let name=["","One","Two","Three","Four"];
+            collapse_doc[i]=document.getElementById('collapse'+name[i]);
+            this.collapse[i] = new bootstrap.Collapse(collapse_doc[i],{
+                toggle: false
+            })
+        }
         let that = this;
-        collapse1.addEventListener('show.bs.collapse', function () {
-            that.collapse[2].hide();
-            that.collapse[3].hide();
-            that.collapse[4].hide();
-        })
-        collapse2.addEventListener('show.bs.collapse', function () {
-            that.collapse[1].hide();
-            that.collapse[3].hide();
-            that.collapse[4].hide();
-        })
-        collapse3.addEventListener('show.bs.collapse', function () {
-            that.collapse[1].hide();
-            that.collapse[2].hide();
-            that.collapse[4].hide();
-        })
-        collapse4.addEventListener('show.bs.collapse', function () {
-            that.collapse[1].hide();
-            that.collapse[2].hide();
-            that.collapse[3].hide();
-        })
+        for(var i = 1; i < 5; i++){
+            collapse_doc[i].addEventListener('show.bs.collapse',function(){
+                for(var j=1;j < 5;j++){
+                    if(i != j){
+                        that.collapse[j].hide()
+                    }
+                }
+            })
+        }
+
 
         if (localStorage.getItem('token')) {
             axios.get(backendBaseUrl + '/api/users/profile', {
@@ -414,9 +313,7 @@ var app = new Vue({
                     "Authorization": localStorage.getItem('token')
                 }
             }).then(res => {
-                this.isLogin = true;
-                localStorage.setItem('isLogin', 1)
-                if (res.data.reg && res.data.reg.registration) {
+                if (this.isRegistration) {
                     this.collapse[3].show();
                 } else {
                     this.collapse[2].show();
@@ -424,7 +321,7 @@ var app = new Vue({
                 this.user = res.data;
                 this.user_info = this.user.profile;
                 this.user_info.email = this.user.email;
-                if (this.user.reg && this.user.reg.registration) {
+                if (this.isRegistration) {
                     this.reg_info.registration = false;
                 }
                 if (this.user.cv_info) {
@@ -433,30 +330,12 @@ var app = new Vue({
                 } else {
                     this.reg_info.registration = true;
                 }
-                this.is_student = true;
-                // var is_edu_email = false;
-                // for (var i = 0; i < this.eduMail.length; i++) {
-                //     var edu_str = this.eduMail[i];
-                //     if (edu_str == this.user.email.substr(this.user.email.length - edu_str.length)) {
-                //         is_edu_email = true;
-                //         this.is_student = true;
-                //         break;
-                //     }
-                // }
-                // if (!is_edu_email) {
-                //     this.is_student = false;
-                // }
-
             }).catch(err => {
                 this.collapse[1].show()
             });
         } else {
             this.collapse[1].show()
         }
-      
-        
-
-
     },
     watch: {
         token: async function () {
@@ -484,5 +363,49 @@ var app = new Vue({
                     this.publicationModal.show()
             }
         },
+        
+    },
+    computed: {
+        isEmail:function(){
+            const regEmail = /^([a-zA-Z]|[0-9])(\w|\.|\-)+@[a-zA-Z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
+            return !regEmail.test(this.user_info.email) && this.check_form;
+        },
+        isFirst_name:function(){
+            return !this.user_info.first_name && this.check_form;
+        },
+        isLast_name:function(){
+            return !this.user_info.last_name && this.check_form;
+        },
+        isPassword:function(){
+            return !this.user_info.password && this.check_form;
+        },
+        isLessSix:function(){
+            return (this.user_info.password && this.user_info.password.length < 6) && this.check_form;
+        },
+        isPassword2:function(){
+            return !this.user_info.password2 && this.check_form;
+        },
+        passwdMisMatch:function(){
+            return (this.user_info.password != this.user_info.password2) && this.check_form;
+        },
+        isPronoun:function(){
+            return !this.user_info.pronoun && this.check_form;
+        },
+
+        isInstitution:function(){
+            return !this.user_info.institution && this.check_form;
+        },
+        isCountry:function(){
+            return !this.user_info.country && this.check_form;
+        },
+        checkflag:function(){
+            return !(this.isEmail || this.isFirst_name || this.isLast_name || this.isPronoun || this.isLessSix || this.isPassword || this.isPassword2 || this.isCountry || this.passwdMisMatch) && this.check_form
+        },
+        isLogin:function(){
+            return header.$refs.header.status.isLogin
+        },
+        isRegistration:function(){
+            return header.$refs.header.status.isRegistration
+        }
     }
 });
