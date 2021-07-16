@@ -39,7 +39,7 @@ var app = new Vue({
         }
     },
     mounted: function () {
-
+        axios.defaults.withCredentials = true;
         let token = window.localStorage.getItem("token");
         if (token == null || token == "") {
             console.log("No token detected");

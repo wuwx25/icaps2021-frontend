@@ -23,6 +23,7 @@ Vue.component('myheader',async function(resolve,reject){
     },
     template: await getTemplate(),
     created:function(){
+        axios.defaults.withCredentials = true;
         if(window.localStorage.getItem('token')){
             axios.get(backendBaseUrl+'/api/users/profile', {
                 headers: {
@@ -39,8 +40,17 @@ Vue.component('myheader',async function(resolve,reject){
     }, 
     methods:{
         logout(){
-            localStorage.setItem('token','');
-            window.location.reload();
+            var options = {
+                url: backendBaseUrl + '/api/users/logout',
+                method: 'post'
+            }
+            axios(options).then(res=>{
+                localStorage.setItem('token','');
+                window.location.reload();
+            }).catch(err=>{
+                console.log(err)
+            })
+
         },
         login(){
             window.location.href = '/login';

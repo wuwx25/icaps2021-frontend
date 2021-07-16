@@ -359,6 +359,7 @@ var app = new Vue({
         }
     },
     mounted: function () {
+        axios.defaults.withCredentials = true;
         this.codeModal = new bootstrap.Modal(document.getElementById('verifyCode'));
         this.errorModal = new bootstrap.Modal(document.getElementById('Registered'));
         this.publicationModal = new bootstrap.Modal(document.getElementById('publication'));
