@@ -57,7 +57,6 @@ Vue.component('myheader',async function(resolve,reject){
             }).catch(err=>{
                 console.log(err)
             })
-
         },
         login(){
             window.location.href = '/login';

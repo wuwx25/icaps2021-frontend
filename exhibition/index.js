@@ -10,10 +10,10 @@ var app = new Vue({
 
     },
     mounted: function() {
-        // console.log("exhibition");
-        // if(localStorage.getItem("channel")){
-        //     this.channel=localStorage.getItem("channel");
-        //     console.log(this.channel)
-        // }
+        console.log("exhibition");
+        if(localStorage.getItem("channel")){
+            this.channel=localStorage.getItem("channel");
+            console.log(this.channel)
+        }
     }
 })
