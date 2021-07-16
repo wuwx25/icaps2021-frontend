@@ -8,18 +8,11 @@
   <link rel="shortcut icon" type="image/png" href="../assets/images/favicon.png" />
   <title>ICAPS 2021</title>
   <!-- Bootstrap Overrides -->
+  <script src="../assets/js/bootstrap.min.js"></script>
+
   <link href="../assets/bootstrap/css/styles.css" rel="stylesheet" />
-  <link href="../assets/css/custom.css" rel="stylesheet" />
-
-  <!-- Layout -->
-  <link href="static/css/layui.css" rel="stylesheet" />
-  <script src="static/js/layui.js"></script>
-
-  <link href="static/css/registration_style.css" rel="stylesheet" />
-
-  <!-- jQuery -->
+  <link href="../assets/css/custom.css" rel="stylesheet" /> 
   <script src="../assets/js/jquery-3.6.0.min.js"></script>
-  <script src="/assets/component/myheader.js" type="module"></script>
 </head>
 
 <body class="bg-light">
@@ -48,12 +41,12 @@
           </div>
         </div>
       </div>
-      <div class="col-12 col-lg-3 col-md-2 col-sm-12">
+      <div class="col-12 col-lg-3 col-md-2 col-sm-12" id="app">
         <div class="card shadow-sm mb-4" style="height: 40.75rem;">
           <div class="card-body">
             <ul class="list-group list-group-flush">
-              <iframe v-bind:src="'http://101.34.38.32:3000/channel/'+channel+'/?layout=embedded'"
-                height=600 title="myframe" id="app"></iframe>
+              <iframe v-bind:src="'http://192.168.0.224:3000/channel/'+channel+'/?layout=embedded'"
+                height=600 title="myframe"></iframe>
             </ul>
           </div>
         </div>

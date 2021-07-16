@@ -2,7 +2,6 @@ import {backendBaseUrl} from '../assets/js/backendBaseUrl.js';
 import {country,eduMail} from '../assets/js/data.js';
 import { Vue , header} from '/assets/component/myheader.js';
 import { paypal_url } from '../assets/config/paypal.js';
-
 // inject js file and export a handle after load it complete
 function injectJS(src, onload) {
     var loaded = Array.from(document.scripts).some(it => it.getAttribute('src') === src); // Warn：script.src !== script.getAttribute('src')
