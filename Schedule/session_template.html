@@ -16,117 +16,63 @@
 		<!-- Bootstrap Overrides -->
 		<link href="../assets/bootstrap/css/styles.css" rel="stylesheet" />
 		<link href="../assets/css/custom.css" rel="stylesheet" />
-		<link rel="stylesheet" type="text/css" href="schedule.css"/>
+    <!-- Schedule CSS -->
+    <link rel="stylesheet" type="text/css" href="./schedule.css"/> 
 
-		<!-- jQuery -->
-		<script src="../assets/js/jquery-3.6.0.min.js"></script>
-		<script src="../assets/js/custom.js"></script>
-		<script src="../assets/js/bootstrap.min.js"></script>
-		<!-- import axios  -->
-		<script src="../assets/js/axios.min.js"></script>	
-		
-		<!-- vue dev version -->
-		<script src="../assets/js/vue.min.js"></script>
+    <!-- jQuery -->
+    <script src="../assets/js/jquery-3.6.0.min.js"></script>
+    <script src="../assets/js/custom.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
 
-	</head>
-	<body class="bg-light">
-		<header class="navbar fixed-top p-3 border-bottom">
-		    <nav class="navbar navbar-light navbar-expand-lg">
-		        <div class="container-fluid d-flex">
-		            <a class="navbar-brand text-dark">ICAPS 2021</a>
-		            <div>
-		                <button
-		                        class="navbar-toggler"
-		                        type="button"
-		                        data-bs-toggle="collapse"
-		                        data-bs-target="#navbarSupportedContent"
-		                >
-		                    <span class="navbar-toggler-icon"></span>
-		                </button>
-		                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-		                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-		                        <li class="nav-item">
-		                            <a href="../home" class="nav-link px-2">Home</a>
-		                        </li>
-		                        <li class="nav-item">
-		                            <a href="../papers" class="nav-link px-2">Papers</a>
-		                        </li>
-		                        <li class="nav-item">
-		                            <a href="../Calls" class="nav-link px-2">Calls</a>
-		                        </li>
-		                        <li class="nav-item">
-		                            <a href="../workshops" class="nav-link px-2">Workshops</a>
-		                        </li>
-		                        <li class="nav-item">
-		                            <a href="../Competitions" class="nav-link px-2">Competitions</a>
-		                        </li>
-		                        <li class="nav-item">
-		                            <a href="../Committee" class="nav-link px-2">Committee</a>
-		                        <li class="nav-item">
-		                            <a href="../InvitedSpeakers/" class="nav-link px-2">Invited Speakers</a>
-		                        </li>
-		                        <li class="nav-item">
-		                            <a href="../exhibition/" class="nav-link px-2">Exhibition</a>
-		                        </li>
-		                        <li class="nav-item">
-		                            <a href="../Schedule/" class="nav-link px-2">Schedule</a>
-		                        </li>
-								<li class="nav-item">
-									<a href="../code-of-conduct.html" class="nav-link px-2">Code of conduct</a>
-								</li>
-		                    </ul>
-		                </div>
-		            </div>
-		        </div>
-		    </nav>
-		    <button type="button" class="btn btn-primary" style="position: fixed;right: 10%;" v-if="!isLogin">
-		        <a href="../login" style="color: white">Login</a>
-		    </button>
-		    </nav>
-		</header>
-		
-		<div id="app" class="album mt-3 p-4" style="min-height: 80vh;">
-			<div style="height: 100px" class="d-none d-md-block"></div>
-			
-			<div style="margin-left: 4.5em;max-width: 80em;">
-				<h1 >{{sessionNum}}</h1>
+    <!-- import axios  -->
+    <script src="../assets/js/axios.min.js"></script>
+    <!-- vue dev version -->
+    <script src="../assets/js/vue.min.js"></script>
+
+
+  </head>
+  <body class="bg-light">
+    <div id='icaps-header'>
+      <myheader curpage='schedule' curitem="index"></myheader>
+    </div>
+    <script src="/assets/component/myheader.js" type="module"></script>
+    <div id="app" v-cloak class="album mt-3 p-4" style="min-height: 80vh;">
+		<div style="height: 100px" class="d-none d-md-block"></div>
+		<div class="container">
+			<div class="mb-5">
+				<h4>{{sessionNum}}</h4>
 				<hr>
-				
 				<p style="margin-top: 2em;">
-					<div v-for='(item,key) in session[sessionNum]' class="sessionPaper">
-						<p @click='setId(key)'>
-							<a href='../exhibition/index.html'>{{item}}</a>
+					<div v-for='item in sessionPaper[sessionNum]'>
+						<p @click="setID(sessionNum)">
+							<a href='../exhibition/index.html'>{{item.paper}}</a>
 						</p>
 					</div>
 				</p>
-				
 			</div>
-			 
-		
 		</div>
-		
-		<footer class="footer m-5">
-			<div class="container">
-				<hr />
-				<div class="row d-flex justify-content-center">
-					<div class="col col-12 col-lg-2 d-flex justify-content-center mb-2">
-						&copy; ICAPS 2021
-					</div>
-					<div class="col col-12 col-lg-2 d-flex justify-content-center mb-1">
-						<a href="../privacy-policy.html">Privacy Policy</a>
-					</div>
-					<div class="col col-12 col-lg-2 d-flex justify-content-center mb-1">
-						<a href="../terms-of-use.html">Terms of Use</a>
-					</div>
-					<div class="col col-12 col-lg-2 d-flex justify-content-center">
-						<a href="../code-of-conduct.html">Code of Conduct</a>
-					</div>
-				</div>
-			</div>
-		
-		</footer>
-		
-		<script src="./session.js" type="module"></script> 
-		
-	</body>
+	</div>
+
+    <footer class="footer m-5">
+      <div class="container">
+        <hr />
+        <div class="row d-flex justify-content-center">
+          <div class="col col-12 col-lg-2 d-flex justify-content-center mb-2">
+            &copy; ICAPS 2021
+          </div>
+          <div class="col col-12 col-lg-2 d-flex justify-content-center mb-1">
+            <a href="../privacy-policy.html">Privacy Policy</a>
+          </div>
+          <div class="col col-12 col-lg-2 d-flex justify-content-center mb-1">
+            <a href="../terms-of-use.html">Terms of Use</a>
+          </div>
+          <div class="col col-12 col-lg-2 d-flex justify-content-center">
+            <a href="../code-of-conduct.html">Code of Conduct</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script type="text/javascript" src="./schedule.js"></script> 
 </html>
+

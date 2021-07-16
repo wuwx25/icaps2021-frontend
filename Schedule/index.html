@@ -17,7 +17,8 @@
 		<!-- Bootstrap Overrides -->
 		<link href="../assets/bootstrap/css/styles.css" rel="stylesheet" />
 		<link href="../assets/css/custom.css" rel="stylesheet" />
-		<link rel="stylesheet" type="text/css" href="schedule.css"/>
+    <!-- Schedule CSS -->
+    <link rel="stylesheet" type="text/css" href="./schedule.css"/> 
 
     <!-- jQuery -->
     <script src="../assets/js/jquery-3.6.0.min.js"></script>
@@ -25,9 +26,11 @@
     <script src="../assets/js/bootstrap.min.js"></script>
 
     <!-- import axios  -->
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="../assets/js/axios.min.js"></script>
     <!-- vue dev version -->
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="../assets/js/vue.min.js"></script>
+
+
   </head>
   <body class="bg-light">
     <div id='icaps-header'>
@@ -35,21 +38,106 @@
     </div>
     <script src="/assets/component/myheader.js" type="module"></script>
     <div id="app" v-cloak>
-      <div class="album mt-3 p-4">
+      <div class="album mt-3 p-4" style="min-height: 80vh;">
         <div style="height: 100px" class="d-none d-md-block">
-          <!-- padding hack for the fixed navbar -->
         </div>
 
         <div class="container">
           <div class="mb-5">
-            <h4>Schedule</h4>
-            <hr />
+            <div style="margin: 0em 0em 1em 0em">
+              <h4>Schedule Overview</h4>
+              <hr>
+              <div class="row justify-content-between">
+                <div class="col">
+                  <!-- <span>Week: </span> -->
+                  <div class="btn-group btn-block" role="group" v-model="week">
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="btnradio1" @click="week = 1" v-html="titleOfWeek1"></label>
+                  
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="btnradio2" @click="week = 2" v-html="titleOfWeek2"></label>
+                  </div>
+                </div>
+                <div class="col col-auto align-self-center">	
+                  <select v-model="zone" style="margin-top: 1em;">
+                    <option v-for="option in zoneOptions" v-bind:value="option.value">
+                      {{option.text}}
+                    </option>
+                  </select>
+                </div>
+              </div>				
+            </div>
+            <!-- Week1 -->
+            <div v-if="week == 1">
+              <div class="alert alert-warning" role="alert">
+                Coming soon!
+              </div>
+            </div>
+            <!-- Week2 -->
+            <div v-if="week == 2">
+              <div class="container">
+                <div class="row row-cols-2">
+                  <div class="col-md-1-5 col-lg-1-5" style="border:0.3px #cccccc;border-left-style:solid;border-right-style:solid;" v-for="(Workday,j) in Week2">
+                    <div class="w-100"></div>						
+                    <div class="col" style="margin: 1em 0em 0em 0em">
+                      <h2 class="text-center">
+                        <span class="badge badge-primary" style="background-color: #0072bc;"> Day{{j+1}} </span>
+                      </h2>
+                    </div>
 
-            <div class="alert alert-icaps" role="alert">Coming soon!</div>
+                    <div v-for="item in Workday">
+                      <div class="col">
+                        <!-- talbe time -->
+                        <div v-if="isOver(Week2[j][0].day,item.time)"><div class="style_time">{{showDay(Week2[j][0].day,item.time)}}</div></div>
+                        <div v-else> <div class="style_timeover">{{showDay(Week2[j][0].day,item.time)}}</div> </div>	
+                        <!-- table activities -->
+                        <div v-if="item.type == 'session'">
+                          <div v-if="isOver(Week2[j][0].day,item.time)">
+                            <div class="style_session">
+                              <div style="margin-left: 0.5em;" class="tip tip-right" data-tip="Click to view more!">
+                                <a :href="'session_template.html?sessionNum=Session'+item.num">
+                                  <BIG>Session{{item.num}}:</BIG><br><SMALL><I>{{session[item.num]}}</I></SMALL>
+                                </a>
+                              </div>
+                            </div>	
+                          </div>
+                          <div v-else> 
+                            <div class="style_sessionover">
+                              <div style="margin-left: 0.5em;">
+                                <strong  style="color: #51585E;">Session{{item.num}}:</strong><br>{{session[item.num]}}
+                              </div>	
+                            </div>
+                          </div>
+                        </div>		
+                        <div v-else-if="item.type == 'socializing'">
+                          <div class="style_socializing">
+                            <strong >Socializing</strong>	
+                          </div>	
+                        </div>
+                        <div v-else-if="item.type == 'gather'">
+                          <div class="col">
+                            <div v-html="gather"></div>
+                          </div>
+                        </div>
+                        <div v-else>
+                          <div class="style_event">
+                            <strong>{{item.type}}</strong>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>	
+                    
+                </div>
+              </div>
+            </div>
+			
           </div>
         </div>
       </div>
-    </div>
+    </div> 
+
     <footer class="footer m-5">
       <div class="container">
         <hr />
@@ -70,5 +158,5 @@
       </div>
     </footer>
   </body>
-  <script src="./index.js"></script>
+  <script type="text/javascript" src="./schedule.js"></script> 
 </html>
