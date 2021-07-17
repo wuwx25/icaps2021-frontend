@@ -337,13 +337,12 @@ export let eduMail = [
     "uni-leipzig.de",
     "uni-saarland.de",
     ".edu"
-];
+]
 
 
-export let Tshirt = [
+export let Tshirt_style = [
     {src:'../assets/images/T-shirt/typ1.png',value:'pink'},
     {src:'../assets/images/T-shirt/typ2.png',value:'yellow'},
     {src:'../assets/images/T-shirt/type3.jpg',value:'blue'},
     {src:'../assets/images/T-shirt/type4.jpg',value:'white'},
 ]
-
