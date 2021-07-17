@@ -1,6 +1,6 @@
 import {backendBaseUrl} from '../assets/js/backendBaseUrl.js';
 import {country,eduMail, Tshirt} from '../assets/js/data.js';
-import { Vue , header} from '/assets/component/myheader.js';
+import { Vue, header, store } from '/assets/component/myheader.js';
 import { paypal_url } from '../assets/config/paypal.js';
 
 // inject js file and export a handle after load it complete
@@ -92,6 +92,7 @@ injectJS(paypal_url,()=>{
 // document.head.appendChild(s);
 var app = new Vue({
     el: '#app',
+    store: store,
     data: {
         myheader:header,
         survey:{
@@ -441,20 +442,15 @@ var app = new Vue({
             return !(this.isEmail || this.isFirst_name || this.isLast_name || this.isPronoun || this.isLessSix || this.isPassword || this.isPassword2 || this.isCountry || this.passwdMisMatch) && this.check_form
         },
         isLogin: function () {
-            console.debug("computing isLogin");
-            let header_component = this.myheader.$refs.header;
-            if (header_component == undefined) {
-                console.debug("header_component is undefined");
-                return false;
-            }
-            console.debug("header_component is not undefined");
-            return header_component.status.isLogin
+            return this.$store.state.isLogin;
         },
         isRegistration:function(){
-            return this.myheader.$refs.header.status.isRegistration
+            return this.$store.state.isRegistration;
         },
         isTshirt:function(){
             return this.survey.Tshirt_style && this.survey.Tshirt_size && this.survey.country && this.address1 && this.address2 && this.address_state && this.postal_code; 
         }
     }
 });
+
+window.y = app;
