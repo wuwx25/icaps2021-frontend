@@ -9,6 +9,6 @@ var app = new Vue({
         paperData:paper,
     },
     mounted(){
-       this.curPaper = this.paperData.find(Element => Element.id == '67')
+       this.curPaper = this.paperData.find(Element => Element.id == localStorage.getItem('channel'))
     }
 })
