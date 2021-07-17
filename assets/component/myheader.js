@@ -3,7 +3,7 @@ import Vue from '../js/vue.esm.browser.js';
 import axios from '../js/axios.js';
 async function getTemplate(){
     let storage=window.localStorage;
-    if (storage.getItem("header")==null||storage.getItem("header")==""||Number(storage.getItem("header_cnt"))>10) {
+    if (true){//storage.getItem("header")==null||storage.getItem("header")==""||Number(storage.getItem("header_cnt"))>10) {
         storage.setItem("header",(await axios.get("/assets/component/myheader.html")).data);
         storage.setItem("header_cnt",0);
     }
