@@ -17,7 +17,7 @@ $(document).ready(function () {
     $.ajax({
       url: e.currentTarget.attributes.loggerref.value,
       type: "GET",
-      dataType: "jsonp",
+      dataType: "json",
       cors: true,
       contentType: "application/json",
       secure: true,
