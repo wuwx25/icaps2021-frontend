@@ -1,44 +1,60 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
 
 <head>
-	<meta charset="utf-8" />
-	<!-- <meta http-equiv="refresh" content="0;url=../home/" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
-	<link rel="shortcut icon" type="image/png" href="../assets/images/favicon.png" />
-	<title>ICAPS 2021</title>
-	<!-- Bootstrap Overrides -->
-	<link href="../assets/bootstrap/css/styles.css" rel="stylesheet" />
-	<link href="../assets/css/custom.css" rel="stylesheet" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="../assets/js/axios.min.js"></script>
+    <!-- <script src="../assets/js/vue.min.js"></script> -->
+    <link rel="shortcut icon" type="image/png" href="../assets/images/favicon.png" />
+    <link rel="stylesheet" href="../assets/bootstrap/css/styles.css">
+    <script src="../assets/js/bootstrap.min.js"></script>
 
-	<script src="../assets/js/bootstrap.min.js"></script>
+    <title>ICAPS 2021</title>
 
-	<!-- jQuery -->
-	<script src="../assets/js/jquery-3.6.0.min.js"></script>
-	<script src="/assets/component/myheader.js" type="module"></script>
+    <!-- Bootstrap core CSS -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous"> -->
+
+    <!-- Bootstrap Overrides -->
+    <link href="../assets/bootstrap/css/styles.css" rel="stylesheet" />
+    <link href="../assets/css/custom.css" rel="stylesheet" />
+	<link href="./style.css" rel="stylesheet"/>
+	<!-- <script type="application/json" src="/assets/data/paper.json"></script> -->
+    <!--    <link href="home.css" rel="stylesheet" />-->
+
+    <!-- Bootstrap Icons -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" />
+    <!-- jQuery -->
+    <script src="../assets/js/jquery-3.6.0.min.js"></script>
+    <script src="../assets/js/custom.js"></script>
+    <script src="/assets/component/myheader.js" type='module'></script>
+    <script type="module" src="./index.js"></script>
+
 </head>
+
 
 <body class="bg-light">
 	<div id='icaps-header'>
 		<myheader curpage='exhibition'></myheader>
 	</div>
-	<main class="container" style="min-height: 80vh;">
+	<div id="app">
+	
+	<main class="container" style="min-height: 80vh;" id="app">
 		<div class="album mt-3">
-			<div style="height: 100px" class="d-none d-md-block">
-				<!-- padding hack for the fixed navbar -->
-			</div>
 		</div>
+		<h1>{{curPaper.title}}</h1>
 		<table style="width:100%">
 			<tr>
 				<td style="vertical-align: middle;">
-					<h3>Anahita Mohseni-Kabir, Manuela Veloso, Maxim Likhachev</h3>
+					<h3>{{curPaper.keywords}}</h3>
 				</td>
 				<td style="text-align: right;vertical-align: middle;">
 						<span class="d-inline-flex text-center text-white rounded p-1 bg-info" data-toggle="tooltip" title="Poster ID in the virtual conference center." style="cursor: default;">
 							<small class="my-auto">PosterID:</small>
-							<span class="my-auto pl-1 font-weight-bold">29</span>
+							<span class="my-auto pl-1 font-weight-bold">{{curPaper.id}}</span>
 						</span>
-						<a href="https://www.aaai.org/ojs/index.php/ICAPS/article/view/6662" class="btn btn-link" target="_blank">
+						<a href="" class="btn btn-link" target="_blank">
 							<div class="d-inline-flex">
 							<span class="d-inline-flex my-auto material-icons pr-1">
 								<small>picture_as_pdf</small>
@@ -50,7 +66,7 @@
 						</a>
 						
 						
-						<a href="posters/poster131.pdf" class="btn btn-link">
+						<a href="" class="btn btn-link">
 							<div class="d-inline-flex">
 							<span class="d-inline-flex my-auto material-icons pr-1">
 								<small>library_books</small>
@@ -62,7 +78,7 @@
 						</a>
 						
 						
-						<a href="bibtex/paper131.bib" class="btn btn-link">
+						<a href="" class="btn btn-link">
 							<div class="d-inline-flex">
 							<span class="d-inline-flex my-auto material-icons pr-1">
 								<small>menu_book</small>
@@ -78,27 +94,28 @@
 			</tr>
 			<tr>
 				<td colspan="2" style="text-align:justify;">
-					We focus on domains where a robot is required to accomplish a set of tasks that are partially observable and evolve independently of each other according to their dynamics. An example domain is a restaurant setting where a robot waiter should take care of an ongoing stream of tasks, namely serving a number of tables, including delivering food to the tables and checking on customers. An action that the robot should take next at any point of time typically depends on the duration of possible actions, the state of each table, and how these tables evolve over time, e.g., the food becomes cold after a few time steps. As most of these domains are dynamic and tasks are frequently being added and removed, the robot typically needs to plan for a short h-step horizon to quickly decide on the next action and replans at each time step. A conventional approach to deal with this problem is to combine all the tasks&#39; states and robot actions into one large model and to compute an h-step optimal policy for this combined model. For the problems that we are interested in, the number of tasks, e.g., the number of tables in the restaurant domain, can be large making this planning approach computationally impractical. The observation that we make however is that in many domains the number of tasks that the robot can accomplish within h-steps is very limited. We present an algorithm that exploits this observation and decomposes the problem into a series of much smaller planning problems, the solution to which gives us an optimal solution. We demonstrate the efficiency of our algorithm on the restaurant domain.
+					{{curPaper.abstract}}
 				</td>
 			</tr>
 		</table>
 		<div class="row">
-			<div class="col-12 col-lg-9 col-md-9 col-sm-12">
+			<div class="col-9 ">
 				<div class="card shadow-sm mb-4" style="height: 40.75rem;">
 					<div class="card-body">
 						<div id="presentation-embed-38942367"></div>
-						<script src='https://slideslive.com/embed_presentation.js'></script>
-						<script>
+						<h1>slideslive</h1>
+						<!-- <script src='https://slideslive.com/embed_presentation.js'></script> -->
+						<!-- <script>
 							embed = new SlidesLiveEmbed('presentation-embed-38942367', {
 								presentationId: '38942367',
 								autoPlay: false, // change to true to autoplay the embedded presentation
 								verticalEnabled: true
 							});
-						</script>
+						</script> -->
 					</div>
 				</div>
 			</div>
-			<div class="col-12 col-lg-3 col-md-9 col-sm-12">
+			<div class="col-3">
 				<div class="card shadow-sm mb-4" style="height: 40.75rem;">
 					<div class="card-body">
 						<ul class="list-group list-group-flush">
@@ -109,6 +126,8 @@
 			</div>
 		</div>
 	</main>
+		
+</div>
 			<footer class="footer m-5">
 				<div class="container">
 					<hr />
