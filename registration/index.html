@@ -461,8 +461,8 @@
                                     <div></div>
                                         <p> Please select the T-Shirt style</p><br/>
                                         <div class="row">
-                                            <div v-for="item in Tshirt" class="form-check col-xs-6 col-sm-6 col-md-3 col-lg-3 TorderTitle">
-                                                <input class="btn-check" name='Tshirt' type="radio"  :id="item.value" :value="item.value" v-model="survey.Tshirt_style" autocomplete="off">
+                                            <div v-for="item in Tshirt_style" class="form-check col-xs-6 col-sm-6 col-md-3 col-lg-3 TorderTitle">
+                                                <input class="btn-check" name='Tshirt' type="radio"  :id="item.value" :value="item.value" v-model="survey.Tshirt_style" autocomplete="off" :disabled="surveySubmit">
                                                 
                                                 <label class="btn btn-outline-primary" :for="item.value"><img
                                                         :src="item.src" height=100 width=96.6/></label><br>
@@ -472,46 +472,10 @@
                                     <div class="TorderTitle">
                                         <p class="text"> Please select the T-Shirt size</p><br/>
                                         <div class="row">
-                                        <div class="form-check col-xs-3 col-sm-1 col-1">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="XS" v-model="survey.Tshirt_size">
-                                            <label class="form-check-label" for="flexRadioDefault2">
-                                              XS
-                                            </label>
-                                          </div>
-                                          <div class="form-check col-xs-3 col-sm-1 col-1">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" value="S" v-model="survey.Tshirt_size">
-                                            <label class="form-check-label" for="flexRadioDefault3">
-                                              S
-                                            </label>
-                                          </div>
-                                          <div class="form-check col-xs-3 col-1">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4" value="M" v-model="survey.Tshirt_size">
-                                            <label class="form-check-label" for="flexRadioDefault4">
-                                              M
-                                            </label>
-                                          </div>
-                                          <div class="form-check col-xs-3 col-1">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault5" value="L" v-model="survey.Tshirt_size">
-                                            <label class="form-check-label" for="flexRadioDefault5">
-                                              L
-                                            </label>
-                                          </div>
-                                          <div class="form-check col-xs-3 col-1">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault6" value="XL" v-model="survey.Tshirt_size">
-                                            <label class="form-check-label" for="flexRadioDefault6">
-                                              XL
-                                            </label>
-                                          </div>
-                                          <div class="form-check col-xs-2 col-1">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault7" value="2XL" v-model="survey.Tshirt_size">
-                                            <label class="form-check-label" for="flexRadioDefault7">
-                                              2XL
-                                            </label>
-                                          </div>
-                                          <div class="form-check col-xs-2 col-1">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault8" value="3XL" v-model="survey.Tshirt_size">
-                                            <label class="form-check-label" for="flexRadioDefault8">
-                                              3XL
+                                        <div class="form-check col-xs-3 col-sm-1 col-1" v-for="item in Tshirt_size">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" :id="item" :value="item" v-model="survey.Tshirt_size" :disabled="surveySubmit">
+                                            <label class="form-check-label" :for="item">
+                                              {{item}}
                                             </label>
                                           </div>
                                         </div>
@@ -522,48 +486,28 @@
                                         <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
                                             <div class="mb-3">
                                                 <label class="form-label" style="margin: 1em 0 0.5em 0.8em">Full Name</label>
-                                                <input type="text" class="form-control" v-model="survey.full_name">
-                                                <small style="color: red" v-if="isEmail">
-                                                    <ul>
-                                                        <li>Email is not valid</li>
-                                                    </ul>
-                                                </small>
+                                                <input type="text" class="form-control" v-model="survey.full_name" :disabled="surveySubmit">
                                             </div>
                                         </div>
                                         <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
                                             <div class="mb-3">
                                                 <label class="form-label" style="margin: 1em 0 0.5em 0.8em">Address_1</label>
                                                 <input type="text" class="form-control" :class="{warn:isFirst_name}" placeholder=""
-                                                    v-model="survey.address1">
-                                                <small style="color: red" v-if="isFirst_name">
-                                                    <ul>
-                                                        <li>This field is required</li>
-                                                    </ul>
-                                                </small>
+                                                    v-model="survey.address1" :disabled="surveySubmit">
                                             </div>
                                         </div>
                                         <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
                                             <div class="mb-3">
                                                 <label class="form-label" style="margin: 1em 0 0.5em 0.8em">Address_2</label>
                                                 <input type="text" class="form-control" :class="{warn:isFirst_name}" placeholder=""
-                                                    v-model="survey.address2">
-                                                <small style="color: red" v-if="isFirst_name">
-                                                    <ul>
-                                                        <li>This field is required</li>
-                                                    </ul>
-                                                </small>
+                                                    v-model="survey.address2" :disabled="surveySubmit">
                                             </div>
                                         </div>
                                         <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
                                             <div class="mb-3">
                                                 <label class="form-label" style="margin: 1em 0 0.5em 0.8em">State</label>
                                                 <input type="text" class="form-control" :class="{warn:isLast_name}" placeholder=""
-                                                    v-model="survey.address_state">
-                                                <small style="color: red" v-if="isLast_name">
-                                                    <ul>
-                                                        <li>This field is required</li>
-                                                    </ul>
-                                                </small>
+                                                    v-model="survey.address_state" :disabled="surveySubmit">
                                             </div>
                                         </div>
                                         <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
@@ -571,26 +515,16 @@
                                                 <label class="form-label"
                                                     style="margin: 1.5em 0 0.5em 0.8em">Country/Region</label>
                                                 <select class="form-select" :class="{warn:isCountry}"
-                                                    v-model="survey.country">
+                                                    v-model="survey.country" :disabled="surveySubmit">
                                                     <option v-for="item in country" :value="item">{{item}}</option>
                                                 </select>
-                                                <small style="color: red" v-if="isCountry">
-                                                    <ul>
-                                                        <li>This field is required</li>
-                                                    </ul>
-                                                </small>
                                             </div>
                                         </div>
                                         <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
                                             <div class="mb-3">
                                                 <label class="form-label" style="margin: 1em 0 0.5em 0.8em">Postal Code</label>
                                                 <input type="text" class="form-control" :class="{warn:isLast_name}" placeholder=""
-                                                    v-model="survey.postal_code">
-                                                <small style="color: red" v-if="isLast_name">
-                                                    <ul>
-                                                        <li>This field is required</li>
-                                                    </ul>
-                                                </small>
+                                                    v-model="survey.postal_code" :disabled="surveySubmit">
                                             </div>
                                         </div>
                                         <div class="row">
@@ -609,7 +543,7 @@
                     
 
                     <div class="accordion-item ">
-                        <h2 class="accordion-header" id="headingSix">
+                        <h2 class="accordion-header" id="headingSix" >
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseSix" aria-controls="collapseEight" aria-expanded="false">
                                 <strong>6.Other Information </strong>
@@ -620,21 +554,21 @@
                             <div class="accordion-body" :hidden="!user.reg || (user.reg && !user.reg.registration)">
                                 <p style="text-align: justify">Please select the workshops you would like to attend.</p>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" v-model="survey.attend_workshops.HPlan" id="flexCheckDefaulta1">
+                                    <input class="form-check-input" type="checkbox" v-model="survey.attend_workshops.HPlan" id="flexCheckDefaulta1" :disabled="surveySubmit">
                                     <label class="form-check-label" for="flexCheckDefaulta1">
                                         <p>Workshop on Hierarchical Planning
                                             <span class="text-icaps">HPlan</span></p>
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" v-model="survey.attend_workshops.HSDIP"  id="flexCheckDefaulta2">
+                                    <input class="form-check-input" type="checkbox" v-model="survey.attend_workshops.HSDIP"  id="flexCheckDefaulta2" :disabled="surveySubmit">
                                     <label class="form-check-label" for="flexCheckDefaulta2">
                                         <p>Workshop on Heuristics and Search for Domain-independent Planning
                                             <span class="text-icaps">HSDIP</span></p>
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" v-model='survey.attend_workshops.IntEx'  id="flexCheckDefaulta3">
+                                    <input class="form-check-input" type="checkbox" v-model='survey.attend_workshops.IntEx'  id="flexCheckDefaulta3" :disabled="surveySubmit">
                                     <label class="form-check-label" for="flexCheckDefaulta3">
                                         <p>Workshop on Integrating Planning, Acting, and Execution
                                             <span class="text-icaps">IntEx</span></p>
@@ -642,7 +576,7 @@
                                 </div>
 
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" v-model='survey.attend_workshops.KEPS'  id="flexCheckDefaulta4">
+                                    <input class="form-check-input" type="checkbox" v-model='survey.attend_workshops.KEPS'  id="flexCheckDefaulta4" :disabled="surveySubmit">
                                     <label class="form-check-label" for="flexCheckDefaulta4">
                                         <p>Workshop on Knowledge Engineering for Planning and Scheduling
                                             <span class="text-icaps">KEPS</span></p>
@@ -650,7 +584,7 @@
                                 </div>
 
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" v-model="survey.attend_workshops.PRL"  id="flexCheckDefaulta5">
+                                    <input class="form-check-input" type="checkbox" v-model="survey.attend_workshops.PRL"  id="flexCheckDefaulta5" :disabled="surveySubmit">
                                     <label class="form-check-label" for="flexCheckDefaulta5">
                                         <p>Workshop on Bridging the Gap Between AI Planning and
                                             Reinforcement Learning <span class="text-icaps">PRL</span></p>
@@ -658,7 +592,7 @@
                                 </div>
 
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" v-model="survey.attend_workshops.WIPC"  id="flexCheckDefaulta6">
+                                    <input class="form-check-input" type="checkbox" v-model="survey.attend_workshops.WIPC"  id="flexCheckDefaulta6" :disabled="surveySubmit">
                                     <label class="form-check-label" for="flexCheckDefaulta6">
                                         <p>Workshop on the International Planning Competition
                                             <span class="text-icaps">WIPC</span></p>
@@ -667,7 +601,7 @@
 
 
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" v-model="survey.attend_workshops.XAIP"  id="flexCheckDefaulta7">
+                                    <input class="form-check-input" type="checkbox" v-model="survey.attend_workshops.XAIP"  id="flexCheckDefaulta7" :disabled="surveySubmit">
                                     <label class="form-check-label" for="flexCheckDefaulta7">
                                         <p>Workshop on Explainable AI Planning
                                             <span class="text-icaps">XAIP</span></p>
@@ -675,7 +609,7 @@
                                 </div>
 
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" v-model="survey.attend_workshops.FinPlan"  id="flexCheckDefaulta8">
+                                    <input class="form-check-input" type="checkbox" v-model="survey.attend_workshops.FinPlan"  id="flexCheckDefaulta8" :disabled="surveySubmit">
                                     <label class="form-check-label" for="flexCheckDefaulta8">
                                         <p>Workshop on Planning for Financial Services
                                             <span class="text-icaps">FinPlan</span></p>
@@ -685,7 +619,7 @@
 
 
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" v-model="survey.attend_workshops.SPARK"  id="flexCheckDefaulta9">
+                                    <input class="form-check-input" type="checkbox" v-model="survey.attend_workshops.SPARK"  id="flexCheckDefaulta9" :disabled="surveySubmit">
                                     <label class="form-check-label" for="flexCheckDefaulta9"  >
                                         <p>Scheduling and Planning Applications woRKshop
                                             <span class="text-icaps">SPARK</span></p>
@@ -693,7 +627,7 @@
                                 </div>
 
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" v-model="survey.attend_workshops.PlanRob"  id="flexCheckDefaulta10">
+                                    <input class="form-check-input" type="checkbox" v-model="survey.attend_workshops.PlanRob"  id="flexCheckDefaulta10" :disabled="surveySubmit">
                                     <label class="form-check-label" for="flexCheckDefaulta10">
                                         <p>Workshop on Planning and Robotics
                                             <span class="text-icaps">PlanRob</span></p>
@@ -704,11 +638,11 @@
                                 <div class="row">
                                   <div class="form-check form-switch" style="margin-left: 1rem;">
                                     <label class="form-check-label" for="flexSwitchCheckChecked">{{survey.attend_event?'YES':'NO'}}</label>
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" v-model="survey.attend_event">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" v-model="survey.attend_event" :disabled="surveySubmit">
                                   </div>
                                  
                                 </div>
-                                <div class="mb-3">
+                                <div class="mb-3" v-if="!surveySubmit">
                                     <div class="row">
                                         <small style="color: red" v-if="survey.submit.fail">
                                             <ul>

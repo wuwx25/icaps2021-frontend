@@ -1,5 +1,5 @@
 import {backendBaseUrl} from '../assets/js/backendBaseUrl.js';
-import {country,eduMail, Tshirt} from '../assets/js/data.js';
+import {country,eduMail, Tshirt_style} from '../assets/js/data.js';
 import { Vue, header, store } from '/assets/component/myheader.js';
 import { paypal_url } from '../assets/config/paypal.js';
 
@@ -113,7 +113,8 @@ var app = new Vue({
                 success:false,
             }
         },
-        Tshirt:Tshirt,
+        Tshirt_size:['XS','S','M','L','XL','2XL','3XL'],
+        Tshirt_style:Tshirt_style,
         token: "",
         message: "Hello ",
         first_name: "",
@@ -148,6 +149,7 @@ var app = new Vue({
         eduMail: eduMail,
         flag:false,
         Tflag:false,
+        surveySubmit:false,
         uploadFile: {
             cvFile: {},
             success: false,
@@ -363,6 +365,7 @@ var app = new Vue({
                 }
                 this.user = res.data;
                 this.user_info = this.user.profile;
+                this.reg_info.registration = false;
                 this.user_info.email = this.user.email;
                 if (this.isRegistration) {
                     this.reg_info.registration = false;
@@ -379,6 +382,21 @@ var app = new Vue({
         } else {
             this.collapse[1].show()
         }
+        axios.get(backendBaseUrl + '/api/registrations/survey',{
+            headers: {
+                "Authorization": localStorage.getItem('token')
+            }
+        }).then(res => {
+            this.surveySubmit = true;
+            res.data.submit = this.survey.submit;
+            this.survey = res.data;
+            console.log(this.survey)
+        }).catch(err => {
+            console.log(err)
+        })
+
+
+
     },
     watch: {
         token: async function () {
