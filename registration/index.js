@@ -469,7 +469,7 @@ var app = new Vue({
             return this.$store.state.isRegistration;
         },
         isTshirt:function(){
-            return (!this.survey.Tshirt_style || !this.survey.Tshirt_size || !this.survey.country || !this.survey.address1 || !this.survey.address2 || !this.survey.address_state || !this.survey.postal_code) && this.Tflag; 
+            return (!this.survey.Tshirt_style || !this.survey.Tshirt_size || !this.survey.country || !this.survey.address1 || !this.survey.address_state || !this.survey.postal_code) && this.Tflag; 
         }
     }
 });
