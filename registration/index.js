@@ -145,6 +145,7 @@ var app = new Vue({
         tipsModal: {},
         eduMail: eduMail,
         flag:false,
+        Tflag:false,
         uploadFile: {
             cvFile: {},
             success: false,
@@ -152,7 +153,8 @@ var app = new Vue({
             share_inform: false,
             add_mail_list: false,
             errmsg:'',
-        }
+        },
+        
     },
     methods: {
         Create() {
@@ -306,7 +308,8 @@ var app = new Vue({
             this.collapse[4].show();
         },
         nextWindow2() {
-            if(!this.isTshirt) return ;
+            this.Tflag = true;
+            if(this.isTshirt) return ;
             this.collapse[5].hide();
             this.collapse[6].show();
         }
@@ -446,7 +449,7 @@ var app = new Vue({
             return header.$refs.header.status.isRegistration
         },
         isTshirt:function(){
-            return this.survey.Tshirt_style && this.survey.Tshirt_size && this.survey.country && this.address1 && this.address2 && this.address_state && this.postal_code; 
+            return (!this.survey.Tshirt_style || !this.survey.Tshirt_size || !this.survey.country || !this.survey.address1 || !this.survey.address2 || !this.survey.address_state || !this.survey.postal_code) && this.Tflag; 
         }
     }
 });

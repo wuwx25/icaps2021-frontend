@@ -345,5 +345,5 @@ export let Tshirt = [
     {src:'../assets/images/T-shirt/typ2.png',value:'yellow'},
     {src:'../assets/images/T-shirt/type3.jpg',value:'blue'},
     {src:'../assets/images/T-shirt/type4.jpg',value:'white'},
-],
+]
 
