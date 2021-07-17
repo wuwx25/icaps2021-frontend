@@ -337,7 +337,7 @@ export let eduMail = [
     "uni-leipzig.de",
     "uni-saarland.de",
     ".edu"
-]
+];
 
 
 export let Tshirt = [
