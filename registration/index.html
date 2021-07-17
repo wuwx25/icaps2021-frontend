@@ -592,11 +592,11 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <!-- <small style="color: red" >
+                                            <small style="color: red" v-if="!isTshirt">
                                                 <ul>
                                                     <li>Please fill in all the information</li>
                                                 </ul>
-                                            </small> -->
+                                            </small>
                                             <button type="button" class="btn btn-primary" @click="nextWindow2()"
                                             style="margin: 1.5em 0 0.5em 0em">Next</button>
                                         </div>
@@ -615,7 +615,7 @@
                         </h2>
                         <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
                             data-bs-parent="#accordionExample">
-                            <div class="accordion-body" :hidden="!user.reg || (user.reg && !user.reg.registration)">
+                            <div class="accordion-body" :hidden="!user.reg || (user.reg && !user.reg.registration) || !isTshirt">
                                 <p style="text-align: justify">Please select the workshops you would like to attend.</p>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" v-model="survey.attend_workshops.HPlan">
@@ -718,8 +718,6 @@
                                     </div>
                                 </div>
                                 
-                                
-
                             </div>
                         </div>
                     </div>

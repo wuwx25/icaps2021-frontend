@@ -1,5 +1,5 @@
 import {backendBaseUrl} from '../assets/js/backendBaseUrl.js';
-import {country,eduMail} from '../assets/js/data.js';
+import {country,eduMail, Tshirt} from '../assets/js/data.js';
 import { Vue , header} from '/assets/component/myheader.js';
 import { paypal_url } from '../assets/config/paypal.js';
 
@@ -111,12 +111,7 @@ var app = new Vue({
                 success:false,
             }
         },
-        Tshirt:[
-            {src:'../assets/images/T-shirt/typ1.png',value:'pink'},
-            {src:'../assets/images/T-shirt/typ2.png',value:'yellow'},
-            {src:'../assets/images/T-shirt/type3.jpg',value:'blue'},
-            {src:'../assets/images/T-shirt/type4.jpg',value:'white'},
-        ],
+        Tshirt:Tshirt,
         token: "",
         message: "Hello ",
         first_name: "",
@@ -292,7 +287,6 @@ var app = new Vue({
             }
         },
         submitSurvey(){
-            this.survey.submit.fail = false;
             axios.post(backendBaseUrl + '/api/registrations/survey', this.survey,{
                 headers: {
                     "Authorization": localStorage.getItem('token')
@@ -312,6 +306,7 @@ var app = new Vue({
             this.collapse[4].show();
         },
         nextWindow2() {
+            if(!this.isTshirt) return ;
             this.collapse[5].hide();
             this.collapse[6].show();
         }
@@ -449,6 +444,9 @@ var app = new Vue({
         },
         isRegistration:function(){
             return header.$refs.header.status.isRegistration
+        },
+        isTshirt:function(){
+            return this.survey.Tshirt_style && this.survey.Tshirt_size && this.survey.country && this.address1 && this.address2 && this.address_state && this.postal_code; 
         }
     }
 });
