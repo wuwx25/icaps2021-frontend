@@ -15,3 +15,15 @@ var app = new Vue({
         this.curPaper = this.paperData.find(Element => Element.id == localStorage.getItem('channel'))
     }
 })
+var app = new Vue({
+    el: '#app2',
+    store: store,
+    data: {
+        channel:"general"
+    },
+    mounted() {
+        if(localStorage.getItem("channel")){
+            this.channel=localStorage.getItem("channel");
+        }
+    }
+})
