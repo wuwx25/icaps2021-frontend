@@ -458,7 +458,7 @@
                             </h2>
                             <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
                                 <div class="accordion-body" style="background-color: #e7f1ff;"
-                                    :hidden="!user.reg || (user.reg && !user.reg.registration)">
+                                :hidden="!user.reg || (user.reg && !user.reg.registration)">
                                     <span style="text-align: justify;font-size: larger;margin-left: 1rem;">As part of your ICAPS-21 registration your
                                         eligible to receive an ICAPS-21 T-Shirt. </span>
                                         <div style="text-align: justify;font-size: larger;margin-left: 1rem; font-weight: bolder;" v-if='isNSTshirt && alreadySelectTOrder'>You choose not to have a T-Shirt</div>
@@ -467,7 +467,7 @@
                                             :disabled="surveySubmit">
                                         <label class="form-check-label" for="flexSwitchCheckChecked1">I don't want the T-shirt.</label>
                                     </div>
-                                </div>
+                                
                                 <hr />
                                 <div  v-if="(!isNSTshirt||!alreadySelectTOrder)&&!DWTshirt">
                                     <div>
