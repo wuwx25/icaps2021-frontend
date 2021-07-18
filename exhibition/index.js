@@ -1,19 +1,17 @@
-import {backendBaseUrl} from '../assets/js/backendBaseUrl.js';
-import {Vue,header} from '/assets/component/myheader.js';
+import {Vue, store, header} from '/assets/component/myheader.js';
+let paper = await fetch('/assets/data/paper.json').then(res => res.json());
 var app = new Vue({
     el: '#app',
+    store: store,
     data: {
-        token     : "",
+        curPaper: {},
+        paperData: paper,
         channel:"general"
     },
-    methods: {
-
-    },
-    mounted: function() {
-        console.log("exhibition");
+    mounted() {
         if(localStorage.getItem("channel")){
             this.channel=localStorage.getItem("channel");
-            console.log(this.channel)
         }
+        this.curPaper = this.paperData.find(Element => Element.id == localStorage.getItem('channel'))
     }
 })

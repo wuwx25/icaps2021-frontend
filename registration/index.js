@@ -1,6 +1,6 @@
 import {backendBaseUrl} from '../assets/js/backendBaseUrl.js';
-import {country,eduMail} from '../assets/js/data.js';
-import { Vue , header} from '/assets/component/myheader.js';
+import {country,eduMail, Tshirt_style} from '../assets/js/data.js';
+import { Vue, header, store } from '/assets/component/myheader.js';
 import { paypal_url } from '../assets/config/paypal.js';
 // inject js file and export a handle after load it complete
 function injectJS(src, onload) {
@@ -91,7 +91,29 @@ injectJS(paypal_url,()=>{
 // document.head.appendChild(s);
 var app = new Vue({
     el: '#app',
+    store: store,
     data: {
+        myheader:header,
+        survey:{
+            attend_workshops:{
+                HPlan:false,
+                HSDIP:false,
+                IntEx:false,
+                KEPS:false,
+                PRL:false,
+                WIPC:false,
+                XAIP:false,
+                FinPlan:false,
+                SPARK:false,
+                PlanRob:false,
+            },
+            submit:{
+                fail:false,
+                success:false,
+            }
+        },
+        Tshirt_size:['XS','S','M','L','XL','2XL','3XL'],
+        Tshirt_style:Tshirt_style,
         token: "",
         message: "Hello ",
         first_name: "",
@@ -125,6 +147,8 @@ var app = new Vue({
         tipsModal: {},
         eduMail: eduMail,
         flag:false,
+        Tflag:false,
+        surveySubmit:false,
         uploadFile: {
             cvFile: {},
             success: false,
@@ -132,8 +156,8 @@ var app = new Vue({
             share_inform: false,
             add_mail_list: false,
             errmsg:'',
-        }
-
+        },
+        
     },
     methods: {
         Create() {
@@ -199,8 +223,10 @@ var app = new Vue({
                 this.modalmsg = 'Submission Successful!';
                 this.tipsModal.show();
                 setTimeout(() => {
-                    window.location.href = "../userInfo"
+                    this.tipsModal.hide();
+                    this.collapse[5].show();
                 }, 1500);
+                
             }).catch(err => {
                 this.uploadFile.fail = true;
                 this.uploadFile.errmsg = err.response.data.message;
@@ -265,9 +291,30 @@ var app = new Vue({
                 })
             }
         },
+        submitSurvey(){
+            axios.post(backendBaseUrl + '/api/registrations/survey', this.survey,{
+                headers: {
+                    "Authorization": localStorage.getItem('token')
+                }
+            }).then(res => {
+                this.modalmsg = 'Submission Successful!'
+                this.tipsModal.show();
+                setTimeout(() => {
+                    this.tipsModal.hide();
+                }, 2000);
+            }).catch(err => {
+                this.survey.submit.fail = true;
+            })
+        },
         nextWindow() {
             this.collapse[3].hide();
             this.collapse[4].show();
+        },
+        nextWindow2() {
+            this.Tflag = true;
+            if(this.isTshirt) return ;
+            this.collapse[5].hide();
+            this.collapse[6].show();
         }
     },
     mounted: function () {
@@ -277,7 +324,6 @@ var app = new Vue({
         this.publicationModal = new bootstrap.Modal(document.getElementById('publication'));
         this.tipsModal = new bootstrap.Modal(document.getElementById('tips'));
         
-
         var myModalEl = document.getElementById('publication')
         myModalEl.addEventListener('hidden.bs.modal', function (event) {
             if (app.reg_info.papers.length == 0) {
@@ -287,17 +333,17 @@ var app = new Vue({
 
 
         var collapse_doc = [];
-        for(var i=1;i < 5;i++){
-            let name=["","One","Two","Three","Four"];
+        for(var i=1;i < 7;i++){
+            let name=["","One","Two","Three","Four","Five","Six"];
             collapse_doc[i]=document.getElementById('collapse'+name[i]);
             this.collapse[i] = new bootstrap.Collapse(collapse_doc[i],{
                 toggle: false
             })
         }
         let that = this;
-        for(var i = 1; i < 5; i++){
+        for(var i = 1; i < 7; i++){
             collapse_doc[i].addEventListener('show.bs.collapse',function(){
-                for(var j=1;j < 5;j++){
+                for(var j=1;j < 7;j++){
                     if(i != j){
                         that.collapse[j].hide()
                     }
@@ -319,6 +365,7 @@ var app = new Vue({
                 }
                 this.user = res.data;
                 this.user_info = this.user.profile;
+                this.reg_info.registration = false;
                 this.user_info.email = this.user.email;
                 if (this.isRegistration) {
                     this.reg_info.registration = false;
@@ -335,6 +382,21 @@ var app = new Vue({
         } else {
             this.collapse[1].show()
         }
+        axios.get(backendBaseUrl + '/api/registrations/survey',{
+            headers: {
+                "Authorization": localStorage.getItem('token')
+            }
+        }).then(res => {
+            this.surveySubmit = true;
+            res.data.submit = this.survey.submit;
+            this.survey = res.data;
+            console.log(this.survey)
+        }).catch(err => {
+            console.log(err)
+        })
+
+
+
     },
     watch: {
         token: async function () {
@@ -400,11 +462,16 @@ var app = new Vue({
         checkflag:function(){
             return !(this.isEmail || this.isFirst_name || this.isLast_name || this.isPronoun || this.isLessSix || this.isPassword || this.isPassword2 || this.isCountry || this.passwdMisMatch) && this.check_form
         },
-        isLogin:function(){
-            return header.$refs.header.status.isLogin
+        isLogin: function () {
+            return this.$store.state.isLogin;
         },
         isRegistration:function(){
-            return header.$refs.header.status.isRegistration
+            return this.$store.state.isRegistration;
+        },
+        isTshirt:function(){
+            return (!this.survey.Tshirt_style || !this.survey.Tshirt_size || !this.survey.country || !this.survey.address1 || !this.survey.address_state || !this.survey.postal_code) && this.Tflag; 
         }
     }
 });
+
+window.y = app;
