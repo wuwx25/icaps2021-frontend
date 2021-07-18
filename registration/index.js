@@ -1,5 +1,5 @@
 import {backendBaseUrl} from '../assets/js/backendBaseUrl.js';
-import {country,eduMail, Tshirt_style} from '../assets/js/data.js';
+import {country,eduMail, Tshirt_style,workshopsData} from '../assets/js/data.js';
 import { Vue, header, store } from '/assets/component/myheader.js';
 import { paypal_url } from '../assets/config/paypal.js';
 
@@ -124,6 +124,7 @@ var app = new Vue({
         },
         Tshirt_size:['XS','S','M','L','XL','2XL','3XL'],
         Tshirt_style:Tshirt_style,
+        workshopsData:workshopsData,
         token: "",
         message: "Hello ",
         first_name: "",
@@ -188,6 +189,9 @@ var app = new Vue({
             }).catch(err => {
                 this.isErrorCode = true
             })
+        },
+        getWorkshops(value){
+            return 'survey.attend_workshops.'+value;
         },
         checkEmail() {
             this.check_form = true;
@@ -315,6 +319,7 @@ var app = new Vue({
                 setTimeout(() => {
                     this.tipsModal.hide();
                 }, 2000);
+                this.surveySubmit = true;
             }).catch(err => {
                 this.survey.submit.fail = true;
             })

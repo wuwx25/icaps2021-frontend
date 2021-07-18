@@ -346,3 +346,15 @@ export let Tshirt_style = [
     {src:'../assets/images/T-shirt/type3.jpg',value:'blue'},
     {src:'../assets/images/T-shirt/type4.jpg',value:'white'},
 ]
+export let workshopsData=[
+    {value:"Workshop on Hierarchical Planning ",keyword:"HPlan"},
+    {value:"Workshop on Heuristics and Search for Domain-independent Planning ",keyword:"HSDIP"},
+    {value:"Workshop on Integrating Planning,Acting,and Execution ",keyword:"IntEx"},
+    {value:"Workshop on Knowledge Engineering for Planning and Scheduling ",keyword:"KEPS"},
+    {value:"Workshop on Bridging the Gap Between AI Planning and Reinforcement Learning ",keyword:"PRL"},
+    {value:"Workshop on the International Planning Competition ",keyword:"WIPC"},
+    {value:"Workshop on Explainable AI Planning ",keyword:"XAIP"},
+    {value:"Workshop on Planning for Financial Services ",keyword:"FinPlan"},
+    {value:"Scheduling and Planning Applications woRKshop",keyword:"SPARK"},
+    {value:"Workshop on Planning and Robotics ",keyword:"PlanRob"},
+]
