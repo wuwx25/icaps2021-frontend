@@ -7,7 +7,8 @@ const store = new Vuex.Store({
     state: {
         isLogin: false,
         isRegistration: false,
-        user: {}
+        user: {},
+        flag: localStorage.getItem('hello')
     },
     mutations: {
         setLogin(state, payload) {
@@ -59,6 +60,18 @@ Vue.component('myheader',async function(resolve,reject){
                 }).catch(err => {
                     console.log(err)
                 });
+                setInterval(() => {
+                        axios.get(backendBaseUrl+'/api/test/heartbeat',{
+                            headers: {
+                                "Authorization": localStorage.getItem('token')
+                            }
+                        }).then(res => {
+                            if(res.data.message == "refresh"){
+                                let token = res.data.token;
+                                localStorage.setItem('token',token)
+                            }
+                        })
+                }, 60000);
             }
         },
         computed: {
@@ -70,7 +83,7 @@ Vue.component('myheader',async function(resolve,reject){
             },
             user: function () {
                 return this.$store.state.user;
-            }
+            },
         },
         methods: {
             logout() {
