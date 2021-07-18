@@ -455,10 +455,18 @@
                             <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
                                 data-bs-parent="#accordionExample">
                                 <div class="accordion-body" style="background-color: #e7f1ff;" :hidden="!user.reg || (user.reg && !user.reg.registration)">
-
-                                    <p style="text-align: justify;font-size: larger;margin-left: 1rem;">As part of your ICAPS-21 registration your eligible to receive an ICAPS-21 T-Shirt. </p>
+                                 
+                                    
+                                        <span style="text-align: justify;font-size: larger;margin-left: 1rem;">As part of your ICAPS-21 registration your eligible to receive an ICAPS-21 T-Shirt. </span>
+                                    
+                                    <div class="form-check form-switch form-check-inline" style="margin-left: 1rem;">
+                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked1" v-model="DWTshirt" :disabled="surveySubmit">
+                                        <label class="form-check-label" for="flexSwitchCheckChecked1">I don't want the T-shirt.</label>
+                                    </div>
+                                  </div>
   <hr />
-                                    <div></div>
+                                <div  v-if="!DWTshirt">
+                                    <div>
                                         <p> {{surveySubmit?'Your have selected T-Shirt style':'Please select the T-Shirt style'}}</p><br/>
                                         <div class="row">
                                             <div v-for="item in Tshirt_style" class="form-check col-xs-6 col-sm-6 col-md-3 col-lg-3 TorderTitle">
@@ -539,6 +547,7 @@
                                     </div>
                                 </div>
                             </div>
+                            </div>
                         </div>
                     
 
@@ -546,12 +555,12 @@
                         <h2 class="accordion-header" id="headingSix" >
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseSix" aria-controls="collapseEight" aria-expanded="false">
-                                <strong>6.Other Information </strong>
+                                <strong>6.Survey on programs </strong>
                             </button>
                         </h2>
                         <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
                             data-bs-parent="#accordionExample">
-                            <div class="accordion-body" :hidden="!user.reg || (user.reg && !user.reg.registration)">
+                            <div class="accordion-body" :hidden="!user.reg || (user.reg && !user.reg.registration) || (hideSix && !DWTshirt)">
                                 <p style="text-align: justify">{{surveySubmit?'Your options':'Please select the workshops you would like to attend.'}}</p>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" v-model="survey.attend_workshops.HPlan" id="flexCheckDefaulta1" :disabled="surveySubmit">
@@ -640,7 +649,6 @@
                                     <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" v-model="survey.attend_event" :disabled="surveySubmit">
                                     <label class="form-check-label" for="flexSwitchCheckChecked">{{survey.attend_event?'YES':'NO'}}</label>
                                   </div>
-                                 
                                 </div>
                                 <div class="mb-3" v-if="!surveySubmit">
                                     <div class="row">

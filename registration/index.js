@@ -96,6 +96,15 @@ var app = new Vue({
     data: {
         myheader:header,
         survey:{
+            Tshirt_style:'',
+            Tshirt_size:'',
+            country:'',
+            full_name:'',
+            address1:'',
+            address2:'',
+            address_state:'',
+            postal_code:'',
+            attend_event:false,
             attend_workshops:{
                 HPlan:false,
                 HSDIP:false,
@@ -131,6 +140,8 @@ var app = new Vue({
             publication: 150,
             non_student: 50
         },
+        DWTshirt:false,
+        hideSix:true,
         modalmsg: '',
         isErrorPaper: false,
         check_form:false,
@@ -298,6 +309,7 @@ var app = new Vue({
                     "Authorization": localStorage.getItem('token')
                 }
             }).then(res => {
+                window.location.href='./index.html'
                 this.modalmsg = 'Submission Successful!'
                 this.tipsModal.show();
                 setTimeout(() => {
@@ -314,6 +326,7 @@ var app = new Vue({
         nextWindow2() {
             this.Tflag = true;
             if(this.isTshirt) return ;
+            this.hideSix =false;
             this.collapse[5].hide();
             this.collapse[6].show();
         }
@@ -358,7 +371,10 @@ var app = new Vue({
                     "Authorization": localStorage.getItem('token')
                 }
             }).then(res => {
-                if (this.isRegistration) {
+                if(res.data.cv_info){
+                    this.collapse[5].show()
+                }
+                else if (this.isRegistration ) {
                     this.collapse[3].show();
                 } else {
                     this.collapse[2].show();
@@ -388,15 +404,12 @@ var app = new Vue({
             }
         }).then(res => {
             this.surveySubmit = true;
+            this.hideSix = false;
             res.data.submit = this.survey.submit;
             this.survey = res.data;
-            console.log(this.survey)
         }).catch(err => {
             console.log(err)
         })
-
-
-
     },
     watch: {
         token: async function () {
@@ -416,6 +429,19 @@ var app = new Vue({
                     this.user = {};
                     this.isLogin = false;
                 });
+            }
+        },
+        DWTshirt:function(){
+            if(this.DWTshirt == true){
+                this.survey.Tshirt_style = '',
+                this.survey.Tshirt_size = '',
+                this.survey.country = '',
+                this.survey.full_name = '',
+                this.survey.address1 = '',
+                this.survey.address2 = '',
+                this.survey.postal_code = '',
+                this.collapse[5].hide();
+                this.collapse[6].show();
             }
         },
         'reg_info.publication': {
@@ -469,8 +495,8 @@ var app = new Vue({
             return this.$store.state.isRegistration;
         },
         isTshirt:function(){
-            return (!this.survey.Tshirt_style || !this.survey.Tshirt_size || !this.survey.country || !this.survey.address1 || !this.survey.address_state || !this.survey.postal_code) && this.Tflag; 
-        }
+            return (!this.survey.Tshirt_style || !this.survey.Tshirt_size || !this.survey.country || !this.survey.address1 || !this.survey.address_state || !this.survey.postal_code || !this.survey.full_name) && this.Tflag; 
+        },
     }
 });
 
