@@ -58,6 +58,7 @@ injectJS(paypal_url,()=>{
             if (!app.reg_info.registration && !app.reg_info.publication) {
                 message = "you have not selected any sessions!";
             }
+            app.paySuccessful = false;
             console.log("now in error");
             app.modalmsg = message;
             app.tipsModal.show();
@@ -142,6 +143,7 @@ var app = new Vue({
             non_student: 50
         },
         DWTshirt:false,
+        paySuccessful:true,
         hideSix:true,
         modalmsg: '',
         alreadySelectTOrder:false,

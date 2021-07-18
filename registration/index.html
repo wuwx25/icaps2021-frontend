@@ -365,7 +365,11 @@
                                                 </div>
                                             </div>
                                         </div>
-
+                                        <p style="text-align: center;">
+                                        <small style="color: red" v-if="!paySuccessful">
+                                                    Payment failed,Please retry again.
+                                        </small>
+                                    </p>
                                         <div style="text-align: center;width: 100%;" >
                                             <div id="paypal-button-container"></div>
                                         </div>
