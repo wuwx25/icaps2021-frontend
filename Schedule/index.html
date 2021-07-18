@@ -60,12 +60,12 @@
                   </div>
                 </div>
                 <!-- Search function -->
-                <!-- <div class="col align-self-center">
+                <div class="col align-self-center">
                   <form>
                     <input type="text" placeholder="搜索" v-model="keywords">
                     <button @click="Search">Search</button>
                   </form>
-                </div> -->
+                </div>
                 <!-- Timezone btn  -->
                 <div class="col col-auto align-self-center">	
                   <strong>Timezone:</strong>
@@ -96,14 +96,15 @@
                     </div>
                     
                       <div v-for="item in Workday">
-                        <div class="col">
+                        {{searchShow[item.type]}}
+                        <div class="col" v-if="searchShow[item.type]">
                           <!-- talbe time -->
                           <div v-if="isOver(Week2[j][0].day,item.time)"><div class="style_time" style="line-height:18px;">
                             <font size="1"><strong>{{showDay(Week2[j][0].day,item.time)}}</strong></font></div></div>
                           <div v-else> <div class="style_timeover" style="line-height:18px;">
                             <font size="1"><strong>{{showDay(Week2[j][0].day,item.time)}}</strong></font></div></div>
                           <!-- table activities   :style="setHeight(item.time,item.end)"-->
-                          <div >
+                          <div>
                             <div v-if="item.type == 'session'">
                               <div v-if="isOver(Week2[j][0].day,item.time)">
                                 <div class="style_session" class="row align-items-center" data-bs-toggle="modal" data-bs-target="#modal" @click="setModalDetail(item.num, item.type, Week2[j][0].day, item.time, item.end)">

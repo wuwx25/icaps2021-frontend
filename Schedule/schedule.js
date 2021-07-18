@@ -13,6 +13,7 @@ data: {
 	day:[{sty:'style_day'},2,3,4,5,6,7,8,9,10,11,12,13,14],
 	week:1,
 	keywords:'',
+	searchShow:{},
 	zone: new Date().getTimezoneOffset() / -60 ,			
 	zoneOptions:[
 		{ text:'UTC +12', value:12},
@@ -316,13 +317,31 @@ data: {
 	oldTime: new Date,
 },
 methods:{
-	// Search: function(){
-	// 	for (let i=1;i<=this.Paper.length();i++){
-	// 		for (let j=0;j<this.Paper[i].length();j++){
-	// 			if (this.Paper[i][j].id == )
-	// 		}
-	// 	}
-	// },
+	Search: function(){
+		let i='',j='',k='';
+		for (k in this.searchShow) this.$set(this.searchShow,k,false);
+		for (i in this.paper){
+			for (j in this.paper[i]){
+				if (this.paper[i][j].id == this.keywords) this.$set(this.searchShow,'session'+i.toString(),true)
+				else if (this.paper[i][j].title.indexOf(this.keywords) >= 0) this.$set(this.searchShow,'session'+i.toString(),true)
+				else if (this.paper[i][j].authors.indexOf(this.keywords) >= 0) this.$set(this.searchShow,'session'+i.toString(),true)
+				else if (this.paper[i][j].keywords.indexOf(this.keywords) >= 0) this.$set(this.searchShow,'session'+i.toString(),true);
+			};
+		};
+		for (i in this.session){
+			if (this.session[i].indexOf(this.keywords) >= 0) this.$set(this.searchShow,'session'+i.toString(),true);
+		};
+		if ('Session'.indexOf(this.keywords) >= 0) this.$set(this.searchShow,'session',true);
+		if ('Live Get-Together'.indexOf(this.keywords) >= 0) this.$set(this.searchShow,'gather',true);
+		if ('Socializing'.indexOf(this.keywords) >= 0) this.$set(this.searchShow,'Socializing',true);
+		if ('Community Meeting'.indexOf(this.keywords) >= 0) this.$set(this.searchShow,'Community Meeting',true);
+		if ('Community Socializing'.indexOf(this.keywords) >= 0) this.$set(this.searchShow,'Community Socializing',true);
+		if ('Invited Talk'.indexOf(this.keywords) >= 0) this.$set(this.searchShow,'Invited Talk',true);
+		if ('Event'.indexOf(this.keywords) >= 0) this.$set(this.searchShow,'Event',true);
+		if ('Competitions'.indexOf(this.keywords) >= 0) this.$set(this.searchShow,'Competitions',true);
+		if ('Demos'.indexOf(this.keywords) >= 0) this.$set(this.searchShow,'Demos',true);
+		if ('Posters'.indexOf(this.keywords) >= 0) this.$set(this.searchShow,'Posters',true); 
+	},
 	showDay: function(day,hour){
 		if (this.zone + hour + 4 < 0) return ('Aug ' + this.date[day-1] + ' ' + (this.zone + hour + 28) + ':00')
 		else if (this.zone + hour + 4 > 23) return ('Aug ' + this.date[day+1] + ' ' + (this.zone + hour - 20) + ':00')
@@ -369,5 +388,21 @@ methods:{
 		else if (end - begin == 3) return "height:30vh"
 		else return "height:10vh";
 	}
+},
+mounted:function(){
+	for (let i=1;i<24;i++){
+			let j='session' + i.toString();
+			this.$set(this.searchShow,j,true);
+	}
+	this.$set(this.searchShow,'session',true);
+	this.$set(this.searchShow,'gather',true);
+	this.$set(this.searchShow,'Socializing',true);
+	this.$set(this.searchShow,'Community Meeting',true);
+	this.$set(this.searchShow,'Community Socializing',true);
+	this.$set(this.searchShow,'Invited Talk',true);
+	this.$set(this.searchShow,'Event',true);
+	this.$set(this.searchShow,'Competitions',true);
+	this.$set(this.searchShow,'Demos',true);
+	this.$set(this.searchShow,'Posters',true);
 }
 })
