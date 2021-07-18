@@ -456,20 +456,20 @@
                                     <strong>5.Order your ICAPS T-Shirt </strong>
                                 </button>
                             </h2>
-                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body" style="background-color: #e7f1ff;" :hidden="!user.reg || (user.reg && !user.reg.registration)">
-                                 
-                                    
-                                    <span style="text-align: justify;font-size: larger;margin-left: 1rem;">As part of your ICAPS-21 registration your eligible to receive an ICAPS-21 T-Shirt. </span>
-                                    <div class="form-check-inline" style="font-weight: bolder;" V-if='isNSTshirt && alreadySelectTOrder'>You didn't choose T-Shirt</div>
-                                    <div class="form-check form-switch form-check-inline" style="margin-left: 1rem;" v-else>
-                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked1" v-model="DWTshirt" :disabled="surveySubmit">
+                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                                <div class="accordion-body" style="background-color: #e7f1ff;"
+                                    :hidden="!user.reg || (user.reg && !user.reg.registration)">
+                                    <span style="text-align: justify;font-size: larger;margin-left: 1rem;">As part of your ICAPS-21 registration your
+                                        eligible to receive an ICAPS-21 T-Shirt. </span>
+                                        <div style="text-align: justify;font-size: larger;margin-left: 1rem; font-weight: bolder;" v-if='isNSTshirt && alreadySelectTOrder'>You choose not to have a T-Shirt</div>
+                                    <div class="form-check form-switch form-check-inline" style="margin-left: 1rem;" v-if='!alreadySelectTOrder'>
+                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked1" v-model="DWTshirt"
+                                            :disabled="surveySubmit">
                                         <label class="form-check-label" for="flexSwitchCheckChecked1">I don't want the T-shirt.</label>
                                     </div>
-                                  </div>
-  <hr />
-                                <div  v-if="!DWTshirt">
+                                </div>
+                                <hr />
+                                <div  v-if="(!isNSTshirt||!alreadySelectTOrder)&&!DWTshirt">
                                     <div>
                                         <p> {{surveySubmit?'Your have selected T-Shirt style':'Please select the T-Shirt style'}}</p><br/>
                                         <div class="row">
@@ -524,10 +524,8 @@
                                         </div>
                                         <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
                                             <div class="mb-3">
-                                                <label class="form-label"
-                                                    style="margin: 1.5em 0 0.5em 0.8em">Country/Region</label>
-                                                <select class="form-select" :class="{warn:isCountry}"
-                                                    v-model="survey.country" :disabled="surveySubmit">
+                                                <label class="form-label" style="margin: 1.5em 0 0.5em 0.8em">Country/Region</label>
+                                                <select class="form-select" :class="{warn:isCountry}" v-model="survey.country" :disabled="surveySubmit">
                                                     <option v-for="item in country" :value="item">{{item}}</option>
                                                 </select>
                                             </div>
@@ -546,7 +544,7 @@
                                                 </ul>
                                             </small>
                                             <button type="button" class="btn btn-primary" @click="nextWindow2()"
-                                            style="margin: 1.5em 0 0.5em 0em">Next</button>
+                                                style="margin: 1.5em 0 0.5em 0em">Next</button>
                                         </div>
                                     </div>
                                 </div>
