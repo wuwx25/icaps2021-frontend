@@ -144,6 +144,7 @@ var app = new Vue({
         DWTshirt:false,
         hideSix:true,
         modalmsg: '',
+        alreadySelectTOrder:false,
         isErrorPaper: false,
         check_form:false,
         collapse: [],
@@ -313,13 +314,12 @@ var app = new Vue({
                     "Authorization": localStorage.getItem('token')
                 }
             }).then(res => {
-                window.location.href='./index.html'
+                
                 this.modalmsg = 'Submission Successful!'
                 this.tipsModal.show();
                 setTimeout(() => {
-                    this.tipsModal.hide();
+                    window.location.href='./index.html'
                 }, 2000);
-                this.surveySubmit = true;
             }).catch(err => {
                 this.survey.submit.fail = true;
             })
@@ -330,7 +330,7 @@ var app = new Vue({
         },
         nextWindow2() {
             this.Tflag = true;
-            if(this.isTshirt) return ;
+            if(this.isTshirt && !this.alreadySelectTOrder) return ;
             this.hideSix =false;
             this.collapse[5].hide();
             this.collapse[6].show();
@@ -408,6 +408,7 @@ var app = new Vue({
                 "Authorization": localStorage.getItem('token')
             }
         }).then(res => {
+            this.alreadySelectTOrder = true;
             this.surveySubmit = true;
             this.hideSix = false;
             res.data.submit = this.survey.submit;
@@ -500,8 +501,15 @@ var app = new Vue({
             return this.$store.state.isRegistration;
         },
         isTshirt:function(){
+            if(this.alreadySelectTOrder){
+                return false;
+            }
             return (!this.survey.Tshirt_style || !this.survey.Tshirt_size || !this.survey.country || !this.survey.address1 || !this.survey.address_state || !this.survey.postal_code || !this.survey.full_name) && this.Tflag; 
         },
+        isNSTshirt:function(){
+            let flag = this.survey.Tshirt_style + this.survey.Tshirt_size + this.survey.country + this.survey.full_name + this.survey.address1 + this.survey.address2 + this.survey.address_state + this.survey.postal_code
+            return flag==''?true:false;
+        }
     }
 });
 
