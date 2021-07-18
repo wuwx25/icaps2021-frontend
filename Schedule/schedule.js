@@ -12,6 +12,7 @@ data: {
 	nowHour: (new Date().getTimezoneOffset() / 60) - 4 + new Date().getHours(),
 	day:[{sty:'style_day'},2,3,4,5,6,7,8,9,10,11,12,13,14],
 	week:1,
+	keywords:'',
 	zone: new Date().getTimezoneOffset() / -60 ,			
 	zoneOptions:[
 		{ text:'UTC +12', value:12},
@@ -77,7 +78,7 @@ data: {
 			{type:'gather', time:6, end:7},
 			{type:'session', num:7, time:7, end:8},
 			{type:'session', num:11, time:8, end:9},
-			{type:'Invited', time:9, end:10},
+			{type:'Invited Talk', time:9, end:10},
 			{type:'Event', time:10, end:12},
 			{type:'Socializing', time:12, end:14},
 			{type:'session', num:4, time:14, end:15},
@@ -98,7 +99,7 @@ data: {
 			{type:'gather', time:6, end:7},
 			{type:'session', num:6, time:7, end:8},
 			{type:'Competitions', time:8, end:11},
-			{type:'Invited', time:11, end:12},
+			{type:'Invited Talk', time:11, end:12},
 			{type:'Socializing', time:12, end:14},
 			{type:'session', num:10, time:14, end:15},
 			{type:'session', num:5, time:15, end:16},
@@ -117,7 +118,7 @@ data: {
 			{type:'gather', time:6, end:7},
 			{type:'session', num:15, time:7, end:8},
 			{type:'session', num:12, time:8, end:9},
-			{type:'Invited', time:9, end:10},
+			{type:'Invited Talk', time:9, end:10},
 			{type:'Demos', time:10, end:12},
 			{type:'Socializing', time:12, end:14},
 			{type:'session', num:8, time:14, end:15},
@@ -158,7 +159,7 @@ data: {
 			{type:'session', num:21, time:7, end:8},
 			{type:'session', num:13, time:8, end:9},
 			{type:'Posters', time:9, end:11},
-			{type:'Invited', time:11, end:12},
+			{type:'Invited Talk', time:11, end:12},
 			{type:'Socializing', time:12, end:14},
 			{type:'session', num:23, time:14, end:15},
 			{type:'session', num:14, time:15, end:16},
@@ -315,6 +316,13 @@ data: {
 	oldTime: new Date,
 },
 methods:{
+	// Search: function(){
+	// 	for (let i=1;i<=this.Paper.length();i++){
+	// 		for (let j=0;j<this.Paper[i].length();j++){
+	// 			if (this.Paper[i][j].id == )
+	// 		}
+	// 	}
+	// },
 	showDay: function(day,hour){
 		if (this.zone + hour + 4 < 0) return ('Aug ' + this.date[day-1] + ' ' + (this.zone + hour + 28) + ':00')
 		else if (this.zone + hour + 4 > 23) return ('Aug ' + this.date[day+1] + ' ' + (this.zone + hour - 20) + ':00')
@@ -355,6 +363,11 @@ methods:{
 	},
 	setChannelID: function(id){
 		window.localStorage.setItem("channel",id);
+	},
+	setHeight: function(begin,end){
+		if (end - begin == 2) return "heigth:20vh"
+		else if (end - begin == 3) return "height:30vh"
+		else return "height:10vh";
 	}
 }
 })
