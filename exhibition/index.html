@@ -40,7 +40,7 @@
 	</div>
 	<div id="app">
 	
-	<main class="container" style="min-height: 80vh;" id="app">
+	<main class="container" style="min-height: 80vh;">
 		<div class="album mt-3">
 		</div>
 		<h1>{{curPaper.title}}</h1>
@@ -88,8 +88,6 @@
 							</span>
 							</div>
 						</a>
-						
-						
 				</td>
 			</tr>
 			<tr>
@@ -98,28 +96,30 @@
 				</td>
 			</tr>
 		</table>
+	</div>
 		<div class="row">
 			<div class="col-9 ">
 				<div class="card shadow-sm mb-4" style="height: 40.75rem;">
 					<div class="card-body">
 						<div id="presentation-embed-38942367"></div>
 						<h1>slideslive</h1>
-						<!-- <script src='https://slideslive.com/embed_presentation.js'></script> -->
-						<!-- <script>
+						<script src='https://slideslive.com/embed_presentation.js'></script>
+						<script>
 							embed = new SlidesLiveEmbed('presentation-embed-38942367', {
 								presentationId: '38942367',
 								autoPlay: false, // change to true to autoplay the embedded presentation
 								verticalEnabled: true
 							});
-						</script> -->
+						</script>
 					</div>
 				</div>
 			</div>
-			<div class="col-3">
+			<div class="col-3" id="app">
 				<div class="card shadow-sm mb-4" style="height: 40.75rem;">
 					<div class="card-body">
 						<ul class="list-group list-group-flush">
-							<h1>Rocketchat</h1>
+							<iframe v-bind:src="'http://192.168.0.224:3000/channel/'+channel+'/?layout=embedded'"
+                height=600 title="myframe"></iframe>
 						</ul>
 					</div>
 				</div>
@@ -127,7 +127,7 @@
 		</div>
 	</main>
 		
-</div>
+
 			<footer class="footer m-5">
 				<div class="container">
 					<hr />
