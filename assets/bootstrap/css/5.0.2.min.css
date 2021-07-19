@@ -3179,7 +3179,7 @@ fieldset:disabled .btn {
     color: #fff;
     background-color: #1f4e8f;
     border-color: #1f4e8f;
-    box-shadow: 0 0 0 .25rem rgba(49, 132, 253, .5)
+    box-shadow: 0 0 0 .25rem #1f4e8f
 }
 
 .btn-check:active+.btn-primary,

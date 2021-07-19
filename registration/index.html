@@ -252,7 +252,7 @@
                                                                 <label class="form-check-label" for="flexCheckDefault">
                                                                     <p>Publication<span style="margin-left: 1rem">(Make
                                                                             sure to select this option if you have an
-                                                                            accepted paper)</span></p>
+                                                                            accepted paper. Note that you dont't need to select this option if you only have workshop papers, demos, or DCs accepted.)</span></p>
                                                                 </label>
                                                             </div>
                                                         </div>
@@ -616,8 +616,8 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-secondary" @click="checkEmail" :disabled="sendCodeDisable">{{sendCodeDisable?`Resend after ${code_resend_cnt}s`:`Resend code`}}</button>
                                     <button type="button" class="btn btn-primary" @click="Create">Save</button>
                                 </div>
                             </div>

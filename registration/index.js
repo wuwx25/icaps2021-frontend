@@ -128,6 +128,7 @@ var app = new Vue({
         workshopsData:workshopsData,
         token: "",
         message: "Hello ",
+        code_resend_cnt: 0, //used for the resend email verification code count down
         first_name: "",
         last_name: "",
         user_info: {},
@@ -196,18 +197,31 @@ var app = new Vue({
         getWorkshops(value){
             return 'survey.attend_workshops.'+value;
         },
-        checkEmail() {
+        async checkEmail() {
             this.check_form = true;
-            if(!this.checkflag) return;
-            axios.post(backendBaseUrl + '/api/users/emailverify', {
-                email: this.user_info.email
-            }).then(res => {
+            if (!this.checkflag) return;
+            try {
                 this.codeModal.show();
-            }).catch(err => {
+                // setting the counter down
+                if (!this.sendCodeDisable) {
+                    await axios.post(backendBaseUrl + '/api/users/emailverify', {
+                        email: this.user_info.email
+                    });
+                    this.code_resend_cnt = 60;
+                    this.countDown = setInterval(() => {
+                        if (this.code_resend_cnt <= 0) {
+                            clearInterval(this.countDown);
+                        } else {
+                            this.code_resend_cnt--;
+                        }
+                    }, 1000);
+                }
+
+            } catch (err) {
                 console.dir(err)
                 this.emailErrorMsg = err.response.data.message;
                 this.errorModal.show();
-            })
+            }
         },
         getfile(e) {
             if (e.target.files[0].size < 1024 * 1024 * 20) {
@@ -511,6 +525,9 @@ var app = new Vue({
         isNSTshirt:function(){
             let flag = this.survey.Tshirt_style + this.survey.Tshirt_size + this.survey.country + this.survey.full_name + this.survey.address1 + this.survey.address2 + this.survey.address_state + this.survey.postal_code;
             return flag==''?true:false;
+        },
+        sendCodeDisable: function () {
+            return this.code_resend_cnt > 0;
         }
     }
 });
