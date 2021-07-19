@@ -19,11 +19,24 @@ var app = new Vue({
     el: '#app2',
     store: store,
     data: {
-        channel:"general"
+        channel:"general",
+        timer:""
+    },
+    methods:{
+        logout:function(){
+            console.log("logout",document.getElementById('iframe').title);
+            document.getElementById('iframe').contentWindow.postMessage({
+                externalCommand: 'logout'
+              }, '*')
+        }
     },
     mounted() {
         if(localStorage.getItem("channel")){
             this.channel=localStorage.getItem("channel");
         }
+        //this.logout();
+    },
+    beforeDestroy() {
+        clearInterval(this.timer);
     }
 })

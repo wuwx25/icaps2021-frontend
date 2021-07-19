@@ -47,7 +47,7 @@
 	<main class="container" style="min-height: 80vh;" >
 		<div class="album mt-3">
 		</div>
-  <div id="app">
+  <div id="app" v-cloak>
 		<h1>{{curPaper.title}}</h1>
 		<table style="width:100%">
 			<tr>
@@ -119,12 +119,12 @@
 				</div>
 			</div>
 			<div class="col-3 clearfix">
-				<div id="app2">
+				<div id="app2" v-cloak>
 				<div class="card shadow-sm mb-4" style="min-height: 40.75rem;">
 					<div class="card-body">
 						<ul class="list-group list-group-flush">
 							<iframe v-bind:src="'http://192.168.0.224:3000/channel/'+channel+'/?layout=embedded'"
-                height=600 title="myframe"></iframe>
+                height=600 title="myframe" id="iframe"></iframe>
 						</ul>
 					</div>
 				</div>
