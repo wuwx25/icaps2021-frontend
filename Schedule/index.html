@@ -109,7 +109,7 @@
                               <div v-if="isOver(Week2[j][0].day,item.time)">
                                 <div class="style_session" class="row align-items-center" data-bs-toggle="modal" data-bs-target="#modal" @click="setModalDetail(item.num, item.type, Week2[j][0].day, item.time, item.end)">
                                   <div style="margin-left: 0.5em;" class="tip tip-right" data-tip="Show Details">
-                                    <strong><font size="3">Session{{item.num}}:</font><br><font size="1"><I>{{session[item.num]}}<span v-if="item.num==11&&item.time==8">/Opening remarks</span></I></font></strong>
+                                    <I><font size="2">Session{{item.num}}:</font></I><br><strong class="sessionText">{{session[item.num]}}<span v-if="item.num==11&&item.time==8">/Opening remarks</span></strong>
                                   </div>
                                 </div>	
                               </div>

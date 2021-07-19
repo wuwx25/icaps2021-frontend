@@ -8,9 +8,14 @@
 
 }
 
+.sessionText{
+	font-size: medium;
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
 
 .paperTitle:hover{
-	background-color: #cccccc;
+	background-color: #d6d6d6;
+	font-family: ‘Gill Sans’, ‘Gill Sans MT’, Calibri, ‘Trebuchet MS’, sans-serif;
 }
 
 .modalGather{
