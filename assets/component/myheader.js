@@ -1,4 +1,5 @@
 import {backendBaseUrl} from '../js/backendBaseUrl.js';
+import { resetItem } from '../js/data.js';
 import Vue from '../js/vue.esm.browser.js';
 import Vuex from '../js/vuex.esm.browser.js';
 import axios from '../js/axios.js';
@@ -8,7 +9,7 @@ const store = new Vuex.Store({
         isLogin: false,
         isRegistration: false,
         user: {},
-        flag: localStorage.getItem('hello')
+        flag: '',
     },
     mutations: {
         setLogin(state, payload) {
@@ -60,19 +61,34 @@ Vue.component('myheader',async function(resolve,reject){
                 }).catch(err => {
                     console.log(err)
                 });
+                localStorage.setItem('flag',0);
+                localStorage.setItem('tokenTime',Date.parse(new Date()))
                 setInterval(() => {
-                        axios.get(backendBaseUrl+'/api/test/heartbeat',{
-                            headers: {
-                                "Authorization": localStorage.getItem('token')
-                            }
-                        }).then(res => {
-                            if(res.data.message == "refresh"){
-                                let token = res.data.token;
-                                localStorage.setItem('token',token)
-                            }
-                        })
-                }, 60000);
+                    if(Date.parse(new Date) - localStorage.getItem('tokenTime') > 59000){
+                        resetItem('flag',0)
+                    }
+                },60000)
             }
+        },
+        mounted(){
+            window.addEventListener("setItemEvent", (e) => {
+                if(e.newValue == 0){
+                    axios.get(backendBaseUrl+'/api/test/heartbeat',{
+                        headers: {
+                            "Authorization": localStorage.getItem('token')
+                        }
+                    }).then(res => {
+                        console.log(res)
+                        if(res.data.message == "refresh"){
+                            let token = res.data.token;
+                            localStorage.setItem('token',token)
+                        }
+                        console.log(Date.parse(new Date) - localStorage.getItem('tokenTime'))
+                        resetItem('flag',1)
+                        localStorage.setItem('tokenTime',Date.parse(new Date()))
+                    })
+                }
+            });
         },
         computed: {
             isLogin: function () {
