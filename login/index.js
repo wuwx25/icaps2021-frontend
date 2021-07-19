@@ -18,16 +18,21 @@ var app = new Vue({
                 localStorage.setItem("token",res.data.token);
                 window.location.href = "/userInfo";
             }).catch(err=>{
+                this.user.password = '';
                 this.errorTip.isError = true;
                 if(err.response.status==400){
                     this.errorTip.message = 'wrong password or email!';
                 } else {
                     this.errortip.message = 'Unknown error!';
                 }
-                this.user.password = ''
+                
             })
         },
+        handlerClick(){
+            this.errorTip.isError = false;
+        }
     },
     mounted(){
+        axios.defaults.withCredentials = true;
     }
 })
