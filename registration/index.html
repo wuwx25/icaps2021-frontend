@@ -515,13 +515,6 @@
                                             </div>
                                             <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
                                                 <div class="mb-3">
-                                                    <label class="form-label" style="margin: 1em 0 0.5em 0.8em">Address_3</label>
-                                                    <input type="text" class="form-control" :class="{warn:isFirst_name}" placeholder=""
-                                                        v-model="survey.address3" :disabled="surveySubmit">
-                                                </div>
-                                            </div>
-                                            <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
-                                                <div class="mb-3">
                                                     <label class="form-label" style="margin: 1em 0 0.5em 0.8em">State</label>
                                                     <input type="text" class="form-control" :class="{warn:isLast_name}" placeholder=""
                                                         v-model="survey.address_state" :disabled="surveySubmit">
@@ -580,12 +573,10 @@
                                     
                                     <hr/>
                                     <p>Do you plan to attend the diversity event at ICAPS 2021?</p>
-                                    <div class="row">
                                       <div class="form-check form-switch" style="margin-left: 1rem;">
                                         <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" v-model="survey.attend_event" :disabled="surveySubmit">
                                         <label class="form-check-label" for="flexSwitchCheckChecked">{{survey.attend_event?'YES':'NO'}}</label>
                                       </div>
-                                    </div>
                                     <div class="mb-3" v-if="!surveySubmit">
                                         <div class="row">
                                             <small style="color: red" v-if="survey.submit.fail">
