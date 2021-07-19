@@ -54,7 +54,7 @@
             <section class="py-5 container d-flex h-100">
                 <div class="row py-lg-5 d-flex justify-content-center align-self-center">
                     <div class="accordion row" id="accordionExample">
-                        <div class="accordion-item ">
+                        <div class="accordion-item " style="padding: 0%;">
                             <h2 class="accordion-header" id="headingOne">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapseOne" aria-controls="collapseOne" aria-expanded="false">
@@ -197,7 +197,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="accordion-item">
+                        <div class="accordion-item" style="padding: 0%;">
                             <h2 class="accordion-header" id="headingTwo">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapseTwo" aria-controls="collapseTwo" :disabled="!isLogin">
@@ -377,8 +377,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingFive">
+                        <div class="accordion-item" style="padding: 0%;">
+                            <h2 class="accordion-header" id="headingThree">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapseThree">
                                     <strong>3.Invitation Letter and Proof of Participation</strong>
@@ -387,7 +387,7 @@
                                 </button>
                             </h2>
 
-                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingFive"
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
                                 data-bs-parent="#accordionExample">
                                 <div class="accordion-body" :hidden="!user.reg || (user.reg && !user.reg.registration)">
                                     <div class="row">
@@ -402,14 +402,14 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingSix">
+                        <div class="accordion-item" style="padding: 0%;">
+                            <h2 class="accordion-header" id="headingFour">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapseFour">
                                     <strong>4.Get Recruited by our Sponsors</strong>
                                 </button>
                             </h2>
-                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingSix"
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
                                 data-bs-parent="#accordionExample">
                                 <div class="accordion-body" :hidden="!user.reg || (user.reg && !user.reg.registration)">
                                     <p style="text-align: justify">If you would like to let the ICAPS 2021 sponsors know
@@ -437,10 +437,8 @@
                                             <label for="formFile" class="form-label">Please use the PDF format for your
                                                 CV if possible.</label>
                                             <input class="form-control" type="file" id="formFile" @change="getfile">
-                                            <small style="color: red" v-if="uploadFile.fail">
-                                                <ul>
-                                                    <li>{{uploadFile.errmsg}}</li>
-                                                </ul>
+                                            <small style="color: red;text-align: center;" v-if="uploadFile.fail">
+                                                    {{uploadFile.errmsg}}
                                             </small>
                                             <button type="button" style="margin-top: 1rem;" class="btn btn-primary"
                                                 @click="submit">Next</button>
@@ -449,8 +447,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="accordion-item ">
-                            <h2 class="accordion-header" id="headingseven">
+                        <div class="accordion-item " style="padding: 0%;">
+                            <h2 class="accordion-header" id="headingFive">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapseFive" aria-controls="collapseSeven" aria-expanded="false">
                                     <strong>5.Order your ICAPS T-Shirt </strong>
@@ -468,137 +466,142 @@
                                         <label class="form-check-label" for="flexSwitchCheckChecked1">I don't want the T-shirt.</label>
                                     </div>
                                 
-                                <hr />
-                                <div  v-if="(!isNSTshirt||!alreadySelectTOrder)&&!DWTshirt">
-                                    <div>
-                                        <p> {{surveySubmit?'Your have selected T-Shirt style':'Please select the T-Shirt style'}}</p><br/>
-                                        <div class="row">
-                                            <div v-for="item in Tshirt_style" class="form-check col-xs-6 col-sm-6 col-md-3 col-lg-3 TorderTitle">
-                                                <input class="btn-check" name='Tshirt' type="radio"  :id="item.value" :value="item.value" v-model="survey.Tshirt_style" autocomplete="off" :disabled="surveySubmit">
-                                                
-                                                <label class="btn btn-outline-primary" :for="item.value"><img
-                                                        :src="item.src" height=100 width=96.6/></label><br>
-                                            </div>
-                                        </div>
-                                        <hr />
-                                    <div class="TorderTitle">
-                                        <p class="text"> {{surveySubmit?'Your have selected T-Shirt size':'Please select the T-Shirt size'}}</p><br/>
-                                        <div class="form-check form-check-inline " v-for="item in Tshirt_size">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                                :id="item" :value="item" v-model="survey.Tshirt_size"
-                                                :disabled="surveySubmit">
-                                            <label class="form-check-label" :for="item">
-                                                {{item}}
-                                            </label>
-                                        </div>
-                                        </div>
                                     <hr />
-                                    <p class="TorderTitle">{{surveySubmit?'Your shipping details':'Please enter your shipping details.'}}</p>
-                                    <div class="row">
-                                        <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
-                                            <div class="mb-3">
-                                                <label class="form-label" style="margin: 1em 0 0.5em 0.8em">Full Name</label>
-                                                <input type="text" class="form-control" v-model="survey.full_name" :disabled="surveySubmit">
+                                    <div  v-if="(!isNSTshirt||!alreadySelectTOrder)&&!DWTshirt">
+                                        <div>
+                                            <p> {{surveySubmit?'Your have selected T-Shirt style':'Please select the T-Shirt style'}}</p><br/>
+                                            <div class="row">
+                                                <div v-for="item in Tshirt_style" class="form-check col-xs-6 col-sm-6 col-md-3 col-lg-3 TorderTitle">
+                                                    <input class="btn-check" name='Tshirt' type="radio"  :id="item.value" :value="item.value" v-model="survey.Tshirt_style" autocomplete="off" :disabled="surveySubmit">
+                                                    
+                                                    <label class="btn btn-outline-primary" :for="item.value"><img
+                                                            :src="item.src" height=100 width=96.6/></label><br>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
-                                            <div class="mb-3">
-                                                <label class="form-label" style="margin: 1em 0 0.5em 0.8em">Address_1</label>
-                                                <input type="text" class="form-control" :class="{warn:isFirst_name}" placeholder=""
-                                                    v-model="survey.address1" :disabled="surveySubmit">
+                                            <hr />
+                                        <div class="TorderTitle">
+                                            <p class="text"> {{surveySubmit?'Your have selected T-Shirt size':'Please select the T-Shirt size'}}</p><br/>
+                                            <div class="form-check form-check-inline " v-for="item in Tshirt_size">
+                                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                    :id="item" :value="item" v-model="survey.Tshirt_size"
+                                                    :disabled="surveySubmit">
+                                                <label class="form-check-label" :for="item">
+                                                    {{item}}
+                                                </label>
                                             </div>
-                                        </div>
-                                        <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
-                                            <div class="mb-3">
-                                                <label class="form-label" style="margin: 1em 0 0.5em 0.8em">Address_2</label>
-                                                <input type="text" class="form-control" :class="{warn:isFirst_name}" placeholder=""
-                                                    v-model="survey.address2" :disabled="surveySubmit">
                                             </div>
-                                        </div>
-                                        <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
-                                            <div class="mb-3">
-                                                <label class="form-label" style="margin: 1em 0 0.5em 0.8em">State</label>
-                                                <input type="text" class="form-control" :class="{warn:isLast_name}" placeholder=""
-                                                    v-model="survey.address_state" :disabled="surveySubmit">
-                                            </div>
-                                        </div>
-                                        <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
-                                            <div class="mb-3">
-                                                <label class="form-label" style="margin: 1.5em 0 0.5em 0.8em">Country/Region</label>
-                                                <select class="form-select" :class="{warn:isCountry}" v-model="survey.country" :disabled="surveySubmit">
-                                                    <option v-for="item in country" :value="item">{{item}}</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
-                                            <div class="mb-3">
-                                                <label class="form-label" style="margin: 1em 0 0.5em 0.8em">Postal Code</label>
-                                                <input type="text" class="form-control" :class="{warn:isLast_name}" placeholder=""
-                                                    v-model="survey.postal_code" :disabled="surveySubmit">
-                                            </div>
-                                        </div>
+                                        <hr />
+                                        <p class="TorderTitle">{{surveySubmit?'Your shipping details':'Please enter your shipping details.'}}</p>
                                         <div class="row">
-                                            <small style="color: red" v-if="isTshirt">
+                                            <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label" style="margin: 1em 0 0.5em 0.8em">Full Name</label>
+                                                    <input type="text" class="form-control" v-model="survey.full_name" :disabled="surveySubmit">
+                                                </div>
+                                            </div>
+                                            <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label" style="margin: 1em 0 0.5em 0.8em">Address_1</label>
+                                                    <input type="text" class="form-control" :class="{warn:isFirst_name}" placeholder=""
+                                                        v-model="survey.address1" :disabled="surveySubmit">
+                                                </div>
+                                            </div>
+                                            <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label" style="margin: 1em 0 0.5em 0.8em">Address_2</label>
+                                                    <input type="text" class="form-control" :class="{warn:isFirst_name}" placeholder=""
+                                                        v-model="survey.address2" :disabled="surveySubmit">
+                                                </div>
+                                            </div>
+                                            <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label" style="margin: 1em 0 0.5em 0.8em">Address_3</label>
+                                                    <input type="text" class="form-control" :class="{warn:isFirst_name}" placeholder=""
+                                                        v-model="survey.address3" :disabled="surveySubmit">
+                                                </div>
+                                            </div>
+                                            <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label" style="margin: 1em 0 0.5em 0.8em">State</label>
+                                                    <input type="text" class="form-control" :class="{warn:isLast_name}" placeholder=""
+                                                        v-model="survey.address_state" :disabled="surveySubmit">
+                                                </div>
+                                            </div>
+                                            <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label" style="margin: 1.5em 0 0.5em 0.8em">Country/Region</label>
+                                                    <select class="form-select" :class="{warn:isCountry}" v-model="survey.country" :disabled="surveySubmit">
+                                                        <option v-for="item in country" :value="item">{{item}}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
+                                                <div class="mb-3">
+                                                    <label class="form-label" style="margin: 1em 0 0.5em 0.8em">Postal Code</label>
+                                                    <input type="text" class="form-control" :class="{warn:isLast_name}" placeholder=""
+                                                        v-model="survey.postal_code" :disabled="surveySubmit">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <small style="color: red" v-if="isTshirt">
+                                                    <ul>
+                                                        <li>Please fill in all the information</li>
+                                                    </ul>
+                                                </small>
+                                                <button type="button" class="btn btn-primary" @click="nextWindow2()"
+                                                    style="margin: 1.5em 0 0.5em 0em">Next</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item " style="padding: 0%;">
+                            <h2 class="accordion-header" id="headingSix" >
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseSix" aria-controls="collapseEight" aria-expanded="false">
+                                    <strong>6.Survey on programs </strong>
+                                </button>
+                            </h2>
+                            <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body" :hidden="!user.reg || (user.reg && !user.reg.registration) || (hideSix && !DWTshirt)">
+                                    <p style="text-align: justify">{{surveySubmit?'Your options':'Please select the workshops you would like to attend.'}}</p>
+                                    <div v-for="item in workshopsData" >
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" v-model="survey.attend_workshops[item.keyword]" :id="item.keyword" :disabled="surveySubmit">
+                                        <label class="form-check-label" :for="item.keyword">
+                                            <p>{{item.value}}
+                                                <span class="text-icaps">{{item.keyword}}</span></p>
+                                        </label>
+                                    </div>
+                                    </div>
+                                    
+                                    <hr/>
+                                    <p>Do you plan to attend the diversity event at ICAPS 2021?</p>
+                                    <div class="row">
+                                      <div class="form-check form-switch" style="margin-left: 1rem;">
+                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" v-model="survey.attend_event" :disabled="surveySubmit">
+                                        <label class="form-check-label" for="flexSwitchCheckChecked">{{survey.attend_event?'YES':'NO'}}</label>
+                                      </div>
+                                    </div>
+                                    <div class="mb-3" v-if="!surveySubmit">
+                                        <div class="row">
+                                            <small style="color: red" v-if="survey.submit.fail">
                                                 <ul>
-                                                    <li>Please fill in all the information</li>
+                                                    <li>Fail to submit,Please retry again</li>
                                                 </ul>
                                             </small>
-                                            <button type="button" class="btn btn-primary" @click="nextWindow2()"
-                                                style="margin: 1.5em 0 0.5em 0em">Next</button>
+                                            <button type="button" style="margin-top: 1rem;" class="btn btn-primary"
+                                                @click="submitSurvey">Submit</button>
                                         </div>
                                     </div>
+                                    
                                 </div>
                             </div>
-                            </div>
-                        </div>
-                    
-
-                    <div class="accordion-item ">
-                        <h2 class="accordion-header" id="headingSix" >
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseSix" aria-controls="collapseEight" aria-expanded="false">
-                                <strong>6.Survey on programs </strong>
-                            </button>
-                        </h2>
-                        <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
-                            data-bs-parent="#accordionExample">
-                            <div class="accordion-body" :hidden="!user.reg || (user.reg && !user.reg.registration) || (hideSix && !DWTshirt)">
-                                <p style="text-align: justify">{{surveySubmit?'Your options':'Please select the workshops you would like to attend.'}}</p>
-                                <div v-for="item in workshopsData" >
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" v-model="survey.attend_workshops[item.keyword]" :id="item.keyword" :disabled="surveySubmit">
-                                    <label class="form-check-label" :for="item.keyword">
-                                        <p>{{item.value}}
-                                            <span class="text-icaps">{{item.keyword}}</span></p>
-                                    </label>
-                                </div>
-                                </div>
-                                
-                                <hr/>
-                                <p>Do you plan to attend the diversity event at ICAPS 2021?</p>
-                                <div class="row">
-                                  <div class="form-check form-switch" style="margin-left: 1rem;">
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" v-model="survey.attend_event" :disabled="surveySubmit">
-                                    <label class="form-check-label" for="flexSwitchCheckChecked">{{survey.attend_event?'YES':'NO'}}</label>
-                                  </div>
-                                </div>
-                                <div class="mb-3" v-if="!surveySubmit">
-                                    <div class="row">
-                                        <small style="color: red" v-if="survey.submit.fail">
-                                            <ul>
-                                                <li>Fail to submit.</li>
-                                            </ul>
-                                        </small>
-                                        <button type="button" style="margin-top: 1rem;" class="btn btn-primary"
-                                            @click="submitSurvey">Submit</button>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-
-                    </div>
+                        </div>  
+                    </div>           
                     <div class="modal fade " id="verifyCode" tabindex="-1" aria-labelledby="exampleModalLabel"
                         aria-hidden="true">
                         <div class="modal-dialog">

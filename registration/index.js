@@ -103,6 +103,7 @@ var app = new Vue({
             full_name:'',
             address1:'',
             address2:'',
+            address3:'',
             address_state:'',
             postal_code:'',
             attend_event:false,
@@ -447,6 +448,7 @@ var app = new Vue({
                 this.survey.full_name = '',
                 this.survey.address1 = '',
                 this.survey.address2 = '',
+                this.survey.address3 = '',
                 this.survey.postal_code = '',
                 this.collapse[5].hide();
                 this.collapse[6].show();
@@ -509,7 +511,7 @@ var app = new Vue({
             return (!this.survey.Tshirt_style || !this.survey.Tshirt_size || !this.survey.country || !this.survey.address1 || !this.survey.address_state || !this.survey.postal_code || !this.survey.full_name) && this.Tflag; 
         },
         isNSTshirt:function(){
-            let flag = this.survey.Tshirt_style + this.survey.Tshirt_size + this.survey.country + this.survey.full_name + this.survey.address1 + this.survey.address2 + this.survey.address_state + this.survey.postal_code
+            let flag = this.survey.Tshirt_style + this.survey.Tshirt_size + this.survey.country + this.survey.full_name + this.survey.address1 + this.survey.address2 + this.survey.address3 + this.survey.address_state + this.survey.postal_code;
             return flag==''?true:false;
         }
     }
