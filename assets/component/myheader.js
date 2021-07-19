@@ -72,13 +72,12 @@ Vue.component('myheader',async function(resolve,reject){
         },
         mounted(){
             window.addEventListener("setItemEvent", (e) => {
-                if(e.newValue == 0){
+                if(e.newValue == 0 && this.isLogin){
                     axios.get(backendBaseUrl+'/api/test/heartbeat',{
                         headers: {
                             "Authorization": localStorage.getItem('token')
                         }
                     }).then(res => {
-                        console.log(res)
                         if(res.data.message == "refresh"){
                             let token = res.data.token;
                             localStorage.setItem('token',token)
