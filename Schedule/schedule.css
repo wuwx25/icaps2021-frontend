@@ -2,9 +2,24 @@
 	display: none;
 }
 
-.search{
-	border: solid #0072bc;
-	border-radius: 15px;
+.searchBtn{
+	border-left: solid 1px #0072bc;
+	text-align: center;
+
+}
+
+
+.paperTitle:hover{
+	background-color: #cccccc;
+}
+
+.modalGather{
+	text-decoration: underline;
+}
+
+.modalGather:hover{
+	text-decoration: underline;
+	background: #cccccc;
 }
 
 .tab-pane {

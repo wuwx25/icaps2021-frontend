@@ -44,7 +44,7 @@ data: {
 	date:[' ','1st','2nd','3rd','4th','5th','6th','7th','8th','9th','10th','11th','12th','13th','14th'],
 	gather:'<div class="gather"><a href="https://gather.town/app/V6z77iZjpGdUzBPo/ICAPS21" target="_blank"><strong>Live Get-Together</strong></a></div>',
 	session:[
-		' ',
+		'',
 		'Classical',
 		'Classical',
 		'Classical/search',
@@ -317,30 +317,35 @@ data: {
 	oldTime: new Date,
 },
 methods:{
-	Search: function(){
+	searchEnter: function(){
 		let i='',j='',k='';
 		for (k in this.searchShow) this.$set(this.searchShow,k,false);
 		for (i in this.paper){
 			for (j in this.paper[i]){
-				if (this.paper[i][j].id == this.keywords) this.$set(this.searchShow,'session'+i.toString(),true)
-				else if (this.paper[i][j].title.indexOf(this.keywords) >= 0) this.$set(this.searchShow,'session'+i.toString(),true)
-				else if (this.paper[i][j].authors.indexOf(this.keywords) >= 0) this.$set(this.searchShow,'session'+i.toString(),true)
-				else if (this.paper[i][j].keywords.indexOf(this.keywords) >= 0) this.$set(this.searchShow,'session'+i.toString(),true);
+				if (this.paper[i][j].id == this.keywords.toLowerCase()) this.$set(this.searchShow,'session'+i.toString(),true)
+				else if (this.paper[i][j].title.toLowerCase().indexOf(this.keywords.toLowerCase()) >= 0) this.$set(this.searchShow,'session'+i.toString(),true)
+				else if (this.paper[i][j].authors.toLowerCase().indexOf(this.keywords.toLowerCase()) >= 0) this.$set(this.searchShow,'session'+i.toString(),true)
+				else if (this.paper[i][j].keywords.toLowerCase().indexOf(this.keywords.toLowerCase()) >= 0) this.$set(this.searchShow,'session'+i.toString(),true);
 			};
 		};
 		for (i in this.session){
-			if (this.session[i].indexOf(this.keywords) >= 0) this.$set(this.searchShow,'session'+i.toString(),true);
+			if (this.session[i].toLowerCase().indexOf(this.keywords.toLowerCase()) >= 0) this.$set(this.searchShow,'session'+i.toString(),true);
+			if (i.toLowerCase().indexOf(this.keywords.toLowerCase()) >= 0) this.$set(this.searchShow,'session'+i.toString(),true);			
 		};
-		if ('Session'.indexOf(this.keywords) >= 0) this.$set(this.searchShow,'session',true);
-		if ('Live Get-Together'.indexOf(this.keywords) >= 0) this.$set(this.searchShow,'gather',true);
-		if ('Socializing'.indexOf(this.keywords) >= 0) this.$set(this.searchShow,'Socializing',true);
-		if ('Community Meeting'.indexOf(this.keywords) >= 0) this.$set(this.searchShow,'Community Meeting',true);
-		if ('Community Socializing'.indexOf(this.keywords) >= 0) this.$set(this.searchShow,'Community Socializing',true);
-		if ('Invited Talk'.indexOf(this.keywords) >= 0) this.$set(this.searchShow,'Invited Talk',true);
-		if ('Event'.indexOf(this.keywords) >= 0) this.$set(this.searchShow,'Event',true);
-		if ('Competitions'.indexOf(this.keywords) >= 0) this.$set(this.searchShow,'Competitions',true);
-		if ('Demos'.indexOf(this.keywords) >= 0) this.$set(this.searchShow,'Demos',true);
-		if ('Posters'.indexOf(this.keywords) >= 0) this.$set(this.searchShow,'Posters',true); 
+		if ('Session'.toLowerCase().indexOf(this.keywords.toLowerCase()) >= 0) this.$set(this.searchShow,'session',true);
+		if ('Live Get-Together'.toLowerCase().indexOf(this.keywords.toLowerCase()) >= 0) this.$set(this.searchShow,'gather',true);
+		if ('Socializing'.toLowerCase().indexOf(this.keywords.toLowerCase()) >= 0) this.$set(this.searchShow,'Socializing',true);
+		if ('Community Meeting'.toLowerCase().indexOf(this.keywords.toLowerCase()) >= 0) this.$set(this.searchShow,'Community Meeting',true);
+		if ('Community Socializing'.toLowerCase().indexOf(this.keywords.toLowerCase()) >= 0) this.$set(this.searchShow,'Community Socializing',true);
+		if ('Invited Talk'.toLowerCase().indexOf(this.keywords.toLowerCase()) >= 0) this.$set(this.searchShow,'Invited Talk',true);
+		if ('Event'.toLowerCase().indexOf(this.keywords.toLowerCase()) >= 0) this.$set(this.searchShow,'Event',true);
+		if ('Competitions'.toLowerCase().indexOf(this.keywords.toLowerCase()) >= 0) this.$set(this.searchShow,'Competitions',true);
+		if ('Demos'.toLowerCase().indexOf(this.keywords.toLowerCase()) >= 0) this.$set(this.searchShow,'Demos',true);
+		if ('Posters'.toLowerCase().indexOf(this.keywords.toLowerCase()) >= 0) this.$set(this.searchShow,'Posters',true); 
+	},
+	searchReset: function(){
+		this.keywords = '';
+		this.searchEnter();
 	},
 	showDay: function(day,hour){
 		if (this.zone + hour + 4 < 0) return ('Aug ' + this.date[day-1] + ' ' + (this.zone + hour + 28) + ':00')
