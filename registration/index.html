@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="../assets/js/axios.min.js"></script>
     <!-- <script src="../assets/js/vue.min.js"></script> -->
-    <link rel="shortcut icon" type="image/png" href="../assets/images/favicon.png" />
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="../assets/images/favicon.png"
+    />
     <!-- <link rel="stylesheet" href="../assets/bootstrap/css/styles.css"> -->
     <script src="../assets/js/bootstrap.min.js"></script>
 
@@ -19,691 +22,1345 @@
     <link href="../assets/bootstrap/css/5.0.2.min.css" rel="stylesheet" />
     <link href="../assets/css/custom.css" rel="stylesheet" />
 
-
     <!--    <link href="home.css" rel="stylesheet" />-->
 
     <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+    />
     <!-- jQuery -->
     <script src="../assets/js/jquery-3.6.0.min.js"></script>
     <script src="../assets/js/custom.js"></script>
-    <script src="/assets/component/myheader.js" type='module'></script>
+    <script src="/assets/component/myheader.js" type="module"></script>
     <script type="module" src="./index.js"></script>
     <style type="text/css">
-        .warn{
-            border-style:solid;
-            border-color: red;
-        }
-        .examplmModal{
-            display: none;
-        }
-        [v-cloak] {
-            display: none;
-        }
+      .warn {
+        border-style: solid;
+        border-color: red;
+      }
+      .examplmModal {
+        display: none;
+      }
+      [v-cloak] {
+        display: none;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-    <div id='icaps-header' v-cloak>
-        <myheader curpage='registration' ref="header"></myheader>
+  <body>
+    <div id="icaps-header" v-cloak>
+      <myheader curpage="registration" ref="header"></myheader>
     </div>
     <div id="app" v-cloak>
-        <main class="container" style="min-height: 80vh">
-            <div class="album mt-3 p-2">
-                
-            </div>
-            <section class="py-5 container d-flex h-100">
-                <div class="row py-lg-5 d-flex justify-content-center align-self-center">
-                    <div class="accordion row" id="accordionExample">
-                        <div class="accordion-item " style="padding: 0%;">
-                            <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseOne" aria-controls="collapseOne" aria-expanded="false">
-                                    <strong>1.{{isLogin?"Update Profile":"Create a new Profile"}} </strong>
-                                </button>
-                            </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <div class="row">
-                                        <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
-                                            <div class="mb-3">
-                                                <label class="form-label"
-                                                    style="margin: 1em 0 0.5em 0.8em">Email</label>
-                                                <input type="text" class="form-control" placeholder="Input your email"
-                                                    v-model="user_info.email" :disabled="isLogin" >
-                                                <small style="color: red" v-if="isEmail">
-                                                    <ul>
-                                                        <li>Email is not valid</li>
-                                                    </ul>
-                                                </small>
-                                            </div>
-                                        </div>
-                                        <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
-                                            <div class="mb-3">
-                                                <label class="form-label" style="margin: 1em 0 0.5em 0.8em">First
-                                                    name</label>
-                                                <input type="text" class="form-control" :class="{warn:isFirst_name}"
-                                                    placeholder="" v-model="user_info.first_name">
-                                                <small style="color: red" v-if="isFirst_name">
-                                                    <ul>
-                                                        <li>This field is required</li>
-                                                    </ul>
-                                                </small>
-                                            </div>
-                                        </div>
-                                        <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
-                                            <div class="mb-3">
-                                                <label class="form-label" style="margin: 1em 0 0.5em 0.8em">Last
-                                                    name</label>
-                                                <input type="text" class="form-control" :class="{warn:isLast_name}"
-                                                    placeholder="" v-model="user_info.last_name">
-                                                <small style="color: red" v-if="isLast_name">
-                                                    <ul>
-                                                        <li>This field is required</li>
-                                                    </ul>
-                                                </small>
-                                            </div>
-                                        </div>
-                                        <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
-                                            <div class="mb-3">
-                                                <label class="form-label"
-                                                    style="margin: 1em 0 0.5em 0.8em">Institution</label>
-                                                <input type="text" class="form-control" :class="{warn:isInstitution}"
-                                                    placeholder="" v-model="user_info.institution">
-                                                <small style="color: red" v-if="isInstitution">
-                                                    <ul>
-                                                        <li>This field is required</li>
-                                                    </ul>
-                                                </small>
-                                            </div>
-                                        </div>
-                                        <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3" v-if="!isLogin">
-                                            <div class="mb-3">
-                                                <label class="form-label"
-                                                    style="margin: 1.5em 0 0.5em 0.8em">Password</label>
-                                                <input type="password" class="form-control" :class="{warn:isPassword}"
-                                                    placeholder="Input Password" v-model="user_info.password">
-                                                <small style="color: red" v-if="isPassword">
-                                                    <ul>
-                                                        <li>This field is required</li>
-                                                    </ul>
-                                                </small>
-                                                <small style="color: red" v-if="isLessSix">
-                                                    <ul>
-                                                        <li>Password minimum length is 6</li>
-                                                    </ul>
-                                                </small>
-                                            </div>
-                                        </div>
-                                        <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3" v-if="!isLogin">
-                                            <div class="mb-3">
-                                                <label class="form-label" style="margin: 1.5em 0 0.5em 0.8em">Confirm
-                                                    Password</label>
-                                                <input type="password" class="form-control" :class="{warn:isPassword2}"
-                                                    placeholder="Confirm Password" v-model="user_info.password2">
-                                                <small style="color: red" v-if="isPassword2">
-                                                    <ul>
-                                                        <li>This field is required</li>
-                                                    </ul>
-                                                </small>
-                                                <small style="color: red"
-                                                    v-if="passwdMisMatch">
-                                                    <ul>
-                                                        <li>Password mismatch</li>
-                                                    </ul>
-                                                </small>
-                                            </div>
-                                        </div>
-                                        <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
-                                            <div class="mb-3">
-                                                <label class="form-label"
-                                                    style="margin: 1.5em 0 0.5em 0.8em">Pronoun</label>
-                                                <select class="form-select" :class="{warn:isPronoun}"
-                                                    v-model="user_info.pronoun">
-                                                    <option value="they/them">they/them</option>
-                                                    <option value="she/her">she/her</option>
-                                                    <option value="he/him">he/him</option>
-                                                    <option value="I don't use pronouns">I don't use pronouns</option>
-                                                    <option value="Prefer no to say">Prefer not to say</option>
-                                                    <option value="Specify your own">Specify your own</option>
-                                                </select>
-                                                <small style="color: red" v-if="isPronoun">
-                                                    <ul>
-                                                        <li>This field is required</li>
-                                                    </ul>
-                                                </small>
-                                            </div>
-                                        </div>
-                                        <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
-                                            <div class="mb-3">
-                                                <label class="form-label"
-                                                    style="margin: 1.5em 0 0.5em 0.8em">Country/Region</label>
-                                                <select class="form-select" :class="{warn:isCountry}"
-                                                    v-model="user_info.country">
-                                                    <option v-for="item in country" :value="item">{{item}}</option>
-                                                </select>
-                                                <small style="color: red" v-if="isCountry">
-                                                    <ul>
-                                                        <li>This field is required</li>
-                                                    </ul>
-                                                </small>
-                                            </div>
-                                        </div>
-                                        <button type="button" class="btn btn-primary" @click="checkEmail"
-                                            style="margin: 1.5em 0 0.5em 0em" v-if="!isLogin">Create</button>
-                                        <button type="button" class="btn btn-primary" @click="updateProfile"
-                                            style="margin: 1.5em 0 0.5em 0em" v-if="isLogin">Update</button>
-                                    </div>
-                                </div>
-                            </div>
+      <main class="container" style="min-height: 80vh">
+        <div class="album mt-3 p-2"></div>
+        <section class="py-5 container d-flex h-100">
+          <div
+            class="row py-lg-5 d-flex justify-content-center align-self-center"
+          >
+            <div class="accordion row" id="accordionExample">
+              <div class="accordion-item" style="padding: 0%">
+                <h2 class="accordion-header" id="headingOne">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseOne"
+                    aria-controls="collapseOne"
+                    aria-expanded="false"
+                  >
+                    <strong
+                      >1.{{isLogin?"Update Profile":"Create a new Profile"}}
+                    </strong>
+                  </button>
+                </h2>
+                <div
+                  id="collapseOne"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="headingOne"
+                  data-bs-parent="#accordionExample"
+                >
+                  <div class="accordion-body">
+                    <div class="row">
+                      <div
+                        class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3"
+                      >
+                        <div class="mb-3">
+                          <label
+                            class="form-label"
+                            style="margin: 1em 0 0.5em 0.8em"
+                            >Email</label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Input your email"
+                            v-model="user_info.email"
+                            :disabled="isLogin"
+                          />
+                          <small style="color: red" v-if="isEmail">
+                            <ul>
+                              <li>Email is not valid</li>
+                            </ul>
+                          </small>
                         </div>
-                        <div class="accordion-item" style="padding: 0%;">
-                            <h2 class="accordion-header" id="headingTwo">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseTwo" aria-controls="collapseTwo" :disabled="!isLogin">
-                                    <strong>2.Register and Payment</strong>
-                                    <span v-if="!isLogin" style="font-weight: lighter;margin-left: 1rem">Only logged-in
-                                        users can register and pay</span>
-                                </button>
-                            </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body " :hidden="!isLogin">
-                                    <div class="row">
-                                        <div class="clearfix col-md-12 col-xs-12 col-sm-12 col-lg-12">
-                                            <p style="color: grey;">If you are a full time student, you must register
-                                                with your university email id</p>
-                                        </div>
-
-                                        <div class="clearfix col-md-12 col-xs-12 col-sm-12 col-lg-12">
-                                            <div class="mb-3">
-                                                <div class="card">
-                                                    <div class="card-body">
-                                                        <h6 class="card-title"><strong>Sessions</strong></h6>
-                                                        <div class="form-check"
-                                                            v-if="(user.reg && !user.reg.registration) || !user.reg">
-                                                            <input class="form-check-input" type="checkbox" value=""
-                                                                id="flexCheckDefault"
-                                                                :checked="(user.reg && !user.reg.registration) || !user.reg"
-                                                                disabled>
-                                                            <label class="form-check-label" for="flexCheckDefault">
-                                                                <p>Conference,Tutorials,Workshops and Expo (This is required) .</p>
-                                                            </label>
-                                                        </div>
-                                                        <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12"
-                                                            v-if="(user.reg && !user.reg.registration) || !user.reg">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox"
-                                                                    id="check_item" value=""
-                                                                    v-model="reg_info.is_student">
-                                                                <label class="form-check-label" for="flexCheckDefault">
-                                                                    <p>I am full time student<span
-                                                                            style="margin-left: 1rem">(You can select
-                                                                            this option only if you use the student
-                                                                            email during registration) </span></p>
-                                                                </label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" value=""
-                                                                    v-model="reg_info.publication">
-                                                                <label class="form-check-label" for="flexCheckDefault">
-                                                                    <p>Publication<span style="margin-left: 1rem">(Make
-                                                                            sure to select this option if you have an
-                                                                            accepted paper. Note that you dont't need to select this option if you only have workshop papers, demos, or DCs accepted.)</span></p>
-                                                                </label>
-                                                            </div>
-                                                        </div>
-                                                        <div v-if="reg_info.publication">
-                                                            <ul class="list-group list-group-horizontal"
-                                                                style="width: 100%;">
-                                                                <li class="list-group-item" style="width: 25%;">Paper ID
-                                                                </li>
-                                                                <li class="list-group-item" style="width: 75%;">Paper
-                                                                    Title</li>
-                                                            </ul>
-                                                            <ul class="list-group list-group-horizontal"
-                                                                style="width: 100%;"
-                                                                v-for="(paper,index) in reg_info.papers">
-                                                                <li class="list-group-item" style="width: 25%;">
-                                                                    {{paper.id}}</li>
-                                                                <li class="list-group-item" style="width: 70%;">
-                                                                    {{paper.title}}</li>
-                                                                <li class="list-group-item" style="width: 5%;">
-                                                                    <div style="font-size: x-large;font-weight: bolder;"
-                                                                        @click='removePaper(index)'>-</div>
-                                                                </li>
-                                                            </ul>
-                                                            <ul class="list-group list-group-horizontal"
-                                                                style="width: 100%;">
-                                                                <li class="list-group-item"
-                                                                    style="width: 100%;color: darkblue;font-size: x-large;text-align: center;"
-                                                                    @click='addPaper'>+</li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="card-text" style="margin-left: 1.5rem"><small
-                                                                class="text-muted">Select at least one</small></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="clearfix col-md-12 col-xs-12 col-sm-12 col-lg-12">
-                                            <div class="mb-3">
-                                                <div class="card">
-                                                    <div class="card-header">
-                                                        Late Registration
-                                                    </div>
-                                                    <ul class="list-group list-group-flush">
-                                                        <li class="list-group-item">
-                                                            <div class="row">
-                                                                <div class="col-xs-1 col-sm-1 col-sm-1 col-lg-1">
-                                                                    <strong>QTY</strong>
-                                                                </div>
-                                                                <div class="col-xs-9 col-sm-9 col-sm-9 col-lg-9">
-                                                                    <strong>Description</strong>
-                                                                </div>
-                                                                <div class="col-xs-2 col-sm-2 col-sm-2 col-lg-2"
-                                                                    style="text-align: right;">
-                                                                    <strong>Price(USD)</strong>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-
-                                                        <li class="list-group-item"
-                                                            v-if='!user.reg || (user.reg && !user.reg.registration)'>
-                                                            <div class="row">
-                                                                <div class="col-xs-1 col-sm-1 col-sm-1 col-lg-1">
-                                                                    <strong>1</strong>
-                                                                </div>
-                                                                <div class="col-xs-9 col-sm-9 col-sm-9 col-lg-9">
-                                                                    Registration fee
-                                                                    {{reg_info.is_student?"(student)":"(non student)"}}
-                                                                </div>
-                                                                <div class="col-xs-2 col-sm-2 col-sm-2 col-lg-2"
-                                                                    style="text-align: right">
-                                                                    {{reg_info.is_student?"20.00":"50.00"}}
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <li class="list-group-item" v-if="reg_info.papers.length > 0">
-                                                            <div class="row">
-                                                                <div class="col-xs-1 col-sm-1 col-sm-1 col-lg-1">
-                                                                    <strong>{{(user.reg && user.reg.registration)?'1':'2'}}</strong>
-                                                                </div>
-                                                                <div class="col-xs-9 col-sm-9 col-sm-9 col-lg-9">
-                                                                    Publication
-                                                                </div>
-                                                                <div class="col-xs-2 col-sm-2 col-sm-2 col-lg-2"
-                                                                    style="text-align: right;">
-                                                                    {{reg_info.papers.length * 150}}.00
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <li class="list-group-item">
-                                                            <div class="row">
-                                                                <div class="col-xs-4 col-sm-8 col-sm-8 col-lg-9">
-                                                                    <strong></strong>
-                                                                </div>
-                                                                <div class="col-xs-4 col-sm-2 col-sm-2 col-lg-1">
-                                                                    <strong>Total:</strong>
-                                                                </div>
-                                                                <div class="col-xs-4 col-sm-2 col-sm-2 col-lg-2"
-                                                                    style="text-align: right;">
-                                                                    {{reg_info.is_student * 20 + (!reg_info.is_student && reg_info.registration)* 50 + reg_info.papers.length * 150}}.00
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <li class="list-group-item">
-                                                            <p style="text-align: justify;color: dimgray;">
-                                                                We have limited fund for reimbursing attendees in the
-                                                                order of earliest-registration-first, under the condition
-                                                                that he/she attends at least 5 hours of ICAPS 2021.
-                                                            </p>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <p style="text-align: center;">
-                                        <small style="color: red" v-if="!paySuccessful">
-                                                    Payment failed,Please retry again.
-                                        </small>
-                                    </p>
-                                        <div style="text-align: center;width: 100%;" >
-                                            <div id="paypal-button-container"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                      </div>
+                      <div
+                        class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3"
+                      >
+                        <div class="mb-3">
+                          <label
+                            class="form-label"
+                            style="margin: 1em 0 0.5em 0.8em"
+                            >First name</label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            :class="{warn:isFirst_name}"
+                            placeholder=""
+                            v-model="user_info.first_name"
+                          />
+                          <small style="color: red" v-if="isFirst_name">
+                            <ul>
+                              <li>This field is required</li>
+                            </ul>
+                          </small>
                         </div>
-                        <div class="accordion-item" style="padding: 0%;">
-                            <h2 class="accordion-header" id="headingThree">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseThree">
-                                    <strong>3.Invitation Letter and Proof of Participation</strong>
-                                    <span v-if="!user.reg || (user.reg && !user.reg.registration)"
-                                        style="font-weight: lighter;margin-left: 1rem;">The following content can only be viewed by registered users</span>
-                                </button>
-                            </h2>
-
-                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body" :hidden="!user.reg || (user.reg && !user.reg.registration)">
-                                    <div class="row">
-                                        <p style="text-align: justify">This is a purely virtual conference, so we will
-                                            not be providing any VISA invitation letters. If you need documentation of
-                                            your participation at the meeting for reimbursement, please use your
-                                            registration receipt as proof of payment and your certificate of attendance
-                                            (above in the Payment and Receipt section) as your proof of attendance.</p>
-                                        <button type="button" class="btn btn-primary" @click="nextWindow()"
-                                            style="margin: 1.5em 0 0.5em 0em">Next</button>
-                                    </div>
-                                </div>
-                            </div>
+                      </div>
+                      <div
+                        class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3"
+                      >
+                        <div class="mb-3">
+                          <label
+                            class="form-label"
+                            style="margin: 1em 0 0.5em 0.8em"
+                            >Last name</label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            :class="{warn:isLast_name}"
+                            placeholder=""
+                            v-model="user_info.last_name"
+                          />
+                          <small style="color: red" v-if="isLast_name">
+                            <ul>
+                              <li>This field is required</li>
+                            </ul>
+                          </small>
                         </div>
-                        <div class="accordion-item" style="padding: 0%;">
-                            <h2 class="accordion-header" id="headingFour">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseFour">
-                                    <strong>4.Get Recruited by our Sponsors</strong>
-                                </button>
-                            </h2>
-                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body" :hidden="!user.reg || (user.reg && !user.reg.registration)">
-                                    <p style="text-align: justify">If you would like to let the ICAPS 2021 sponsors know
-                                        that you are looking for a job/position, check this box and we will share your
-                                        information with them.</p>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value=""
-                                            v-model="uploadFile.share_inform">
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            <p>Share my profile information and my accepted papers and presentations</p>
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value=""
-                                            v-model="uploadFile.add_mail_list">
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            <p>Add me to a temporary ICAPS email list (email remains anonymous)</p>
-                                        </label>
-                                    </div>
-                                    <div class="card-text" style="margin-left: 1.5rem"><small class="text-muted">You do
-                                            not need to save. Changes are immediate in this panel.</small></div>
-                                    <hr>
-                                    <div class="mb-3">
-                                        <div class="row">
-                                            <label for="formFile" class="form-label">Please use the PDF format for your
-                                                CV if possible.</label>
-                                            <input class="form-control" type="file" id="formFile" @change="getfile">
-                                            <small style="color: red;text-align: center;" v-if="uploadFile.fail">
-                                                    {{uploadFile.errmsg}}
-                                            </small>
-                                            <button type="button" style="margin-top: 1rem;" class="btn btn-primary"
-                                                @click="submit">Next</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                      </div>
+                      <div
+                        class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3"
+                      >
+                        <div class="mb-3">
+                          <label
+                            class="form-label"
+                            style="margin: 1em 0 0.5em 0.8em"
+                            >Institution</label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            :class="{warn:isInstitution}"
+                            placeholder=""
+                            v-model="user_info.institution"
+                          />
+                          <small style="color: red" v-if="isInstitution">
+                            <ul>
+                              <li>This field is required</li>
+                            </ul>
+                          </small>
                         </div>
-                        <div class="accordion-item " style="padding: 0%;">
-                            <h2 class="accordion-header" id="headingFive">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseFive" aria-controls="collapseSeven" aria-expanded="false">
-                                    <strong>5.Order your ICAPS T-Shirt </strong>
-                                </button>
-                            </h2>
-                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
-                                <div class="accordion-body" style="background-color: #e7f1ff;"
-                                :hidden="!user.reg || (user.reg && !user.reg.registration)">
-                                    <span style="text-align: justify;font-size: larger;margin-left: 1rem;">As part of your ICAPS-21 registration your
-                                        eligible to receive an ICAPS-21 T-Shirt. </span>
-                                        <div style="text-align: justify;font-size: larger;margin-left: 1rem; font-weight: bolder;" v-if='isNSTshirt && alreadySelectTOrder'>You choose not to have a T-Shirt</div>
-                                    <div class="form-check form-switch form-check-inline" style="margin-left: 1rem;" v-if='!alreadySelectTOrder'>
-                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked1" v-model="DWTshirt"
-                                            :disabled="surveySubmit">
-                                        <label class="form-check-label" for="flexSwitchCheckChecked1">I don't want the T-shirt.</label>
-                                    </div>
-                                
-                                    <hr />
-                                    <div  v-if="(!isNSTshirt||!alreadySelectTOrder)&&!DWTshirt">
-                                        <div>
-                                            <p> {{surveySubmit?'Your have selected T-Shirt style':'Please select the T-Shirt style'}}</p><br/>
-                                            <div class="row">
-                                                <div v-for="item in Tshirt_style" class="form-check col-xs-6 col-sm-6 col-md-3 col-lg-3 TorderTitle">
-                                                    <input class="btn-check" name='Tshirt' type="radio"  :id="item.value" :value="item.value" v-model="survey.Tshirt_style" autocomplete="off" :disabled="surveySubmit">
-                                                    
-                                                    <label class="btn btn-outline-primary" :for="item.value"><img
-                                                            :src="item.src" height=100 width=96.6/></label><br>
-                                                </div>
-                                            </div>
-                                            <hr />
-                                        <div class="TorderTitle">
-                                            <p class="text"> {{surveySubmit?'Your have selected T-Shirt size':'Please select the T-Shirt size'}}</p><br/>
-                                            <div class="form-check form-check-inline " v-for="item in Tshirt_size">
-                                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                                    :id="item" :value="item" v-model="survey.Tshirt_size"
-                                                    :disabled="surveySubmit">
-                                                <label class="form-check-label" :for="item">
-                                                    {{item}}
-                                                </label>
-                                            </div>
-                                            </div>
-                                        <hr />
-                                        <p class="TorderTitle">{{surveySubmit?'Your shipping details':'Please enter your shipping details.'}}</p>
-                                        <div class="row">
-                                            <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
-                                                <div class="mb-3">
-                                                    <label class="form-label" style="margin: 1em 0 0.5em 0.8em">Full Name</label>
-                                                    <input type="text" class="form-control" v-model="survey.full_name" :disabled="surveySubmit">
-                                                </div>
-                                            </div>
-                                            <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
-                                                <div class="mb-3">
-                                                    <label class="form-label" style="margin: 1em 0 0.5em 0.8em">Address_1</label>
-                                                    <input type="text" class="form-control" :class="{warn:isFirst_name}" placeholder=""
-                                                        v-model="survey.address1" :disabled="surveySubmit">
-                                                </div>
-                                            </div>
-                                            <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
-                                                <div class="mb-3">
-                                                    <label class="form-label" style="margin: 1em 0 0.5em 0.8em">Address_2</label>
-                                                    <input type="text" class="form-control" :class="{warn:isFirst_name}" placeholder=""
-                                                        v-model="survey.address2" :disabled="surveySubmit">
-                                                </div>
-                                            </div>
-                                            <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
-                                                <div class="mb-3">
-                                                    <label class="form-label" style="margin: 1em 0 0.5em 0.8em">State</label>
-                                                    <input type="text" class="form-control" :class="{warn:isLast_name}" placeholder=""
-                                                        v-model="survey.address_state" :disabled="surveySubmit">
-                                                </div>
-                                            </div>
-                                            <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
-                                                <div class="mb-3">
-                                                    <label class="form-label" style="margin: 1.5em 0 0.5em 0.8em">Country/Region</label>
-                                                    <select class="form-select" :class="{warn:isCountry}" v-model="survey.country" :disabled="surveySubmit">
-                                                        <option v-for="item in country" :value="item">{{item}}</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
-                                                <div class="mb-3">
-                                                    <label class="form-label" style="margin: 1em 0 0.5em 0.8em">Postal Code</label>
-                                                    <input type="text" class="form-control" :class="{warn:isLast_name}" placeholder=""
-                                                        v-model="survey.postal_code" :disabled="surveySubmit">
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <small style="color: red" v-if="isTshirt">
-                                                    <ul>
-                                                        <li>Please fill in all the information</li>
-                                                    </ul>
-                                                </small>
-                                                <button type="button" class="btn btn-primary" @click="nextWindow2()"
-                                                    style="margin: 1.5em 0 0.5em 0em">Next</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    </div>
-                                </div>
-                            </div>
+                      </div>
+                      <div
+                        class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3"
+                        v-if="!isLogin"
+                      >
+                        <div class="mb-3">
+                          <label
+                            class="form-label"
+                            style="margin: 1.5em 0 0.5em 0.8em"
+                            >Password</label
+                          >
+                          <input
+                            type="password"
+                            class="form-control"
+                            :class="{warn:isPassword}"
+                            placeholder="Input Password"
+                            v-model="user_info.password"
+                          />
+                          <small style="color: red" v-if="isPassword">
+                            <ul>
+                              <li>This field is required</li>
+                            </ul>
+                          </small>
+                          <small style="color: red" v-if="isLessSix">
+                            <ul>
+                              <li>Password minimum length is 6</li>
+                            </ul>
+                          </small>
                         </div>
-                        <div class="accordion-item " style="padding: 0%;">
-                            <h2 class="accordion-header" id="headingSix" >
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseSix" aria-controls="collapseEight" aria-expanded="false">
-                                    <strong>6.Survey on programs </strong>
-                                </button>
-                            </h2>
-                            <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body" :hidden="!user.reg || (user.reg && !user.reg.registration) || (hideSix && !DWTshirt)">
-                                    <p style="text-align: justify">{{surveySubmit?'Your options':'Please select the workshops you would like to attend.'}}</p>
-                                    <div v-for="item in workshopsData" >
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" v-model="survey.attend_workshops[item.keyword]" :id="item.keyword" :disabled="surveySubmit">
-                                        <label class="form-check-label" :for="item.keyword">
-                                            <p>{{item.value}}
-                                                <span class="text-icaps">{{item.keyword}}</span></p>
-                                        </label>
-                                    </div>
-                                    </div>
-                                    
-                                    <hr/>
-                                    <p>Do you plan to attend the diversity event at ICAPS 2021?</p>
-                                      <div class="form-check form-switch" style="margin-left: 1rem;">
-                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" v-model="survey.attend_event" :disabled="surveySubmit">
-                                        <label class="form-check-label" for="flexSwitchCheckChecked">{{survey.attend_event?'YES':'NO'}}</label>
-                                      </div>
-                                    <div class="mb-3" v-if="!surveySubmit">
-                                        <div class="row">
-                                            <small style="color: red" v-if="survey.submit.fail">
-                                                <ul>
-                                                    <li>Fail to submit,Please retry again</li>
-                                                </ul>
-                                            </small>
-                                            <button type="button" style="margin-top: 1rem;" class="btn btn-primary"
-                                                @click="submitSurvey">Submit</button>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                        </div>  
-                    </div>           
-                    <div class="modal fade " id="verifyCode" tabindex="-1" aria-labelledby="exampleModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <p class="modal-title" id="exampleModalLabel"
-                                        style="text-align: justify;font-size: small;color: grey;">We have sent an email
-                                        to your email.Please input the verification code you received in the box below
-                                    </p>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="mb-3">
-                                        <input type="text" class="form-control" placeholder="Verification Code"
-                                            v-model="user_info.code">
-                                        <small style="color: red" v-if="isErrorCode">
-                                            <ul>
-                                                <li>Error verification code</li>
-                                            </ul>
-                                        </small>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-secondary" @click="checkEmail" :disabled="sendCodeDisable">{{sendCodeDisable?`Resend after ${code_resend_cnt}s`:`Resend code`}}</button>
-                                    <button type="button" class="btn btn-primary" @click="Create">Save</button>
-                                </div>
-                            </div>
+                      </div>
+                      <div
+                        class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3"
+                        v-if="!isLogin"
+                      >
+                        <div class="mb-3">
+                          <label
+                            class="form-label"
+                            style="margin: 1.5em 0 0.5em 0.8em"
+                            >Confirm Password</label
+                          >
+                          <input
+                            type="password"
+                            class="form-control"
+                            :class="{warn:isPassword2}"
+                            placeholder="Confirm Password"
+                            v-model="user_info.password2"
+                          />
+                          <small style="color: red" v-if="isPassword2">
+                            <ul>
+                              <li>This field is required</li>
+                            </ul>
+                          </small>
+                          <small style="color: red" v-if="passwdMisMatch">
+                            <ul>
+                              <li>Password mismatch</li>
+                            </ul>
+                          </small>
                         </div>
+                      </div>
+                      <div
+                        class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3"
+                      >
+                        <div class="mb-3">
+                          <label
+                            class="form-label"
+                            style="margin: 1.5em 0 0.5em 0.8em"
+                            >Pronoun</label
+                          >
+                          <select
+                            class="form-select"
+                            :class="{warn:isPronoun}"
+                            v-model="user_info.pronoun"
+                          >
+                            <option value="they/them">they/them</option>
+                            <option value="she/her">she/her</option>
+                            <option value="he/him">he/him</option>
+                            <option value="I don't use pronouns">
+                              I don't use pronouns
+                            </option>
+                            <option value="Prefer no to say">
+                              Prefer not to say
+                            </option>
+                            <option value="Specify your own">
+                              Specify your own
+                            </option>
+                          </select>
+                          <small style="color: red" v-if="isPronoun">
+                            <ul>
+                              <li>This field is required</li>
+                            </ul>
+                          </small>
+                        </div>
+                      </div>
+                      <div
+                        class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3"
+                      >
+                        <div class="mb-3">
+                          <label
+                            class="form-label"
+                            style="margin: 1.5em 0 0.5em 0.8em"
+                            >Country/Region</label
+                          >
+                          <select
+                            class="form-select"
+                            :class="{warn:isCountry}"
+                            v-model="user_info.country"
+                          >
+                            <option v-for="item in country" :value="item">
+                              {{item}}
+                            </option>
+                          </select>
+                          <small style="color: red" v-if="isCountry">
+                            <ul>
+                              <li>This field is required</li>
+                            </ul>
+                          </small>
+                        </div>
+                      </div>
+                      <button
+                        type="button"
+                        class="btn btn-primary"
+                        @click="checkEmail"
+                        style="margin: 1.5em 0 0.5em 0em"
+                        v-if="!isLogin"
+                      >
+                        Create
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-primary"
+                        @click="updateProfile"
+                        style="margin: 1.5em 0 0.5em 0em"
+                        v-if="isLogin"
+                      >
+                        Update
+                      </button>
                     </div>
-                    <div class="modal fade " id="publication" tabindex="-1" aria-labelledby="exampleModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <p class="modal-title"
-                                        style="text-align: justify;font-size: small;font-weight: bold">Publication</p>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="mb-3">
-                                        <label class="form-label" style="margin: 1.5em 0 0.5em 0.8em">Paper ID</label>
-                                        <input type="text" class="form-control" v-model="reg_info.id">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label" style="margin: 1.5em 0 0.5em 0.8em">Paper
-                                            title</label>
-                                        <input type="text" class="form-control" v-model="reg_info.title">
-                                        <small style="color: red" v-if="isErrorPaper">
-                                            <ul>
-                                                <li>{{errorPaperMessage}}</li>
-                                            </ul>
-                                        </small>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary" @click="checkPaper">Save</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal fade " id="Registered" tabindex="-1" aria-labelledby="exampleModalLabel"
-                        aria-modal="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <p class="modal-body" id="exampleModalLabel1">{{emailErrorMsg}}</p>
-                                </div>
-                                <div class="modal-footer ">
-                                    <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">Close</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal" tabindex="-1" id='tips'>
-                        <div class="modal-dialog ">
-                            <div class="modal-content">
-                                <div class="modal-body" style="background-color: rgb(231, 241, 255);">
-                                    <p style="text-align: center;font-size: larger;color: rgb(12, 99, 228);">
-                                        {{modalmsg}}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                  </div>
                 </div>
-            </section>
-        </main>
+              </div>
+              <div class="accordion-item" style="padding: 0%">
+                <h2 class="accordion-header" id="headingTwo">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo"
+                    aria-controls="collapseTwo"
+                    :disabled="!isLogin"
+                  >
+                    <strong>2.Register and Payment</strong>
+                    <span
+                      v-if="!isLogin"
+                      style="font-weight: lighter; margin-left: 1rem"
+                      >Only logged-in users can register and pay</span
+                    >
+                  </button>
+                </h2>
+                <div
+                  id="collapseTwo"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="headingTwo"
+                  data-bs-parent="#accordionExample"
+                >
+                  <div class="accordion-body" :hidden="!isLogin">
+                    <div class="row">
+                      <div
+                        class="clearfix col-md-12 col-xs-12 col-sm-12 col-lg-12"
+                      >
+                        <p style="color: grey">
+                          If you are a full time student, you must register with
+                          your university email id
+                        </p>
+                      </div>
+
+                      <div
+                        class="clearfix col-md-12 col-xs-12 col-sm-12 col-lg-12"
+                      >
+                        <div class="mb-3">
+                          <div class="card">
+                            <div class="card-body">
+                              <h6 class="card-title">
+                                <strong>Sessions</strong>
+                              </h6>
+                              <div
+                                class="form-check"
+                                v-if="(user.reg && !user.reg.registration) || !user.reg"
+                              >
+                                <input
+                                  class="form-check-input"
+                                  type="checkbox"
+                                  value=""
+                                  id="flexCheckDefault"
+                                  :checked="(user.reg && !user.reg.registration) || !user.reg"
+                                  disabled
+                                />
+                                <label
+                                  class="form-check-label"
+                                  for="flexCheckDefault"
+                                >
+                                  <p>
+                                    Conference,Tutorials,Workshops and Expo
+                                    (This is required) .
+                                  </p>
+                                </label>
+                              </div>
+                              <div
+                                class="col-md-12 col-xs-12 col-sm-12 col-lg-12"
+                                v-if="(user.reg && !user.reg.registration) || !user.reg"
+                              >
+                                <div class="form-check">
+                                  <input
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    id="check_item"
+                                    value=""
+                                    v-model="reg_info.is_student"
+                                  />
+                                  <label
+                                    class="form-check-label"
+                                    for="flexCheckDefault"
+                                  >
+                                    <p>
+                                      I am full time student<span
+                                        style="margin-left: 1rem"
+                                        >(You can select this option only if you
+                                        use the student email during
+                                        registration)
+                                      </span>
+                                    </p>
+                                  </label>
+                                </div>
+                              </div>
+                              <div
+                                class="col-md-12 col-xs-12 col-sm-12 col-lg-12"
+                              >
+                                <div class="form-check">
+                                  <input
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    value=""
+                                    v-model="reg_info.publication"
+                                  />
+                                  <label
+                                    class="form-check-label"
+                                    for="flexCheckDefault"
+                                  >
+                                    <p>
+                                      Publication<span style="margin-left: 1rem"
+                                        >(Make sure to select this option if you
+                                        have an accepted paper. Note that you
+                                        dont't need to select this option if you
+                                        only have workshop papers, demos, or DCs
+                                        accepted.)</span
+                                      >
+                                    </p>
+                                  </label>
+                                </div>
+                              </div>
+                              <div v-if="reg_info.publication">
+                                <ul
+                                  class="list-group list-group-horizontal"
+                                  style="width: 100%"
+                                >
+                                  <li
+                                    class="list-group-item"
+                                    style="width: 25%"
+                                  >
+                                    Paper ID
+                                  </li>
+                                  <li
+                                    class="list-group-item"
+                                    style="width: 75%"
+                                  >
+                                    Paper Title
+                                  </li>
+                                </ul>
+                                <ul
+                                  class="list-group list-group-horizontal"
+                                  style="width: 100%"
+                                  v-for="(paper,index) in reg_info.papers"
+                                >
+                                  <li
+                                    class="list-group-item"
+                                    style="width: 25%"
+                                  >
+                                    {{paper.id}}
+                                  </li>
+                                  <li
+                                    class="list-group-item"
+                                    style="width: 70%"
+                                  >
+                                    {{paper.title}}
+                                  </li>
+                                  <li class="list-group-item" style="width: 5%">
+                                    <div
+                                      style="
+                                        font-size: x-large;
+                                        font-weight: bolder;
+                                      "
+                                      @click="removePaper(index)"
+                                    >
+                                      -
+                                    </div>
+                                  </li>
+                                </ul>
+                                <ul
+                                  class="list-group list-group-horizontal"
+                                  style="width: 100%"
+                                >
+                                  <li
+                                    class="list-group-item"
+                                    style="
+                                      width: 100%;
+                                      color: darkblue;
+                                      font-size: x-large;
+                                      text-align: center;
+                                    "
+                                    @click="addPaper"
+                                  >
+                                    +
+                                  </li>
+                                </ul>
+                              </div>
+                              <div
+                                class="card-text"
+                                style="margin-left: 1.5rem"
+                              >
+                                <small class="text-muted"
+                                  >Select at least one</small
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="clearfix col-md-12 col-xs-12 col-sm-12 col-lg-12"
+                      >
+                        <div class="mb-3">
+                          <div class="card">
+                            <div class="card-header">Late Registration</div>
+                            <ul class="list-group list-group-flush">
+                              <li class="list-group-item">
+                                <div class="row">
+                                  <div
+                                    class="col-xs-1 col-sm-1 col-sm-1 col-lg-1"
+                                  >
+                                    <strong>QTY</strong>
+                                  </div>
+                                  <div
+                                    class="col-xs-9 col-sm-9 col-sm-9 col-lg-9"
+                                  >
+                                    <strong>Description</strong>
+                                  </div>
+                                  <div
+                                    class="col-xs-2 col-sm-2 col-sm-2 col-lg-2"
+                                    style="text-align: right"
+                                  >
+                                    <strong>Price(USD)</strong>
+                                  </div>
+                                </div>
+                              </li>
+
+                              <li
+                                class="list-group-item"
+                                v-if="!user.reg || (user.reg && !user.reg.registration)"
+                              >
+                                <div class="row">
+                                  <div
+                                    class="col-xs-1 col-sm-1 col-sm-1 col-lg-1"
+                                  >
+                                    <strong>1</strong>
+                                  </div>
+                                  <div
+                                    class="col-xs-9 col-sm-9 col-sm-9 col-lg-9"
+                                  >
+                                    Registration fee
+                                    {{reg_info.is_student?"(student)":"(non
+                                    student)"}}
+                                  </div>
+                                  <div
+                                    class="col-xs-2 col-sm-2 col-sm-2 col-lg-2"
+                                    style="text-align: right"
+                                  >
+                                    {{reg_info.is_student?"20.00":"50.00"}}
+                                  </div>
+                                </div>
+                              </li>
+                              <li
+                                class="list-group-item"
+                                v-if="reg_info.papers.length > 0"
+                              >
+                                <div class="row">
+                                  <div
+                                    class="col-xs-1 col-sm-1 col-sm-1 col-lg-1"
+                                  >
+                                    <strong
+                                      >{{(user.reg &&
+                                      user.reg.registration)?'1':'2'}}</strong
+                                    >
+                                  </div>
+                                  <div
+                                    class="col-xs-9 col-sm-9 col-sm-9 col-lg-9"
+                                  >
+                                    Publication
+                                  </div>
+                                  <div
+                                    class="col-xs-2 col-sm-2 col-sm-2 col-lg-2"
+                                    style="text-align: right"
+                                  >
+                                    {{reg_info.papers.length * 150}}.00
+                                  </div>
+                                </div>
+                              </li>
+                              <li class="list-group-item">
+                                <div class="row">
+                                  <div
+                                    class="col-xs-4 col-sm-8 col-sm-8 col-lg-9"
+                                  >
+                                    <strong></strong>
+                                  </div>
+                                  <div
+                                    class="col-xs-4 col-sm-2 col-sm-2 col-lg-1"
+                                  >
+                                    <strong>Total:</strong>
+                                  </div>
+                                  <div
+                                    class="col-xs-4 col-sm-2 col-sm-2 col-lg-2"
+                                    style="text-align: right"
+                                  >
+                                    {{reg_info.is_student * 20 +
+                                    (!reg_info.is_student &&
+                                    reg_info.registration)* 50 +
+                                    reg_info.papers.length * 150}}.00
+                                  </div>
+                                </div>
+                              </li>
+                              <li class="list-group-item">
+                                <p style="text-align: justify; color: dimgray">
+                                  We have limited fund for reimbursing attendees
+                                  in the order of earliest-registration-first,
+                                  under the condition that he/she attends at
+                                  least 5 hours of ICAPS 2021.
+                                </p>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <p style="text-align: center">
+                        <small style="color: red" v-if="!paySuccessful">
+                          Payment failed,Please retry again.
+                        </small>
+                      </p>
+                      <div style="text-align: center; width: 100%">
+                        <div id="paypal-button-container"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item" style="padding: 0%">
+                <h2 class="accordion-header" id="headingThree">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseThree"
+                  >
+                    <strong
+                      >3.Invitation Letter and Proof of Participation</strong
+                    >
+                    <span
+                      v-if="!user.reg || (user.reg && !user.reg.registration)"
+                      style="font-weight: lighter; margin-left: 1rem"
+                      >The following content can only be viewed by registered
+                      users</span
+                    >
+                  </button>
+                </h2>
+
+                <div
+                  id="collapseThree"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="headingThree"
+                  data-bs-parent="#accordionExample"
+                >
+                  <div
+                    class="accordion-body"
+                    :hidden="!user.reg || (user.reg && !user.reg.registration)"
+                  >
+                    <div class="row">
+                      <p style="text-align: justify">
+                        This is a purely virtual conference, so we will not be
+                        providing any VISA invitation letters. If you need
+                        documentation of your participation at the meeting for
+                        reimbursement, please use your registration receipt as
+                        proof of payment and your certificate of attendance
+                        (above in the Payment and Receipt section) as your proof
+                        of attendance.
+                      </p>
+                      <button
+                        type="button"
+                        class="btn btn-primary"
+                        @click="nextWindow()"
+                        style="margin: 1.5em 0 0.5em 0em"
+                      >
+                        Next
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item" style="padding: 0%">
+                <h2 class="accordion-header" id="headingFour">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseFour"
+                  >
+                    <strong>4.Get Recruited by our Sponsors</strong>
+                  </button>
+                </h2>
+                <div
+                  id="collapseFour"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="headingFour"
+                  data-bs-parent="#accordionExample"
+                >
+                  <div
+                    class="accordion-body"
+                    :hidden="!user.reg || (user.reg && !user.reg.registration)"
+                  >
+                    <p style="text-align: justify">
+                      If you would like to let the ICAPS 2021 sponsors know that
+                      you are looking for a job/position, check this box and we
+                      will share your information with them.
+                    </p>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value=""
+                        v-model="uploadFile.share_inform"
+                      />
+                      <label class="form-check-label" for="flexCheckDefault">
+                        <p>
+                          Share my profile information and my accepted papers
+                          and presentations
+                        </p>
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value=""
+                        v-model="uploadFile.add_mail_list"
+                      />
+                      <label class="form-check-label" for="flexCheckDefault">
+                        <p>
+                          Add me to a temporary ICAPS email list (email remains
+                          anonymous)
+                        </p>
+                      </label>
+                    </div>
+                    <div class="card-text" style="margin-left: 1.5rem">
+                      <small class="text-muted"
+                        >You do not need to save. Changes are immediate in this
+                        panel.</small
+                      >
+                    </div>
+                    <hr />
+                    <div class="mb-3">
+                      <div class="row">
+                        <label for="formFile" class="form-label"
+                          >Please use the PDF format for your CV if
+                          possible.</label
+                        >
+                        <input
+                          class="form-control"
+                          type="file"
+                          id="formFile"
+                          @change="getfile"
+                        />
+                        <small
+                          style="color: red; text-align: center"
+                          v-if="uploadFile.fail"
+                        >
+                          {{uploadFile.errmsg}}
+                        </small>
+                        <button
+                          type="button"
+                          style="margin-top: 1rem"
+                          class="btn btn-primary"
+                          @click="submit"
+                        >
+                          Next
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item" style="padding: 0%">
+                <h2 class="accordion-header" id="headingFive">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseFive"
+                    aria-controls="collapseSeven"
+                    aria-expanded="false"
+                  >
+                    <strong>5.Order your ICAPS T-Shirt </strong>
+                  </button>
+                </h2>
+                <div
+                  id="collapseFive"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="headingFive"
+                  data-bs-parent="#accordionExample"
+                >
+                  <div
+                    class="accordion-body"
+                    style="background-color: #e7f1ff"
+                    :hidden="!user.reg || (user.reg && !user.reg.registration)"
+                  >
+                    <span
+                      style="
+                        text-align: justify;
+                        font-size: larger;
+                        margin-left: 1rem;
+                      "
+                      >As part of your ICAPS-21 registration your eligible to
+                      receive an ICAPS-21 T-Shirt.
+                    </span>
+                    <div
+                      style="
+                        text-align: justify;
+                        font-size: larger;
+                        margin-left: 1rem;
+                        font-weight: bolder;
+                      "
+                      v-if="isNSTshirt && alreadySelectTOrder"
+                    >
+                      You choose not to have a T-Shirt
+                    </div>
+                    <div
+                      class="form-check form-switch form-check-inline"
+                      style="margin-left: 1rem"
+                      v-if="!alreadySelectTOrder"
+                    >
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="flexSwitchCheckChecked1"
+                        v-model="DWTshirt"
+                        :disabled="surveySubmit"
+                      />
+                      <label
+                        class="form-check-label"
+                        for="flexSwitchCheckChecked1"
+                        >I don't want the T-shirt.</label
+                      >
+                    </div>
+
+                    <hr />
+                    <div v-if="(!isNSTshirt||!alreadySelectTOrder)&&!DWTshirt">
+                      <div>
+                        <p>
+                          {{surveySubmit?'Your have selected T-Shirt
+                          style':'Please select the T-Shirt style'}}
+                        </p>
+                        <br />
+                        <div class="row">
+                          <div
+                            v-for="item in Tshirt_style"
+                            class="
+                              form-check
+                              col-xs-6 col-sm-6 col-md-3 col-lg-3
+                              TorderTitle
+                            "
+                          >
+                            <input
+                              class="btn-check"
+                              name="Tshirt"
+                              type="radio"
+                              :id="item.value"
+                              :value="item.value"
+                              v-model="survey.Tshirt_style"
+                              autocomplete="off"
+                              :disabled="surveySubmit"
+                            />
+
+                            <label
+                              class="btn btn-outline-primary"
+                              :for="item.value"
+                              ><img
+                                :src="item.src"
+                                height="100"
+                                width="96.6" /></label
+                            ><br />
+                          </div>
+                        </div>
+                        <hr />
+                        <div class="TorderTitle">
+                          <p class="text">
+                            {{surveySubmit?'Your have selected T-Shirt
+                            size':'Please select the T-Shirt size'}}
+                          </p>
+                          <br />
+                          <div
+                            class="form-check form-check-inline"
+                            v-for="item in Tshirt_size"
+                          >
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="flexRadioDefault"
+                              :id="item"
+                              :value="item"
+                              v-model="survey.Tshirt_size"
+                              :disabled="surveySubmit"
+                            />
+                            <label class="form-check-label" :for="item">
+                              {{item}}
+                            </label>
+                          </div>
+                        </div>
+                        <hr />
+                        <p class="TorderTitle">
+                          {{surveySubmit?'Your shipping details':'Please enter
+                          your shipping details.'}}
+                        </p>
+                        <div class="row">
+                          <div
+                            class="
+                              clearfix
+                              col-md-6 col-xs-12 col-sm-12 col-lg-3
+                            "
+                          >
+                            <div class="mb-3">
+                              <label
+                                class="form-label"
+                                style="margin: 1em 0 0.5em 0.8em"
+                                >Full Name</label
+                              >
+                              <input
+                                type="text"
+                                class="form-control"
+                                v-model="survey.full_name"
+                                :disabled="surveySubmit"
+                              />
+                            </div>
+                          </div>
+                          <div
+                            class="
+                              clearfix
+                              col-md-6 col-xs-12 col-sm-12 col-lg-3
+                            "
+                          >
+                            <div class="mb-3">
+                              <label
+                                class="form-label"
+                                style="margin: 1em 0 0.5em 0.8em"
+                                >Address_1</label
+                              >
+                              <input
+                                type="text"
+                                class="form-control"
+                                :class="{warn:isFirst_name}"
+                                placeholder=""
+                                v-model="survey.address1"
+                                :disabled="surveySubmit"
+                              />
+                            </div>
+                          </div>
+                          <div
+                            class="
+                              clearfix
+                              col-md-6 col-xs-12 col-sm-12 col-lg-3
+                            "
+                          >
+                            <div class="mb-3">
+                              <label
+                                class="form-label"
+                                style="margin: 1em 0 0.5em 0.8em"
+                                >Address_2</label
+                              >
+                              <input
+                                type="text"
+                                class="form-control"
+                                :class="{warn:isFirst_name}"
+                                placeholder=""
+                                v-model="survey.address2"
+                                :disabled="surveySubmit"
+                              />
+                            </div>
+                          </div>
+                          <div
+                            class="
+                              clearfix
+                              col-md-6 col-xs-12 col-sm-12 col-lg-3
+                            "
+                          >
+                            <div class="mb-3">
+                              <label
+                                class="form-label"
+                                style="margin: 1em 0 0.5em 0.8em"
+                                >State</label
+                              >
+                              <input
+                                type="text"
+                                class="form-control"
+                                :class="{warn:isLast_name}"
+                                placeholder=""
+                                v-model="survey.address_state"
+                                :disabled="surveySubmit"
+                              />
+                            </div>
+                          </div>
+                          <div
+                            class="
+                              clearfix
+                              col-md-6 col-xs-12 col-sm-12 col-lg-3
+                            "
+                          >
+                            <div class="mb-3">
+                              <label
+                                class="form-label"
+                                style="margin: 1.5em 0 0.5em 0.8em"
+                                >Country/Region</label
+                              >
+                              <select
+                                class="form-select"
+                                :class="{warn:isCountry}"
+                                v-model="survey.country"
+                                :disabled="surveySubmit"
+                              >
+                                <option v-for="item in country" :value="item">
+                                  {{item}}
+                                </option>
+                              </select>
+                            </div>
+                          </div>
+                          <div
+                            class="
+                              clearfix
+                              col-md-6 col-xs-12 col-sm-12 col-lg-3
+                            "
+                          >
+                            <div class="mb-3">
+                              <label
+                                class="form-label"
+                                style="margin: 1em 0 0.5em 0.8em"
+                                >Postal Code</label
+                              >
+                              <input
+                                type="text"
+                                class="form-control"
+                                :class="{warn:isLast_name}"
+                                placeholder=""
+                                v-model="survey.postal_code"
+                                :disabled="surveySubmit"
+                              />
+                            </div>
+                          </div>
+                          <div class="row">
+                            <small style="color: red" v-if="isTshirt">
+                              <ul>
+                                <li>Please fill in all the information</li>
+                              </ul>
+                            </small>
+                            <button
+                              type="button"
+                              class="btn btn-primary"
+                              @click="nextWindow2()"
+                              style="margin: 1.5em 0 0.5em 0em"
+                            >
+                              Next
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item" style="padding: 0%">
+                <h2 class="accordion-header" id="headingSix">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseSix"
+                    aria-controls="collapseEight"
+                    aria-expanded="false"
+                  >
+                    <strong>6.Survey on programs </strong>
+                  </button>
+                </h2>
+                <div
+                  id="collapseSix"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="headingSix"
+                  data-bs-parent="#accordionExample"
+                >
+                  <div
+                    class="accordion-body"
+                    :hidden="!user.reg || (user.reg && !user.reg.registration) || (hideSix && !DWTshirt)"
+                  >
+                    <p style="text-align: justify">
+                      {{surveySubmit?'Your options':'Please select the workshops
+                      you would like to attend.'}}
+                    </p>
+                    <div v-for="item in workshopsData">
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          v-model="survey.attend_workshops[item.keyword]"
+                          :id="item.keyword"
+                          :disabled="surveySubmit"
+                        />
+                        <label class="form-check-label" :for="item.keyword">
+                          <p>
+                            {{item.value}}
+                            <span class="text-icaps">{{item.keyword}}</span>
+                          </p>
+                        </label>
+                      </div>
+                    </div>
+
+                    <hr />
+                    <p>
+                      Do you plan to attend the diversity event at ICAPS 2021?
+                    </p>
+                    <div
+                      class="form-check form-switch"
+                      style="margin-left: 1rem"
+                    >
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="flexSwitchCheckChecked"
+                        v-model="survey.attend_event"
+                        :disabled="surveySubmit"
+                      />
+                      <label
+                        class="form-check-label"
+                        for="flexSwitchCheckChecked"
+                        >{{survey.attend_event?'YES':'NO'}}</label
+                      >
+                    </div>
+                    <div class="mb-3" v-if="!surveySubmit">
+                      <div class="row">
+                        <small style="color: red" v-if="survey.submit.fail">
+                          <ul>
+                            <li>Fail to submit,Please retry again</li>
+                          </ul>
+                        </small>
+                        <button
+                          type="button"
+                          style="margin-top: 1rem"
+                          class="btn btn-primary"
+                          @click="submitSurvey"
+                        >
+                          Submit
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="modal fade"
+              id="verifyCode"
+              tabindex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <p
+                      class="modal-title"
+                      id="exampleModalLabel"
+                      style="text-align: justify; font-size: small; color: grey"
+                    >
+                      We have sent an email to your email.Please input the
+                      verification code you received in the box below
+                    </p>
+                  </div>
+                  <div class="modal-body">
+                    <div class="mb-3">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Verification Code"
+                        v-model="user_info.code"
+                      />
+                      <small style="color: red" v-if="isErrorCode">
+                        <ul>
+                          <li>Error verification code</li>
+                        </ul>
+                      </small>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      @click="checkEmail"
+                      :disabled="sendCodeDisable"
+                    >
+                      {{sendCodeDisable?`Resend after
+                      ${code_resend_cnt}s`:`Resend code`}}
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      @click="Create"
+                    >
+                      Save
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="modal fade"
+              id="publication"
+              tabindex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <p
+                      class="modal-title"
+                      style="
+                        text-align: justify;
+                        font-size: small;
+                        font-weight: bold;
+                      "
+                    >
+                      Publication
+                    </p>
+                  </div>
+                  <div class="modal-body">
+                    <div class="mb-3">
+                      <label
+                        class="form-label"
+                        style="margin: 1.5em 0 0.5em 0.8em"
+                        >Paper ID</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        v-model="reg_info.id"
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label
+                        class="form-label"
+                        style="margin: 1.5em 0 0.5em 0.8em"
+                        >Paper title</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        v-model="reg_info.title"
+                      />
+                      <small style="color: red" v-if="isErrorPaper">
+                        <ul>
+                          <li>{{errorPaperMessage}}</li>
+                        </ul>
+                      </small>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      @click="checkPaper"
+                    >
+                      Save
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="modal fade"
+              id="Registered"
+              tabindex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-modal="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <p class="modal-body" id="exampleModalLabel1">
+                      {{emailErrorMsg}}
+                    </p>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal" tabindex="-1" id="tips">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div
+                    class="modal-body"
+                    style="background-color: rgb(231, 241, 255)"
+                  >
+                    <p
+                      style="
+                        text-align: center;
+                        font-size: larger;
+                        color: rgb(12, 99, 228);
+                      "
+                    >
+                      {{modalmsg}}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="row" align="right">
+          <p>
+            In case you are having any issues with the registration process,
+            feel free to <a href="mailto:ssreedh3@asu.edu">reach out to us.</a>
+          </p>
+        </div>
+      </main>
     </div>
     <footer class="footer m-5">
-        <div class="container">
-            <hr />
-            <div class="row d-flex justify-content-center">
-                <div class="col col-12 col-lg-2 d-flex justify-content-center mb-2">
-                    &copy; ICAPS 2021
-                </div>
-                <div class="col col-12 col-lg-2 d-flex justify-content-center mb-1">
-                    <a href="../privacy-policy.html">Privacy Policy</a>
-                </div>
-                <div class="col col-12 col-lg-2 d-flex justify-content-center mb-1">
-                    <a href="../terms-of-use.html">Terms of Use</a>
-                </div>
-                <div class="col col-12 col-lg-2 d-flex justify-content-center">
-                    <a href="../code-of-conduct.html">Code of Conduct</a>
-                </div>
-                <div class="col col-12 col-lg-2 d-flex justify-content-center">
-                    <a href="mailto:icapsgz2021@gmail.com">Contact Us</a>
-                </div>
-            </div>
+      <div class="container">
+        <hr />
+        <div class="row d-flex justify-content-center">
+          <div class="col col-12 col-lg-2 d-flex justify-content-center mb-2">
+            &copy; ICAPS 2021
+          </div>
+          <div class="col col-12 col-lg-2 d-flex justify-content-center mb-1">
+            <a href="../privacy-policy.html">Privacy Policy</a>
+          </div>
+          <div class="col col-12 col-lg-2 d-flex justify-content-center mb-1">
+            <a href="../terms-of-use.html">Terms of Use</a>
+          </div>
+          <div class="col col-12 col-lg-2 d-flex justify-content-center">
+            <a href="../code-of-conduct.html">Code of Conduct</a>
+          </div>
+          <div class="col col-12 col-lg-2 d-flex justify-content-center">
+            <a href="mailto:icapsgz2021@gmail.com">Contact Us</a>
+          </div>
         </div>
+      </div>
     </footer>
-</body>
+  </body>
 </html>
