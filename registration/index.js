@@ -123,7 +123,8 @@ var app = new Vue({
                 success:false,
             }
         },
-        Tshirt_size:['XS','S','M','L','XL','2XL','3XL'],
+        Tshirt_size: ['XS', 'S', 'M', 'L', 'XL', '2XL', '3XL'],
+        Tshirt_size_to_height: [155, 160, 165, 170, 175, 180, 185],
         Tshirt_style:Tshirt_style,
         workshopsData:workshopsData,
         token: "",
@@ -474,7 +475,7 @@ var app = new Vue({
         },
         isRegistration: {
             handler: function () {
-                this.reg_info.registration = !isRegistration;
+                this.reg_info.registration = !this.isRegistration;
             }
         },
         
