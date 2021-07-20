@@ -74,14 +74,14 @@ Vue.component('myheader',async function(resolve,reject){
             }
         },
         methods: {
-            logout() {
-                axios.post(backendBaseUrl+'/api/users/logout'
+            async logout() {
+                localStorage.setItem('token', '');
+                await axios.post(backendBaseUrl+'/api/users/logout'
                 ).then(res=>{
-                    localStorage.setItem('token', '');
-                    window.location.reload();
                 }).catch(err=>{
                     console.log(err)
                 })
+                window.location.reload();
             },
             login() {
                 window.location.href = '/login';
