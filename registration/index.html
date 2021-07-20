@@ -200,14 +200,21 @@
                         <div class="accordion-item" style="padding: 0%;">
                             <h2 class="accordion-header" id="headingTwo">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseTwo" aria-controls="collapseTwo" :disabled="!isLogin">
+                                    data-bs-target="#collapseTwo" aria-controls="collapseTwo" >
                                     <strong>2.Register and Payment</strong>
                                     <span v-if="!isLogin" style="font-weight: lighter;margin-left: 1rem">Only logged-in
-                                        users can register and pay</span>
+                                        users can register and pay, you can check cost in here</span>
                                 </button>
                             </h2>
                             <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                                 data-bs-parent="#accordionExample">
+                                <div class="accordion-body " :hidden="isLogin">
+                                    <strong>Registration Fee:</strong>
+                                    <p>$50 (non student), $20 (student)</p>
+                                    <strong>Publication Fee:</strong>
+                                    <p>$150 per paper</p>
+                                
+                                </div>
                                 <div class="accordion-body " :hidden="!isLogin">
                                     <div class="row">
                                         <div class="clearfix col-md-12 col-xs-12 col-sm-12 col-lg-12">
