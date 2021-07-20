@@ -42,6 +42,7 @@ Vue.component('myheader',async function(resolve,reject){
         store:store,
         data: function () {
             return {
+                token: "",
             }
         },
         template: await getTemplate(),
@@ -103,7 +104,8 @@ Vue.component('myheader',async function(resolve,reject){
         methods: {
             logout() {
                 localStorage.setItem('token', '');
-                window.location.reload();
+                axios.get(backendBaseUrl+'/api/users/logout').then(res => console.log('llkjalksdkfjk'))
+                // window.location.reload();
             },
             login() {
                 window.location.href = '/login';
