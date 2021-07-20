@@ -406,12 +406,12 @@ var app = new Vue({
                 this.user_info.email = this.user.email;
                 if (this.isRegistration) {
                     this.reg_info.registration = false;
+                } else {
+                    this.reg_info.registration = true;
                 }
                 if (this.user.cv_info) {
                     this.uploadFile.share_inform = Boolean(this.user.cv_info.share_inform)
                     this.uploadFile.add_mail_list = Boolean(this.user.cv_info.add_mail_list)
-                } else {
-                    this.reg_info.registration = true;
                 }
             }).catch(err => {
                 this.collapse[1].show()
@@ -470,6 +470,11 @@ var app = new Vue({
             handler: function () {
                 if (this.reg_info.publication)
                     this.publicationModal.show()
+            }
+        },
+        isRegistration: {
+            handler: function () {
+                this.reg_info.registration = !isRegistration;
             }
         },
         
@@ -531,5 +536,3 @@ var app = new Vue({
         }
     }
 });
-
-window.y = app;
