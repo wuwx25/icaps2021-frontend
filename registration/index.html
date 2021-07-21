@@ -63,6 +63,15 @@
                             </h2>
                             <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
                                 data-bs-parent="#accordionExample">
+                                <div class="accordion-body " style="padding-bottom:0px" :hidden="isLogin">
+                                    <div>
+                                        
+                                            <strong>Note</strong>: Registration for the main conference includes workshops, tutorials and expo.
+                                            <p><strong>Registration Fee:</strong>
+                                            $50 (non student), $20 (student). <strong>Publication Fee:</strong>
+                                            $150 per paper.</p>
+                                    </div>
+                                </div>
                                 <div class="accordion-body">
                                     <div class="row">
                                         <div class="clearfix col-md-6 col-xs-12 col-sm-12 col-lg-3">
@@ -203,18 +212,11 @@
                                     data-bs-target="#collapseTwo" aria-controls="collapseTwo" >
                                     <strong>2.Register and Payment</strong>
                                     <span v-if="!isLogin" style="font-weight: lighter;margin-left: 1rem">Only logged-in
-                                        users can register and pay, you can check cost in here</span>
+                                        users can register and pay</span>
                                 </button>
                             </h2>
                             <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                                 data-bs-parent="#accordionExample">
-                                <div class="accordion-body " :hidden="isLogin">
-                                    <strong>Registration Fee:</strong>
-                                    <p>$50 (non student), $20 (student)</p>
-                                    <strong>Publication Fee:</strong>
-                                    <p>$150 per paper</p>
-                                
-                                </div>
                                 <div class="accordion-body " :hidden="!isLogin">
                                     <div class="row">
                                         <div class="clearfix col-md-12 col-xs-12 col-sm-12 col-lg-12">
