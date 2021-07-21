@@ -1,5 +1,5 @@
 import {backendBaseUrl} from '../assets/js/backendBaseUrl.js';
-import {country,eduMail, Tshirt_style} from '../assets/js/data.js';
+import {country,eduMail, Tshirt_style,workshopsData} from '../assets/js/data.js';
 import { Vue, header, store } from '/assets/component/myheader.js';
 import { paypal_url } from '../assets/config/paypal.js';
 // inject js file and export a handle after load it complete
@@ -57,6 +57,7 @@ injectJS(paypal_url,()=>{
             if (!app.reg_info.registration && !app.reg_info.publication) {
                 message = "you have not selected any sessions!";
             }
+            app.paySuccessful = false;
             console.log("now in error");
             app.modalmsg = message;
             app.tipsModal.show();
@@ -95,6 +96,15 @@ var app = new Vue({
     data: {
         myheader:header,
         survey:{
+            Tshirt_style:'',
+            Tshirt_size:'',
+            country:'',
+            full_name:'',
+            address1:'',
+            address2:'',
+            address_state:'',
+            postal_code:'',
+            attend_event:false,
             attend_workshops:{
                 HPlan:false,
                 HSDIP:false,
@@ -112,10 +122,13 @@ var app = new Vue({
                 success:false,
             }
         },
-        Tshirt_size:['XS','S','M','L','XL','2XL','3XL'],
+        Tshirt_size: ['XS', 'S', 'M', 'L', 'XL', '2XL', '3XL'],
+        Tshirt_size_to_height: [155, 160, 165, 170, 175, 180, 185],
         Tshirt_style:Tshirt_style,
+        workshopsData:workshopsData,
         token: "",
         message: "Hello ",
+        code_resend_cnt: 0, //used for the resend email verification code count down
         first_name: "",
         last_name: "",
         user_info: {},
@@ -130,7 +143,11 @@ var app = new Vue({
             publication: 150,
             non_student: 50
         },
+        DWTshirt:false,
+        paySuccessful:true,
+        hideSix:true,
         modalmsg: '',
+        alreadySelectTOrder:false,
         isErrorPaper: false,
         check_form:false,
         collapse: [],
@@ -177,18 +194,34 @@ var app = new Vue({
                 this.isErrorCode = true
             })
         },
-        checkEmail() {
+        getWorkshops(value){
+            return 'survey.attend_workshops.'+value;
+        },
+        async checkEmail() {
             this.check_form = true;
-            if(!this.checkflag) return;
-            axios.post(backendBaseUrl + '/api/users/emailverify', {
-                email: this.user_info.email
-            }).then(res => {
+            if (!this.checkflag) return;
+            try {
                 this.codeModal.show();
-            }).catch(err => {
+                // setting the counter down
+                if (!this.sendCodeDisable) {
+                    await axios.post(backendBaseUrl + '/api/users/emailverify', {
+                        email: this.user_info.email
+                    });
+                    this.code_resend_cnt = 60;
+                    this.countDown = setInterval(() => {
+                        if (this.code_resend_cnt <= 0) {
+                            clearInterval(this.countDown);
+                        } else {
+                            this.code_resend_cnt--;
+                        }
+                    }, 1000);
+                }
+
+            } catch (err) {
                 console.dir(err)
                 this.emailErrorMsg = err.response.data.message;
                 this.errorModal.show();
-            })
+            }
         },
         getfile(e) {
             if (e.target.files[0].size < 1024 * 1024 * 20) {
@@ -297,10 +330,11 @@ var app = new Vue({
                     "Authorization": localStorage.getItem('token')
                 }
             }).then(res => {
+                
                 this.modalmsg = 'Submission Successful!'
                 this.tipsModal.show();
                 setTimeout(() => {
-                    this.tipsModal.hide();
+                    window.location.href='./index.html'
                 }, 2000);
             }).catch(err => {
                 this.survey.submit.fail = true;
@@ -312,7 +346,8 @@ var app = new Vue({
         },
         nextWindow2() {
             this.Tflag = true;
-            if(this.isTshirt) return ;
+            if(this.isTshirt && !this.alreadySelectTOrder) return ;
+            this.hideSix =false;
             this.collapse[5].hide();
             this.collapse[6].show();
         }
@@ -358,7 +393,10 @@ var app = new Vue({
                     "Authorization": localStorage.getItem('token')
                 }
             }).then(res => {
-                if (this.isRegistration) {
+                if(res.data.cv_info){
+                    this.collapse[5].show()
+                }
+                else if (this.isRegistration ) {
                     this.collapse[3].show();
                 } else {
                     this.collapse[2].show();
@@ -369,12 +407,12 @@ var app = new Vue({
                 this.user_info.email = this.user.email;
                 if (this.isRegistration) {
                     this.reg_info.registration = false;
+                } else {
+                    this.reg_info.registration = true;
                 }
                 if (this.user.cv_info) {
                     this.uploadFile.share_inform = Boolean(this.user.cv_info.share_inform)
                     this.uploadFile.add_mail_list = Boolean(this.user.cv_info.add_mail_list)
-                } else {
-                    this.reg_info.registration = true;
                 }
             }).catch(err => {
                 this.collapse[1].show()
@@ -387,16 +425,14 @@ var app = new Vue({
                 "Authorization": localStorage.getItem('token')
             }
         }).then(res => {
+            this.alreadySelectTOrder = true;
             this.surveySubmit = true;
+            this.hideSix = false;
             res.data.submit = this.survey.submit;
             this.survey = res.data;
-            console.log(this.survey)
         }).catch(err => {
             console.log(err)
         })
-
-
-
     },
     watch: {
         token: async function () {
@@ -418,10 +454,28 @@ var app = new Vue({
                 });
             }
         },
+        DWTshirt:function(){
+            if(this.DWTshirt == true){
+                this.survey.Tshirt_style = '',
+                this.survey.Tshirt_size = '',
+                this.survey.country = '',
+                this.survey.full_name = '',
+                this.survey.address1 = '',
+                this.survey.address2 = '',
+                this.survey.postal_code = '',
+                this.collapse[5].hide();
+                this.collapse[6].show();
+            }
+        },
         'reg_info.publication': {
             handler: function () {
                 if (this.reg_info.publication)
                     this.publicationModal.show()
+            }
+        },
+        isRegistration: {
+            handler: function () {
+                this.reg_info.registration = !this.isRegistration;
             }
         },
         
@@ -469,9 +523,17 @@ var app = new Vue({
             return this.$store.state.isRegistration;
         },
         isTshirt:function(){
-            return (!this.survey.Tshirt_style || !this.survey.Tshirt_size || !this.survey.country || !this.survey.address1 || !this.survey.address_state || !this.survey.postal_code) && this.Tflag; 
+            if(this.alreadySelectTOrder){
+                return false;
+            }
+            return (!this.survey.Tshirt_style || !this.survey.Tshirt_size || !this.survey.country || !this.survey.address1 || !this.survey.address_state || !this.survey.postal_code || !this.survey.full_name) && this.Tflag; 
+        },
+        isNSTshirt:function(){
+            let flag = this.survey.Tshirt_style + this.survey.Tshirt_size + this.survey.country + this.survey.full_name + this.survey.address1 + this.survey.address2 + this.survey.address_state + this.survey.postal_code;
+            return flag==''?true:false;
+        },
+        sendCodeDisable: function () {
+            return this.code_resend_cnt > 0;
         }
     }
 });
-
-window.y = app;
