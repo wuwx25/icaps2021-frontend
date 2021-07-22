@@ -19,6 +19,7 @@
     <link href="../assets/bootstrap/css/styles.css" rel="stylesheet" />
     <link href="../assets/css/custom.css" rel="stylesheet" />
 	<link href="./style.css" rel="stylesheet"/>
+	<link rel="stylesheet" href="../Schedule/schedule.css">
 	<!-- <script type="application/json" src="/assets/data/paper.json"></script> -->
     <!--    <link href="home.css" rel="stylesheet" />-->
 
@@ -47,61 +48,61 @@
 	<main class="container" style="min-height: 80vh;" >
 		<div class="album mt-3">
 		</div>
-  <div id="app" v-cloak>
-		<h1>{{curPaper.title}}</h1>
-		<table style="width:100%">
-			<tr>
-				<td style="vertical-align: middle;">
-					<h3>{{curPaper.keywords}}</h3>
-				</td>
-				<td style="text-align: right;vertical-align: middle;">
-						<span class="d-inline-flex text-center text-white rounded p-1 bg-info" data-toggle="tooltip" title="Poster ID in the virtual conference center." style="cursor: default;">
-							<small class="my-auto">PosterID:</small>
-							<span class="my-auto pl-1 font-weight-bold">{{curPaper.id}}</span>
-						</span>
-						<a href="" class="btn btn-link" target="_blank">
-							<div class="d-inline-flex">
-							<span class="d-inline-flex my-auto material-icons pr-1">
-								<small>picture_as_pdf</small>
-							</span>
-							<span class="">
-								PDF
-							</span>
-							</div>
-						</a>
-						
-						
-						<a href="" class="btn btn-link">
-							<div class="d-inline-flex">
-							<span class="d-inline-flex my-auto material-icons pr-1">
-								<small>library_books</small>
-							</span>
-							<span class="">
-								Poster
-							</span>
-							</div>
-						</a>
-						
-						
-						<a href="" class="btn btn-link">
-							<div class="d-inline-flex">
-							<span class="d-inline-flex my-auto material-icons pr-1">
-								<small>menu_book</small>
-							</span>
-							<span class="">
-								BibTeX
-							</span>
-							</div>
-						</a>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2" style="text-align:justify;">
-					{{curPaper.abstract}}
-				</td>
-			</tr>
-		</table>
-  </div>
+		<div id="app" v-cloak>
+				<h1>{{curPaper.title}}</h1>
+				<table style="width:100%">
+					<tr>
+						<td style="vertical-align: middle;">
+							<h3>{{curPaper.keywords}}</h3>
+						</td>
+						<td style="text-align: right;vertical-align: middle;">
+								<span class="d-inline-flex text-center text-white rounded p-1 bg-info" data-toggle="tooltip" title="Poster ID in the virtual conference center." style="cursor: default;">
+									<small class="my-auto">PosterID:</small>
+									<span class="my-auto pl-1 font-weight-bold">{{curPaper.id}}</span>
+								</span>
+								<a href="" class="btn btn-link" target="_blank">
+									<div class="d-inline-flex">
+									<span class="d-inline-flex my-auto material-icons pr-1">
+										<small>picture_as_pdf</small>
+									</span>
+									<span class="">
+										PDF
+									</span>
+									</div>
+								</a>
+								
+								
+								<a href="" class="btn btn-link">
+									<div class="d-inline-flex">
+									<span class="d-inline-flex my-auto material-icons pr-1">
+										<small>library_books</small>
+									</span>
+									<span class="">
+										Poster
+									</span>
+									</div>
+								</a>
+								
+								
+								<a href="" class="btn btn-link">
+									<div class="d-inline-flex">
+									<span class="d-inline-flex my-auto material-icons pr-1">
+										<small>menu_book</small>
+									</span>
+									<span class="">
+										BibTeX
+									</span>
+									</div>
+								</a>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2" style="text-align:justify;">
+							{{curPaper.abstract}}
+						</td>
+					</tr>
+				</table>
+		</div>
 		<div class="row">
 			<div class="col-9 clear">
 				<div class="card shadow-sm mb-4" style="min-height: 40.75rem;">
@@ -124,13 +125,30 @@
 					<div class="card-body">
 						<ul class="list-group list-group-flush">
 							<iframe v-bind:src="'http://192.168.0.224:3000/channel/'+channel+'/?layout=embedded'"
-                height=600 title="myframe" id="iframe"></iframe>
+				height=600 title="myframe" id="iframe"></iframe>
 						</ul>
 					</div>
 				</div>
 				</div>
-			
+			</div>
 		</div>
+		<div id="app3" v-cloak style="border: solid 2px #d7dcdf;border-radius: 5px;">
+			<div style="margin:2% 2% 2% 2%">
+				<h4>Session {{sessionNum}}: {{session[sessionNum]}}</h4>
+				<strong>Time</strong>: <small><i>{{showModalDay(date2,time,end)}}</i></small><br>
+				<strong>Place</strong>: <small><i>Session room in <a href="https://gather.town/app/V6z77iZjpGdUzBPo/ICAPS21" target="_blank" style="color: black;">
+					<span class="modalGather">Gather.Town</span>
+				</a></i></small>
+				<div class="container">
+					<div class="mb-5">
+						<a v-for='item in paper[sessionNum]' @click="setChannelID(item.id)" style="color: #51585E;" href='../exhibition/index.html' target="blank">
+							<hr><p class="paperTitle" :style="sessionSelect(item.id)">{{item.title}} <br>
+							<span style="font-size:x-small;"><strong>Authors: </strong><I>{{item.authors}} </I>
+							<span v-if="item.keywords != ''"><br><strong>Keywords: </strong><I>{{item.keywords}}</I></P></span></span>
+						</a>
+					</div>
+				</div>
+			</div>
 		</div>
 	</main>
 		

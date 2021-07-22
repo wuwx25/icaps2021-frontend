@@ -385,8 +385,12 @@ methods:{
 		else if (type == 'Socializing') return "background:#ACB9CA"
 		else return "background:#ffdea3";
 	},
-	setChannelID: function(id){
+	setChannelID: function(id,num,date,time,end){
 		window.localStorage.setItem("channel",id);
+		window.localStorage.setItem("sessionNum",num);
+		window.localStorage.setItem("date",date);
+		window.localStorage.setItem("time",time);
+		window.localStorage.setItem("end",end);		
 	},
 	setHeight: function(begin,end){
 		if (end - begin == 2) return "heigth:20vh"

@@ -110,14 +110,16 @@
                               <div v-if="isOver(Week2[j][0].day,item.time)">
                                 <div class="style_session" class="row align-items-center" data-bs-toggle="modal" data-bs-target="#modal" @click="setModalDetail(item.num, item.type, Week2[j][0].day, item.time, item.end)">
                                   <div style="margin-left: 0.5em;" class="tip tip-right" data-tip="Show Details">
-                                    <I><font size="2">Session{{item.num}}:</font></I><br><strong class="sessionText">{{session[item.num]}}<span v-if="item.num==11&&item.time==8">/Opening remarks</span></strong>
+                                    <I><font size="2">Session{{item.num}}:</font></I>
+                                    <br><strong class="sessionText">{{session[item.num]}}<span v-if="item.num==11&&item.time==8">/Opening remarks</span></strong>
                                   </div>
                                 </div>	
                               </div>
                               <div v-else> 
                                 <div class="style_sessionover">
                                   <div style="margin-left: 0.5em;">
-                                    <font size="2"><strong>Session{{item.num}}:</strong></font><br><font size="1"><I>{{session[item.num]}}<div v-if="item.num==11&&item.time==8">/Opening remarks</div></I></font>
+                                    <I><font size="2">Session{{item.num}}:</font></I>
+                                    <br><strong class="sessionText">{{session[item.num]}}<span v-if="item.num==11&&item.time==8">/Opening remarks</span></strong>
                                   </div>	
                                 </div>
                               </div>
@@ -125,7 +127,7 @@
                             <div v-else-if="item.type == 'Socializing'">
                               <div class="style_socializing" data-bs-toggle="modal" data-bs-target="#modal" @click="setModalDetail(0, item.type, Week2[j][0].day, item.time, item.end)">
                                 <div class="tip tip-right" data-tip="Show Time">
-                                  <strong >Socializing<div v-if="!isOver(Week2[j][0].day,item.time)">(Over)</div></strong>
+                                  <strong >Socializing<span v-if="!isOver(Week2[j][0].day,item.time)">(Over)</span></strong>
                                 </div>
                               </div>	
                             </div>
@@ -166,10 +168,10 @@
                 <div class="modal-body">
                   <div class="container">
                     <div class="mb-5">
-                      <p style="margin-top: 1.5em;">
+                      <p>
                         <div v-if="modal_type == 'session'">
-                          <a v-for='item in paper[modal_sessionNum]' @click="setChannelID(item.id)" style="color: #51585E;" href='../exhibition/index.html' target="blank">
-                            <p class="paperTitle">{{item.title}} <br>
+                          <a v-for='item in paper[modal_sessionNum]' @click="setChannelID(item.id,modal_sessionNum,modal_date,modal_time,modal_end)" style="color: #51585E;" href='../exhibition/index.html' target="blank">
+                            <p class="paperTitle">{{item.title}} <br>{{item.num}}
                             <span style="font-size:x-small;"><strong>Authors: </strong><I>{{item.authors}} </I>
                             <span v-if="item.keywords != ''"><br><strong>Keywords: </strong><I>{{item.keywords}}</I></P></span></span>
                             <hr>
