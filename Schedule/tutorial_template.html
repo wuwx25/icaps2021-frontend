@@ -40,9 +40,9 @@
 		<div style="height: 100px" class="d-none d-md-block"></div>
 		<div class="container">
 			<div class="mb-5">
-				<h4>{{TutorialContent[tutNum].name}}</h4>
+				<h4>{{getTutorialName(tutNum)}}</h4>
 				<hr>
-					<div v-html=TutorialContent[tutNum].description></div>
+					<div v-html=getTutorialContent(tutNum)></div>
 			</div>
 		</div>
 	</div>

@@ -169,7 +169,7 @@
 									<div v-if="item.type == 'tutorial_session'">
 										<div v-if="isOver(Workday.day,item.endtime)">
 											<div class="style_session">
-												<div style="margin-left: 0.5em;" class="tip tip-right" data-tip="'Tutorial'+item.num">
+												<div style="margin-left: 0.5em;" class="tip tip-right" data-tip="Tutorial Description">
 													<a :href="'tutorial_template.html?tutNum=Tutorial'+item.num">
 														<BIG><I>{{Tutorials[item.num]}}</I></BIG>
 													</a>

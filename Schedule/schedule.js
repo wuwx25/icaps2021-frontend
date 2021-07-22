@@ -374,6 +374,16 @@ methods:{
      return WorkshopContent[workshop]['link']
 
     },
+    getTutorialContent: function(tutorial_num){
+
+     return TutorialContent[tutorial_num]['description']
+
+    },
+    getTutorialName: function(tutorial_num){
+
+     return TutorialContent[tutorial_num]['name']
+
+    },
 	searchEnter: function(){
 		let i='',j='',k='';
 		for (k in this.searchShow) this.$set(this.searchShow,k,false);
