@@ -45,6 +45,7 @@ data: {
 		{ text:'UTC -11', value:-11},
 	],
 	week1_prog: 1,
+	Workshop_Days :[4,5,6],
 	Tutorials:['', 'Hands-on Introduction to dcss-ai-wrapper: A Dungeon Crawl Stone Soup API for AI Planning', 'Trustworthy AI: A Computational Perspective'],
 	Week1_tutorial:[{day:3, tutorial_list: [[{type:'tutorial_session', num:1, time:7, endtime:11}],
                     [{type:'tutorial_session', num:2, time:7, endtime:11}]]}],
