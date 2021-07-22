@@ -2,7 +2,6 @@ import {backendBaseUrl} from '../assets/js/backendBaseUrl.js';
 import {country,eduMail, Tshirt_style,workshopsData} from '../assets/js/data.js';
 import { Vue, header, store } from '/assets/component/myheader.js';
 import { paypal_url } from '../assets/config/paypal.js';
-
 // inject js file and export a handle after load it complete
 function injectJS(src, onload) {
     var loaded = Array.from(document.scripts).some(it => it.getAttribute('src') === src); // Warn：script.src !== script.getAttribute('src')
@@ -60,9 +59,9 @@ injectJS(paypal_url,()=>{
             }
             app.paySuccessful = false;
             console.log("now in error");
-            app.modalmsg = message;
-            app.tipsModal.show();
-            setTimeout(()=>{app.tipsModal.hide()}, 2000);
+            // app.modalmsg = message;
+            // app.tipsModal.show();
+            // setTimeout(()=>{app.tipsModal.hide()}, 2000);
         },
         onApprove: (data) => {
             console.log("now is in onApprove");
@@ -123,7 +122,8 @@ var app = new Vue({
                 success:false,
             }
         },
-        Tshirt_size:['XS','S','M','L','XL','2XL','3XL'],
+        Tshirt_size: ['XS', 'S', 'M', 'L', 'XL', '2XL', '3XL'],
+        Tshirt_size_to_height: [155, 160, 165, 170, 175, 180, 185],
         Tshirt_style:Tshirt_style,
         workshopsData:workshopsData,
         token: "",
@@ -353,6 +353,7 @@ var app = new Vue({
         }
     },
     mounted: function () {
+        axios.defaults.withCredentials = true;
         this.codeModal = new bootstrap.Modal(document.getElementById('verifyCode'));
         this.errorModal = new bootstrap.Modal(document.getElementById('Registered'));
         this.publicationModal = new bootstrap.Modal(document.getElementById('publication'));
@@ -395,7 +396,7 @@ var app = new Vue({
                 if(res.data.cv_info){
                     this.collapse[5].show()
                 }
-                else if (this.isRegistration ) {
+                else if (this.res.data.reg.registration) {
                     this.collapse[3].show();
                 } else {
                     this.collapse[2].show();
@@ -406,12 +407,12 @@ var app = new Vue({
                 this.user_info.email = this.user.email;
                 if (this.isRegistration) {
                     this.reg_info.registration = false;
+                } else {
+                    this.reg_info.registration = true;
                 }
                 if (this.user.cv_info) {
                     this.uploadFile.share_inform = Boolean(this.user.cv_info.share_inform)
                     this.uploadFile.add_mail_list = Boolean(this.user.cv_info.add_mail_list)
-                } else {
-                    this.reg_info.registration = true;
                 }
             }).catch(err => {
                 this.collapse[1].show()
@@ -470,6 +471,11 @@ var app = new Vue({
             handler: function () {
                 if (this.reg_info.publication)
                     this.publicationModal.show()
+            }
+        },
+        isRegistration: {
+            handler: function () {
+                this.reg_info.registration = !this.isRegistration;
             }
         },
         
@@ -531,5 +537,3 @@ var app = new Vue({
         }
     }
 });
-
-window.y = app;
