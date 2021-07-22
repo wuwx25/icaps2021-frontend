@@ -15,10 +15,8 @@ var app = new Vue({
         if(localStorage.getItem("channel")){
             this.channel=localStorage.getItem("channel");
         }
-        this.curPaper = this.paperData.find(Element => Element.id == 353)
+        this.curPaper = this.paperData.find(Element => Element.id == this.channel)
         this.curPdf = this.pdfLink.find(Element => Element.title == this.curPaper.title) 
-        window.a = this
-        console.log(this.curPdf)
     },
     computed:{
         isPdf:function(){
