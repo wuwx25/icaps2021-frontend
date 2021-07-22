@@ -70,24 +70,23 @@
                         </li>
                         <!-- <li class="nav-item">
                             <a href="/exhibition/" class="nav-link px-2"  :class="{active:curpage=='exhibition'}">Exhibition</a>
-                        </li>
-                        <li class="nav-item">
+                        </li> -->
+                        <!-- <li class="nav-item">
                             <a href="/Schedule/" class="nav-link px-2"  :class="{active:curpage=='schedule'}">Schedule</a>
-                        </li>  -->
+                        </li> -->
                         <li class="nav-item">
                             <a href="/code-of-conduct.html" class="nav-link px-2"  :class="{active:curpage=='codeOfConduct'}">Code of conduct</a>
                         </li>
-                        <!-- <li class="nav-item">
+                        <li class="nav-item">
                             <a href="/registration/" class="nav-link px-2"  :class="{active:curpage=='registration'}">Registration</a>
-                        </li> -->
+                        </li>
                     </ul>
-                    <!--login and user info button-->
+                    <!-- login and user info button -->
                     <span class="btn-group dropdown navbar-right">
-                        
-                        <button type="button" class="btn btn-primary" @click="login()" v-if="!isLogin" style="color: white;">
+                        <button type="button" class="btn btn-sm btn-primary" @click="login()" v-if="!isLogin" style="color: white;">
                         Login
                         </button>
-                        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false" v-if="isLogin">
+                        <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" v-if="isLogin">
                             <span >{{user.profile.first_name  }}</span>
                         </button>
                         <ul class="dropdown-menu">

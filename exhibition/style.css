@@ -4,7 +4,9 @@
     --icaps-secondary: #021D40;
 }
 
-
+[v-cloak]{
+    display:none;
+}
 .onlyIfNoJs {}
 
 .onlyIfJs {

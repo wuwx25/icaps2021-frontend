@@ -45,6 +45,7 @@ var app = new Vue({
         }
     },
     mounted: function () {
+        axios.defaults.withCredentials = true;
         this.tipsModal = new bootstrap.Modal(document.getElementById('tips'));
         let token = window.localStorage.getItem("token");
         if (token == null || token == "") {

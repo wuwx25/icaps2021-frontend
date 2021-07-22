@@ -23,7 +23,7 @@ const store = new Vuex.Store({
 })
 async function getTemplate(){
     let storage=window.localStorage;
-    if (storage.getItem("header")==null||storage.getItem("header")==""||Number(storage.getItem("header_cnt"))>10) {
+    if (storage.getItem("header")==null||storage.getItem("header")==""||Number(storage.getItem("header_cnt"))>3) {
         storage.setItem("header",(await axios.get("/assets/component/myheader.html")).data);
         storage.setItem("header_cnt",0);
     }
@@ -44,6 +44,7 @@ Vue.component('myheader',async function(resolve,reject){
         },
         template: await getTemplate(),
         created: function () {
+            axios.defaults.withCredentials = true;
             if (window.localStorage.getItem('token')) {
                 axios.get(backendBaseUrl + '/api/users/profile', {
                     headers: {
@@ -73,8 +74,13 @@ Vue.component('myheader',async function(resolve,reject){
             }
         },
         methods: {
-            logout() {
+            async logout() {
                 localStorage.setItem('token', '');
+                await axios.post(backendBaseUrl+'/api/users/logout'
+                ).then(res=>{
+                }).catch(err=>{
+                    console.log(err)
+                })
                 window.location.reload();
             },
             login() {
