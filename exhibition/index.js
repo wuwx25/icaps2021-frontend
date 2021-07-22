@@ -1,18 +1,22 @@
 import {Vue, store, header} from '/assets/component/myheader.js';
 let paper = await fetch('/assets/data/paper.json').then(res => res.json());
+let pdf = await fetch('/assets/data/pdf.json').then(res => res.json());
 var app = new Vue({
     el: '#app',
     store: store,
     data: {
         curPaper: {},
         paperData: paper,
-        channel:"general"
+        curPdf:'',
+        pdfLink:pdf,
+        // channel:"general"
     },
     mounted() {
         if(localStorage.getItem("channel")){
             this.channel=localStorage.getItem("channel");
         }
-        this.curPaper = this.paperData.find(Element => Element.id == localStorage.getItem('channel'))
+        this.curPaper = this.paperData.find(Element => Element.id == 140)
+        this.curPdf = this.pdfLink.find(Element => Element.title == this.curPaper.title) 
     }
 })
 var app = new Vue({
