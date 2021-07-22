@@ -1,4 +1,7 @@
 import {paperData} from './paperData.js'
+import {TutorialContent} from './tutorialData.js'
+import {WorkshopContent} from './workshopData.js'
+
 var app = new Vue({
 el: '#app',
 data: {			
@@ -41,6 +44,11 @@ data: {
 		{ text:'UTC -10', value:-10},
 		{ text:'UTC -11', value:-11},
 	],
+	week1_prog: 1,
+	Tutorials:['', 'Hands-on Introduction to dcss-ai-wrapper: A Dungeon Crawl Stone Soup API for AI Planning', 'Trustworthy AI: A Computational Perspective'],
+	Week1_tutorial:[{day:3, tutorial_list: [[{type:'tutorial_session', num:1, time:7, endtime:11}],
+                    [{type:'tutorial_session', num:2, time:7, endtime:11}]]}],
+    tutNum:'',
 	date:[' ','1st','2nd','3rd','4th','5th','6th','7th','8th','9th','10th','11th','12th','13th','14th'],
 	gather:'<div class="gather"><a href="https://gather.town/app/V6z77iZjpGdUzBPo/ICAPS21" target="_blank"><strong>Live Get-Together</strong></a></div>',
 	session:[
@@ -69,6 +77,29 @@ data: {
 		'Probabilistic/scheduling/robotics',
 		'Execution/control'
 	],
+	DC_day: 2,
+	workshop_day: 4,
+	workshop_list: ['HSDIP','WIPC','INTEX','XAIP','HPLAN','FINPLAN','PRL','KEPS','PLANROB','SPARK'],
+	DC_sched:[
+	          {type:'dc_session', num:1, startHour:10, startMin: 0, endHour:10, endMin:15},
+	          {type:'Socializing', num:2, startHour:10, startMin: 15, endHour:10, endMin:30},
+	          {type:'dc_session', num:3, startHour:10, startMin: 30, endHour:11, endMin:0},
+	          {type:'break', num:4, startHour:11, startMin: 0, endHour:11, endMin:10},
+	          {type:'DC Invited Talk', num:5, startHour:11, startMin: 10, endHour:11, endMin:40},
+	          {type:'dc_session', num:6, startHour:11, startMin: 40, endHour:12, endMin:10},
+	          {type:'break', num:7, startHour:12, startMin: 10, endHour:12, endMin:40},
+	          {type:'DC Panel', num:8, startHour:12, startMin: 40, endHour:13, endMin:10},
+	          {type:'dc_session', num:9, startHour:13, startMin: 10, endHour:13, endMin:40},
+	          {type:'break', num:10, startHour:13, startMin: 40, endHour:13, endMin:50},
+	          {type:'DC Invited Talk', num:11, startHour:13, startMin: 50, endHour:14, endMin:20},
+	          {type:'Socializing', num:12, startHour:14, startMin: 20, endHour:14, endMin:30},
+	          {type:'End', num:13, startHour:14, startMin: 30, endHour:14, endMin:30},
+
+	         ],
+	Workshop:[
+
+	],
+	DC_programs: ['', 'Intro / Welcome (Sarah and Jeremy)','Student Round Robin Intro (All)','Session 1','Short Break','Invited talk: Ron Petrik','Session 2','Long Break','Panel Disucssion: Paths to Profession','Session 3','Short Break','Invited talk: Kartik Talamadupula','Quiz Show/Bingo card?','END'],
 	Week2:[
 		[
 			{day:8, type:'gather', time:0, end:1},
@@ -315,8 +346,34 @@ data: {
 	],
 	sum: 0,
 	oldTime: new Date,
+	min_str: '00',
 },
+//computed:{
+//setWorkShopClass:function(workshop_name){
+//      let class_map = {};
+//      for (let i=0; i< this.workshop_list.length; i++){
+//           if (workshop_name == this.workshop_list[i]){
+//               class_map[this.workshop_list[i]] = true;
+//           }
+//           else{
+//               class_map[this.workshop_list[i]] = false;
+//           }
+//      }
+//    return class_map;
+//},
+//},
 methods:{
+    isWorkshopTime: function(time, workshop, workshop_day){
+     if(WorkshopContent[workshop]['timepoints'][workshop_day].includes(time)){
+     return true;
+     }
+     return false;
+    },
+    getWorkShopUrl: function( workshop){
+
+     return WorkshopContent[workshop]['link']
+
+    },
 	searchEnter: function(){
 		let i='',j='',k='';
 		for (k in this.searchShow) this.$set(this.searchShow,k,false);
@@ -352,6 +409,19 @@ methods:{
 		else if (this.zone + hour + 4 > 23) return ('Aug ' + this.date[day+1] + ' ' + (this.zone + hour - 20) + ':00')
 		else return ('Aug ' + this.date[day] + ' ' + (this.zone + hour + 4) + ':00');
 	},
+	showDayWithMin: function(day,hour,min){
+	    if (min == 0){
+	        min='00'
+	    }
+		if (this.zone + hour + 4 < 0) return ('Aug ' + this.date[day-1] + ' ' + (this.zone + hour + 28) + ':'+min)
+		else if (this.zone + hour + 4 > 23) return ('Aug ' + this.date[day+1] + ' ' + (this.zone + hour - 20) + ':' + min)
+		else return ('Aug ' + this.date[day] + ' ' + (this.zone + hour + 4) + ':'+ min);
+	},
+	showModalDay: function(day,time,end){
+		if (this.zone + time + 4 < 0) return ('Aug ' + this.date[day-1] + ' ' + (this.zone + time + 28) + ':00 - ' + (this.zone + end + 28) + ':00')
+		else if (this.zone + time + 4 > 23) return ('Aug ' + this.date[day+1] + ' ' + (this.zone + time - 20) + ':00 - ' + (this.zone + end - 20) + ':00')
+		else return ('Aug ' + this.date[day] + ' ' + (this.zone + time + 4) + ':00 - ' + (this.zone + end + 4) + ':00');
+	},
 	showModalDay: function(day,time,end){
 		if (this.zone + time + 4 < 0) return ('Aug ' + this.date[day-1] + ' ' + (this.zone + time + 28) + ':00 - ' + (this.zone + end + 28) + ':00')
 		else if (this.zone + time + 4 > 23) return ('Aug ' + this.date[day+1] + ' ' + (this.zone + time - 20) + ':00 - ' + (this.zone + end - 20) + ':00')
@@ -373,12 +443,13 @@ methods:{
 		else if (this.nowYear == 2021 && this.nowMonth == 8 && this.nowDay == day && this.nowHour > hour) return false
 		else return true;
 	},
-	setModalDetail: function(num,type,date,time,end){
+	setModalDetail: function(num,type,date,time,end, data=''){
 		this.modal_sessionNum =  num.toString();
 		this.modal_type = type;
 		this.modal_date = date;
 		this.modal_time = time;
 		this.modal_end = end;
+		this.modal_data = data;
 	},
 	setModalColor: function(type){
 		if (type == 'session') return "background:#E2EFDA"
@@ -388,6 +459,18 @@ methods:{
 	setChannelID: function(id){
 		window.localStorage.setItem("channel",id);
 	},
+	setWorkShopClassFunc:function(workshop_name){
+      let class_map = {};
+      for (let i=0; i< this.workshop_list.length; i++){
+           if (workshop_name == this.workshop_list[i]){
+               class_map[this.workshop_list[i]] = true;
+           }
+           else{
+               class_map[this.workshop_list[i]] = false;
+           }
+      }
+    return class_map;
+},
 	setHeight: function(begin,end){
 		if (end - begin == 2) return "heigth:20vh"
 		else if (end - begin == 3) return "height:30vh"
@@ -409,5 +492,8 @@ mounted:function(){
 	this.$set(this.searchShow,'Competitions',true);
 	this.$set(this.searchShow,'Demos',true);
 	this.$set(this.searchShow,'Posters',true);
+
+	this.tutNum = decodeURI(window.location.href).split('=')[1];
+
 }
 })
