@@ -12,11 +12,11 @@ var app = new Vue({
         // channel:"general"
     },
     mounted() {
-        if(localStorage.getItem("channel")){
-            this.channel=localStorage.getItem("channel");
-        }
-        this.curPaper = this.paperData.find(Element => Element.id == 140)
-        this.curPdf = this.pdfLink.find(Element => Element.title == this.curPaper.title) 
+        // if(localStorage.getItem("channel")){
+        //     this.channel=localStorage.getItem("channel");
+        // }
+        this.curPaper = this.paperData.find(Element => Element.id == localStorage.getItem('channel'))
+        this.curPdf = this.pdfLink.find(Element => Element.title.toLowerCase() == this.curPaper.title.toLowerCase()) 
         window.a = this
         console.log(this.curPdf)
     },
@@ -30,7 +30,7 @@ var app = new Vue({
     el: '#app2',
     store: store,
     data: {
-        channel:"general",
+        channel:"",
         timer:""
     },
     methods:{
