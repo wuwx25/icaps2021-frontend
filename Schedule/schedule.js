@@ -252,7 +252,8 @@ var app = new Vue({
         { type: "Socializing", time: 4, end: 6 },
         { type: "gather", time: 6, end: 7 },
         { type: "session", num: 7, time: 7, end: 8 },
-        { type: "session", num: 11, time: 8, end: 9 },
+        { type: "session", num: 11, time: 8, timeMin: 0, end: 8, endMin: 45},
+		{ type: "Openning Remarks", time: 8, timeMin: 45, end: 9, endMin: 0},
         { type: "Invited Talk", time: 9, end: 10 },
         { type: "Event", time: 10, end: 12 },
         { type: "Socializing", time: 12, end: 14 },
@@ -350,7 +351,9 @@ var app = new Vue({
     modal_type: "",
     modal_date: "",
     modal_time: "",
+	modal_timeMin: "",
     modal_end: "",
+	modal_endMin: "",
     sessionPaper: [
       [],
       [
@@ -756,6 +759,9 @@ var app = new Vue({
     sum: 0,
     oldTime: new Date(),
     min_str: "00",
+	invitedNum: "",
+	InvitedSpeakers: ["Manuela Veloso", "Stefan Edelkamp", "Jieping Ye", "", "Richard Sutton"],
+	Chairs: ["Robert Goldman", "Susanne	Biundo", "Qiang	Yang", "", "Michael Katz"]
   },
   //computed:{
   //setWorkShopClass:function(workshop_name){
@@ -863,23 +869,38 @@ var app = new Vue({
         this.$set(this.searchShow, "Demos", true);
       if ("Posters".toLowerCase().indexOf(this.keywords.toLowerCase()) >= 0)
         this.$set(this.searchShow, "Posters", true);
+	  if ("Openning Remarks".toLowerCase().indexOf(this.keywords.toLowerCase()) >= 0)
+        this.$set(this.searchShow, "Openning Remarks", true);
     },
     searchReset: function () {
       this.keywords = "";
       this.searchEnter();
     },
     showDay: function (day, hour) {
-      if (this.zone + hour + 4 < 0)
-        return (
-          "Aug " + this.date[day - 1] + " " + (this.zone + hour + 28) + ":00"
-        );
-      else if (this.zone + hour + 4 > 23)
-        return (
-          "Aug " + this.date[day + 1] + " " + (this.zone + hour - 20) + ":00"
-        );
-      else
-        return "Aug " + this.date[day] + " " + (this.zone + hour + 4) + ":00";
-    },
+		if (this.zone + hour + 4 < 0)
+		  return (
+			"Aug " + this.date[day - 1] + " " + (this.zone + hour + 28) + ":00"
+		  );
+		else if (this.zone + hour + 4 > 23)
+		  return (
+			"Aug " + this.date[day + 1] + " " + (this.zone + hour - 20) + ":00"
+		  );
+		else
+		  return "Aug " + this.date[day] + " " + (this.zone + hour + 4) + ":00";
+	},
+	showDayMin: function (day, hour, min) {
+		if (min == 0){min = '00'}
+		if (this.zone + hour + 4 < 0)
+		  return (
+			"Aug " + this.date[day - 1] + " " + (this.zone + hour + 28) + ":" + min
+		  );
+		else if (this.zone + hour + 4 > 23)
+		  return (
+			"Aug " + this.date[day + 1] + " " + (this.zone + hour - 20) + ":" + min
+		  );
+		else
+		  return "Aug " + this.date[day] + " " + (this.zone + hour + 4) + ":" + min;
+	  },
     showDayWithMin: function (day, hour, min) {
       if (min == 0) {
         min = "00";
@@ -907,68 +928,47 @@ var app = new Vue({
           "Aug " + this.date[day] + " " + (this.zone + hour + 4) + ":" + min
         );
     },
-    showModalDay: function (day, time, end) {
-      if (this.zone + time + 4 < 0)
+    showModalDay: function () {
+	  if (this.modal_timeMin == 0) this.modal_timeMin = '00';
+	  if (this.modal_endMin == 0) this.modal_endMin = '00';
+      if (this.zone + this.modal_time + 4 < 0)
         return (
           "Aug " +
-          this.date[day - 1] +
+          this.date[this.modal_date - 1] +
           " " +
-          (this.zone + time + 28) +
-          ":00 - " +
-          (this.zone + end + 28) +
-          ":00"
+          (this.zone + this.modal_time + 28) +
+          ":" + 
+		  this.modal_timeMin +
+		  " - " +
+          (this.zone + this.modal_end + 28) +
+          ":" +
+		  this.modal_endMin
         );
-      else if (this.zone + time + 4 > 23)
+      else if (this.zone + this.modal_time + 4 > 23)
         return (
           "Aug " +
-          this.date[day + 1] +
+          this.date[this.modal_date + 1] +
           " " +
-          (this.zone + time - 20) +
-          ":00 - " +
-          (this.zone + end - 20) +
-          ":00"
-        );
-      else
-        return (
-          "Aug " +
-          this.date[day] +
-          " " +
-          (this.zone + time + 4) +
-          ":00 - " +
-          (this.zone + end + 4) +
-          ":00"
-        );
-    },
-    showModalDay: function (day, time, end) {
-      if (this.zone + time + 4 < 0)
-        return (
-          "Aug " +
-          this.date[day - 1] +
-          " " +
-          (this.zone + time + 28) +
-          ":00 - " +
-          (this.zone + end + 28) +
-          ":00"
-        );
-      else if (this.zone + time + 4 > 23)
-        return (
-          "Aug " +
-          this.date[day + 1] +
-          " " +
-          (this.zone + time - 20) +
-          ":00 - " +
-          (this.zone + end - 20) +
-          ":00"
+          (this.zone + this.modal_time - 20) +
+		  ":" + 
+		  this.modal_timeMin +
+		  " - " +
+          (this.zone + this.modal_end - 20) +
+		  ":" +
+		  this.modal_endMin
         );
       else
         return (
           "Aug " +
-          this.date[day] +
+          this.date[this.modal_date] +
           " " +
-          (this.zone + time + 4) +
-          ":00 - " +
-          (this.zone + end + 4) +
-          ":00"
+          (this.zone + this.modal_time + 4) +
+		  ":" + 
+		  this.modal_timeMin +
+		  " - " +
+          (this.zone + this.modal_end + 4) +
+		  ":" +
+		  this.modal_endMin
         );
     },
     isOver: function (day, hour) {
@@ -1002,6 +1002,15 @@ var app = new Vue({
       this.modal_end = end;
       this.modal_data = data;
     },
+	setModalDetailMin: function (num, type, date, time, timeMin, end, endMin) {
+		this.modal_sessionNum = num.toString();
+		this.modal_type = type;
+		this.modal_date = date;
+		this.modal_time = time;
+		this.modal_timeMin = timeMin;
+		this.modal_end = end;
+		this.modal_endMin = endMin;
+	},
     setModalColor: function (type) {
       if (type == "session") return "background:#E2EFDA";
       else if (type == "Socializing") return "background:#ACB9CA";
@@ -1026,6 +1035,9 @@ var app = new Vue({
       else if (end - begin == 3) return "height:30vh";
       else return "height:10vh";
     },
+	setInvitedNum: function(num){
+		this.invitedNum = num;
+	}
   },
   mounted: function () {
     for (let i = 1; i < 24; i++) {
@@ -1042,6 +1054,7 @@ var app = new Vue({
     this.$set(this.searchShow, "Competitions", true);
     this.$set(this.searchShow, "Demos", true);
     this.$set(this.searchShow, "Posters", true);
+	this.$set(this.searchShow, "Openning Remarks", true);	
 
     this.tutNum = decodeURI(window.location.href).split("=")[1];
   },
