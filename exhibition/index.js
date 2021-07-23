@@ -1,6 +1,6 @@
 import {Vue, store, header} from '/assets/component/myheader.js';
 import {paperData} from '../Schedule/paperData.js';
-let paper = await fetch('/assets/data/paper.json').then(res => res.json());
+let paper = await fetch('../assets/data/paper.js').then(res => res.json());
 var app = new Vue({
     el: '#app',
     store: store,
