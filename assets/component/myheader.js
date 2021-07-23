@@ -39,7 +39,7 @@ async function getTemplate(){
 Vue.component('myheader',async function(resolve,reject){
     return resolve({
         props: ['curpage', 'curitem'],
-        store:store,
+        store: store,
         data: function () {
             return {
                 token: "",
@@ -62,33 +62,41 @@ Vue.component('myheader',async function(resolve,reject){
                 }).catch(err => {
                     console.log(err)
                 });
-                localStorage.setItem('flag',0);
-                localStorage.setItem('tokenTime',Date.parse(new Date()))
+                localStorage.setItem('flag', 0);
+                localStorage.setItem('tokenTime', Date.parse(new Date()))
                 setInterval(() => {
-                    if(Date.parse(new Date) - localStorage.getItem('tokenTime') > 59000){
-                        resetItem('flag',0)
+                    if (Date.parse(new Date) - localStorage.getItem('tokenTime') > 59000) {
+                        resetItem('flag', 0)
                     }
-                },60000)
+                }, 60000)
             }
         },
-        mounted(){
+        mounted() {
             window.addEventListener("setItemEvent", (e) => {
-                if(e.newValue == 0 && this.isLogin){
-                    axios.get(backendBaseUrl+'/api/test/heartbeat',{
+                if (e.newValue == 0 && this.isLogin) {
+                    axios.get(backendBaseUrl + '/api/test/heartbeat', {
                         headers: {
                             "Authorization": localStorage.getItem('token')
                         }
                     }).then(res => {
-                        if(res.data.message == "refresh"){
+                        if (res.data.message == "refresh") {
                             let token = res.data.token;
-                            localStorage.setItem('token',token)
+                            localStorage.setItem('token', token)
                         }
                         console.log(Date.parse(new Date) - localStorage.getItem('tokenTime'))
-                        resetItem('flag',1)
-                        localStorage.setItem('tokenTime',Date.parse(new Date()))
+                        resetItem('flag', 1)
+                        localStorage.setItem('tokenTime', Date.parse(new Date()))
+                    }).catch(err => {
+                        if (err.response.status == 401) {
+                            begin = setInterval(() => {
+                                axios.post(backendBaseUrl + '/api/users/logout').then(res => {
+                                    clearInterval(begin)
+                                })
+                            }, 3000);
+                        }
                     })
                 }
-            });
+            })
         },
         computed: {
             isLogin: function () {
