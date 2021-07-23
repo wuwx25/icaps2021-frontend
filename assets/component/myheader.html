@@ -83,11 +83,10 @@
                     </ul>
                     <!-- login and user info button -->
                     <span class="btn-group dropdown navbar-right">
-                        
-                        <button type="button" class="btn btn-primary" @click="login()" v-if="!isLogin" style="color: white;">
+                        <button type="button" class="btn btn-sm btn-primary" @click="login()" v-if="!isLogin" style="color: white;">
                         Login
                         </button>
-                        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false" v-if="isLogin">
+                        <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" v-if="isLogin">
                             <span >{{user.profile.first_name  }}</span>
                         </button>
                         <ul class="dropdown-menu">

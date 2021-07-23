@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="../assets/js/axios.min.js"></script>
-    <!-- <script src="../assets/js/vue.min.js"></script> -->
-    <link rel="shortcut icon" type="image/png" href="../assets/images/favicon.png" />
-    <link rel="stylesheet" href="../assets/bootstrap/css/styles.css">
-    <script src="../assets/js/bootstrap.min.js"></script>
+	<meta charset="utf-8" />
+	<!-- <meta http-equiv="refresh" content="0;url=../home/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
+	<link rel="shortcut icon" type="image/png" href="../assets/images/favicon.png" />
+	<title>ICAPS 2021</title>
+	<!-- Bootstrap Overrides -->
+	<link href="../assets/bootstrap/css/styles.css" rel="stylesheet" />
+	<link href="../assets/css/custom.css" rel="stylesheet" />
 
     <title>ICAPS 2021</title>
 
@@ -34,7 +35,6 @@
     
 </head>
 
-
 <body class="bg-light">
 	<div id='icaps-header'>
 		<myheader curpage='exhibition'></myheader>
@@ -47,6 +47,9 @@
 	</div>
 	<main class="container" style="min-height: 80vh;" >
 		<div class="album mt-3">
+			<div style="height: 100px" class="d-none d-md-block">
+				<!-- padding hack for the fixed navbar -->
+			</div>
 		</div>
 		<div id="app" v-cloak>
 				<h1>{{curPaper.title}}</h1>
