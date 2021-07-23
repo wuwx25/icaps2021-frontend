@@ -88,11 +88,7 @@ Vue.component('myheader',async function(resolve,reject){
                         localStorage.setItem('tokenTime', Date.parse(new Date()))
                     }).catch(err => {
                         if (err.response.status == 401) {
-                            begin = setInterval(() => {
-                                axios.post(backendBaseUrl + '/api/users/logout').then(res => {
-                                    clearInterval(begin)
-                                })
-                            }, 3000);
+                           axios.post(backendBaseUrl + '/api/users/logout').then(res => {})
                         }
                     })
                 }
