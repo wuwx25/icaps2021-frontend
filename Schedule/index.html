@@ -643,10 +643,9 @@
                         <a
                           v-for="item in paper[modal_sessionNum]"
                           @click="setChannelID(item.id)"
-                          style="color: #51585e; pointer-events: none;"
-                          href="../exhibition/index.html"
+                          style="color: #51585e;"
+                          :href="'../exhibition/index.html?channel='+item.id"
                           target="_blank"
-                          :disabled="true"
                         >
                           <div class="paperTitle-link p-2">
                             <p class="mb-1">{{item.title}}</p>
