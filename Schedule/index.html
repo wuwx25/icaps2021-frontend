@@ -81,17 +81,7 @@
                 ></label>
               </div>
             </div>
-            <!-- Timezone btn  -->
-            <div class="col col-auto align-self-center" style="margin-top: 1em">
-              <strong>Timezone:</strong>
-              <select v-model="zone">
-                <option v-for="option in zoneOptions" :value="option.value">
-                  {{option.text}}
-                </option>
-              </select>
-            </div>
             <!-- Search function -->
-
             <div class="col col-auto align-self-center" v-if="week == 2">
               <div class="input-group" style="margin-top: 1em">
                 <input
@@ -117,11 +107,21 @@
                 </button>
               </div>
             </div>
+            <!-- Timezone btn  -->
+            <div class="col col-auto align-self-center" style="margin-top: 1em">
+              <strong>Timezone:</strong>
+              <select v-model="zone">
+                <option v-for="option in zoneOptions" :value="option.value">
+                  {{option.text}}
+                </option>
+              </select>
+            </div>
+            
           </div>
 
           <hr />
 
-          <!-- Week1 -->
+          <!------------------------------------------------------------------------- Week1 --------------------------------------------------------------------------------->
           <div v-if="week == 1">
             <div class="row">
               <div class="col-3 col-md-3 d-none d-md-block schedule-nav pt-3">
@@ -183,8 +183,8 @@
                       <div v-if="item.type == 'dc_session'">
                         <div v-if="isOver(DC_day,item.endHour)">
                           <div class="style_session">
-                            <div style="margin-left: 0.5em">
-                              <big><i>{{DC_programs[item.num]}}</i></big>
+                            <div class="text-center" style="margin-left: 0.5em">
+                              <strong>{{DC_programs[item.num]}}</strong>
                             </div>
                           </div>
                         </div>
@@ -247,7 +247,7 @@
                         v-for="tutorial in Workday.tutorial_list"
                       >
                         <div v-for="item in tutorial">
-                          <!-- talbe time -->
+                          <!--------------------------------------------- talbe time -------------------------------------------------->
                           <div v-if="isOver(Workday.day,item.time)">
                             <div class="style_time">
                               {{showDay(Workday.day,item.time)}} -
@@ -260,21 +260,21 @@
                               {{showDay(Workday.day,item.endtime)}}
                             </div>
                           </div>
-                          <!-- table activities -->
+                          <!---------------------------------------------- table activities ----------------------------------------------------->
                           <div v-if="item.type == 'tutorial_session'">
                             <div v-if="isOver(Workday.day,item.endtime)">
                               <div class="style_session">
-                                <div
-                                  style="margin-left: 0.5em"
-                                  class="tip tip-right"
-                                  data-tip="Tutorial Description"
-                                >
-                                  <a
+                                <a
                                     :href="'tutorial_template.html?tutNum=Tutorial'+item.num"
                                   >
+                                  <div
+                                    style="margin-left: 0.5em"
+                                    class="tip tip-right"
+                                    data-tip="Tutorial Description"
+                                  >
                                     <big>{{Tutorials[item.num]}}</big>
-                                  </a>
-                                </div>
+                                  </div>
+                                </a>
                               </div>
                             </div>
                             <div v-else>
@@ -420,10 +420,11 @@
             </div>
           </div>
 
-          <!-- Week2 -->
+          <!------------------------------------------------------------------------- Week2 ---------------------------------------------------------------------------------->
           <div v-if="week == 2">
             <div class="">
               <div class="row row-cols-2">
+                <!-------------------------------- title "Day"------------------------------->
                 <div
                   class="col-md-1-5 col-lg-1-5"
                   style="
@@ -448,7 +449,7 @@
                       class="col"
                       v-if="searchShow[item.type+item.num]||searchShow[item.type]"
                     >
-                      <!-- talbe time -->
+                      <!----------------------------------------------------------------- talbe time ----------------------------------------------------------------->
                       <div v-if="isOver(Week2[j][0].day,item.time)">
                         <div class="style_time">
                           <font size="2">
@@ -465,7 +466,7 @@
                           </font>
                         </div>
                       </div>
-                      <!-- table activities   :style="setHeight(item.time,item.end)"-->
+                      <!--------------------------------------------------------------- table activities  -------------------------------------------------------------->
                       <div>
                         <div v-if="item.timeMin != undefined">
                           <div v-if="item.type == 'session'">
@@ -609,7 +610,8 @@
             </div>
           </div>
 
-          <!-- Modal of the table -->
+          <!--------------------------------------------------------- Modal of the table --------------------------------------------------------------------------------->
+          
           <div
             class="modal fade"
             id="modal"
