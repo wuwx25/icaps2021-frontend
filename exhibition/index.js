@@ -81,9 +81,6 @@ var app = new Vue({
         date: [' ', '1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th', '11th', '12th', '13th', '14th'],
     },
     methods: {
-        setChannelID: function (id) {
-            window.localStorage.setItem("channel", id);
-        },
         showModalDay: function () {
             if (this.timeMin == 0) this.timeMin = '00';
             if (this.endMin == 0) this.endMin = '00';
@@ -126,10 +123,9 @@ var app = new Vue({
                 ":" +
                 this.endMin
               );
-          },
         },
         sessionSelect: function (id) {
-            if (id == localStorage.getItem("channel")) {
+            if (id == this.channel) {
                 return "font-weight: 700;"
             }
         }
@@ -137,13 +133,12 @@ var app = new Vue({
     mounted() {
         let url = window.location.href;
         this.channel = parseInt(url.split('?channel=')[1]);
-        for (let itemi of paper){
-            for (let itemj of paper[itemi]){
-                if (paper[itemi][itemj].id == channel){
+        for (let itemi in this.paper){
+            for (let itemj in this.paper[itemi]){
+                if (this.paper[itemi][itemj].id == this.channel){
                     this.sessionNum = itemi;
                 }
             }
         }
-
     }
 })
