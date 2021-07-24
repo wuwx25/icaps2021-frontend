@@ -50,6 +50,7 @@ var app = new Vue({
         date2: '',
         time: '',
         end: '',
+        channel: '',
         session: [
             "",
             "Search",
@@ -95,17 +96,8 @@ var app = new Vue({
         }
     },
     mounted() {
-        if (localStorage.getItem("sessionNum")) {
-            this.sessionNum = parseInt(localStorage.getItem("sessionNum"));
-        };
-        if (localStorage.getItem("date")) {
-            this.date2 = parseInt(localStorage.getItem("date"));
-        };
-        if (localStorage.getItem("time")) {
-            this.time = parseInt(localStorage.getItem("time"));
-        };
-        if (localStorage.getItem("end")) {
-            this.end = parseInt(localStorage.getItem("end"));
-        }
+        let url = window.location.href;
+        this.channel = parseInt(url.split('?channel=')[1]);
+        
     }
 })

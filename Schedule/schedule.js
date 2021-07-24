@@ -245,7 +245,7 @@ var app = new Vue({
     ],
     Week2: [
       [
-        { day: 8, type: "gather", time: 0, end: 1 },
+        { day: 9, type: "gather", time: 0, end: 1 },
         { type: "session", num: 1, time: 1, end: 2 },
         { type: "session", num: 2, time: 2, end: 3 },
         { type: "session", num: 3, time: 3, end: 4 },
@@ -267,7 +267,7 @@ var app = new Vue({
         { type: "gather", time: 22, end: 23 },
       ],
       [
-        { day: 9, type: "gather", time: 0, end: 1 },
+        { day: 10, type: "gather", time: 0, end: 1 },
         { type: "session", num: 6, time: 1, end: 2 },
         { type: "session", num: 7, time: 2, end: 3 },
         { type: "session", num: 8, time: 3, end: 4 },
@@ -286,7 +286,7 @@ var app = new Vue({
         { type: "gather", time: 21, end: 23 },
       ],
       [
-        { day: 10, type: "gather", time: 0, end: 1 },
+        { day: 11, type: "gather", time: 0, end: 1 },
         { type: "session", num: 10, time: 1, end: 2 },
         { type: "session", num: 11, time: 2, end: 3 },
         { type: "session", num: 12, time: 3, end: 4 },
@@ -308,7 +308,7 @@ var app = new Vue({
         { type: "gather", time: 22, end: 23 },
       ],
       [
-        { day: 11, type: "gather", time: 0, end: 1 },
+        { day: 12, type: "gather", time: 0, end: 1 },
         { type: "session", num: 15, time: 1, end: 2 },
         { type: "session", num: 16, time: 2, end: 3 },
         { type: "session", num: 17, time: 3, end: 4 },
@@ -327,7 +327,7 @@ var app = new Vue({
         { type: "gather", time: 21, end: 23 },
       ],
       [
-        { day: 12, type: "gather", time: 0, end: 1 },
+        { day: 13, type: "gather", time: 0, end: 1 },
         { type: "session", num: 19, time: 1, end: 2 },
         { type: "session", num: 20, time: 2, end: 3 },
         { type: "session", num: 21, time: 3, end: 4 },
