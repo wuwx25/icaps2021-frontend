@@ -253,7 +253,7 @@ var app = new Vue({
         { type: "gather", time: 6, end: 7 },
         { type: "session", num: 4, time: 7, end: 8 },
         { type: "session", num: 5, time: 8, timeMin: 0, end: 8, endMin: 45},
-		{ type: "Openning Remarks", time: 8, timeMin: 45, end: 9, endMin: 0},
+		{ type: "Opening Remarks", time: 8, timeMin: 45, end: 9, endMin: 0},
         { type: "Invited Talk", time: 9, end: 10 },
         { type: "Industry Talks", time: 10, end: 12 },
         { type: "Socializing", time: 12, end: 14 },
@@ -870,8 +870,8 @@ var app = new Vue({
         this.$set(this.searchShow, "Demos/ Diversity Event", true);
       if ("Posters".toLowerCase().indexOf(this.keywords.toLowerCase()) >= 0)
         this.$set(this.searchShow, "Posters", true);
-	  if ("Openning Remarks".toLowerCase().indexOf(this.keywords.toLowerCase()) >= 0)
-        this.$set(this.searchShow, "Openning Remarks", true);
+	  if ("Opening Remarks".toLowerCase().indexOf(this.keywords.toLowerCase()) >= 0)
+        this.$set(this.searchShow, "Opening Remarks", true);
 	  if ("Diversity Event".toLowerCase().indexOf(this.keywords.toLowerCase()) >= 0)
         this.$set(this.searchShow, "Diversity Event", true);
     },
@@ -1057,7 +1057,7 @@ var app = new Vue({
     this.$set(this.searchShow, "Competitions", true);
     this.$set(this.searchShow, "Demos/ Diversity Event", true);
     this.$set(this.searchShow, "Posters", true);
-	this.$set(this.searchShow, "Openning Remarks", true);	
+	this.$set(this.searchShow, "Opening Remarks", true);	
 	this.$set(this.searchShow, "Diversity Event", true);	
 
     this.tutNum = decodeURI(window.location.href).split("=")[1];

@@ -84,10 +84,49 @@ var app = new Vue({
         setChannelID: function (id) {
             window.localStorage.setItem("channel", id);
         },
-        showModalDay: function (day, time, end) {
-            if (this.zone + time + 4 < 0) return ('Aug ' + this.date[day - 1] + ' ' + (this.zone + time + 28) + ':00 - ' + (this.zone + end + 28) + ':00')
-            else if (this.zone + time + 4 > 23) return ('Aug ' + this.date[day + 1] + ' ' + (this.zone + time - 20) + ':00 - ' + (this.zone + end - 20) + ':00')
-            else return ('Aug ' + this.date[day] + ' ' + (this.zone + time + 4) + ':00 - ' + (this.zone + end + 4) + ':00');
+        showModalDay: function () {
+            if (this.timeMin == 0) this.timeMin = '00';
+            if (this.endMin == 0) this.endMin = '00';
+            if (this.zone + this.time + 4 < 0)
+              return (
+                "Aug " +
+                this.date[this.date2 - 1] +
+                " " +
+                (this.zone + this.time + 28) +
+                ":" + 
+                this.timeMin +
+                " - " +
+                (this.zone + this.modal_end + 28) +
+                ":" +
+                this.endMin
+              );
+            else if (this.zone + this.time + 4 > 23)
+              return (
+                "Aug " +
+                this.date[this.date2 + 1] +
+                " " +
+                (this.zone + this.time - 20) +
+                ":" + 
+                this.timeMin +
+                " - " +
+                (this.zone + this.modal_end - 20) +
+                ":" +
+                this.endMin
+              );
+            else
+              return (
+                "Aug " +
+                this.date[this.date2] +
+                " " +
+                (this.zone + this.time + 4) +
+                ":" + 
+                this.timeMin +
+                " - " +
+                (this.zone + this.modal_end + 4) +
+                ":" +
+                this.endMin
+              );
+          },
         },
         sessionSelect: function (id) {
             if (id == localStorage.getItem("channel")) {
@@ -98,6 +137,13 @@ var app = new Vue({
     mounted() {
         let url = window.location.href;
         this.channel = parseInt(url.split('?channel=')[1]);
-        
+        for (let itemi of paper){
+            for (let itemj of paper[itemi]){
+                if (paper[itemi][itemj].id == channel){
+                    this.sessionNum = itemi;
+                }
+            }
+        }
+
     }
 })
