@@ -419,7 +419,7 @@
               </div>
             </div>
           </div>
-          <div class="d-block d-sm-none"> Please visit the desktop site to view the workshop schedule.</div>
+
           <!------------------------------------------------------------------------- Week2 ---------------------------------------------------------------------------------->
           <div v-if="week == 2">
             <div class="">
@@ -645,7 +645,7 @@
                         <a
                           v-for="item in paper[modal_sessionNum]"
                           @click="setChannelID(item.id)"
-                          style="color: #51585e;"
+                          style="color: #51585e;pointer-events: none;"
                           :href="'../exhibition/index.html?channel='+item.id"
                           target="_blank"
                         >
@@ -736,11 +736,32 @@
                           <strong>{{modal_data}}</strong><br />
                         </div>
                       </div>
+                      <div v-else-if="modal_type == 'Industry Talks'">
+                        <div v-for="item in IndustryTalk">
+                          <strong>{{item.title}}<br></strong><small><strong>Authors:</strong> {{item.authors}}<hr></small>
+                        </div>
+                        <div style="text-align: end">
+                          <strong>Time</strong>:
+                          <small><i>{{showModalDay()}}</i></small><br>
+                          <div v-if="modal_type == 'Demos/ Diversity Event'"><strong>Place</strong>: <small><i>Demo room in 
+                            <a href="https://gather.town/app/V6z77iZjpGdUzBPo/ICAPS21"
+                                target="_blank"
+                                style="color: black"><span class="modalGather">Gather.Town</span></a></i></small><br></div>
+                          <div v-else-if="modal_type == 'Posters'"><strong>Place</strong>: <small><i>Poster room in 
+                            <a href="https://gather.town/app/V6z77iZjpGdUzBPo/ICAPS21"
+                                target="_blank"
+                                style="color: black"><span class="modalGather">Gather.Town</span></a></i></small><br></div>
+                          <div v-else><strong>Place</strong>: <small><i>Session room in
+                            <a href="https://gather.town/app/V6z77iZjpGdUzBPo/ICAPS21"
+                                target="_blank"
+                                style="color: black"><span class="modalGather">Gather.Town</span></a></i></small> <br></div>
+                        </div>
+                      </div>
                       <div v-else>
                         <div style="text-align: end">
                           <strong>Time</strong>:
                           <small><i>{{showModalDay()}}</i></small><br>
-                          <div v-if="modal_type == 'Demos'"><strong>Place</strong>: <small><i>Demo room in 
+                          <div v-if="modal_type == 'Demos/ Diversity Event'"><strong>Place</strong>: <small><i>Demo room in 
                             <a href="https://gather.town/app/V6z77iZjpGdUzBPo/ICAPS21"
                                 target="_blank"
                                 style="color: black"><span class="modalGather">Gather.Town</span></a></i></small><br></div>

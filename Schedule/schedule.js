@@ -762,7 +762,15 @@ var app = new Vue({
     min_str: "00",
 	invitedNum: "",
 	InvitedSpeakers: ["Manuela Veloso", "Stefan Edelkamp", "Jieping Ye", "", "Richard Sutton"],
-	Chairs: ["Robert Goldman", "Susanne	Biundo", "Qiang	Yang", "", "Michael Katz"]
+	Chairs: ["Robert Goldman", "Susanne	Biundo", "Qiang	Yang", "", "Michael Katz"],
+	IndustryTalk: [
+		{title:"Industrial Scheduling and Planning", authors:"Yuan Mingxuan"},
+		{title:"Environment Learning - Data-Driven Approaches for Real-World Decision Optimization", authors:"Wei-Wei Tu"},
+		{title:"Automated Planning and Constraint Reasoning for High Throughput Laboratory Automation", authors:"Dan Bryce"},
+		{title:"Planning for Controlling Business-to-business Applications", authors:"Hector Palacious"},
+		{title:"Designing Goal-Oriented Conversational Agents using Automated Planning", authors:"Tathagata Chakraborti"},
+		{title:"Autonomously responding to the environment with a distributed space system", authors:"Nick Cramer"}
+	]
   },
   //computed:{
   //setWorkShopClass:function(workshop_name){
