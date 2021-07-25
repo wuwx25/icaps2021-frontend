@@ -180,11 +180,30 @@
                         </div>
                       </div>
                       <!--                  &lt;!&ndash; table activities &ndash;&gt;-->
-                      <div v-if="item.type == 'dc_session'">
+                      <div v-if="item.type == 'dc_start'">
                         <div class="style_session">
                           <div class="text-center" style="margin-left: 0.5em">
                             <strong>{{DC_programs[item.num]}}</strong>
                             <strong><div v-if="!isOver(DC_day,item.endHour)">(Over)</div></strong>
+                          </div>
+                        </div>
+                      </div>
+                      <div v-else-if="item.type == 'dc_session'">
+                        <div
+                          class="style_session"
+                          data-bs-toggle="modal"
+                          data-bs-target="#modal"
+                          style="text-align: center;"
+                          @click="setModalDetail(item.session_num, item.type, 0, 0, 0, DC_session_info[item.num])"
+                        >
+                          <div class="tip tip-right" data-tip="Show Details">
+                            <div class="text-center">
+                            <strong
+                              >Session
+                              <div v-if="!isOver(DC_day,item.endHour)">
+                                (Over)
+                              </div></strong
+                            ></div>
                           </div>
                         </div>
                       </div>
@@ -574,6 +593,9 @@
                       Session {{modal_sessionNum}}:
                       {{session[modal_sessionNum]}}
                     </div>
+                    <div v-else-if="modal_type == 'dc_session'">
+                      Session {{modal_sessionNum}}
+                    </div>
                     <div v-else>{{modal_type}}</div>
                   </h4>
                   <button
@@ -675,6 +697,11 @@
                               >
                                 <span class="modalGather">Gather.Town</span>
                               </a></i></small><br>
+                        </div>
+                      </div>
+                      <div v-else-if="modal_type == 'dc_session'" >
+                        <div style="text-align: end">
+                          <strong>Student Presenters<br/> {{modal_data}}</strong><br />
                         </div>
                       </div>
                       <div v-else-if="modal_type == 'DC Invited Talk'||modal_type == 'DC Panel'" >
