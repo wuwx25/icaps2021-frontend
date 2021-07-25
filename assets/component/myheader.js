@@ -109,11 +109,11 @@ Vue.component('myheader',async function(resolve,reject){
         methods: {
             async logout() {
                 localStorage.setItem('token', '');
-                await axios.post(backendBaseUrl+'/api/users/logout'
-                ).then(res=>{
-                }).catch(err=>{
-                    console.log(err)
-                })
+                // await axios.post(backendBaseUrl+'/api/users/logout'
+                // ).then(res=>{
+                // }).catch(err=>{
+                //     console.log(err)
+                // })
                 window.location.reload();
             },
             login() {
