@@ -399,7 +399,7 @@ var app = new Vue({
                 if(res.data.cv_info){
                     this.collapse[5].show()
                 }
-                else if (this.res.data.reg.registration) {
+                else if (res.data.reg.registration) {
                     this.collapse[3].show();
                 } else {
                     this.collapse[2].show();
