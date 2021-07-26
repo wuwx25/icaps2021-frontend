@@ -47,7 +47,7 @@
 	<main  style="min-height: 80vh;padding: 0 3rem 3rem 3rem;" >
 		<div class="album mt-3">
 		</div>
-  <div id="app" v-cloak>
+  <div id="app" v-cloak style="margin-bottom: 2em;">
 		<h1>{{curPaper.title}}</h1>
 		<table style="width:100%">
 			<tr>
@@ -61,12 +61,7 @@
 						</span>
 						<a :href="curPdf.link" class="btn btn-link" target="_blank" v-if="isPdf">
 							<div class="d-inline-flex">
-							<span class="d-inline-flex my-auto material-icons pr-1">
-								<small>picture_as_pdf</small>
-							</span>
-							<span class="">
-								PDF
-							</span>
+							<img src="../assets/images/pdflogo.jpg" style="width: 3em;" alt="">
 							</div>
 						</a>
 						
