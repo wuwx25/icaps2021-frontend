@@ -41,7 +41,7 @@
 	</div>
 	
 	<div class="album mt-3">
-		<div style="height: 50px;" class="d-none d-md-block">
+		<div style="height: 100px;" class="d-none d-md-block">
 			<!-- padding hack for the fixed navbar -->
 		</div>
 	</div>
@@ -49,20 +49,19 @@
 		<div class="album mt-3">
 		</div>
   <div id="app" v-cloak style="margin-bottom: 2em;">
-		<h1>{{curPaper.title}}</h1>
+		<h4><strong>{{curPaper.title}}</strong></h4>
 		<table style="width:100%">
 			<tr>
-				<td style="vertical-align: middle;">
-					<h3>{{curPaper.keywords}}</h3>
+				<td style="vertical-align: middle;" class="card-text">
+					<h5>{{curPaper.keywords}}</h5>
 				</td>
 				<td style="text-align: right;vertical-align: middle;">
-						<span class="d-inline-flex text-center text-white rounded p-1" data-toggle="tooltip" title="Poster ID in the virtual conference center." style="cursor: default;background-color: #f5821f;">
-							<small class="my-auto">PosterID:</small>
-							<span class="my-auto pl-1 font-weight-bold">{{curPaper.id}}</span>
+						<span class="d-inline-flex text-center text-white rounded p-1 card-text" data-toggle="tooltip" title="Poster ID in the virtual conference center." style="cursor: default;background-color: #f5821f;">
+							<span class="my-auto pl-1 font-weight-bold">PosterID: {{curPaper.id}}</span>
 						</span>
 						<a :href="curPdf.link" class="btn btn-link" target="_blank" v-if="isPdf">
 							<div class="d-inline-flex">
-							<img src="../assets/images/pdflogo.jpg" style="width: 3em;" alt="">
+							<img src="../assets/images/pdflogo.jpg" style="width: 2.5em;" alt="">
 							</div>
 						</a>
 						
@@ -104,12 +103,16 @@
 					<div class="card-body" style="padding: 0 0 0 0;">
 						<div id="presentation-embed-38942367" ></div>
 						<script src='https://slideslive.com/embed_presentation.js'></script>
-						<script>
-						embed = new SlidesLiveEmbed('presentation-embed-38942367', {
-							presentationId: '38942367',
-							autoPlay: false, // change to true to autoplay the embedded presentation
-							verticalEnabled: true
-						});
+						<script type="module">
+							import axios from '/assets/js/axios.js';
+							import {backendBaseUrl} from '/assets/js/backendBaseUrl.js';
+							let res = await axios.get(backendBaseUrl+'/api/test');
+							console.debug(res); 
+							embed = new SlidesLiveEmbed('presentation-embed-38942367', {
+								presentationId: '38942367',
+								autoPlay: false, // change to true to autoplay the embedded presentation
+								verticalEnabled: true
+							});
 						</script>
 					</div>
 				</div>
@@ -119,7 +122,7 @@
 				<div class="card shadow-sm mb-4" style="min-height: 40.75rem;">
 					<div class="card-body" style="padding: 0 0 0 0;">
 						<ul class="list-group list-group-flush">
-							<iframe v-bind:src="'http://192.168.0.224:3000/channel/'+channel+'/?layout=embedded'"
+							<iframe v-bind:src="rocketchatUrl+'/channel/'+channel+'/?layout=embedded'"
 				height=600 title="myframe" id="iframe"></iframe>
 						</ul>
 					</div>

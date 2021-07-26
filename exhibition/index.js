@@ -1,7 +1,8 @@
 import {Vue, store, header} from '/assets/component/myheader.js';
 let paper = await fetch('/assets/data/paper.json').then(res => res.json());
 let pdf = await fetch('/assets/data/pdf.json').then(res => res.json());
-import {paperData} from '../Schedule/paperData.js';
+import { paperData } from '../Schedule/paperData.js';
+import { rocketchatUrl } from '/assets/js/backendBaseUrl.js';
 var app = new Vue({
     el: '#app',
     store: store,
@@ -30,7 +31,8 @@ var app = new Vue({
     store: store,
     data: {
         channel:"",
-        timer:""
+        timer: "",
+        rocketchatUrl: rocketchatUrl
     },
     mounted() {
         //this.channel=localStorage.getItem("channel");
