@@ -1,6 +1,4 @@
-import {Vue, store, header} from '/assets/component/myheader.js';
-let paper = await fetch('/assets/data/paper.json').then(res => res.json());
-let pdf = await fetch('/assets/data/pdf.json').then(res => res.json());
+import { Vue, store, header } from '/assets/component/myheader.js';
 import { paperData } from '../Schedule/paperData.js';
 import { rocketchatUrl } from '/assets/js/backendBaseUrl.js';
 var app = new Vue({
@@ -8,11 +6,20 @@ var app = new Vue({
     store: store,
     data: {
         curPaper: {},
-        paperData: paper,
+        paperData: {},
         curPdf:'',
-        pdfLink:pdf,
+        pdfLink:{},
     },
-    mounted() {
+    async mounted() {
+        let paper, pdf;
+        try {
+            paper = await fetch('/assets/data/paper.json').then(res => res.json());
+            pdf = await fetch('/assets/data/pdf.json').then(res => res.json());
+        } catch (err) {
+            console.error(err);
+        }
+        this.paperData = paper;
+        this.pdfLink = pdf;
         //this.curPaper = this.paperData.find(Element => Element.id == localStorage.getItem('channel'))
         let url = window.location.href;
         this.curPaper = this.paperData.find(Element => Element.id == url.split('?channel=')[1])
