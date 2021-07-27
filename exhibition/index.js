@@ -8,9 +8,27 @@ var app = new Vue({
         curPaper: {},
         paperData: {},
         curPdf:'',
-        pdfLink:{},
+        pdfLink: {},
+        tipsModal: {},
+        modalmsg: '',
+    },
+    methods: {
+        forceQuit: function () {
+            this.modalmsg = "Please log in first!";
+            this.tipsModal.show();
+            // setTimeout(() => {
+            //     window.location.href = "/login"
+            // }, 1500);
+        }
     },
     async mounted() {
+        axios.defaults.withCredentials = true;
+        this.tipsModal = new bootstrap.Modal(document.getElementById('tips'));
+        let token = window.localStorage.getItem("token");
+        if (token == null || token == "") {
+            console.log("No token detected");
+            return this.forceQuit();
+        }
         let paper, pdf;
         try {
             paper = await fetch('/assets/data/paper.json').then(res => res.json());
