@@ -1,6 +1,8 @@
 import { Vue, store, header } from '/assets/component/myheader.js';
 import { paperData } from '../Schedule/paperData.js';
 import { rocketchatUrl } from '/assets/js/backendBaseUrl.js';
+import { backendBaseUrl } from '/assets/js/backendBaseUrl.js';
+import axios from '/assets/js/axios.js';
 var app = new Vue({
     el: '#app',
     store: store,
@@ -13,12 +15,12 @@ var app = new Vue({
         modalmsg: '',
     },
     methods: {
-        forceQuit: function () {
-            this.modalmsg = "Please log in first!";
+        forceQuit: function (msg) {
+            this.modalmsg = msg;
             this.tipsModal.show();
-            // setTimeout(() => {
-            //     window.location.href = "/login"
-            // }, 1500);
+            setTimeout(() => {
+                window.location.href = "/login"
+            }, 1500);
         }
     },
     async mounted() {
@@ -27,7 +29,21 @@ var app = new Vue({
         let token = window.localStorage.getItem("token");
         if (token == null || token == "") {
             console.log("No token detected");
-            return this.forceQuit();
+            return this.forceQuit("Please login to visit this page!");
+        } else {
+            axios.get(backendBaseUrl + '/api/users/profile', {
+                headers: {
+                    "Authorization": localStorage.getItem('token')
+                }
+            }).then(res => {
+                if (!res.data.reg || !res.data.reg.registration) {
+                    console.log("have not registration");
+                    return this.forceQuit("Please visit this page after payment of registration!");
+                }
+            }).catch(err => {
+                console.log(err);
+                return this.forceQuit("Please login to visit this page!");
+            })
         }
         let paper, pdf;
         try {
